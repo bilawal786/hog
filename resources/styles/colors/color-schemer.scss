@@ -1,0 +1,416 @@
+@import "../sass/variables-site/colors";
+
+::-moz-selection {
+	background: $color__theme-main;
+}
+
+::selection {
+	background: $color__theme-main;
+}
+/* Default Hover Color */
+a {
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__theme-main;
+	}
+}
+.button:hover {
+	background: $color__theme-main;
+}
+
+/* Yellow Theme Color */
+.theme-yellow {
+	&.nevy-bg {	
+	    .vehicle-title {
+	        color: $color_yellow;
+	    }
+	}
+    .vehicle-top-meta .meta-item {
+        color: $color_yellow;
+    }
+    .vehicle-bottom-content {
+        background: $color_yellow;
+    }
+}
+.theme-yellow-bg {
+	background: $color_yellow;
+	.google-map-area .contact-style-one .social-icon a {
+		color: $color_yellow;
+	}
+}
+.yellow-color,
+.color-yellow {
+    color: $color_yellow !important;
+}
+.yellow-button {
+	background-color: $color_yellow !important;
+	&:hover {
+		background-color: rgba($color__red, 0.90);
+	}
+}
+.yellow-border {
+	border-color: $color_yellow !important;
+}
+.yellow-bg {
+	background: $color_yellow;
+}
+.yellow-theme {
+	.heading-content.style-one.border h2.title:before {
+		background-color: $color_yellow;
+	}
+	.item-navigation {
+		.next-item {
+			background-color: $color_yellow !important;
+			border-color: $color_yellow !important;
+			&:before {
+				border-bottom-color: $color_yellow !important;
+			}
+		}
+	}
+	.vehicle-top-meta .vehicle-title,
+	.vehicle-top-meta .meta-item {
+		color: $color_yellow;
+	}
+	.widget .widget-title {
+		color: $color_yellow;
+		border-color: $color_yellow;
+	}
+	.widget {
+		.button {
+			background: $color_yellow;
+		}
+		&.widget_menu ul li:before {
+			background: $color_yellow;
+		}
+		&.widget_hot_contact ul li i {
+			color: $color_yellow;
+		}
+		&.widget_newsletter .input-group-btn span {
+			color: $color_yellow;
+		}
+	}
+	.social-profile a:hover {
+		color: $color_yellow;
+	}
+}
+.yellow-theme {
+	a {
+		&:hover,
+		&:focus,
+		&:active {
+			color: $color_blue;
+		}
+	}
+	.button:hover {
+		background: $color_blue;
+	}
+	.input i {
+		color: $color_yellow;
+	}
+	.advanced-search-btn {
+		color: $color_yellow;
+	}
+	button {
+		background: $color_yellow;
+	}
+	.title,
+	.subtitle {
+		span {
+			color: $color_yellow;
+		}
+	}
+	&.pricing-table-item .pricing-image {
+		background: $color_yellow;
+	}
+	&.pricing-table-item .price .price-subtille {
+		color: $color_yellow;
+	}
+	&.pricing-table-item .price .price-title:after {
+		background: $color_yellow;
+	}
+	.panel-title i {
+		background: $color_yellow;
+	}
+	.highlight {
+		color: $color_yellow;
+	}
+	.vehicle-filter-area .nav-tabs li.active a {
+		background: $color_yellow !important;
+	}
+	.image-content .renticon {
+		color: $color_yellow;
+	}
+	.button:hover {
+		background: $color_yellow;
+	}
+}
+.theme-yellow-bg {
+	&.contact-style-one {
+		&:before {
+		    background-image: -o-linear-gradient(0deg, $color_yellow 15px, #333 0);
+		    background-image: -ms-linear-gradient(0deg, $color_yellow 15px, #333 0);
+		    background-image: -moz-linear-gradient(0deg, $color_yellow 15px, #333 0);
+		    background-image: -webkit-linear-gradient(0deg, $color_yellow 15px, #333 0);
+		}
+	}
+}
+
+/* Blue Theme Color */
+.theme-blue {
+	a {
+		&:hover,
+		&:focus,
+		&:active {
+			color: $color_blue;
+		}
+	}
+	.button:hover {
+		background: $color_blue;
+	}
+	.vehicle-bottom-content {
+		background: $color_blue;
+	}
+	.heading-content.style-one.border h2.title:before {
+		background-color: $color_blue;
+	}
+	.item-navigation {
+		.next-item {
+			background-color: $color_blue !important;
+			border-color: $color_blue !important;
+			&:before {
+				border-bottom-color: $color_blue !important;
+			}
+		}
+	}
+	.vehicle-top-meta .vehicle-title,
+	.vehicle-top-meta .meta-item {
+		color: $color_blue;
+	}
+}
+.theme-blue-bg {
+	background: $color_blue;
+	&.contact-area .contact .social-icon i {
+		color: $color_blue;
+	}
+}
+.blue-bg {
+	background: $color_blue;
+}
+.theme-blue {
+	.widget .widget-title {
+		color: $color_blue;
+		border-color: $color_blue;
+	}
+	.widget {
+		.button {
+			background: $color_blue;
+		}
+		&.widget_menu ul li:before {
+			background: $color_blue;
+		}
+		&.widget_hot_contact ul li i {
+			color: $color_blue;
+		}
+		&.widget_newsletter .input-group-btn span {
+			color: $color_blue;
+		}
+	}
+	.social-profile a:hover {
+		color: $color_blue;
+	}
+}
+.theme-blue {
+	.input i {
+		color: $color_blue;
+	}
+	.advanced-search-btn {
+		color: $color_blue;
+	}
+	button {
+		background: $color_blue;
+		&:hover {
+			background-color: rgba($color_blue, 0.90);
+		}
+	}
+	.title,
+	.subtitle {
+		span {
+			color: $color_blue;
+		}
+	}
+	&.pricing-table-item .pricing-image {
+		background: $color_blue;
+	}
+	&.pricing-table-item .price .price-subtille {
+		color: $color_blue;
+	}
+	&.pricing-table-item .price .price-title:after {
+		background: $color_blue;
+	}
+	.panel-title i {
+		background: $color_blue;
+	}
+	.highlight {
+		color: $color_blue;
+	}
+	.vehicle-filter-area .nav-tabs li.active a {
+		background: $color_blue !important;
+	}
+	.vehicle-filter-area .nav-tabs li:hover a {
+		background: $color_blue !important;
+	}
+	.image-content .renticon {
+		color: $color_blue;
+	}
+	.button:hover {
+		background: $color_blue;
+	}
+}
+.blue-color {
+	color: $color_blue;
+}
+.blue-button {
+	background-color: $color_blue;
+	&:hover {
+		background-color: rgba($color_blue, 0.90);
+	}
+}
+.theme-blue-bg {
+	&.contact-style-one {
+		&:before {
+		    background-image: -o-linear-gradient(0deg, $color_blue 15px, #fff 0);
+		    background-image: -ms-linear-gradient(0deg, $color_blue 15px, #fff 0);
+		    background-image: -moz-linear-gradient(0deg, $color_blue 15px, #fff 0);
+		    background-image: -webkit-linear-gradient(0deg, $color_blue 15px, #fff 0);
+		}
+	}
+}
+
+
+/* Red Theme Color */
+.theme-red {
+	.vehicle-title {
+	    color: $color__red;
+	}
+	.vehicle-top-meta .meta-item {
+	    color: $color__red;
+	}
+	.vehicle-bottom-content {
+	    background: $color__red;
+	}
+}
+.theme-red {
+	a {
+		&:hover,
+		&:focus,
+		&:active {
+			color: $color_blue;
+		}
+	}
+	.button:hover {
+		background: $color_blue;
+	}
+	.vehicle-bottom-content {
+		background: $color__red;
+	}
+	.heading-content.style-one.border h2.title:before {
+		background-color: $color__red;
+	}
+	.item-navigation {
+		.next-item {
+			background-color: $color__red !important;
+			border-color: $color__red !important;
+			&:before {
+				border-bottom-color: $color__red !important;
+			}
+		}
+	}
+	.vehicle-top-meta .vehicle-title,
+	.vehicle-top-meta .meta-item {
+		color: $color__red;
+	}
+}
+.theme-red {
+	.widget .widget-title {
+		color: $color__red;
+		border-color: $color__red;
+	}
+	.widget {
+		.button {
+			background: $color__red;
+		}
+		&.widget_menu ul li:before {
+			background: $color__red;
+		}
+		&.widget_hot_contact ul li i {
+			color: $color__red;
+		}
+		&.widget_newsletter .input-group-btn span {
+			color: $color__red;
+		}
+	}
+	.social-profile a:hover {
+		color: $color__red;
+	}
+}
+.theme-red {
+	.input i {
+		color: $color__red;
+	}
+	.advanced-search-btn {
+		color: $color__red;
+	}
+	button {
+		background: $color__red;
+	}
+	.title,
+	.subtitle {
+		span {
+			color: $color__red;
+		}
+	}
+	&.pricing-table-item .pricing-image {
+		background: $color__red;
+	}
+	&.pricing-table-item .price .price-subtille {
+		color: $color__red;
+	}
+	&.pricing-table-item .price .price-title:after {
+		background: $color__red;
+	}
+	.panel-title i {
+		background: $color__red;
+	}
+	.highlight {
+		color: $color__red;
+	}
+	.vehicle-filter-area .nav-tabs li.active a {
+		background: $color__red !important;
+	}
+	.image-content .renticon {
+		color: $color__red;
+	}
+	.button:hover {
+		background: $color__red;
+	}
+}
+.red-color {
+	color: $color__red;
+}
+.red-button {
+	background-color: $color__red;
+	&:hover {
+		background-color: rgba($color__red, 0.90);
+	}
+}
+.theme-red-bg {
+	&.contact-style-one {
+		&:before {
+		    background-image: -o-linear-gradient(0deg, $color__red 15px, #fff 0);
+		    background-image: -ms-linear-gradient(0deg, $color__red 15px, #fff 0);
+		    background-image: -moz-linear-gradient(0deg, $color__red 15px, #fff 0);
+		    background-image: -webkit-linear-gradient(0deg, $color__red 15px, #fff 0);
+		}
+	}
+}

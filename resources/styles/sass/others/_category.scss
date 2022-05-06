@@ -1,0 +1,297 @@
+.form-content.available-filter {
+    // .input {
+    //     input {
+    //         background: none;
+    //         margin-bottom: 10px;
+    //         background-color: #F7F7F7;
+    //     }
+    //     i {
+    //         color: inherit;
+    //     }
+    // }
+    // select {
+    //    font-size: 24px;
+    //    color: #000;
+    //    font-weight: bold;
+    //    font-family: $font_heading_one;
+    //    margin-bottom: 10px;
+    //    border: none;
+    //    padding: 12px 0;
+    //    option {
+    //        font-size:15px;
+    //        font-weight: bold;
+    //    }
+    // }
+}
+.filter-chack {
+    .chack-title {
+        font-size: 20px;
+        text-transform: capitalize;
+        font-weight: bold;
+        color: #4c4c4c;
+    }
+}  
+
+.page-header {
+    margin: 0;
+    padding: 60px 0;
+    text-align: center;
+    .page-title {
+        color: #fff;
+        font-weight: 800;
+        font-size: 45px;
+        margin-bottom: 0;
+        line-height: 1.12em;
+        margin-top: 0;  
+        + .page-description {
+            font-weight: bold;
+            letter-spacing: 0.015em;
+            margin-bottom: 0;
+            color: $color_yellow;
+        }
+    }
+}
+
+.available-block {
+    .pricing-table-item.category {
+        margin-top: 0;
+    }
+}
+
+.vehicle-category {
+    @media only screen and (max-width: 767px) {
+        float: none !important;
+    }
+    #vehicle-cat-list {
+        background-color: #fff;
+        padding: 12px 15px;
+        font-weight: 600;
+        border-radius: 5px;
+        min-width: 150px;
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+    &.bg-gray {
+        #vehicle-cat-list {
+            background-color: #f5f5f5;
+        }
+    }
+}
+
+.vehicle-sidebar {
+    padding: 30px;
+    overflow: hidden;
+    border-radius: 5px;
+    background: $color__white;
+    .advance-search-query {
+        .form-title {
+            font-weight: 800;
+            margin-top: 0;
+            font-size: 25px;
+        }
+        .form-content {
+            label {
+                color: #454545;
+                font-family: $font_heading_one;
+                font-size: 18px;
+                text-transform: capitalize;
+                font-weight: 800;
+            }
+            .input {
+                input, select {
+                    margin-bottom: 10px;
+                    border-color: #ddd;
+                    height: 40px;
+                }
+                i {
+                    color: #b3b3b3;
+                    right: 12px;
+                    top: 10px;
+                }  
+            }
+            .input-filter {
+                select {
+                    background-color: inherit;
+                    border: none;
+                    font-size: 24px;
+                    color: #232c3b;
+                    font-weight: 800;
+                    font-family: $font_heading_one;
+                    margin-bottom: 20px;
+                    option {
+                        font-size:15px;
+                    }
+                }
+            }
+            .check-vehicle-footer {
+                overflow: hidden;
+                margin-top: 30px;
+                .advanced-search a {
+                    color: inherit;
+                    margin-left: 55px;
+                }
+                button {
+                    margin:auto;
+                    display: table;
+                    float: none;
+                }
+            }   
+        }
+        .advance-filters ul {
+            padding: 0;
+            list-style: none;
+            &.checkbox-content {
+                padding-top: 10px;   
+            }
+            li {
+                padding-bottom: 5px;
+                input[type="checkbox"] {
+                  display: none;
+                }
+                label {
+                    cursor: pointer;
+                    font-size: 14px;
+                    color: #949494;
+                    font-weight: 500;
+                    font-family: inherit;
+                }
+                input[type="checkbox"] + label:before {
+                    border: 2px solid #dddddd;
+                    content: "\00a0";
+                    display: inline-block;
+                    font: 16px/1em sans-serif;
+                    height: 16px;
+                    height: 16px;
+                    margin: 0 10px 0 0;
+                    padding: 0;
+                    vertical-align: middle;
+                    width: 16px;
+                    background: #f7f7f7;
+                }
+                input[type="checkbox"]:checked + label:before {
+                    background: #fff;
+                    color: #333;
+                    content: "\2713";
+                    text-align: center;
+                }
+                input[type="checkbox"]:checked + label:after {
+                    font-weight: bold;
+                }
+            }
+        }
+        .filter-button {
+            margin-top: 20px;
+            .button {
+                border-radius: inherit;
+                padding: 10px 28px;
+                margin-right: 8px;
+                display: inline-block;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+        &.search-query-two {
+            background: #f5f5f5;
+            padding: 45px;
+            margin-bottom: 30px;
+            .form-content {
+                label {
+                    font-size: 15px;
+                }
+                .input {
+                    margin-bottom: 10px;
+                    input, select {
+                        margin-bottom: 10px;
+                        border-color: #ddd;
+                        height: 48px;
+                    }
+                    i {
+                        color: #ffcc00;
+                        right: 12px;
+                        top: 15px;
+                    } 
+                    .price-slider {
+                        margin-bottom: 30px;
+                        margin-top: 30px;
+                        &.ui-widget-content {
+                            border: 0 none !important;
+                            .ui-widget-header {
+                                background: $color_yellow;
+                            }
+                            .ui-state-default, 
+                            .ui-widget-content .ui-state-default, 
+                            .ui-widget-header .ui-state-default {
+                                border: 0 none;
+                                background: $color__red;
+                            }
+                        }
+                    }
+                }
+            }
+            .check-vehicle-footer {
+                .advanced-search {
+                    float: none;
+                    text-align: center;
+                }
+                .advanced-search-btn {
+                    margin: 0 !important;
+                    .fa {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.available-block, 
+.blog-block {
+    .vehicle-thumbnail {
+        padding-bottom: 1px;
+        img {
+            width: 100%;
+        }
+    }
+    .available-title {
+        margin-top: 0;
+        font-weight: 800;
+    }
+    .category.pull-right {
+        .white-color {
+            background-color: #fff;
+        }
+        > a {
+            height: 50px;
+            padding: 3px 29px;
+            vertical-align: middle;
+            display: table-cell;
+            background-color: #f7f7f7;
+            color: #000000;
+            border: 0 none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: capitalize;
+            i {
+                margin-left: 5px;
+                font-weight: bold;
+                color: #b6b6b6;
+            }
+        }
+        .dropdown-menu>li>a {
+            font-weight: 500;
+        }
+    }
+}
+
+
+
+.available-filter {
+    .form-group.small:after {
+        display: none;
+    }
+    
+}

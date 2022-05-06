@@ -1,0 +1,125 @@
+.wellcome-block {
+    padding: 77px 0 60px;
+    .heading-content {
+        margin-bottom: 50px;    
+    }
+    .wellcome-content-left {
+        @media only screen and (max-width: 991px) {
+            margin-top: 30px;
+        }
+    }
+}
+.about-service {
+    position: relative;
+    border-radius: 5px;
+    .about-service-title {
+        color: $color_yellow;
+        font-size: 26px;
+        padding-bottom: 0px;
+        margin-bottom: 0;
+        margin-top: 0;
+        font-weight: 800;
+        padding-left: 30px;
+        position: relative;
+        &:before {
+            content: "";
+            width: 8px;
+            height: 64px;
+            background: $color_yellow;
+            left: 0;
+            bottom: 25px;
+            position: absolute;
+        }
+    }
+    .discription {
+        color:$color__whisper;
+
+    }
+    .about-title-area {
+        padding: 30px 30px 15px;
+    }
+    .discription {
+        padding: 0px 30px;
+        line-height: 26px;
+    }
+    .about-image {
+        padding-top: 30px;
+    }
+    &:before {
+        width: 100%;
+        height: 12px;
+        background-image: -o-linear-gradient(0deg, #ffcc00 15px, #333 0);
+        background-image: -ms-linear-gradient(0deg, #ffcc00 15px, #333 0);
+        background-image: -moz-linear-gradient(0deg, #ffcc00 15px, #333 0);
+        background-image: -webkit-linear-gradient(0deg, #ffcc00 15px, #333 0);
+        background-size: 30px;
+        content: "";
+        padding: 5px;
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+    }
+}
+.wellcome-tab {
+    .service-block {
+        .renticon {
+            color: $color_yellow;
+            font-size: 40px;
+        }
+    }
+}
+.service-block {
+    .service-title {
+        font-size: 24px;
+        font-weight: 800;
+    }
+    .discription {
+        color: $color__charcoal;
+        line-height: 1.75em;
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+.wellcome-filter-area {
+    .nav.nav-tabs {
+        border: none;
+        margin-bottom: 45px;
+        li {
+            margin-right: 15px;
+            background-color: $color_text_main;
+            @media only screen and (max-width: 767px) {
+                margin-right: 0;
+                padding: 10px;
+            }
+            &.active {
+                background-color:$color_yellow;
+                a {
+                    color: $color_text_main;
+                }
+                a:hover {
+                    background-color:none !important;
+                }
+            }
+            a {
+                border-radius: 0;
+                background-color: inherit;
+                font-size: 18px;
+                text-transform: uppercase;
+                font-weight: 700;
+                padding: 10px 30px;
+                color: $color__white;
+                border: none;
+                line-height: 24px;
+                letter-spacing: 0.009em;
+                &:hover {
+                    background:none !important;
+                }
+                @media only screen and (max-width: 480px) {
+                    padding: 10px 3px;
+                }
+            }
+        }
+    }
+}
+
+

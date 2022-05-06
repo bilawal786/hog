@@ -1,0 +1,70 @@
+.sticky {
+	display: block;
+}
+.hentry {
+	margin: 0 0 75px;
+}
+.page-content {
+	margin: 1.4em 0;
+}
+.entry-summary {
+	@extend .page-content;
+}
+.page-links {
+	clear: both;
+	margin: 0 0 2.1em;
+}
+/*--------------------------------------------------------------
+# Page Heading
+--------------------------------------------------------------*/
+.header-title {
+	text-align: center;
+	margin-bottom: 30px;
+}
+.page-header {
+	margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Post Meta
+--------------------------------------------------------------*/
+.post-format {
+	background: $color__white;
+	border-radius: 50%;
+	height: 55px;
+	line-height: 46px;
+	margin: -24px auto -32px;
+	position: relative;
+	width: 55px;
+	z-index: 10;
+	@include prefixed(backface-visibility, hidden);
+}
+.entry-meta {
+	color: $color__meta;
+	font-size: 11px;
+	letter-spacing: 0.04em;
+	font-weight: bold;
+	font-style: italic;
+	a {
+		color: inherit;
+	}
+	
+}
+
+/*--------------------------------------------------------------
+# Post Format
+--------------------------------------------------------------*/
+.post {
+	.post-thumb {
+		overflow: hidden;
+		clear: both;
+		border-radius: 5px;
+		img {
+			display: block;
+			margin: auto;
+		}
+	}
+	.entry-footer {
+		font-size: 13px;
+	}
+}

@@ -1,0 +1,59 @@
+/* =======404============ */
+.page-header.pd-404 {
+	padding: 120px 0 130px;
+	.col-md-6 {
+		margin: auto;
+		display: table;
+		float: none;
+	}
+	.main-content {
+		position: relative;
+		.text-content {
+			@media only screen and (min-width: 540px) {			
+			    position: absolute;
+			    right: 45px;
+			    bottom: 40px;
+			}
+			@media only screen and (max-width: 539px) {
+				text-align: center;
+			}
+			h3 {
+				font-weight: 900;
+				font-size: 30px;
+			}
+			a {
+				border-radius: 5px;
+				float: right;
+				text-transform: uppercase;
+				@media only screen and (max-width: 539px) {
+					float: none;
+				}
+			}
+			.button {
+				@media only screen and (max-width: 539px) {
+					overflow: hidden;
+					margin: 30px auto 0;
+					display: table;
+				}
+			}
+		}
+	}
+}
+.error-page-area .default-pd-center {
+	text-align:inherit;
+	.error-text-content {
+		margin:auto;
+		display:table;
+		h2 {
+			font-weight:bold;
+			color: #FDE953;
+			margin-top: 0;
+		}
+		p {
+			font-size: 24px;
+			color:#fff;
+			margin-top: -10px;			
+		}
+
+	}
+}

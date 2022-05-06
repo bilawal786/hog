@@ -1,0 +1,189 @@
+.availability-area {
+    padding: 60px 0 90px;
+    h3 {
+        text-align: center;
+        position: relative;
+    }
+}
+.availability-area {
+    .button {
+        margin-top: 45px;
+        border: none;
+    }
+}
+.availability-area.two {
+    .list {
+        background: #fff;
+        position: relative;
+        top: -68px;
+        padding: 10px 100px;
+        font-weight: 500;
+        color: #000;
+        span {
+            color:#7B7B7B;
+        }
+    }
+    background-color:#EDFFE8;
+    margin-top:0;
+    .form-group:nth-child(5) {
+        margin-right:0px;
+    }
+    .form-group:nth-child(4) {
+        input {
+            margin-top:30px;
+        }
+    }
+    .form-content .form-group:first-child input {
+        width:260px;
+    }
+}
+.corousel-gallery-content {
+    h4 {
+        position: relative;
+        top: -30px;
+        a {
+            margin-right:10px;
+        }
+        span {
+            font-weight: normal;
+            color: #605F5F;
+        }
+    }
+    .owl-carousel .owl-item img {
+        border-radius:10px;
+    }
+}
+.corousel-gallery-area {
+    padding: 40px 0;
+}
+
+.list-view.owl-carousel.owl-theme.owl-loaded {
+    margin-top:20px;
+    margin-bottom: 50px;
+    img {
+        border-radius:10px;
+    }
+}
+
+.vehicle-single-content {
+    .tb {
+        margin-bottom: 30px;
+    }
+    .tb-cell {
+        vertical-align: bottom;
+    }
+    .rent-price {
+        font-weight: 800;
+        font-size: 20px;
+        margin-bottom: 0;
+        @media only screen and (max-width: 520px) {
+            font-size: 15px;
+            padding-left: 5px;
+        }       
+        @media only screen and (max-width: 767px) {
+            float: none !important;
+            margin-top: 0;
+        }
+    }
+    .vehicle-description {
+        font-size: 20px;
+        font-weight: 600;
+        position: relative;
+        line-height: 1.75em;
+        color: #777;
+        &:before {
+            position: absolute;
+            content: "";
+            width: 60px;
+            height: 8px;
+            bottom: -20px;
+        }
+    }
+    .vehicle-single-title {
+       font-size: 35px;
+       margin-bottom: 30px; 
+       font-weight: 800;
+       margin-top: 0;
+       margin-bottom: 0;
+    }
+    .price-details { 
+        //font-family: $font_heading_one; 
+        color: #555;
+        margin-bottom: 30px;
+        .details-title {
+            font-weight: 800;
+            color: #555;
+            font-size: 30px;
+            margin-top: 0;
+        }
+        h1, h2, h3, h4, h5 {
+            font-weight: bold;
+        }
+        ul {
+            list-style: none;
+            padding:0;
+            li {
+                line-height: 30px;
+                font-weight: 700;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .vehicle-property-details {
+        h1, h2, h3, h4, h5 {
+            font-weight: bold;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            li {
+                font-size: 16px;
+                color: #F8F8F8;
+                margin-bottom: 30px;
+                line-height: 1.85em;
+                span {
+                    font-weight: bold;
+                    font-size: 18px;
+                    color: #4D4D4D;
+                }
+            }
+        }
+    }
+    .vehicle-overview {
+        .overview-title {
+            font-weight: 800;
+            color: #555;
+            font-size: 30px;
+            margin-top: 0;
+        }
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+        }
+        ul {
+            font-weight: 600;
+            color: #666666;
+            list-style: none;
+            padding:0;
+        }
+        li {
+           background-color: #F8F8F8;
+           padding: 20px 40px;
+           margin-bottom: 10px;
+        }
+    }
+}
+
+.switchable.switchable--switch div[class*='col-']:first-child {
+    float: right;
+    right: 0;
+}
+
+.ralated-block {
+    .related-title {
+        font-weight: 800;
+        margin-bottom: 30px;
+        margin-top: 0;
+    }
+    padding: 60px 0;
+}

@@ -1,0 +1,137 @@
+/*
+Template Name: Car Rent HTML Template
+Template URI: carrent-html.htmlguru.net
+Author: HTMLguru
+Author URI: http://softhopper.net
+Description: It\' s a HTML5 Car Rent Template. Which is a unique feature and user competitive feature.
+Version: 1.0
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Typography 
+    ## copy 
+    ## headings 
+    ## typography 
+# Elements
+	## elements
+	## lists
+	## tables
+# Forms
+	## buttons
+	## fields
+	## forms
+# Media
+	## Captions
+	## Galleries
+	## media
+# mixins
+	## mixins-master
+# modules 
+	## accessibility
+	## alignments
+	## clearings
+	## infinite-scroll
+# navigation
+	## Links
+	## Menus
+	## Pagination
+	## Navigation responsive
+		### Mobile CSS
+		### Pagination responsive
+# layout
+    ## header section
+    ## slider section
+    ## check_vehicle section
+    ## about us section
+    ## ability section
+    ## accordion section
+    ## vehicle_block section
+    ## fun-facts section
+    ## testimonial section
+    ## call_to_action section
+    ## service section
+    ## blog section 
+    ## welcome section
+    ## pricing section
+    ## mobile_app section
+    ## footer section
+# others
+	## Blog Single Page
+	## Coming Soon Page
+	## Map Content
+	## Category Style
+# site
+	## Posts and pages
+	## Asides
+	## Comments
+	## Widgets
+	## Widgets Content
+	## About Page
+	## Contact Page
+	## 404 Page
+	## Site Responsive
+--------------------------------------------------------------*/
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@import "elements/elements";
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+@import "forms/forms";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+@import "modules/alignments";
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+@import "modules/clearings";
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@import "navigation/navigation";
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+@import "layout/layout";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "others/others";
+
+/*--------------------------------------------------------------
+# Site Content
+--------------------------------------------------------------*/
+@import "site/site";
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+@import "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "media/media";

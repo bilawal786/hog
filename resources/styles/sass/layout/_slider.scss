@@ -1,0 +1,132 @@
+.slider-form-content {
+	background: $color__background-sliderForm;
+	padding: 35px 60px;
+	.slider-form-title {
+		font-size: 36px;
+		font-weight: 900;
+		margin-top: 0;
+		margin-bottom: 0;
+		color: #333333;
+		line-height: 1;
+	}
+	.slider-form-subtitle {
+		margin-top: 0;
+		font-weight: 800;
+		color: #333333;
+	}
+	form {
+		margin-top: 30px;
+		label {
+			font-weight: 600 !important;
+		}
+		.input {
+			margin-bottom: 15px !important;
+			i {
+				right: 12px;
+				top: 12px;
+			}
+		}
+	}
+	.check-vehicle-footer {
+		margin-top: 15px;
+		margin-left: 0 !important;
+		> .row {
+			margin: 0;
+		}
+		button {
+			margin: 0 !important;
+			@media only screen and (max-width: 767px) {
+				display: table;
+				margin: auto !important;
+			}
+		}
+		.advanced-search {
+			float: none;
+			position: absolute;
+		    right: 0;
+		    top: 0;
+			a {
+				@media only screen and (max-width: 992px) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+.carrent-slider-subheading {
+	position: relative;
+	min-width: 305px;
+	text-align: center;
+	&:before  {
+		position: absolute;
+		content: "";
+		width: 10px;
+		height: 10px;
+		background-color: #E91E22;
+		left: 0;
+		top: 50%;
+		border-radius: 50%;
+		z-index: 99;
+		transform: translateY(-50%);
+	}
+	&:after {
+		position: absolute;
+		content: "";
+		right: 0;
+		width: 10px;
+		height: 10px;
+		background-color: #E91E22;
+		top: 50%;
+	    border-radius: 50%;
+	    margin-left: 15px;
+	    z-index: 99;
+	    transform: translateY(-50%);
+	}
+}
+
+.tp-caption {
+	h1, h2, h3, h4, h5 {
+		color: inherit;
+	}
+}
+.company-brand-block {
+    padding: 110px 0 102px;
+}
+.brand-carousel {
+	overflow: hidden;
+	margin-top: 50px;
+	.item {
+		img {
+			width: auto;
+			margin: auto;
+		}
+	}
+    .owl-dots {
+        @media only screen and (max-width: 768px) {
+            text-align: center;
+            display: none;
+        }
+    }
+    .owl-nav.disabled {
+        @media only screen and (max-width: 768px) {
+            display: block;
+			text-align: center;
+			margin-top: 30px;
+        }
+        > div {
+            @media only screen and (max-width: 768px) {
+                font-family: $font_heading_one;
+                background-color: #000;
+                padding: 8px 15px;
+                font-size: 14px;
+                color: #fff;
+                font-weight: 800;
+                display: inline-block;
+                height: 39px;
+                border: 1px solid #ddd;
+                letter-spacing: 0.015em;
+                text-transform: capitalize;
+            }
+        }
+    }
+}

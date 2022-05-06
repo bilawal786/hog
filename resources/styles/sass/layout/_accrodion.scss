@@ -1,0 +1,197 @@
+.faq-bolck {
+    .block-title-area {
+        margin-bottom: 30px;
+    }
+    .heading-content {
+        .subtitle {
+            font-family: $font_heading_one;
+        }
+    }
+}
+
+.menu-extend .fa-plus:before {
+    content: "\f068";
+    font-family: FontAwesome;
+}
+
+.faq-accordion {
+    .faq-title {
+        font-weight: 800;
+        font-size: 90px;
+        text-transform: uppercase;
+        line-height: 75px;
+        color: #aeaeae;
+        margin-top: 0;
+    }
+    .faq-subtitle {
+        font-weight: 800;
+        font-size: 40px;
+        margin-top: 0;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    .panel {
+        border: 0 none;
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+        .panel-body {
+            border-top: 0 none !important;
+            padding-left: 70px;
+        }
+    }
+}
+.faq-bolck {
+  .accordion {
+      @media only screen and (max-width: 992px) {
+          margin-bottom: 30px;
+      }
+  }  
+}
+.accordion {
+    .panel {
+        border-radius: 0;
+        .accordion-details {
+            font-size: 13px;
+            margin-bottom: 0;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+        .panel-heading {
+            padding: 0;
+            background-color: #F1F1F1;
+            .panel-title {
+                color: $color_Matterhorn;
+                font-size: 15px;
+                font-weight: 700;
+                display: table;
+                i {
+                    padding: 15px 20px;
+                    margin-right: 20px;
+                    color: #232c3b;
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+                span {
+                    display: table-cell;
+                    vertical-align: middle;
+                    padding: 15px;
+                }
+            }
+        }
+        .accordion-details {
+            color: $color_Matterhorn;
+        }
+    }
+}
+
+.shipping-from-content {
+    background-color: #f0f2f7;
+    padding: 45px;
+    @media only screen and (max-width: 992px) {
+        padding: 30px;
+        margin-bottom: 30px;
+        margin-top: 0;
+    }
+    .advance-search-query {
+        textarea {
+            color: #aeaeae;
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border-radius: 5px;
+            min-height: 90px;
+            font-size: 13px;
+            font-family: $font_heading_one;
+            font-weight: 600;
+        }
+        .input input, 
+        .input select, 
+        .input textarea {
+            border: 1px solid #E7E7E7;
+        }
+    }
+    .check-vehicle-footer {
+        padding: 0 15px;
+        button {
+            float: none;
+            border-radius: 5px;
+            font-size: 15px;
+            text-transform: capitalize;
+        }
+    }
+    .advanced-search {
+        float: right;
+        text-transform: capitalize;
+        @media only screen and (max-width: 767px) {
+            float: none;
+        }
+    }
+    &.mr-top-less-160 {
+        @media only screen and (max-width: 992px) {
+            margin-top: 0;
+        }
+    }
+}
+
+.shipping-form-heading {
+    margin-bottom: 30px;
+    .from-subtitle {
+        font-size: 14px;
+        font-weight: 700;
+        color: #5a5a5a;
+        font-family: inherit;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .from-title {
+        font-size: 30px;
+        margin-top: 0;
+        font-weight: 900;
+        line-height: 1.3em;
+        margin-bottom: 0;
+    }
+}
+
+.faq-slider {
+    .image-content {
+        float: left;
+    }
+}
+
+.about-details-content {
+    .about-image {
+        float: left;
+        width: 56px;
+        margin-right: 20px;
+    }
+    .about-title {
+        margin-top: 0;
+        font-weight: bold;
+        color: #454545;
+        font-size: 24px;
+    }
+    .about-details {
+        margin-bottom: 15px;
+        font-weight: 500;
+        font-size: 15px;
+    }
+    .button {
+        border-radius: 0;
+        margin-bottom: 30px;
+        display: inline-block;
+        &:hover {
+            background-color: $color__red;
+        }
+    }
+}
+
+.fan-bolck {
+    .heading-content {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.block-navigation-area .item-navigation.nav-right.mr-30 {
+    float: none;
+    margin-left: -15px;
+}

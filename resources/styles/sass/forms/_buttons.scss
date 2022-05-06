@@ -1,0 +1,208 @@
+button {
+    font-size: 11px;
+    padding: 12px 30px;
+	color: $color__white;
+	line-height: normal;
+	@include prefixed(transition, all .25s ease);
+}
+input[type="button"] {
+	@extend button;
+}
+input[type="reset"] {
+	@extend button;
+}
+input[type="submit"] {
+	@extend button;
+	font-weight: bold;
+	text-transform: uppercase;
+	background: $color__border-five;
+	color: $color__white;
+	&:hover {
+		color: $color__white;
+	}
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer;
+	-webkit-appearance: button;
+	&:focus {
+		outline: none;
+	}	
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+button {
+	a {
+		color: $color__white;
+	}
+}
+.search-form, 
+.searchform {
+	.btn {
+		@include prefixed(border-radius, 0);
+		&:hover {
+			color: $color__white;
+			text-decoration: none;		
+		}
+		&:focus {
+			background: transparent;
+			color: $color__white;
+			outline: 0 none;
+		}
+		&:active:focus {
+			background: transparent;
+			color: $color__white;
+			outline: 0 none;
+		}
+	}
+}
+.btn {
+	@include prefixed(border-radius, 0);
+}
+.btn-default {
+	color: $color_text_main;
+	&:hover {
+		color: $color_text_main;
+	}
+}
+.slider-button {
+	border-radius: 0 !important;
+}
+
+// More link
+a.more-content {
+	background: $color_nevy;
+	padding: 15px 30px;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 30px;
+	display: table;
+	margin: 15px auto auto;
+}
+
+.more-link {
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: normal;
+	text-transform: uppercase;
+	word-spacing: 0.02em;
+	letter-spacing: 0.01em;
+	color: $color__white;
+	display: table;
+	margin: 30px auto 0;
+	padding: 15px 30px;
+	vertical-align: middle;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	position: relative;
+	overflow: hidden;
+	@include prefixed(transition, all 0.25s ease);
+	&:hover, &:focus, &:active:focus {
+		color: $color__white;
+		text-decoration: none !important;
+	}
+}
+.comment-reply-link {
+	padding: 6px 22px;
+	font-size: 11px;
+	line-height: normal;
+	font-weight: bold;
+	text-transform: uppercase;
+	display: inline-block;
+	background: $color__border-five;
+	color: $color__white;
+	&:hover {
+		color: $color__white;
+	}
+}
+.comment-navigation {
+	.nav-links {
+		a {
+			background: $color__white;
+			display: inline-block;
+			padding: 0.5em 1.8em;
+			letter-spacing: 0.02em;
+			&:hover {
+				color: $color__white;
+			}
+		}	
+	}
+}
+.go-button {
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	display: inline-block;
+	width: 186px;
+	height: 45px;
+	line-height: 46px;
+	background: $header__footer-bg;
+	@include prefixed(transition, all 0.3s ease);
+	&:hover {
+		color: $color__white;
+	}
+}
+.entry-content {
+	.btn {
+		@include prefixed(border-radius, 1px);
+		letter-spacing: 0;
+		line-height: 1.7em;
+	}
+}
+.mfp-wrap {
+	button:hover {
+		background: transparent !important;
+	}
+}
+
+.button {
+	padding: 12px 40px;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 25px;
+	text-transform: capitalize;
+	font-size: 14px;
+	border: 0;
+	transition: all 0.35s ease-in-out;
+	&:hover {
+		color: $color__white !important;
+	}
+}
+.black-color {
+	color: #1d1d1f;
+}
+.black-button {
+	background-color: $color__black;
+}
+.soft-black-button {
+	background-color: #1b1b1b;
+}
+.button-radius {
+	border-radius:5px;
+}
+.button.contact {
+	background-color: #0E385D;
+}
+.red-bg a:hover {
+	color: $color__white;
+}
+.default-pd-center{
+	.button {
+		border-radius: 5px;
+		top:10px;
+		float: left;	
+	}
+}
+.night-rider {
+	background-color: #2C2C2C;
+}
+.bg-gray-color {
+	background-color: $color__white_smoke;
+}

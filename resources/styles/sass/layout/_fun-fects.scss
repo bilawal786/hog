@@ -1,0 +1,44 @@
+/* ====== fun-facts ====== */
+.fun-facts-block {
+   padding: 75px 0px;
+   background-position: 50% 50%;
+   background-size: cover;
+   background-repeat: no-repeat;
+   
+}
+.stat {
+   text-align:center;
+}
+.highlight {
+   font-weight: 900;
+   margin-bottom: 40px;
+   font-size: 60px;
+   color: $color_yellow;
+   margin-top: 0;
+   margin-bottom: 0;
+}
+.stat i {
+	color:#f7c221;
+}
+.milestone-details {
+   font-weight: 700;
+   font-size: 24px;
+   color: $color__white;
+   font-family: $font_heading_one;
+   margin-bottom: 20px;
+   line-height: 1.15;
+}
+.milestone-counter {
+   @media screen and (max-width: 990px) {
+      margin-bottom: 50px;  
+   }
+}
+
+.stat.fun-facts-two {
+   .stat-count.highlight {
+      color: $color__red;
+   }
+   .milestone-details {
+      color: $color_text_main;
+   }
+}

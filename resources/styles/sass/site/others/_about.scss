@@ -1,0 +1,49 @@
+
+/* ---------about----------- */
+.about-main-content {
+	.about-heading-content {
+		text-align: center;
+		margin-bottom: 30px;
+		margin-top: 60px;
+		.about-title {
+	        font-weight: 900;
+	        font-size: 45px;
+	        margin-bottom: 0;
+	        line-height: 1em;
+    	}
+    	.about-subtitle {
+			font-size: 16px;
+			font-weight: bold;
+			color: #676565;
+    	}
+	}
+	.about-title-two {
+		margin-left: 15px;
+		font-size: 60px;
+		color: #3d4348;
+		font-weight: bold;
+		margin-bottom: 35px;
+		@media only screen and (max-width: 991px) {
+			font-size: 45px;
+			margin-bottom: 30px;
+			margin-left: 15px;
+		}
+	}
+	.about-content-left {
+
+		.about-details {
+			font-size: 20px;
+			font-family: inherit;
+			margin-top: 0;
+			line-height: 28px;
+			font-weight: 500;
+			color: #4b4b4b;
+		}
+	}
+}
+
+
+
+
+
+

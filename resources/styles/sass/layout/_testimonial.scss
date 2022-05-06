@@ -1,0 +1,75 @@
+.testimonial-block.bg-gray-color {
+	padding: 75px 0 75px;
+	.container {
+		overflow: hidden;
+		padding:15px;
+	}
+	.subtitle {
+		color: #0e385d;
+		i {
+			font-size: 22px;
+			margin-right: 10px;
+		}
+	}
+}	
+.testimonial-slider {
+	padding-top: 40px;
+	.container {
+		overflow: hidden;
+	}
+	.owl-stage-outer {
+		overflow: visible;
+	}
+	.item {
+		position: relative;
+		box-shadow: 0px 0px 20px rgba(0,0,0,0.10);
+		padding: 40px 30px;
+		background-color: $color__white;
+		border-radius: 5px;
+		@media only screen and (max-width: 768px) {
+            margin-bottom: 30px;
+        }
+		.client-image {
+			width: 71px;
+			height: 71px;
+			position: absolute;
+			top: -40px;
+			left: 25px;
+		}
+		.client-client-detales {
+			background-color: $color__white;
+			padding: 30px;
+		}
+		.client-title {
+			line-height: 30px;
+			font-weight: 800;
+			margin-bottom: 0;
+			text-transform: capitalize;
+			color: #3d3d3d;
+		}
+		.client-subtitle {
+			font-family: inherit;
+			font-size: 14px;
+			font-weight: bold;
+			margin-bottom: 15px;
+			margin-top: 5px;
+			text-transform: capitalize;
+		}
+		.discription {
+			font-size: 15px;
+			margin-bottom: 15px;
+		}
+		.star {
+			i {
+				color: #FFA506;
+				font-size: 17px;
+			}
+		}
+	}
+	.owl-dots {
+		margin-top: 15px;
+	}
+}
+
+
+

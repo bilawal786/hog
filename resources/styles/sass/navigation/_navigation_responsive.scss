@@ -1,0 +1,405 @@
+/*--------------------------------------------------------------
+# Mobile CSS
+--------------------------------------------------------------*/
+@media only screen and (max-width: 992px) {
+    .site-navigation {
+        display: none !important;
+    }
+    .menu-list {
+        list-style: none;
+        padding-left: 0;
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+    }
+    .menu-list li a span {
+        display: none !important;
+    }
+    #mobile-menu {
+        display: block;
+    }
+    .menu-list > li:hover>a {
+        background-color: rgba(0, 0, 0, 0.04) !important;
+        text-decoration: none;
+    }
+    .mb-navigation {
+        .menu-list {
+            > li.current-menu-item > a,
+            > li.current-menu-ancestor > a {
+                background-color: rgba(0, 0, 0, 0.04);
+            }
+        }
+    }
+    .overlaybg {
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.45);
+        cursor: pointer;
+    }
+    .overlaybg.menuopen {
+        display: block;
+    }
+    .mb-navigation .menu-list > li > a {
+        backface-visibility: hidden;
+        background-color: white;
+        box-shadow: 0 0 1px transparent;
+        color: #282828;
+        display: block;
+        font-weight: 700;
+        line-height: 60px;
+        overflow: hidden;
+        padding: 5px 14px;
+        position: relative;
+        text-decoration: none;
+        transform: translateZ(0px);
+        vertical-align: middle;
+    }
+    /* Default Color */
+    .menu-list li:hover {
+        .sub-menu {
+            display: none;
+            .sub-menu {
+                display: none;
+            }
+        }
+    }
+    .menu-list .sub-menu .sub-menu li:hover .sub-menu {
+        display: none;
+        list-style: none;
+        padding: 2px;
+        border: solid 1px $color__border-one;
+        background-color: $color__white;
+    }
+    .menu-list li:first-child a {
+        @include prefixed(border-radius, 0);
+    }
+    .menu-list li:last-child a {
+        border-right: 0;
+        @include prefixed(border-radius, 0);
+    }
+    .innerpnd {
+        padding: 0 !important;
+    }
+    .menu-container {
+        overflow: hidden;
+        @include prefixed(backface-visibility, hidden);
+        min-height: 800px;
+        @include prefixed(transition, all 0.4s ease-in-out);
+    }
+    .menuexpandermain {
+        display: block !important;
+        position: relative;
+        //overflow: hidden;
+        // top: 15px;
+        // right: -45px;
+        // left: auto;
+        @include prefixed(transition, all 0.4s ease-in-out);
+    }
+    /* Mobile click to drop arrow */
+    .menu-click {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        cursor: pointer;
+        z-index: 120;
+        i {
+            display: block;
+            background-size: 25px;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.25);
+            float: right;
+            padding: 15px;
+            width: 43px;
+            @include prefixed(transition, transform 0.1s ease);
+            border-left: 1px solid $color__border-two;
+        }
+    }
+    .menu-extend.fa-plus::before {
+        content: "\f068";
+        font-family: FontAwesome;
+    }
+    /*2nd UL Style*/
+    .menu-list .sub-menu {
+        a {
+            display: block;
+            padding: 12px 25px;
+            border-bottom: solid 1px $color__border-one !important;
+            font-weight: normal;
+        }
+    }
+    .mb-navigation .menu-wrapper ul > li ul {
+        border-top: 0 none;
+        border-bottom: 0 none;
+        border-right: 0 none;
+    } 
+    .menu-list .sub-menu .sub-menu {
+        width: 100% !important;
+        position: static !important;
+        left: 100% !important;
+        top: 0 !important;
+        display: none;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: solid 0 !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        li {
+            margin: 0 !important;
+            padding: 0;
+            position: relative;
+        }
+    }
+    .sub-menu-sub li:hover>a {
+        color: $color__white;
+    }
+    .menu-list > li > a .fa {
+        margin-right: 6px;
+    }
+    .sub-menu .sub-menu .sub-menu {
+        width: 100% !important;
+        position: static !important;
+        left: 100% !important;
+        top: 0 !important;
+        display: none;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: solid 0 !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .sub-menu .sub-menu .sub-menu li {
+        margin: 0 !important;
+    }
+    .sub-menu .sub-menu .sub-menu a {
+        display: block;
+        color: $color__black;
+        padding: 11px 25px;
+        border-bottom: solid 1px $color__border-one;
+        font-weight: normal;
+    }
+    .sub-menu .sub-menu .sub-menu li:hover>a {
+        color: #fff;
+    }
+    .mb-navigation {
+        position: relative;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .menu-wrapper .container {
+            padding: 0;
+        }        
+        .menu-wrapper .row {
+            margin: 0;
+        }
+    }
+    .mb-navigation .menu-list {
+        height: 100%;
+        display: block !important;
+    }
+    .mb-navigation .menu-list > li {
+        width: 240px;
+        display: block;
+        float: none;
+        border-right: none;
+        background-color: transparent;
+        position: relative;
+        text-align: left;
+        white-space: inherit;
+    }
+    .mb-navigation .menu-list > li > a::before {
+        opacity: 0;
+    }
+    .mb-navigation .menu-list > li > a::after {
+        position: relative;
+        content: "";
+    }
+    .mb-navigation .menu-list > li > a {
+        padding: 9px 32px 9px 17px;
+        font-size: 15px;
+        letter-spacing: 0.010em;
+        border-right: solid 0px;
+        background-color: transparent;
+        line-height: 25px;
+        border-bottom: 1px solid $color__border-two;
+        position: static;
+        text-transform: uppercase;
+        color: #505050;
+    }
+    .sub-menu {
+        transform: none !important;
+        opacity: 1 !important;
+        display: none;
+        position: relative !important;
+        top: 0px;
+        background-color: $color__white;
+        border: 0 none;
+        padding: 0px;
+        visibility: visible !important;
+    }
+    .sub-menu .sub-menu li a {
+        line-height: 20px;
+        font-size: 14px !important;
+    }
+    .sub-menu li .sub-menu li a {
+        padding-left: 28px;
+    }
+    .sub-menu .sub-menu li a,
+    .sub-menu .sub-menu .sub-menu li a {
+        padding-left: 38px !important;
+    }
+    .sub-menu li .sub-menu .sub-menu {
+        padding-left: 38px;
+    }
+    .sub-menu .fa {
+        margin-right: 0;
+    }
+    .mrginleft {
+        margin-left: 240px;
+        @include prefixed(transition,all 0.4s ease-in-out);
+    }
+    .mb-navigation {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        padding: 0;
+        top: 0;
+        margin: 0;
+        z-index: 1000;
+        @include prefixed(transition,all 0.4s ease-in-out);
+        border: none !important;
+        background-color: $color__white !important;
+    }
+   /*Nav Expanding Open Effect*/
+    .mb-navigation.menuopen {
+        width: 240px;
+        @include prefixed(transition,all 0.4s ease-in-out);
+    }
+    .mb-navigation.menuclose {
+        @include prefixed(transition,all 0.4s ease-in-out);
+    }
+    .menucontent {
+        z-index: 100;
+    }
+    /* Navigation arrow Animation */
+    .animated-arrow {
+        // position: absolute;
+        // right: 0;
+        // left: 0;
+        // width: 25px;
+        // height: 25px;
+        // top: 0;
+        // bottom: 0;
+        z-index: 200;
+        @include prefixed(transition,all 0.4s ease-in-out);
+    }
+    .animated-arrow {
+        cursor: pointer;
+        //padding: 5px 0 16px 0;
+        padding: 35px 15px;
+        display: block;
+    }
+    .animated-arrow.menuopen {
+        position: fixed;
+    }
+    .animated-arrow span,
+    .animated-arrow span:before,
+    .animated-arrow span:after {
+        cursor: pointer;
+        height: 3px;
+        width: 25px;
+        background: $color__menu-text;
+        position: absolute;
+        display: block;
+        content: '';
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .animated-arrow span:before {
+        top: -7px;
+    }
+    .animated-arrow span:after {
+        bottom: -7px;
+    }
+    .animated-arrow span,
+    .animated-arrow span:before,
+    .animated-arrow span:after { 
+        @include prefixed(transition,all 500ms ease-in-out);
+    }
+    .animated-arrow.menuopen span {
+        background-color: transparent;
+    }
+    .animated-arrow.menuopen span:before,
+    .animated-arrow.menuopen span:after {
+       background: $color__border-three; 
+    }
+    .animated-arrow.menuopen span:before,
+    .animated-arrow.menuopen span:after {
+        top: 13px;
+    }
+    .animated-arrow.menuopen span:before {
+        @include prefixed(transform,rotate(45deg));
+        bottom: 0;
+    }
+    .animated-arrow.menuopen span:after {
+        @include prefixed(transform,rotate(-45deg));
+        bottom: 0;
+    }
+    /*Animation None */
+    .menu-list li > .sub-menu,
+    .menu-list li:hover > .sub-menu {
+        @include prefixed(transform, none !important);
+        visibility: visible !important;
+    }
+    .sub-menu li:hover > .sub-menu {
+        @include prefixed(transform, none !important);
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .menuexpandermain .menuopen {
+        left: 16em !important;
+        top: 1em !important;
+    }
+}
+
+/*--------------------------------------------------------------
+# Pagination Responsive
+--------------------------------------------------------------*/
+@media only screen and (max-width: 991px) {
+    .paging-navigation {
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 590px) {
+    .paging-navigation {
+        .nav-links {
+            li {
+                display: none;
+            }   
+            li:first-child.nav-previous,    
+            li:last-child.nav-next {
+                display: block;
+            }
+            li:first-child.nav-previous {
+                float: left;
+                margin-left: 60px;
+            }
+            li:last-child.nav-next {
+                float: right;
+                margin-right: 60px;
+            }   
+        }       
+    }
+}

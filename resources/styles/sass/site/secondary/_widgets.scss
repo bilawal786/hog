@@ -1,0 +1,159 @@
+.widget {
+	overflow: hidden;
+	&:last-child {
+		border-bottom: none;
+	}
+	select {
+		width: 100%;
+		border: 1px solid $color__border-one;
+		padding: 0.4em 0.8em;
+		outline: none;
+	}
+	ul, ol {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.widget-title-area {
+		position: relative;
+	}
+	.widget-title {
+		margin-top: 0;
+	}
+	pre {
+		padding: 0.5em
+	}
+	label {
+		margin-bottom: 0;
+		display: inline;
+	}
+	option {
+		padding: 0.2em 1em;
+	}
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"],
+	textarea {
+		padding: 0.5em 1em;
+		&:focus {
+		 	box-shadow: none !important;
+		}
+	}
+}
+.widget .expand-margin.widget-title {
+	cursor: pointer;
+}
+.widget .expand-margin.widget-title:after{
+    content: "\f067";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 50px;
+    line-height: 28px;
+}
+.widget .expand-margin.expand.widget-title:after{
+    content: "\f068";
+}
+
+.blog-content-right {
+	padding: 30px;
+	.widget {
+	    margin-bottom: 45px;
+	    &:last-of-type {
+	    	margin-bottom: 0;
+	    }
+	}
+	.widget .widget-title {
+		font-size: 24px;
+		margin-bottom: 25px;
+		font-weight: 800;
+		border-bottom: 0 none;
+		padding-bottom: 0;
+		color: $color_yellow;
+	}
+
+}
+.blog-block {
+	.blog-content-right {
+		@media only screen and (max-width: 992px) {
+			margin-bottom: -102px;
+			margin-top: 30px;
+		}
+	}
+}
+body.single {
+	.blog-content-right {
+		@media only screen and (max-width: 992px) {
+			margin-bottom: -60px;
+		}
+	}
+}
+
+.footer-area {
+	.widget {
+		background: transparent;
+	}
+}
+.yellow-color {
+	.button {
+		background-color: $color_yellow;
+	}
+	
+	&.widget.widget_place_category ul li a {
+		color: $color_yellow;
+	}
+}
+.nevy-color {
+	.button {
+		background: $color_nevy;
+	}
+	
+	&.widget.widget_place_category ul li a {
+		color: $color_nevy;
+	}
+}
+
+.widget.apartments_ads {
+	padding: 0;
+}
+.widget-top {
+	margin-top: 6px;	
+}
+
+.footer-block {
+	 .widget .widget-title {
+		font-size: 24px;
+		padding-bottom: 0px;
+		margin-bottom: 30px;
+		font-weight: 800;
+		border-left: 5px solid;
+		padding-left: 15px;
+		letter-spacing: 0.020em;
+	}
+}
+
+
+
+.widget_hot_contact {
+	ul {
+		li {
+			line-height: 35px;
+			a {
+
+				color:$color__whisper;
+			}
+			i {
+				color:$color_yellow;
+				margin-right: 15px;
+			}
+		}
+	}
+	
+}

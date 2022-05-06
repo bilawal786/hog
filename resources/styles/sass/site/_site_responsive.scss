@@ -1,0 +1,38 @@
+/*--------------------------------------------------------------
+# Comment and Contact Form Responsive
+--------------------------------------------------------------*/
+@media only screen and (max-width: 991px) {
+	#contact_form {
+		.form-submit {
+			margin-bottom: 0;
+		}
+	}
+	.comment-respond .pd-right {
+		padding-right: 15px;
+	}
+	.comment-respond .pd-left {
+		padding-left: 15px;
+	}
+	.contact-respond {
+		.padding-right {
+			padding-right: 0;
+			padding-left: 0;
+		}
+		.padding-left-right {
+			padding-right: 0;
+			padding-left: 0;
+		}
+		.padding-left {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	#contact-form-wrap .col-md-12 {
+		padding: 0;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.children {
+		margin-left: 40px !important;
+	}
+}

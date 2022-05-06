@@ -1,0 +1,375 @@
+.check-vehicle-block {
+	padding: 96px 0 103px;
+	position: relative;
+	@media only screen and (max-width: 992px) {
+		padding: 45px 0 45px;
+	}
+	&:before {
+		content: "";
+		background: #2C2C2C;
+		width: 32.333333%;
+		height: 100%;
+		position: absolute;
+		z-index: 0;
+		left: 0;
+		bottom: 0;
+		top: 0;
+		right: 0;
+		@media only screen and (min-width: 1500px) {
+			width: 35.333333%;
+		}
+		@media only screen and (min-width: 2300px) {
+			width: 40.333333%;
+		}
+		@media only screen and (max-width: 992px) {
+			width: 100%;
+		}
+	}
+	&.style-two {
+		border-bottom: 1px solid #ebebeb;
+		&:before {
+			background: #f5f5f5;
+		}
+		.top-subtitle {
+			color: #6d6d6d;
+		}
+		.subtitle {
+			color: #262626;
+			font-weight: 600;
+		}
+		.advance-search-query {
+			label {
+				color: $color__black;
+				font-weight: 600;
+			}
+			input, select {
+				background-color: #232c3b;
+				border-color: #232c3b;
+				color: $color__meta;
+			}
+			button {
+				color: #fff;
+			}
+			.advanced-search {
+				.fa-search {
+					color:$color__red;
+				}
+				a {
+					color: $color__black;
+				}
+			}
+		}
+	}
+	&.check-boxshadow {
+		padding: 0;
+		@media only screen and (max-width: 992px) {
+			z-index: 0;
+		}
+		&:before {
+			background: transparent;
+		}
+		.container {
+			box-shadow: 0px 0 12px rgba(0,0,0,0.15);
+			z-index: 100;
+			position: relative;
+			padding: 60px;
+			margin-top: -49px;
+			background: $color__white;
+			@media only screen and (max-width: 767px) {
+				margin-top: 0;
+				padding: 30px;
+			}
+		}
+	}
+	&.style-three {
+		&:before {
+			background: #f5f5f5;
+		}
+		.advance-search-query label {
+			color: #454545;
+			font-weight: 600;
+		}
+		.input input, 
+		.input select {
+			border-color: #e7e7e7;
+			background: $color__white;
+		}
+		.check-vehicle-footer {
+			text-align: center;
+			margin-top: 30px;
+		}
+		.check-vehicle-footer button {
+			float: none;
+			padding: 15px 50px;
+		}
+	}
+}
+.check-content {
+	.top-subtitle {
+		font-size: 20px;
+		color:$color__grey; 
+		font-weight: 700;
+	}
+	.title {
+		font-size: 45px;
+		margin-bottom: 0;
+		margin-top: 0;
+		font-weight: 900;
+		font-family: $font_heading_one;
+		line-height: 50px;
+	}
+	.subtitle {
+		font-size: 20px;
+		color: $color__whisper;
+		font-weight: normal;
+		position: relative;
+		margin-left: 20px;
+		font-family: inherit;
+		&:before  {
+			position: absolute;
+			content: "";
+			width: 10px;
+			height: 10px;
+			background-color: #E91E22;
+			left: -20px;
+			top: 10px;
+			border-radius: 50%;
+		}
+		&:after {
+			position: absolute;
+			content: "";
+			width: 10px;
+			height: 10px;
+			background-color: #E91E22;
+			top: 10px;
+		    border-radius: 50%;
+		    margin-left: 15px;
+		}
+	}
+	@media only screen and (max-width: 767px) {
+		margin-bottom: 30px;
+	}
+}
+.input-night-rider .input {
+	background: #2C2C2C !important;
+	input, select {
+		background-color: transparent;
+		margin-bottom: 0;
+		color: $color__meta;
+		border: 1px solid $color__border-charcoal;
+	}
+}
+.advance-search-query  {
+	label {
+		color: $color__whisper;
+		font-weight: 500;
+		font-size: 14px;
+		letter-spacing: 0.025em;
+	}
+	&.check-vehicle-two {
+		label {
+			color: $color_text_main;
+			font-weight: 600;
+		}
+	}
+	.advance-search {
+		display: none;
+	}
+	&.blue-theme {
+		.button {
+			color: $color__white;
+		}
+	}
+	.form-group .input {
+		margin-bottom: 0;
+		input {
+			height: 48px;
+		}
+	}
+}
+
+.check-vehicle-footer {
+	position: relative;
+	.advanced-search {
+		font-weight: 600;
+		float: left;
+		margin-top: 10px;
+		@media only screen and (max-width: 767px) {
+			float: none;
+			display: block;
+			text-align: center;
+		}
+		.fa-search {
+			margin-left: 15px;
+			margin-right: 10px;
+			@media only screen and (max-width: 767px) {
+				margin-left: 0;
+			}
+		}
+	}
+	button {
+		margin-right: 15px;
+		float: right;
+		color: $color_text_main;
+		font-family: $font_heading_one;
+		font-weight: 900;
+		font-size: 16px;
+		letter-spacing: 0.035em;
+		padding: 15px 60px;
+		text-transform: uppercase;
+		@media only screen and (max-width: 767px) {
+			float: none;
+			display: table;
+			text-align: center;
+			margin: 15px auto 0;
+		}
+	}
+	&.text-center {
+		text-align: center;
+		margin-left: 85px;
+		@media only screen and (max-width: 767px) {
+			margin-left: 0 !important;
+		}
+		button {
+			float: none;
+			color: $color_text_main;
+		}
+		.advanced-search {
+			float: right;
+			a {
+				@media only screen and (max-width: 767px) {
+					float: none;
+					font-size: 16px;
+					line-height: 23px;
+				}
+			}
+		}
+	}
+}
+.advance-search-query {
+	.check-vehicle-footer {
+
+	}
+}
+.after-image {
+	position: relative;	
+	&:after {
+		//background-image: url(../images/border-image.png);
+	    width: 100%;
+	    content: "";
+	    padding: 5px;
+	    position: absolute;
+	    bottom: 0px;
+	    left: 0;
+	}
+}
+.before-image {
+	position: relative;	
+	&:after {
+		//background-image: url(../images/border-image.png);
+		width: 41%;
+		content: "";
+		padding: 5px;
+		position: absolute;
+		top: -10px;
+		left: 0;
+	}
+}
+.check-vehicle-one {
+	input {
+		background-color:#2C2C2C;
+	}
+}
+/* --------page-02--------- */
+.check-vehicle-two {
+	input, select {
+		background-color: #fff;
+		border-color: #E7E7E7;
+		color: $color__meta;
+	}
+
+	button {
+		font-size: 16px;
+	    font-weight: 800;
+	    text-transform: uppercase;
+	}
+	.color-black.white-color {
+		text-transform: capitalize;
+		font-size: 14px;
+	}
+}
+
+
+/* --------page-05--------- */
+.check-vehicle-block.check-boxshadow {
+	.subtitle {
+		color: $color_Matterhorn;
+	}
+	.color-icon {
+		i {
+			color:$color_blue;
+		}
+	}
+}
+
+/* --------page-05--------- */
+.form-group.small {
+	position: relative;
+	input {
+		width: 46%;
+		float: left;
+	}
+	.min {
+		margin-right: 15px;
+		background: none;
+	}
+	.max {
+		background: none;
+	}
+	&:after {
+		position: absolute;
+	    content: "";
+	    background-color: #000;
+	    width: 10px;
+	    height: 1px;
+	    z-index: 999;
+	    right: 0;
+	    bottom: -31px;
+	    left: -3px;
+	    margin: auto;
+	}
+}
+
+.check-default-style {
+	.top-subtitle {
+		color: inherit;
+	}
+	.title {
+		font-size: 40px;
+	}
+	.advance-search-query.check-vehicle-three {
+		.input{
+			i {
+				color: $color_yellow;
+			}
+			input {
+				margin-bottom: 10px;
+			}
+		}
+	}
+	.check-vehicle-footer {
+		margin: auto;
+		display: table;
+		padding-top: 50px;
+		button {
+			float: none;
+			text-align: center;
+		}
+		.advanced-search {
+			float: none;
+			position: relative;
+			left: -10px;
+			top: 5px;
+		}
+	}
+}
