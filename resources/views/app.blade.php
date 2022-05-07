@@ -45,22 +45,45 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/revolution/css/layers.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/revolution/css/navigation.css') }}">
     <link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet" />
-    
+    <style>
+        .header-nav-area {
+            background-color: black;
+        }
+        .header-nav-area .site-logo {
+            padding: 0px 0;
+        }
+        .top-navigation .menu-list > li > a {
+            color: #959586;
+        }
+        .bg-nero {
+            background-color: #000000;
+        }
+        .header-top-area .header-top-menu li a {
+            color: #cd9700;
+        }
+        .top-navigation .menu-list > li > a {
+            padding: 27px 36px;
+            font-size: 18px;
+        }
+        .header-content-right .header-top-menu li a {
+            text-transform: lowercase;
+        }
+    </style>
 </head>
 
 <body>
 
 <div id="app"></div>
-      
+
     <!-- All The JS Files
-    ================================================== --> 
+    ================================================== -->
     <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
     <script src="{{ asset('assets/js/carrent.min.js') }}"></script> <!-- main-js -->
 
     <!-- RS5.4 Core JS Files -->
     <script src="{{ asset('assets/revolution/js/jquery.themepunch.tools.min.js') }}"></script>
     <script src="{{ asset('assets/revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
-  
+
     <script>
         jQuery(document).ready(function() {
             var $sliderSelector = jQuery(".carrent-slider");

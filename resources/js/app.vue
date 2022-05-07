@@ -1,23 +1,12 @@
 <template>
-    <div>       <!-- ====== Header Top Area ====== --> 
+    <div>       <!-- ====== Header Top Area ====== -->
     <header class="header-top-area bg-nero">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-sm-7 hidden-xs">
                     <div class="header-content-left">
                         <ul class="header-top-menu">
-                            <li>
-                                <a href="#" class="top-left-menu">
-                                    <i class="fa fa-phone"></i>
-                                    <span>Call Us - 01623 030020</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="top-left-menu">
-                                    <i class="fa fa-envelope"></i>
-                                    <span>example@domain.com</span>
-                                </a>                                 
-                            </li>
+
                         </ul><!-- /.header-top-menu -->
                     </div><!-- /.header-content-left -->
                 </div><!-- /.col-md-9 -->
@@ -26,8 +15,15 @@
                     <div class="header-content-right">
                         <ul class="header-top-menu">
                             <li>
-                                <a href="#" class="search-open">
-                                    <i class="fa fa-search"></i>
+                                <a href="tel:+19167406447" class="top-left-menu">
+                                    <i class="fa fa-phone"></i>
+                                    <span>(916) 740-6447</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:contact@heartofgoldmedtransport.com" class="top-left-menu">
+                                    <i class="fa fa-envelope"></i>
+                                    <span>contact@heartofgoldmedtransport.com</span>
                                 </a>
                             </li>
                             <li>
@@ -48,7 +44,7 @@
             <div class="overlay__content">
                 <form id="search-form" class="search-form outer" action="#" method="post">
                     <div class="input-group">
-                        <input type="text" class=" input--full" placeholder="search text here ..."> 
+                        <input type="text" class=" input--full" placeholder="search text here ...">
                     </div>
                     <button class="btn text-uppercase search-button">Search</button>
                 </form>
@@ -58,9 +54,9 @@
         <div class="overlay-sidebar">
             <div class="author-area">
                 <a href="#" class="closebtn">&times;</a>
-                <div class="author-area-content">                
-                    <div class="login-author">   
-                        <div class="author-info">                    
+                <div class="author-area-content">
+                    <div class="login-author">
+                        <div class="author-info">
                             <div class="author-image yellow-border">
                                 <img src="assets/images/driver/driver-03.png" alt="author-image" />
                             </div><!-- /.author-image -->
@@ -68,7 +64,7 @@
                                 <h4 class="author-name">Mr. Johan Smith</h4>
                                 <p class="author-description">Programmer</p>
                             </div><!-- /.author-des -->
-                        </div><!-- /.author-info -->             
+                        </div><!-- /.author-info -->
                         <div class="author-menu">
                             <ul class="yellow-color">
                                 <li><a href=""><i class="fa fa-user-circle-o"></i>Author Dashboard</a></li>
@@ -87,13 +83,13 @@
         </div><!-- /.overlay-sidebar -->
     </div><!-- /.header-modal-area -->
 
-    <!-- ====== Header Nav Area ====== --> 
+    <!-- ====== Header Nav Area ====== -->
     <header class="header-nav-area">
-        <div class="container">        
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3 col-sm-10 col-xs-10">
                     <div class="site-logo">
-                        <a href="index.html"><img src="assets/images/car-logo.png" alt="logo" /></a>
+                        <a href="index.html"><img style="margin-top: -40px" src="assets/images/heart-of-gold.png" alt="logo" /></a>
                     </div><!-- /.logo -->
                 </div><!-- /.col-md-3 -->
                 <div class="col-md-9 col-sm-2 col-xs-2 pd-right-0">
@@ -118,7 +114,7 @@
                                     </li>
                                 </ul> <!-- /.menu-list -->
                             </div> <!-- /.menu-content-->
-                        </div> <!-- /.menu-wrapper --> 
+                        </div> <!-- /.menu-wrapper -->
                     </nav><!-- /.site-navigation -->
                     <!--Mobile Main Menu-->
                     <div class="mobile-menu-main hidden-md hidden-lg">
@@ -144,12 +140,12 @@
     <footer class="footer-block bg-black" style="background-image: url(assets/images/footer-bg.png);">
         <div class="container">
             <!-- footer-top-block -->
-            <div class="footer-top-block yellow-theme">            
+            <div class="footer-top-block yellow-theme">
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
-                        <div class="widget widget_about">    
+                        <div class="widget widget_about">
                             <h3 class="widget-title">
-                                About us 
+                                About us
                             </h3><!-- /.widget-title -->
                             <div class="widget-about-content">
                                 <img src="assets/images/car-logo.png" alt="logo" />
@@ -170,20 +166,20 @@
                                 <li><a href="#">Contact page</a></li>
                                 <li><a href="#">Reviews</a></li>
                                 <li><a href="#"> Booking</a></li>
-                            </ul> 
+                            </ul>
                         </div><!-- /.widget -->
                     </div><!-- /.col-md-3 -->
 
                     <div class="col-md-3 col-sm-6">
                         <div class="widget widget_hot_contact">
                             <h3 class="widget-title">
-                                Hot contact 
+                                Hot contact
                             </h3><!-- /.widget-title -->
                             <ul>
                                 <li><a href="#"><i class="fa fa-envelope"></i>example@domain.com</a></li>
                                 <li><a href="#"><i class="fa fa-phone"></i>(+880)023985471</a></li>
                                 <li><a href="#"><i class="fa fa-map-marker"></i>Road 8A, 112/B, Australia</a></li>
-                            </ul> 
+                            </ul>
                         </div><!-- /.widget -->
                         <div class="widget widget_newsletter">
                             <h3 class="widget-title">Subscribe</h3>
@@ -204,7 +200,7 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="widget widget_photo_gallery">
                             <h3 class="widget-title">
-                                Photo Gallery  
+                                Photo Gallery
                             </h3><!-- /.widget-title -->
                             <ul class="photo-gallery-content">
                                 <li>
@@ -259,7 +255,7 @@
             </div><!-- /.footer-top-block -->
 
             <!-- footer-bottom-block -->
-            <div class="footer-bottom-block">            
+            <div class="footer-bottom-block">
                 <div class="row">
                      <div class="col-md-9">
                         <div class="bottom-content-left">
@@ -283,10 +279,10 @@
     </footer><!-- /.footer-block -->
     </div>
 </template>
- 
+
 <script>
     export default {}
 </script>
 <style lang="scss" scoped>
  //   @import "../styles/sass/style.scss";
-</style> 
+</style>
