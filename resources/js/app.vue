@@ -279,9 +279,65 @@
     </footer><!-- /.footer-block -->
     </div>
 </template>
-
 <script>
-    export default {}
+
+    export default {
+        mounted () {
+            const plugin = document.createElement("script");
+            plugin.setAttribute(
+            "src",
+            "assets/js/plugins.min.js"
+            );
+            plugin.async = true;
+            document.head.appendChild(plugin);
+
+            jQuery(document).ready(function() {
+            var $sliderSelector = jQuery(".carrent-slider");
+            $sliderSelector.revolution({
+                sliderType: "standard",
+                sliderLayout: "fullwidth",
+                delay: 9000,
+                navigation: {
+                    keyboardNavigation: "on",
+                    keyboard_direction: "horizontal",
+                    mouseScrollNavigation: "off",
+                    onHoverStop: "on",
+                    touch: {
+                        touchenabled: "on",
+                        swipe_threshold: 75,
+                        swipe_min_touches: 1,
+                        swipe_direction: "horizontal",
+                        drag_block_vertical: false
+                    },
+                    arrows: {
+                        style: "gyges",
+                        enable: true,
+                        hide_onmobile: false,
+                        hide_onleave: true,
+                        tmp: '',
+                        left: {
+                            h_align: "left",
+                            v_align: "center",
+                            h_offset: 10,
+                            v_offset: 0
+                        },
+                        right: {
+                            h_align: "right",
+                            v_align: "center",
+                            h_offset: 10,
+                            v_offset: 0
+                        }
+                    }
+                },
+                responsiveLevels:[1400,1368,992,480],
+                visibilityLevels:[1400,1368,992,480],
+                gridwidth:[1400,1368,992,480],
+                gridheight:[600,600,500,380],
+                disableProgressBar:"on"
+            });
+        });
+        }
+    }
 </script>
 <style lang="scss" scoped>
  //   @import "../styles/sass/style.scss";
