@@ -2872,6 +2872,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -42807,7 +42811,7 @@ var render = function () {
       _vm._m(1),
       _vm._v(" "),
       _c("header", { staticClass: "header-nav-area" }, [
-        _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
             _vm._m(2),
             _vm._v(" "),
@@ -42903,11 +42907,35 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("header", { staticClass: "header-top-area bg-nero" }, [
-      _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-6 col-sm-7 hidden-xs" }, [
             _c("div", { staticClass: "header-content-left" }, [
-              _c("ul", { staticClass: "header-top-menu" }),
+              _c("ul", { staticClass: "header-top-menu" }, [
+                _c("li", [
+                  _c(
+                    "a",
+                    { staticClass: "top-left-menu", attrs: { href: "#" } },
+                    [
+                      _c("i", { staticClass: "fa fa-phone" }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Call Us - 01623 030020")]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    { staticClass: "top-left-menu", attrs: { href: "#" } },
+                    [
+                      _c("i", { staticClass: "fa fa-envelope" }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("example@domain.com")]),
+                    ]
+                  ),
+                ]),
+              ]),
             ]),
           ]),
           _vm._v(" "),
@@ -42917,34 +42945,8 @@ var staticRenderFns = [
                 _c("li", [
                   _c(
                     "a",
-                    {
-                      staticClass: "top-left-menu",
-                      attrs: { href: "tel:+19167406447" },
-                    },
-                    [
-                      _c("i", { staticClass: "fa fa-phone" }),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("(916) 740-6447")]),
-                    ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "top-left-menu",
-                      attrs: {
-                        href: "mailto:contact@heartofgoldmedtransport.com",
-                      },
-                    },
-                    [
-                      _c("i", { staticClass: "fa fa-envelope" }),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v("contact@heartofgoldmedtransport.com"),
-                      ]),
-                    ]
+                    { staticClass: "search-open", attrs: { href: "#" } },
+                    [_c("i", { staticClass: "fa fa-search" })]
                   ),
                 ]),
                 _vm._v(" "),
@@ -43101,8 +43103,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "site-logo" }, [
         _c("a", { attrs: { href: "index.html" } }, [
           _c("img", {
-            staticStyle: { "margin-top": "-40px" },
-            attrs: { src: "assets/images/heart-of-gold.png", alt: "logo" },
+            attrs: { src: "assets/images/car-logo.png", alt: "logo" },
           }),
         ]),
       ]),
@@ -43161,7 +43162,7 @@ var staticRenderFns = [
                 _c("div", { staticClass: "widget widget_about" }, [
                   _c("h3", { staticClass: "widget-title" }, [
                     _vm._v(
-                      "\n                               About us\n                           "
+                      "\n                               About us \n                           "
                     ),
                   ]),
                   _vm._v(" "),
@@ -43225,7 +43226,7 @@ var staticRenderFns = [
                 _c("div", { staticClass: "widget widget_hot_contact" }, [
                   _c("h3", { staticClass: "widget-title" }, [
                     _vm._v(
-                      "\n                               Hot contact\n                           "
+                      "\n                               Hot contact \n                           "
                     ),
                   ]),
                   _vm._v(" "),
@@ -43297,7 +43298,7 @@ var staticRenderFns = [
                 _c("div", { staticClass: "widget widget_photo_gallery" }, [
                   _c("h3", { staticClass: "widget-title" }, [
                     _vm._v(
-                      "\n                               Photo Gallery\n                           "
+                      "\n                               Photo Gallery  \n                           "
                     ),
                   ]),
                   _vm._v(" "),
