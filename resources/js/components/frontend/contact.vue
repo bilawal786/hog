@@ -4,13 +4,13 @@
     <div class="page-header nevy-bg">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">                
+                <div class="col-md-12">
                     <h2 class="page-title">Contact</h2>
-                    <p class="page-description yellow-color">Contact With Us</p>        
+                    <p class="page-description yellow-color">Contact With Us</p>
                 </div><!-- /.col-md-12 -->
             </div><!-- /.row-->
-        </div><!-- /.container-fluid -->           
-    </div><!-- /.page-header --> 
+        </div><!-- /.container-fluid -->
+    </div><!-- /.page-header -->
 
     <!-- ====== Page Header ====== -->
     <div class="contact-us-area mr-top-60">
@@ -18,14 +18,14 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="contact-us-content-right">
-                        <form action="#">    
+                        <form action="#">
                             <i class="fa fa-paper-plane" aria-hidden="true"></i>
                             <div class="input-content clearfix">
                                 <h3 class="from-title">Send a message</h3>
                                 <p>What is the reason you need to contact us today?</p>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                                                          
+
                                         <select class="form-section">
                                             <option value="1" selected="selected">Intermediate</option>
                                             <option value="2">Compact</option>
@@ -33,7 +33,7 @@
                                             <option value="4">SUV</option>
                                             <option value="5">Minibus</option>
                                         </select>
-                                   
+
                                     </div>
                                     </div>
                                 <div class="row">
@@ -67,7 +67,7 @@
                                                 <label for="no" class="form-radio-lable">No</label>
                                             </span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="form-text">Is this a round trip request?</p>
@@ -87,7 +87,7 @@
                                                 <label for="no" class="form-radio-lable">No</label>
                                             </span>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="row">
@@ -145,8 +145,8 @@
 
                     </div><!-- /.contactus-content-left -->
                 </div><!-- /.col-md-4 -->
-                
-                
+
+
             </div><!-- /.row -->
         </div><!-- /.container -->
     </div><!-- /.contact-us -->
@@ -160,15 +160,15 @@
 </template>
 <script>
 
-import datetime from 'vuejs-datetimepicker';
-
-export default {
-  
-    components: { datetime },
-    methods: {
-       
-  }
-};
+// import datetime from 'vuejs-datetimepicker';
+//
+// export default {
+//
+//     components: { datetime },
+//     methods: {
+//
+//   }
+// };
 </script>
 
 
