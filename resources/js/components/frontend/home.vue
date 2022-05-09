@@ -210,13 +210,6 @@
 
 export default {
     mounted() {
-        const plugin = document.createElement("script");
-        plugin.setAttribute(
-            "src",
-            "assets/js/plugins.min.js"
-        );
-        plugin.async = true;
-        document.head.appendChild(plugin);
 
         jQuery(document).ready(function () {
             var $sliderSelector = jQuery(".carrent-slider");
