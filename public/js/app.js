@@ -2806,121 +2806,550 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    var plugin = document.createElement("script");
-    plugin.setAttribute("src", "assets/js/plugins.min.js");
-    plugin.async = true;
-    document.head.appendChild(plugin);
-    jQuery(document).ready(function () {
-      var $sliderSelector = jQuery(".carrent-slider");
-      $sliderSelector.revolution({
-        sliderType: "standard",
-        sliderLayout: "fullwidth",
-        delay: 9000,
-        navigation: {
-          keyboardNavigation: "on",
-          keyboard_direction: "horizontal",
-          mouseScrollNavigation: "off",
-          onHoverStop: "on",
-          touch: {
-            touchenabled: "on",
-            swipe_threshold: 75,
-            swipe_min_touches: 1,
-            swipe_direction: "horizontal",
-            drag_block_vertical: false
-          },
-          arrows: {
-            style: "gyges",
-            enable: true,
-            hide_onmobile: false,
-            hide_onleave: true,
-            tmp: '',
-            left: {
-              h_align: "left",
-              v_align: "center",
-              h_offset: 10,
-              v_offset: 0
-            },
-            right: {
-              h_align: "right",
-              v_align: "center",
-              h_offset: 10,
-              v_offset: 0
+    var modelApp = {
+      /* ---------------------------------------------
+       Menu
+       --------------------------------------------- */
+      menu: function menu() {
+        var $combinedmenu = $(".site-navigation .menu-list").clone();
+        $combinedmenu.appendTo("#mobile-main-nav #main-mobile-container");
+        var $submenu = $(".sub-menu"),
+            $hasSubmenu = $(".menu-list li").has(".sub-menu"),
+            $subMenuMark = $("<span class='fa fa-angle-down'></span>"),
+            $mobileNavClass = $("#main-mobile-container .main-navigation"),
+            $mobileOverlay = $(".mobile-menu-main .menucontent.overlaybg, .mobile-menu-main .slideLeft"),
+            $mobileNavContent = $('.mobile-menu-main .menucontent'),
+            $mobileNavBar = $('#navtoggole-main');
+
+        if ($hasSubmenu) {
+          $submenu.prev().append($subMenuMark);
+        } // Main Navigation Mobile
+        // --------------------------------
+
+
+        $mobileNavClass.addClass('slideLeft');
+
+        var menuopen_main = function menuopen_main() {
+          $mobileOverlay.removeClass('menuclose').addClass('menuopen');
+        },
+            menuclose_main = function menuclose_main() {
+          $mobileOverlay.removeClass('menuopen').addClass('menuclose');
+        };
+
+        $mobileNavBar.on('click', function () {
+          if ($mobileNavContent.hasClass('menuopen')) {
+            $(menuclose_main);
+          } else {
+            $(menuopen_main);
+          }
+        });
+        $mobileNavContent.on('click', function () {
+          if ($mobileNavContent.hasClass('menuopen')) {
+            $(menuclose_main);
+          }
+        }); // Sub Menu
+        // --------------------------------
+
+        $hasSubmenu.prepend("<span class='menu-click'><i class='menu-arrow fa fa-plus'></i></span>");
+        var $menuMobile = $(".menu-mobile"),
+            $menuWrap = $(".menu-list");
+        $menuMobile.on("click", function () {
+          $menuWrap.slideToggle("slow");
+        });
+        var $mobileSubMenuOpen = $(".menu-click");
+        $mobileSubMenuOpen.on("click", function () {
+          var $self = $(this);
+          $self.siblings(".sub-menu").slideToggle("slow");
+          $self.children(".menu-arrow").toggleClass("menu-extend");
+        });
+        var $navRightIssue = $(".navigation .mainmenu li");
+        $navRightIssue.on("mouseenter mouseleave", function (e) {
+          var $self = $(this);
+
+          if ($("ul", $self).length) {
+            var elm = $("ul:first", $self),
+                off = elm.offset(),
+                l = off.left,
+                w = elm.width(),
+                docW = $(".header-bottom > .container").width(),
+                isEntirelyVisible = l + w <= docW;
+
+            if (!isEntirelyVisible) {
+              $self.addClass("right-side-menu");
+            } else {
+              $self.removeClass("right-side-menu");
             }
           }
-        },
-        responsiveLevels: [1400, 1368, 992, 480],
-        visibilityLevels: [1400, 1368, 992, 480],
-        gridwidth: [1400, 1368, 992, 480],
-        gridheight: [600, 600, 500, 380],
-        disableProgressBar: "on"
-      });
+        });
+        var $mbHeaderTop = $('.header-top-menu li a');
+        $mbHeaderTop.on('click', function () {
+          $(this).next('ul').slideToggle('slow');
+          return false;
+        });
+        var $slimeScrollSelector = $(".mb-navigation .menu-wrapper, .author-area-content");
+        $slimeScrollSelector.slimscroll({
+          height: '100%',
+          size: '5px'
+        });
+      },
+
+      /* ---------------------------------------------
+      slider_style_two
+       --------------------------------------------- */
+      slider_style_two: function slider_style_two() {
+        var $mainSliderTwo = $(".slider-style-two");
+        $mainSliderTwo.each(function () {
+          var $self = $(this);
+          var $sliderItems = $(this).data("item");
+          var $sliderItemsMargin = $(this).data("margin");
+          var $sliderCenterItem = $(this).data("center");
+          $sliderCenterItem == "true" ? true : false;
+          typeof $sliderItemsMargin !== "undefined" ? $sliderItemsMargin : $sliderItemsMargin = 30;
+          $self.owlCarousel({
+            loop: true,
+            items: typeof $sliderItems !== "undefined" ? $sliderItems[0] : 3,
+            margin: $sliderItemsMargin,
+            center: $sliderCenterItem,
+            responsive: {
+              280: {
+                items: typeof $sliderItems !== "undefined" ? $sliderItems[3] : 1
+              },
+              480: {
+                items: typeof $sliderItems !== "undefined" ? $sliderItems[2] : 1
+              },
+              768: {
+                items: typeof $sliderItems !== "undefined" ? $sliderItems[1] : 2
+              },
+              1200: {
+                items: typeof $sliderItems !== "undefined" ? $sliderItems[0] : 3
+              }
+            }
+          });
+          $self.each(function () {
+            var $this = $(this),
+                $next_element = $this.prevAll().find('.block-navigation-area .item-navigation  .next-item'),
+                $previous_element = $this.prevAll().find('.block-navigation-area .item-navigation .previous-item');
+            $next_element.on('click', function (e) {
+              e.preventDefault();
+              $this.trigger('next.owl.carousel');
+            });
+            $previous_element.on('click', function (e) {
+              e.preventDefault();
+              $this.trigger('prev.owl.carousel', [300]);
+            });
+          });
+        });
+      },
+
+      /* ---------------------------------------------
+      brand-slider
+       --------------------------------------------- */
+      brand_slider: function brand_slider() {
+        var $brandSlider = $(".brand-carousel");
+        $brandSlider.owlCarousel({
+          loop: true,
+          margin: 15,
+          responsive: {
+            280: {
+              items: 1
+            },
+            480: {
+              items: 3
+            },
+            768: {
+              items: 4
+            },
+            1200: {
+              items: 7
+            }
+          }
+        });
+        $brandSlider.each(function () {
+          var $this = $(this),
+              $next_element = $this.prevAll().find('.block-navigation-area .item-navigation  .next-item'),
+              $previous_element = $this.prevAll().find('.block-navigation-area .item-navigation .previous-item');
+          $next_element.on('click', function (e) {
+            e.preventDefault();
+            $this.trigger('next.owl.carousel');
+          });
+          $previous_element.on('click', function (e) {
+            e.preventDefault(); // With optional speed parameter
+            // Parameters has to be in square bracket '[]'
+
+            $this.trigger('prev.owl.carousel', [300]);
+          });
+        });
+      },
+
+      /* ---------------------------------------------
+       fun_fects
+       --------------------------------------------- */
+      fun_fects: function fun_fects() {
+        var $countSelector = $(".stat-count");
+
+        if ($countSelector.length) {
+          $countSelector.countTo();
+        }
+      },
+
+      /* ---------------------------------------------
+       Time Count For Coming Soon
+       --------------------------------------------- */
+      time_count: function time_count() {
+        var $selector = $('.commingsoon-count');
+        $selector.each(function () {
+          var $this = $(this),
+              data_year = $this.attr('data-year'),
+              data_month = $this.attr('data-month'),
+              data_day = $this.attr('data-day'),
+              data_hour = $this.attr('data-hour'),
+              data_minutes = $this.attr('data-minutes');
+          $this.syotimer({
+            year: data_year,
+            month: data_month,
+            day: data_day,
+            hour: data_hour,
+            minute: data_minutes
+          });
+        });
+      },
+
+      /* ---------------------------------------------
+       Accordion Panel
+       --------------------------------------------- */
+      accordion: function accordion() {
+        var $panelHeading = $(".panel-heading");
+        $panelHeading.each(function () {
+          if ($(this).next().hasClass('in')) {
+            $(this).children().addClass('menu-extend');
+          }
+
+          $(this).on('click', function (e) {
+            if ($(this).parent().prevAll().children().children().hasClass('menu-extend')) {
+              $(this).parent().prevAll().children().children().removeClass('menu-extend');
+            } else if ($(this).parent().nextAll().children().children().hasClass('menu-extend')) {
+              $(this).parent().nextAll().children().children().removeClass('menu-extend');
+            }
+
+            $(this).children().addClass('menu-extend');
+          });
+        });
+      },
+
+      /* ---------------------------------------------
+      Gallery Style Two Carousel
+      --------------------------------------------- */
+      gallary: function gallary() {
+        var $sync1 = $(".full-view"),
+            $sync2 = $(".list-view"),
+            duration = 300;
+        $sync1.owlCarousel({
+          items: 1,
+          margin: 0,
+          nav: false,
+          owl2row: 'true',
+          owl2rowTarget: 'item'
+        }).on('changed.owl.carousel', function (e) {
+          var syncedPosition = syncPosition(e.item.index);
+
+          if (syncedPosition !== "stayStill") {
+            $sync2.trigger('to.owl.carousel', [syncedPosition, duration, true]);
+          }
+        });
+        $sync2.owlCarousel({
+          margin: 15,
+          items: 6,
+          nav: false,
+          center: false,
+          dots: false,
+          responsive: {
+            280: {
+              items: 2
+            },
+            500: {
+              items: 2
+            },
+            600: {
+              items: 3
+            },
+            800: {
+              items: 4
+            },
+            1000: {
+              items: 6
+            },
+            1200: {
+              items: 6
+            },
+            1400: {
+              items: 6
+            }
+          }
+        }).on('initialized.owl.carousel', function () {
+          addClassCurrent(0);
+        }).on('click', '.owl-item', function () {
+          $sync1.trigger('to.owl.carousel', [$(this).index(), duration, true]);
+        });
+
+        function addClassCurrent(index) {
+          $sync2.find(".owl-item.active").removeClass("current").eq(index).addClass("current");
+        }
+
+        addClassCurrent(0);
+
+        function syncPosition(index) {
+          addClassCurrent(index);
+          var itemsNo = $sync2.find(".owl-item").length;
+          var visibleItemsNo = $sync2.find(".owl-item.active").length;
+
+          if (itemsNo === visibleItemsNo) {
+            return "stayStill";
+          }
+
+          var visibleCurrentIndex = $sync2.find(".owl-item.active").index($sync2.find(".owl-item.current"));
+
+          if (visibleCurrentIndex === 0 && index !== 0) {
+            return index - 1;
+          }
+
+          if (visibleCurrentIndex === visibleItemsNo - 1 && index !== itemsNo - 1) {
+            return index - visibleItemsNo + 2;
+          }
+
+          return "stayStill";
+        }
+      },
+
+      /* ---------------------------------------------
+       Scroll top
+       --------------------------------------------- */
+      scroll_top: function scroll_top() {
+        var $bodyElement = $("body"),
+            $window = $(window),
+            $scrollHtml = $("<a href='#top' id='scroll-top' class='topbutton btn-hide'><span class='glyphicon glyphicon-menu-up'></span></a>");
+        $bodyElement.append($scrollHtml);
+        var $scrolltop = $("#scroll-top");
+        $window.on("scroll", function () {
+          if ($(this).scrollTop() > $(this).height()) {
+            $scrolltop.addClass("btn-show").removeClass("btn-hide");
+          } else {
+            $scrolltop.addClass("btn-hide").removeClass("btn-show");
+          }
+        });
+        var $selectorAnchor = $("a[href='#top']");
+        $selectorAnchor.on("click", function () {
+          $("html, body").animate({
+            scrollTop: 0
+          }, "normal");
+          return false;
+        });
+      },
+
+      /* ---------------------------------------------
+      Date Picker
+      --------------------------------------------- */
+      datePicker: function datePicker() {
+        var $dateSelector = $(".date-selector");
+        var $timeSelector = $(".time-selector");
+        $dateSelector.datetimepicker({
+          yearOffset: 0,
+          lang: 'en',
+          timepicker: false,
+          format: 'd/m/Y',
+          formatDate: 'Y/m/d',
+          minDate: "1"
+        });
+        $timeSelector.datetimepicker({
+          datepicker: false,
+          format: 'H:i',
+          step: 5
+        });
+      },
+
+      /* ---------------------------------------------
+      Search Overlay
+      --------------------------------------------- */
+      searchOverlay: function searchOverlay() {
+        var triggerBttn = $(".search-open"),
+            overlay = $("div.overlay-scale"),
+            closeBttn = $("button.overlay-close");
+        triggerBttn.on("click", function () {
+          overlay.addClass("open");
+          console.log(overlay);
+          return false;
+        });
+        closeBttn.on("click", function () {
+          overlay.removeClass("open");
+          return false;
+        });
+
+        function openNav() {
+          var $authorSelector = $(".author-area");
+          $authorSelector.addClass("open");
+        }
+
+        function closeNav() {
+          var $authorSelector = $(".author-area");
+          $authorSelector.removeClass("open");
+        }
+
+        var $triggerBtn = $(".trigger-overlay");
+        $triggerBtn.on("click", function () {
+          openNav();
+          return false;
+        });
+        var $closeBtn = $(".closebtn");
+        $closeBtn.on("click", function () {
+          closeNav();
+          return false;
+        });
+        $(document).on('click', function (e) {
+          var $authorSelectorDoc = $(".author-area");
+
+          if (!$authorSelectorDoc.is(e.target) && $authorSelectorDoc.has(e.target).length === 0) {
+            $authorSelectorDoc.removeClass("open");
+          }
+        });
+        var $advanceSearchBtn = $(".advanced-search-btn");
+        $advanceSearchBtn.on("click", function () {
+          var $advanceSerachContainer = $(".advance-search");
+          $advanceSerachContainer.slideToggle();
+          return false;
+        });
+      },
+
+      /* ---------------------------------------------
+      Mobile Tab
+      --------------------------------------------- */
+      mobileTab: function mobileTab() {
+        var $tabli = $('.vehicle-filter-area li a, .post-filter-area li a');
+        var $nextEL = $('.vehicle-filter-area, .post-filter-area');
+        var $selectOption = $('<select class="responsive-nav visible-xs-block visible-sm-block"/>');
+        $tabli.each(function (e, value) {
+          var $select = $("<option value='" + e + "'>" + $(this).text() + "</option>");
+          $selectOption.append($select);
+        });
+        $selectOption.appendTo($nextEL);
+        var $responsiveNav = $(".responsive-nav");
+        $responsiveNav.on("change", function (e) {
+          var url = $(this).val();
+
+          if ($.isNumeric(url) === true) {
+            var $navSlector = $(".vehicle-filter-area li a, .post-filter-area li a");
+            $navSlector.eq(url).tab('show');
+          } else {
+            window.location = url;
+          }
+        });
+      },
+
+      /* ---------------------------------------------
+      Map iframe
+      --------------------------------------------- */
+      mapIframe: function mapIframe() {
+        var $mapIframe = $(".header-map-content");
+        $mapIframe.click(function () {
+          var $self = $(this);
+          $self.find("iframe").addClass("clicked");
+        }).mouseleave(function () {
+          var $self = $(this);
+          $self.find("iframe").removeClass("clicked");
+        });
+      },
+
+      /* ---------------------------------------------
+       Widget Mobile fix
+       --------------------------------------------- */
+      widget_mobile: function widget_mobile() {
+        function debouncer(func, timeout) {
+          var timeoutID,
+              timeout = timeout || 500;
+          return function () {
+            var scope = this,
+                args = arguments;
+            clearTimeout(timeoutID);
+            timeoutID = setTimeout(function () {
+              func.apply(scope, Array.prototype.slice.call(args));
+            }, timeout);
+          };
+        }
+
+        function resized() {
+          var getWidgetTitle = $('.widget .widget-title');
+          var getWidgetTitleContent;
+
+          if ($(window).width() <= 991) {
+            getWidgetTitleContent = $('.widget .widget-title').nextAll().hide();
+            getWidgetTitle.addClass('expand-margin');
+            getWidgetTitle.on('click', function (e) {
+              e.stopImmediatePropagation();
+              $(this).toggleClass('expand');
+              $(this).nextAll().slideToggle();
+              return false;
+            });
+            getWidgetTitle.each(function () {
+              $(this).addClass('mb-widget');
+            });
+          } else {
+            getWidgetTitleContent = $('.widget .widget-title').nextAll().show();
+            getWidgetTitle.removeClass('expand-margin');
+            getWidgetTitle.each(function () {
+              $(this).parent().removeClass('mb-widget');
+            });
+          }
+
+          ;
+        }
+
+        resized();
+        var prevW = window.innerWidth || $(window).width();
+        $(window).resize(debouncer(function (e) {
+          var currentW = window.innerWidth || $(window).width();
+
+          if (currentW != prevW) {
+            resized();
+          }
+
+          prevW = window.innerWidth || $(window).width();
+        })); //Mobile Responsive
+
+        var $extendBtn = $(".extend-btn .extend-icon");
+        $extendBtn.on("click", function (e) {
+          e.preventDefault();
+          var $self = $(this);
+          $self.parent().prev().toggleClass("mobile-extend");
+          $self.parent().toggleClass("extend-btn");
+          $self.toggleClass("up");
+        });
+      },
+
+      /* ---------------------------------------------
+       function initializ
+       --------------------------------------------- */
+      initializ: function initializ() {
+        modelApp.menu();
+        modelApp.slider_style_two();
+        modelApp.brand_slider();
+        modelApp.accordion();
+        modelApp.fun_fects();
+        modelApp.time_count();
+        modelApp.mobileTab();
+        modelApp.datePicker();
+        modelApp.gallary();
+        modelApp.searchOverlay();
+        modelApp.widget_mobile();
+        modelApp.mapIframe();
+        modelApp.scroll_top();
+      }
+    };
+    /* ---------------------------------------------
+     Document ready function
+     --------------------------------------------- */
+
+    $(function () {
+      modelApp.initializ();
     });
   }
 });
@@ -3264,9 +3693,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/home.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -3475,81 +3906,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    var plugin = document.createElement("script");
+    plugin.setAttribute("src", "assets/js/plugins.min.js");
+    plugin.async = true;
+    document.head.appendChild(plugin);
+    jQuery(document).ready(function () {
+      var $sliderSelector = jQuery(".carrent-slider");
+      $sliderSelector.revolution({
+        sliderType: "standard",
+        sliderLayout: "fullwidth",
+        delay: 9000,
+        navigation: {
+          keyboardNavigation: "on",
+          keyboard_direction: "horizontal",
+          mouseScrollNavigation: "off",
+          onHoverStop: "on",
+          touch: {
+            touchenabled: "on",
+            swipe_threshold: 75,
+            swipe_min_touches: 1,
+            swipe_direction: "horizontal",
+            drag_block_vertical: false
+          },
+          arrows: {
+            style: "gyges",
+            enable: true,
+            hide_onmobile: false,
+            hide_onleave: true,
+            tmp: '',
+            left: {
+              h_align: "left",
+              v_align: "center",
+              h_offset: 10,
+              v_offset: 0
+            },
+            right: {
+              h_align: "right",
+              v_align: "center",
+              h_offset: 10,
+              v_offset: 0
+            }
+          }
+        },
+        responsiveLevels: [1400, 1368, 992, 480],
+        visibilityLevels: [1400, 1368, 992, 480],
+        gridwidth: [1400, 1368, 992, 480],
+        gridheight: [600, 600, 500, 380],
+        disableProgressBar: "on"
+      });
+    });
+  }
+});
 
 /***/ }),
 
@@ -44658,7 +45067,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "col-md-6 col-sm-5" }, [
             _c("div", { staticClass: "header-content-right" }, [
               _c("ul", { staticClass: "header-top-menu" }, [
-                _c("li", [
+                _c("li", { staticClass: "mdn" }, [
                   _c(
                     "a",
                     {
@@ -44673,7 +45082,7 @@ var staticRenderFns = [
                   ),
                 ]),
                 _vm._v(" "),
-                _c("li", [
+                _c("li", { staticClass: "mdn" }, [
                   _c(
                     "a",
                     {
@@ -44689,14 +45098,6 @@ var staticRenderFns = [
                         _vm._v("contact@heartofgoldmedtransport.com"),
                       ]),
                     ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    { staticClass: "trigger-overlay", attrs: { href: "#" } },
-                    [_c("i", { staticClass: "fa fa-bars" })]
                   ),
                 ]),
               ]),
@@ -44845,6 +45246,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "site-logo" }, [
         _c("a", { attrs: { href: "index.html" } }, [
           _c("img", {
+            staticClass: "mlogo",
             staticStyle: { "margin-top": "-40px" },
             attrs: { src: "assets/images/heart-of-gold.png", alt: "logo" },
           }),
@@ -44901,75 +45303,67 @@ var staticRenderFns = [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "footer-top-block yellow-theme" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-3 col-sm-6" }, [
+              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
                 _c("div", { staticClass: "widget widget_about" }, [
                   _c("h3", { staticClass: "widget-title" }, [
                     _vm._v(
-                      "\n                               About us\n                           "
+                      "\n                                About us\n                            "
                     ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "widget-about-content" }, [
                     _c("img", {
-                      attrs: { src: "assets/images/car-logo.png", alt: "logo" },
+                      attrs: { src: "assets/images/footlogo.png", alt: "logo" },
                     }),
                     _vm._v(" "),
                     _c("p", [
                       _vm._v(
-                        "We Provide Premium Word Press, Ghost and HTML template. Our Prem tjium Templates is, develo gped in a way so that the clients find  Support. Themes are developed in a way so that  the clients find."
+                        "Heart of Gold Medical Transport is a family-owned non-emergency medical transportation company serving the greater Sacramento area since 2016. Its owners are Megan and Cecilia.\n\n                                    Megan has worked as a nurse since 2009, becoming a Registered Nurse"
                       ),
                     ]),
                     _vm._v(" "),
-                    _c("a", { staticClass: "button", attrs: { href: "#" } }, [
-                      _vm._v("More"),
-                    ]),
+                    _c(
+                      "a",
+                      { staticClass: "button", attrs: { href: "/about" } },
+                      [_vm._v("Reade More")]
+                    ),
                   ]),
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-2 col-sm-6" }, [
+              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
                 _c("div", { staticClass: "widget widget_menu" }, [
                   _c("h3", { staticClass: "widget-title" }, [
                     _vm._v(
-                      "\n                               Useful link\n                           "
+                      "\n                                Useful link\n                            "
                     ),
                   ]),
                   _vm._v(" "),
                   _c("ul", [
                     _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v("Home")]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v(" Get a cab")]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v("Our car")]),
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("FAQ")]),
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Contact page"),
+                        _vm._v(" Contact Support"),
                       ]),
                     ]),
                     _vm._v(" "),
                     _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v("Reviews")]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v(" Booking")]),
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Privacy Policy"),
+                      ]),
                     ]),
                   ]),
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3 col-sm-6" }, [
+              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
                 _c("div", { staticClass: "widget widget_hot_contact" }, [
                   _c("h3", { staticClass: "widget-title" }, [
                     _vm._v(
-                      "\n                               Hot contact\n                           "
+                      "\n                                STAY CONNECTED\n                            "
                     ),
                   ]),
                   _vm._v(" "),
@@ -44977,171 +45371,21 @@ var staticRenderFns = [
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("i", { staticClass: "fa fa-envelope" }),
-                        _vm._v("example@domain.com"),
+                        _vm._v("contact@heartofgoldmedtransport.com"),
                       ]),
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("i", { staticClass: "fa fa-phone" }),
-                        _vm._v("(+880)023985471"),
+                        _vm._v(" (916) 740-6447"),
                       ]),
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("i", { staticClass: "fa fa-map-marker" }),
-                        _vm._v("Road 8A, 112/B, Australia"),
-                      ]),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "widget widget_newsletter" }, [
-                  _c("h3", { staticClass: "widget-title" }, [
-                    _vm._v("Subscribe"),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "form",
-                    {
-                      staticClass: "subscribes-newsletter",
-                      attrs: { action: "#", method: "get" },
-                    },
-                    [
-                      _c("label", [_vm._v("Subscribe to our Newsletters")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "input-group" }, [
-                        _c("input", {
-                          staticClass: "form-controller",
-                          attrs: {
-                            type: "search",
-                            name: "s",
-                            placeholder: "Your email",
-                          },
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "input-group-btn" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "submit" },
-                            },
-                            [_c("span", { staticClass: "fa fa-paper-plane" })]
-                          ),
-                        ]),
-                      ]),
-                    ]
-                  ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
-                _c("div", { staticClass: "widget widget_photo_gallery" }, [
-                  _c("h3", { staticClass: "widget-title" }, [
-                    _vm._v(
-                      "\n                               Photo Gallery\n                           "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", { staticClass: "photo-gallery-content" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-01.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-02.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-03.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-04.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-05.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-06.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-07.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-08.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-09.png",
-                            alt: "instagram",
-                          },
-                        }),
+                        _vm._v("1329 Howe Ave #205, Sacramento, CA 95825"),
                       ]),
                     ]),
                   ]),
@@ -45937,7 +46181,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "rev-slidebg",
                     attrs: {
-                      src: "assets/images/slider-car/slider-bg.jpg",
+                      src: "assets/images/01.jpg",
                       alt: "",
                       "data-bgposition": "center center",
                       "data-bgfit": "cover",
@@ -45952,8 +46196,8 @@ var staticRenderFns = [
                       staticClass: "tp-caption tp-resizeme rev-subheading",
                       staticStyle: {
                         "z-index": "5",
-                        color: "#464646",
-                        "font-weight": "600",
+                        color: "white",
+                        "font-weight": "900",
                         "font-family": "inherit",
                       },
                       attrs: {
@@ -45981,7 +46225,7 @@ var staticRenderFns = [
                         "data-responsive_offset": "on",
                       },
                     },
-                    [_vm._v("All discount just for you\n                    ")]
+                    [_vm._v("We Care\n                        ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -45990,7 +46234,7 @@ var staticRenderFns = [
                       staticClass: "tp-caption tp-resizeme rev-subheading",
                       staticStyle: {
                         "z-index": "6",
-                        color: "#e91e22",
+                        color: "white",
                         "font-family": "'Exo', sans-serif",
                         "font-weight": "800",
                       },
@@ -46017,7 +46261,11 @@ var staticRenderFns = [
                         "data-responsive_offset": "on",
                       },
                     },
-                    [_vm._v("Need A Ride?\n                    ")]
+                    [
+                      _vm._v(
+                        "\n                            With a Heart of Gold\n                        "
+                      ),
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
@@ -46026,7 +46274,7 @@ var staticRenderFns = [
                       staticClass: "tp-caption tp-resizeme NotGeneric-Title",
                       staticStyle: {
                         "z-index": "7",
-                        color: "#000000",
+                        color: "rgb(210 153 100)",
                         "font-family": "'Exo', sans-serif",
                         "font-weight": "900",
                         "text-transform": "uppercase",
@@ -46039,8 +46287,8 @@ var staticRenderFns = [
                         "data-voffset": "['0']",
                         "data-whitespace": "nowrap",
                         "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['75','75','60','60']",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
                         "data-transform_in":
                           "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
                         "data-transform_out":
@@ -46055,137 +46303,19 @@ var staticRenderFns = [
                       },
                     },
                     [
-                      _vm._v("Choose your"),
-                      _c("br"),
-                      _vm._v(" Comfortable Taxi\n                    "),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption rev-subheading tp-resizeme",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "#464646",
-                        "font-weight": "600",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-28']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['95','95','75','75']",
-                        "data-fontsize": "['24']",
-                        "data-lineheight": "['20']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
                       _vm._v(
-                        "Best worldwide car hire deals!!!!!\n                    "
+                        "\n                            Providing Ambulatory and wheelchair\n                            "
                       ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme",
-                      staticStyle: {
-                        "z-index": "7",
-                        "font-weight": "bold",
-                        "font-family": "'Exo', sans-serif",
-                      },
-                      attrs: {
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-105']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['150','150','135','120']",
-                        "data-fontsize": "['22']",
-                        "data-lineheight": "['45']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-style_hover": "cursor:default;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:600;e:Power2.easeInOut;s:600;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1200",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "button black-button slider-button",
-                          attrs: {
-                            href: "#",
-                            "data-fontsize": "['22','22','22','22']",
-                          },
-                        },
-                        [_vm._v("Contact Now")]
+                      _c("br"),
+                      _vm._v(
+                        " transportation for the greater\n                            "
                       ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme",
-                      attrs: {
-                        "data-x": "['right','right','right','center']",
-                        "data-hoffset": "['0','-15','30','-10']",
-                        "data-y": "['middle','middle','middle','bottom']",
-                        "data-voffset": "['15','15','0','0']",
-                        "data-transform_idle": "o:1;",
-                        "data-visibility": "['on','on','on','off']",
-                        "data-transform_in":
-                          "z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:300;e:Power3.easeInOut;",
-                        "data-transform_out": "auto:auto;s:600;",
-                        "data-splitin": "none",
-                        "data-start": "1500",
-                        "data-type": "image",
-                        "data-responsive_offset": "on",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-no-retina": "",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "assets/images/dummy.png",
-                          alt: "",
-                          "data-lazyload":
-                            "assets/images/slider-car/slider-car-01.png",
-                          "data-ww": "['805','805','500','350']",
-                          "data-hh": "['auto']",
-                        },
-                      }),
+                      _c("br"),
+                      _vm._v(" Sacramento area and beyond BBB "),
+                      _c("br"),
+                      _vm._v(
+                        " Accredited: A rating!\n                        "
+                      ),
                     ]
                   ),
                 ]
@@ -46213,7 +46343,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "rev-slidebg",
                     attrs: {
-                      src: "assets/images/slider-car/slider-bg.jpg",
+                      src: "assets/images/02.jpg",
                       alt: "",
                       "data-bgposition": "center center",
                       "data-bgfit": "cover",
@@ -46228,8 +46358,8 @@ var staticRenderFns = [
                       staticClass: "tp-caption tp-resizeme rev-subheading",
                       staticStyle: {
                         "z-index": "5",
-                        color: "#464646",
-                        "font-weight": "600",
+                        color: "white",
+                        "font-weight": "900",
                         "font-family": "inherit",
                       },
                       attrs: {
@@ -46257,7 +46387,7 @@ var staticRenderFns = [
                         "data-responsive_offset": "on",
                       },
                     },
-                    [_vm._v("All discount just for you\n                    ")]
+                    [_vm._v("We Care\n                        ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -46266,7 +46396,7 @@ var staticRenderFns = [
                       staticClass: "tp-caption tp-resizeme rev-subheading",
                       staticStyle: {
                         "z-index": "6",
-                        color: "#e91e22",
+                        color: "white",
                         "font-family": "'Exo', sans-serif",
                         "font-weight": "800",
                       },
@@ -46293,7 +46423,11 @@ var staticRenderFns = [
                         "data-responsive_offset": "on",
                       },
                     },
-                    [_vm._v("Need A Ride?\n                    ")]
+                    [
+                      _vm._v(
+                        "\n                            With a Heart of Gold\n                        "
+                      ),
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
@@ -46302,7 +46436,7 @@ var staticRenderFns = [
                       staticClass: "tp-caption tp-resizeme NotGeneric-Title",
                       staticStyle: {
                         "z-index": "7",
-                        color: "#000000",
+                        color: "rgb(210 153 100)",
                         "font-family": "'Exo', sans-serif",
                         "font-weight": "900",
                         "text-transform": "uppercase",
@@ -46315,8 +46449,8 @@ var staticRenderFns = [
                         "data-voffset": "['0']",
                         "data-whitespace": "nowrap",
                         "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['75','75','60','60']",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
                         "data-transform_in":
                           "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
                         "data-transform_out":
@@ -46331,137 +46465,19 @@ var staticRenderFns = [
                       },
                     },
                     [
-                      _vm._v("Choose your"),
-                      _c("br"),
-                      _vm._v(" Comfortable Taxi\n                    "),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption rev-subheading tp-resizeme",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "#464646",
-                        "font-weight": "600",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-28']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['95','95','75','75']",
-                        "data-fontsize": "['24']",
-                        "data-lineheight": "['20']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
                       _vm._v(
-                        "Best worldwide car hire deals!!!!!\n                    "
+                        "\n                            Providing Ambulatory and wheelchair\n                            "
                       ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme",
-                      staticStyle: {
-                        "z-index": "7",
-                        "font-weight": "bold",
-                        "font-family": "'Exo', sans-serif",
-                      },
-                      attrs: {
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-105']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['150','150','135','120']",
-                        "data-fontsize": "['22']",
-                        "data-lineheight": "['45']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-style_hover": "cursor:default;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:600;e:Power2.easeInOut;s:600;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1200",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "button black-button slider-button",
-                          attrs: {
-                            href: "#",
-                            "data-fontsize": "['22','22','22','22']",
-                          },
-                        },
-                        [_vm._v("Contact Now")]
+                      _c("br"),
+                      _vm._v(
+                        " transportation for the greater\n                            "
                       ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme",
-                      attrs: {
-                        "data-x": "['right','right','right','center']",
-                        "data-hoffset": "['0','-15','30','-10']",
-                        "data-y": "['middle','middle','middle','bottom']",
-                        "data-voffset": "['15','15','0','0']",
-                        "data-transform_idle": "o:1;",
-                        "data-visibility": "['on','on','on','off']",
-                        "data-transform_in":
-                          "z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:300;e:Power3.easeInOut;",
-                        "data-transform_out": "auto:auto;s:600;",
-                        "data-splitin": "none",
-                        "data-start": "1500",
-                        "data-type": "image",
-                        "data-responsive_offset": "on",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-no-retina": "",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "assets/images/dummy.png",
-                          alt: "",
-                          "data-lazyload":
-                            "assets/images/slider-car/slider-car-01.png",
-                          "data-ww": "['805','805','500','350']",
-                          "data-hh": "['auto']",
-                        },
-                      }),
+                      _c("br"),
+                      _vm._v(" Sacramento area and beyond BBB "),
+                      _c("br"),
+                      _vm._v(
+                        " Accredited: A rating!\n                        "
+                      ),
                     ]
                   ),
                 ]
@@ -46469,6 +46485,115 @@ var staticRenderFns = [
             ]),
           ]),
         ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: {
+              "text-align": "center",
+              padding: "10px",
+              "background-color": "#cd9700",
+              color: "white",
+            },
+          },
+          [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("h3", [_vm._v("WELCOME TO")]),
+              _vm._v(" "),
+              _c("h1", [
+                _vm._v("HEART OF GOLD MEDICAL TRANSPORT\n                "),
+              ]),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: { "text-align": "center", padding: "20px" },
+          },
+          [
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("img", { attrs: { src: "assets/images/02.jpg", alt: "" } }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Non-Emergency Medical Transport (NEMT)")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "We provide non-emergency medical transport for both ambulatory and wheelchair bound individuals.\n                    All of our drivers have basic CPR and First Aid certification. This type of transportation is\n                    meant for individuals who are stable and do not require medical attention during transport."
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("img", { attrs: { src: "assets/images/03.jpg", alt: "" } }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Ambulatory and Wheelchair Bound Individuals")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "We provide both ambulatory and wheelchair transportation, whether it is to a doctor’s\n                    appointment, dialysis, home, or even to a family event!"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("img", { attrs: { src: "assets/images/04.jpg", alt: "" } }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Bring a Loved One")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "A loved one or caregiver is always welcome to ride along."
+                ),
+              ]),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: {
+              padding: "10px",
+              "background-color": "black",
+              color: "white",
+            },
+          },
+          [
+            _c("div", { staticClass: "col-md-2" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("h3", [
+                _vm._v(
+                  "HOW CAN HEART OF GOLD MEDICAL TRANSPORT BE OF SERVICE TO YOU?\n                "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Drop us an email and we’ll be happy to answer any questions you may have.\n                "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4 pt-4" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "button",
+                  staticStyle: { "background-color": "#cd9700" },
+                },
+                [_vm._v("Contact Us Today")]
+              ),
+            ]),
+          ]
+        ),
       ]),
     ])
   },
@@ -62451,9 +62576,7 @@ component.options.__file = "resources/js/components/frontend/home.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/home.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -62681,8 +62804,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\hog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\hog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp2\htdocs\hog\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp2\htdocs\hog\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
