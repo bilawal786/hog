@@ -1,6 +1,6 @@
 <template>
     <div>
-            <!-- ====== Page Header ====== -->
+    <!-- ====== Page Header ====== -->
     <div class="page-header nevy-bg">
         <div class="container">
             <div class="row">
@@ -11,7 +11,6 @@
             </div><!-- /.row-->
         </div><!-- /.container-fluid -->
     </div><!-- /.page-header -->
-
     <!-- ====== Page Header ====== -->
     <div class="contact-us-area mr-top-60">
         <div class="container">
@@ -47,26 +46,17 @@
                             <h4><i class="fa fa-phone"></i>Call</h4>
                             <p><a href="tel:+19167406447"> (916) 740-6447</a></p>
                         </div><!-- /.contact -->
-
                     </div><!-- /.contactus-content-left -->
                 </div><!-- /.col-md-4 -->
-
-
             </div><!-- /.row -->
         </div><!-- /.container -->
     </div><!-- /.contact-us -->
-
     <!-- ====== Map Block ====== -->
     <!-- ======footer area======= -->
-    <div class="container footer-top-border">
-        <div class="vehicle-multi-border yellow-black"></div><!-- /.vehicle-multi-border -->
-    </div><!-- /.container -->
     </div>
 </template>
-
 <script>
 import ContactForm from './includes/contact-form';
-
 export default {
  components: {
     ContactForm

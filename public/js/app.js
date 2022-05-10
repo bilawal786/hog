@@ -2806,6 +2806,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var modelApp = {
@@ -3513,15 +3514,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3540,6 +3532,132 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -42456,7 +42574,104 @@ var render = function () {
       _vm._v(" "),
       _c("router-view"),
       _vm._v(" "),
-      _vm._m(4),
+      _c(
+        "footer",
+        {
+          staticClass: "footer-block bg-black",
+          staticStyle: {
+            "background-image": "url(assets/images/footer-bg.png)",
+          },
+        },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "footer-top-block yellow-theme" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-4 col-sm-6" }, [
+                  _c("div", { staticClass: "widget widget_about" }, [
+                    _c("h3", { staticClass: "widget-title" }, [
+                      _vm._v(
+                        "\n                                About us\n                            "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "widget-about-content" },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src: "assets/images/footlogo.png",
+                            alt: "logo",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "Heart of Gold Medical Transport is a family-owned non-emergency medical\n                                    transportation company serving the greater Sacramento area since 2016. Its\n                                    owners are Megan and Cecilia.\n\n                                    Megan has worked as a nurse since 2009, becoming a Registered Nurse"
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          { staticClass: "button", attrs: { to: "/about" } },
+                          [_vm._v("Reade More")]
+                        ),
+                      ],
+                      1
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4 col-sm-6" }, [
+                  _c("div", { staticClass: "widget widget_menu" }, [
+                    _c("h3", { staticClass: "widget-title" }, [
+                      _vm._v(
+                        "\n                                Useful link\n                            "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("ul", [
+                      _c(
+                        "li",
+                        [
+                          _c("router-link", { attrs: { to: "/fqa" } }, [
+                            _vm._v("FAQ"),
+                          ]),
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        [
+                          _c("router-link", { attrs: { to: "/contact" } }, [
+                            _vm._v(" Contact Support"),
+                          ]),
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        [
+                          _c("router-link", { attrs: { to: "/policy" } }, [
+                            _vm._v("Privacy Policy"),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _vm._m(4),
+              ]),
+            ]),
+            _vm._v(" "),
+            _vm._m(5),
+          ]),
+        ]
+      ),
     ],
     1
   )
@@ -42704,147 +42919,58 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "footer",
-      {
-        staticClass: "footer-block bg-black",
-        staticStyle: { "background-image": "url(assets/images/footer-bg.png)" },
-      },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "footer-top-block yellow-theme" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
-                _c("div", { staticClass: "widget widget_about" }, [
-                  _c("h3", { staticClass: "widget-title" }, [
-                    _vm._v(
-                      "\n                                About us\n                            "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "widget-about-content" }, [
-                    _c("img", {
-                      attrs: { src: "assets/images/footlogo.png", alt: "logo" },
-                    }),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Heart of Gold Medical Transport is a family-owned non-emergency medical transportation company serving the greater Sacramento area since 2016. Its owners are Megan and Cecilia.\n\n                                    Megan has worked as a nurse since 2009, becoming a Registered Nurse"
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "button", attrs: { href: "/about" } },
-                      [_vm._v("Reade More")]
-                    ),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
-                _c("div", { staticClass: "widget widget_menu" }, [
-                  _c("h3", { staticClass: "widget-title" }, [
-                    _vm._v(
-                      "\n                                Useful link\n                            "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v("FAQ")]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _vm._v(" Contact Support"),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Privacy Policy"),
-                      ]),
-                    ]),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
-                _c("div", { staticClass: "widget widget_hot_contact" }, [
-                  _c("h3", { staticClass: "widget-title" }, [
-                    _vm._v(
-                      "\n                                STAY CONNECTED\n                            "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-envelope" }),
-                        _vm._v("contact@heartofgoldmedtransport.com"),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-phone" }),
-                        _vm._v(" (916) 740-6447"),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-map-marker" }),
-                        _vm._v("1329 Howe Ave #205, Sacramento, CA 95825"),
-                      ]),
-                    ]),
-                  ]),
-                ]),
-              ]),
+    return _c("div", { staticClass: "col-md-4 col-sm-6" }, [
+      _c("div", { staticClass: "widget widget_hot_contact" }, [
+        _c("h3", { staticClass: "widget-title" }, [
+          _vm._v(
+            "\n                                STAY CONNECTED\n                            "
+          ),
+        ]),
+        _vm._v(" "),
+        _c("ul", [
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("i", { staticClass: "fa fa-envelope" }),
+              _vm._v("contact@heartofgoldmedtransport.com"),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "footer-bottom-block" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-9" }, [
-                _c("div", { staticClass: "bottom-content-left" }, [
-                  _c("p", { staticClass: "copyright" }, [
-                    _vm._v("Copyright ©  2020 Heart of Gold"),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
-                _c("div", { staticClass: "bottom-content-right" }, [
-                  _c("div", { staticClass: "social-profile" }, [
-                    _c("span", { staticClass: "social-profole-title" }, [
-                      _vm._v("Follow Us:"),
-                    ]),
-                    _vm._v(" "),
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("i", { staticClass: "fa fa-instagram" }),
-                    ]),
-                    _vm._v(" "),
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("i", { staticClass: "fa fa-heart" }),
-                    ]),
-                    _vm._v(" "),
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("i", { staticClass: "fa fa-facebook" }),
-                    ]),
-                    _vm._v(" "),
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("i", { staticClass: "fa fa-twitter" }),
-                    ]),
-                  ]),
-                ]),
-              ]),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("i", { staticClass: "fa fa-phone" }),
+              _vm._v(" (916) 740-6447"),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("i", { staticClass: "fa fa-map-marker" }),
+              _vm._v(
+                "1329 Howe Ave #205, Sacramento, CA\n                                        95825"
+              ),
             ]),
           ]),
         ]),
-      ]
-    )
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "footer-bottom-block" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-9" }, [
+          _c("div", { staticClass: "bottom-content-left" }, [
+            _c("p", { staticClass: "copyright" }, [
+              _vm._v("Copyright © 2020 Heart of Gold"),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
@@ -43038,8 +43164,6 @@ var render = function () {
         ]),
       ]),
     ]),
-    _vm._v(" "),
-    _vm._m(2),
   ])
 }
 var staticRenderFns = [
@@ -43112,12 +43236,91 @@ var staticRenderFns = [
       ]),
     ])
   },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/fqa.vue?vue&type=template&id=148a2a78&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/fqa.vue?vue&type=template&id=148a2a78& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container footer-top-border" }, [
-      _c("div", { staticClass: "vehicle-multi-border yellow-black" }),
+    return _c("div", [
+      _c("div", { staticClass: "page-header nevy-bg" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("h2", { staticClass: "page-title" }, [_vm._v("FQA")]),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "contact-us-area mr-top-60" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "fqa-cs" }, [
+                _c("div", [
+                  _c("h5", [
+                    _vm._v("Q: What types of transportation do you provide?"),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "A: We provide transportation for both ambulatory and wheelchair bound individuals."
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("h5", [_vm._v("Q: Can I ride along with my mother?")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "A: Absolutely. A loved one is always welcome to come along for the ride. Please inform the dispatcher at time of scheduling."
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("h5", [_vm._v("Q: Are your vehicles ADA compliant?")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("A: Yes. All of our vehicles are ADA compliant."),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("h5", [_vm._v("Q: Can you transport on a holiday?")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("A: Yes. We are available 24/7.")]),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
     ])
   },
 ]
@@ -43176,7 +43379,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "rev-slidebg",
                     attrs: {
-                      src: "assets/images/01.jpg",
+                      src: "assets/images/slider/01.jpg",
                       alt: "",
                       "data-bgposition": "center center",
                       "data-bgfit": "cover",
@@ -43220,7 +43423,7 @@ var staticRenderFns = [
                         "data-responsive_offset": "on",
                       },
                     },
-                    [_vm._v("We Care\n                        ")]
+                    [_vm._v("ADA COMPLIANT VEHICLES\n                        ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -43258,7 +43461,7 @@ var staticRenderFns = [
                     },
                     [
                       _vm._v(
-                        "\n                            With a Heart of Gold\n                        "
+                        "\n                            CONTACT US TODAY!\n                        "
                       ),
                     ]
                   ),
@@ -43299,14 +43502,16 @@ var staticRenderFns = [
                     },
                     [
                       _vm._v(
-                        "\n                            Providing Ambulatory and wheelchair\n                            "
+                        "\n                            Providing ambulatory and wheelchair\n                            "
                       ),
                       _c("br"),
                       _vm._v(
                         " transportation for the greater\n                            "
                       ),
                       _c("br"),
-                      _vm._v(" Sacramento area and beyond BBB "),
+                      _vm._v(
+                        " Sacramento area and beyond.\n                            "
+                      ),
                       _c("br"),
                       _vm._v(
                         " Accredited: A rating!\n                        "
@@ -43338,7 +43543,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "rev-slidebg",
                     attrs: {
-                      src: "assets/images/02.jpg",
+                      src: "assets/images/slider/02.jpg",
                       alt: "",
                       "data-bgposition": "center center",
                       "data-bgfit": "cover",
@@ -43461,14 +43666,328 @@ var staticRenderFns = [
                     },
                     [
                       _vm._v(
-                        "\n                            Providing Ambulatory and wheelchair\n                            "
+                        "\n                            We will always treat your loved\n                            "
                       ),
                       _c("br"),
                       _vm._v(
-                        " transportation for the greater\n                            "
+                        " ones like they are part of our family.\n                            "
                       ),
                       _c("br"),
-                      _vm._v(" Sacramento area and beyond BBB "),
+                      _vm._v(
+                        " Accredited: A rating!\n                        "
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  attrs: {
+                    "data-transition": "fade",
+                    "data-slotamount": "default",
+                    "data-easein": "Power4.easeInOut",
+                    "data-easeout": "Power4.easeInOut",
+                    "data-masterspeed": "2000",
+                    "data-rotate": "0",
+                    "data-fstransition": "fade",
+                    "data-fsmasterspeed": "1500",
+                    "data-fsslotamount": "7",
+                    "data-saveperformance": "off",
+                    "data-title": "materialize Material",
+                    "data-description": "",
+                  },
+                },
+                [
+                  _c("img", {
+                    staticClass: "rev-slidebg",
+                    attrs: {
+                      src: "assets/images/slider/03.jpg",
+                      alt: "",
+                      "data-bgposition": "center center",
+                      "data-bgfit": "cover",
+                      "data-bgrepeat": "no-repeat",
+                      "data-no-retina": "",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme rev-subheading",
+                      staticStyle: {
+                        "z-index": "5",
+                        color: "white",
+                        "font-weight": "900",
+                        "font-family": "inherit",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['105','105','75','-85']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['-163','-163','-130','-130']",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
+                        "data-width": "none",
+                        "data-height": "none",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "800",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [_vm._v("WE PROVIDE SERVICES…\n                        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme rev-subheading",
+                      staticStyle: {
+                        "z-index": "6",
+                        color: "white",
+                        "font-family": "'Exo', sans-serif",
+                        "font-weight": "800",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['102','102','75','-75']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['-110','-110','-90','-90']",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-fontsize": "['60','60','45','45']",
+                        "data-lineheight": "['60','60','60','60']",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "1000",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                            WITH A HEART OF GOLD!\n                        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
+                      staticStyle: {
+                        "z-index": "7",
+                        color: "rgb(210 153 100)",
+                        "font-family": "'Exo', sans-serif",
+                        "font-weight": "900",
+                        "text-transform": "uppercase",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['103','103','75','0']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['0']",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "1000",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Contact us today to set up a ride!\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        " Accredited: A rating!\n                        "
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  attrs: {
+                    "data-transition": "fade",
+                    "data-slotamount": "default",
+                    "data-easein": "Power4.easeInOut",
+                    "data-easeout": "Power4.easeInOut",
+                    "data-masterspeed": "2000",
+                    "data-rotate": "0",
+                    "data-fstransition": "fade",
+                    "data-fsmasterspeed": "1500",
+                    "data-fsslotamount": "7",
+                    "data-saveperformance": "off",
+                    "data-title": "materialize Material",
+                    "data-description": "",
+                  },
+                },
+                [
+                  _c("img", {
+                    staticClass: "rev-slidebg",
+                    attrs: {
+                      src: "assets/images/slider/04.jpg",
+                      alt: "",
+                      "data-bgposition": "center center",
+                      "data-bgfit": "cover",
+                      "data-bgrepeat": "no-repeat",
+                      "data-no-retina": "",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme rev-subheading",
+                      staticStyle: {
+                        "z-index": "5",
+                        color: "white",
+                        "font-weight": "900",
+                        "font-family": "inherit",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['105','105','75','-85']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['-163','-163','-130','-130']",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
+                        "data-width": "none",
+                        "data-height": "none",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "800",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "WE TRANSPORT YOUR LOVED ONES…\n                        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme rev-subheading",
+                      staticStyle: {
+                        "z-index": "6",
+                        color: "white",
+                        "font-family": "'Exo', sans-serif",
+                        "font-weight": "800",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['102','102','75','-75']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['-110','-110','-90','-90']",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-fontsize": "['60','60','45','45']",
+                        "data-lineheight": "['60','60','60','60']",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "1000",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Ambulatory and wheelchair NEMT transportation.\n                        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
+                      staticStyle: {
+                        "z-index": "7",
+                        color: "rgb(210 153 100)",
+                        "font-family": "'Exo', sans-serif",
+                        "font-weight": "900",
+                        "text-transform": "uppercase",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['103','103','75','0']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['0']",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "1000",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                             WITH A HEART OF GOLD!\n                             "
+                      ),
                       _c("br"),
                       _vm._v(
                         " Accredited: A rating!\n                        "
@@ -43859,6 +44378,2318 @@ var staticRenderFns = [
             staticClass: "submit yellow-button",
             attrs: { type: "submit", value: "Submit" },
           }),
+        ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/policy.vue?vue&type=template&id=66f5b658&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/policy.vue?vue&type=template&id=66f5b658& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "page-header nevy-bg" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("h2", { staticClass: "page-title" }, [
+                _vm._v("Privacy Policy"),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "contact-us-area mr-top-60" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "policy-cs" }, [
+                _c(
+                  "h1",
+                  { staticClass: "MuiTypography-root MuiTypography-h1" },
+                  [_vm._v("Privacy Policy")]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v("Last updated: March 31, 2021"),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "This Privacy Policy describes Our\n                            policies and procedures on the collection, use and disclosure of Your\n                            information when You use the Service and tells You about Your privacy rights and\n                            how the law protects You."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We use Your Personal data to\n                            provide and improve the Service. By using the Service, You agree to the\n                            collection and use of information in accordance with this Privacy Policy."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [_vm._v("Interpretation and Definitions")]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Interpretation")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The words of which the initial\n                            letter is capitalized have meanings defined under the following conditions. The\n                            following definitions shall have the same meaning regardless of whether they\n                            appear in singular or in plural."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Definitions")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "For the purposes of this Privacy\n                            Policy:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Account")]),
+                      _vm._v(
+                        "\n                                    means a unique account created for You to access our Service or parts of\n                                    our Service."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Business")]),
+                      _vm._v(
+                        ",\n                                    for the purpose of the CCPA (California Consumer Privacy Act), refers to\n                                    the Company as the legal entity that collects Consumers' personal\n                                    information and determines the purposes and means of the processing of\n                                    Consumers' personal information, or on behalf of which such information\n                                    is collected and that alone, or jointly with others, determines the\n                                    purposes and means of the processing of consumers' personal information,\n                                    that does business in the State of California."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Company")]),
+                      _vm._v(
+                        '\n                                    (referred to as either "the Company", "We", "Us" or "Our" in this\n                                    Agreement) refers to Heart of Gold Medical Transport Inc, 1329 Howe Ave\n                                    #205, Sacramento, CA 95825.'
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "For the purpose of the\n                                    GDPR, the Company is the Data Controller."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Consumer")]),
+                      _vm._v(
+                        ",\n                                    for the purpose of the CCPA (California Consumer Privacy Act), means a\n                                    natural person who is a California resident. A resident, as defined in\n                                    the law, includes (1) every individual who is in the USA for other than\n                                    a temporary or transitory purpose, and (2) every individual who is\n                                    domiciled in the USA who is outside the USA for a temporary or\n                                    transitory purpose."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Cookies")]),
+                      _vm._v(
+                        "\n                                    are small files that are placed on Your computer, mobile device or any\n                                    other device by a website, containing the details of Your browsing\n                                    history on that website among its many uses."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Country")]),
+                      _vm._v(
+                        "\n                                    refers to: California, United States"
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Data\n                                        Controller"
+                        ),
+                      ]),
+                      _vm._v(
+                        ", for the purposes of the GDPR (General Data\n                                    Protection Regulation), refers to the Company as the legal person which\n                                    alone or jointly with others determines the purposes and means of the\n                                    processing of Personal Data."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Device")]),
+                      _vm._v(
+                        "\n                                    means any device that can access the Service such as a computer, a\n                                    cellphone or a digital tablet."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Do Not\n                                        Track"
+                        ),
+                      ]),
+                      _vm._v(
+                        " (DNT) is a concept that has been promoted by US\n                                    regulatory authorities, in particular the U.S. Federal Trade Commission\n                                    (FTC), for the Internet industry to develop and implement a mechanism\n                                    for allowing internet users to control the tracking of their online\n                                    activities across websites."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Facebook Fan\n                                        Page"
+                        ),
+                      ]),
+                      _vm._v(
+                        " is a public profile named Heart of Gold Medical\n                                    Transport, Inc. specifically created by the Company on the Facebook\n                                    social network, accessible from "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://www.facebook.com/heartofgoldmedtransport",
+                            rel: "external nofollow noopener",
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "https://www.facebook.com/heartofgoldmedtransport"
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Personal\n                                        Data"
+                        ),
+                      ]),
+                      _vm._v(
+                        " is any information that relates to an identified or\n                                    identifiable individual."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "For the purposes for GDPR,\n                                    Personal Data means any information relating to You such as a name, an\n                                    identification number, location data, online identifier or to one or\n                                    more factors specific to the physical, physiological, genetic, mental,\n                                    economic, cultural or social identity."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "For the purposes of the\n                                    CCPA, Personal Data means any information that identifies, relates to,\n                                    describes or is capable of being associated with, or could reasonably be\n                                    linked, directly or indirectly, with You."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Sale")]),
+                      _vm._v(
+                        ", for\n                                    the purpose of the CCPA (California Consumer Privacy Act), means\n                                    selling, renting, releasing, disclosing, disseminating, making\n                                    available, transferring, or otherwise communicating orally, in writing,\n                                    or by electronic or other means, a Consumer's personal information to\n                                    another business or a third party for monetary or other valuable\n                                    consideration."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Service")]),
+                      _vm._v(
+                        "\n                                    refers to the Website."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Service\n                                        Provider"
+                        ),
+                      ]),
+                      _vm._v(
+                        " means any natural or legal person who processes\n                                    the data on behalf of the Company. It refers to third-party companies or\n                                    individuals employed by the Company to facilitate the Service, to\n                                    provide the Service on behalf of the Company, to perform services\n                                    related to the Service or to assist the Company in analyzing how the\n                                    Service is used. For the purpose of the GDPR, Service Providers are\n                                    considered Data Processors."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Third-party Social\n                                        Media Service"
+                        ),
+                      ]),
+                      _vm._v(
+                        " refers to any website or any social network\n                                    website through which a User can log in or create an account to use the\n                                    Service."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Usage\n                                        Data"
+                        ),
+                      ]),
+                      _vm._v(
+                        " refers to data collected automatically, either\n                                    generated by the use of the Service or from the Service infrastructure\n                                    itself (for example, the duration of a page visit)."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Website")]),
+                      _vm._v(
+                        "\n                                    refers to Heart of Gold Medical Transport Inc, accessible from "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://www.heartofgoldmedtransport.com/",
+                            rel: "external nofollow noopener",
+                            target: "_blank",
+                          },
+                        },
+                        [_vm._v("https://www.heartofgoldmedtransport.com/")]
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("You")]),
+                      _vm._v(
+                        " means\n                                    the individual accessing or using the Service, or the company, or other\n                                    legal entity on behalf of which such individual is accessing or using\n                                    the Service, as applicable."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Under GDPR (General Data\n                                    Protection Regulation), You can be referred to as the Data Subject or as\n                                    the User as you are the individual using the Service."
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h1", [_vm._v("Collecting and Using Your Personal Data")]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Types of Data Collected")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Personal Data")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "While using Our Service, We may\n                            ask You to provide Us with certain personally identifiable information that can\n                            be used to contact or identify You. Personally identifiable information may\n                            include, but is not limited to:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Email address"),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "First name and last name\n                                "
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Phone number"),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Address, State, Province,\n                                    ZIP/Postal code, City"
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Usage Data"),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Usage Data")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Usage Data is collected\n                            automatically when using the Service."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Usage Data may include information\n                            such as Your Device's Internet Protocol address (e.g. IP address), browser type,\n                            browser version, the pages of our Service that You visit, the time and date of\n                            Your visit, the time spent on those pages, unique device identifiers and other\n                            diagnostic data."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "When You access the Service by or\n                            through a mobile device, We may collect certain information automatically,\n                            including, but not limited to, the type of mobile device You use, Your mobile\n                            device unique ID, the IP address of Your mobile device, Your mobile operating\n                            system, the type of mobile Internet browser You use, unique device identifiers\n                            and other diagnostic data."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may also collect information\n                            that Your browser sends whenever You visit our Service or when You access the\n                            Service by or through a mobile device."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Tracking Technologies and Cookies")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We use Cookies and similar\n                            tracking technologies to track the activity on Our Service and store certain\n                            information. Tracking technologies used are beacons, tags, and scripts to\n                            collect and track information and to improve and analyze Our Service. The\n                            technologies We use may include:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("strong", [_vm._v("Cookies or Browser Cookies.")]),
+                    _vm._v(
+                      " A cookie is a small file placed\n                                on Your Device. You can instruct Your browser to refuse all Cookies or to\n                                indicate when a Cookie is being sent. However, if You do not accept Cookies,\n                                You may not be able to use some parts of our Service. Unless you have\n                                adjusted Your browser setting so that it will refuse Cookies, our Service\n                                may use Cookies."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Flash Cookies.")]),
+                    _vm._v(
+                      ' Certain features of our Service may use\n                                local stored objects (or Flash Cookies) to collect and store information\n                                about Your preferences or Your activity on our Service. Flash Cookies are\n                                not managed by the same browser settings as those used for Browser Cookies.\n                                For more information on how You can delete Flash Cookies, please read "Where\n                                can I change the settings for disabling, or deleting local shared objects?"\n                                available at '
+                    ),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href: "https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_",
+                          rel: "external nofollow noopener",
+                          target: "_blank",
+                        },
+                      },
+                      [_vm._v("here")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Web Beacons.")]),
+                    _vm._v(
+                      " Certain sections of our Service and our emails\n                                may contain small electronic files known as web beacons (also referred to as\n                                clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for\n                                example, to count users who have visited those pages or opened an email and\n                                for other related website statistics (for example, recording the popularity\n                                of a certain section and verifying system and server integrity)."
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    'Cookies can be "Persistent" or\n                            "Session" Cookies. Persistent Cookies remain on Your personal computer or mobile\n                            device when You go offline, while Session Cookies are deleted as soon as You\n                            close Your web browser. You can learn more about cookies here: '
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "https://www.termsfeed.com/blog/cookies/",
+                        target: "_blank",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "All About\n                                Cookies by TermsFeed"
+                      ),
+                    ]
+                  ),
+                  _vm._v("."),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We use both Session and Persistent\n                            Cookies for the purposes set out below:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Necessary /\n                                        Essential Cookies"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Type: Session Cookies"),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Administered by: Us"),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Purpose: These Cookies are\n                                    essential to provide You with services available through the Website and\n                                    to enable You to use some of its features. They help to authenticate\n                                    users and prevent fraudulent use of user accounts. Without these\n                                    Cookies, the services that You have asked for cannot be provided, and We\n                                    only use these Cookies to provide You with those services."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Cookies Policy /\n                                        Notice Acceptance Cookies"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Type: Persistent Cookies\n                                "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Administered by: Us"),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Purpose: These Cookies\n                                    identify if users have accepted the use of cookies on the Website."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Functionality\n                                        Cookies"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Type: Persistent Cookies\n                                "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Administered by: Us"),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Purpose: These Cookies\n                                    allow us to remember choices You make when You use the Website, such as\n                                    remembering your login details or language preference. The purpose of\n                                    these Cookies is to provide You with a more personal experience and to\n                                    avoid You having to re-enter your preferences every time You use the\n                                    Website."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Tracking and\n                                        Performance Cookies"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Type: Persistent Cookies\n                                "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Administered by:\n                                    Third-Parties"
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Purpose: These Cookies are\n                                    used to track information about traffic to the Website and how users use\n                                    the Website. The information gathered via these Cookies may directly or\n                                    indirectly identify you as an individual visitor. This is because the\n                                    information collected is typically linked to a pseudonymous identifier\n                                    associated with the device you use to access the Website. We may also\n                                    use these Cookies to test new pages, features or new functionality of\n                                    the Website to see how our users react to them."
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "For more information about the\n                            cookies we use and your choices regarding cookies, please visit our Cookies\n                            Policy or the Cookies section of our Privacy Policy."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Use of Your Personal Data")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Company may use Personal Data\n                            for the following purposes:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "To provide and\n                                        maintain our Service"
+                        ),
+                      ]),
+                      _vm._v(
+                        ", including to monitor the usage of our\n                                    Service."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "To manage Your\n                                        Account:"
+                        ),
+                      ]),
+                      _vm._v(
+                        " to manage Your registration as a user of the\n                                    Service. The Personal Data You provide can give You access to different\n                                    functionalities of the Service that are available to You as a registered\n                                    user."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "For the\n                                        performance of a contract:"
+                        ),
+                      ]),
+                      _vm._v(
+                        " the development, compliance and\n                                    undertaking of the purchase contract for the products, items or services\n                                    You have purchased or of any other contract with Us through the Service.\n                                "
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "To contact\n                                        You:"
+                        ),
+                      ]),
+                      _vm._v(
+                        " To contact You by email, telephone calls, SMS, or\n                                    other equivalent forms of electronic communication, such as a mobile\n                                    application's push notifications regarding updates or informative\n                                    communications related to the functionalities, products or contracted\n                                    services, including the security updates, when necessary or reasonable\n                                    for their implementation."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "To provide\n                                        You"
+                        ),
+                      ]),
+                      _vm._v(
+                        " with news, special offers and general information about\n                                    other goods, services and events which we offer that are similar to\n                                    those that you have already purchased or enquired about unless You have\n                                    opted not to receive such information."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "To manage Your\n                                        requests:"
+                        ),
+                      ]),
+                      _vm._v(" To attend and manage Your requests to Us."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "For business\n                                        transfers:"
+                        ),
+                      ]),
+                      _vm._v(
+                        " We may use Your information to evaluate or\n                                    conduct a merger, divestiture, restructuring, reorganization,\n                                    dissolution, or other sale or transfer of some or all of Our assets,\n                                    whether as a going concern or as part of bankruptcy, liquidation, or\n                                    similar proceeding, in which Personal Data held by Us about our Service\n                                    users is among the assets transferred."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "For other\n                                        purposes"
+                        ),
+                      ]),
+                      _vm._v(
+                        ": We may use Your information for other purposes,\n                                    such as data analysis, identifying usage trends, determining the\n                                    effectiveness of our promotional campaigns and to evaluate and improve\n                                    our Service, products, services, marketing and your experience."
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may share Your personal\n                            information in the following situations:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("strong", [_vm._v("With Service Providers:")]),
+                    _vm._v(
+                      " We may share Your personal\n                                information with Service Providers to monitor and analyze the use of our\n                                Service, to contact You."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("For business transfers:")]),
+                    _vm._v(
+                      " We may share or transfer Your\n                                personal information in connection with, or during negotiations of, any\n                                merger, sale of Company assets, financing, or acquisition of all or a\n                                portion of Our business to another company."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("With Affiliates:")]),
+                    _vm._v(
+                      " We may share Your information with Our\n                                affiliates, in which case we will require those affiliates to honor this\n                                Privacy Policy. Affiliates include Our parent company and any other\n                                subsidiaries, joint venture partners or other companies that We control or\n                                that are under common control with Us."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("With business partners:")]),
+                    _vm._v(
+                      " We may share Your information with\n                                Our business partners to offer You certain products, services or promotions.\n                            "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("With other users:")]),
+                    _vm._v(
+                      " when You share personal information or\n                                otherwise interact in the public areas with other users, such information\n                                may be viewed by all users and may be publicly distributed outside. If You\n                                interact with other users or register through a Third-Party Social Media\n                                Service, Your contacts on the Third-Party Social Media Service may see Your\n                                name, profile, pictures and description of Your activity. Similarly, other\n                                users will be able to view descriptions of Your activity, communicate with\n                                You and view Your profile."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("With Your consent")]),
+                    _vm._v(
+                      ": We may disclose Your personal\n                                information for any other purpose with Your consent."
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Retention of Your Personal Data")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Company will retain Your\n                            Personal Data only for as long as is necessary for the purposes set out in this\n                            Privacy Policy. We will retain and use Your Personal Data to the extent\n                            necessary to comply with our legal obligations (for example, if we are required\n                            to retain your data to comply with applicable laws), resolve disputes, and\n                            enforce our legal agreements and policies."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Company will also retain Usage\n                            Data for internal analysis purposes. Usage Data is generally retained for a\n                            shorter period of time, except when this data is used to strengthen the security\n                            or to improve the functionality of Our Service, or We are legally obligated to\n                            retain this data for longer time periods."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Transfer of Your Personal Data")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Your information, including\n                            Personal Data, is processed at the Company's operating offices and in any other\n                            places where the parties involved in the processing are located. It means that\n                            this information may be transferred to — and maintained on — computers located\n                            outside of Your state, province, country or other governmental jurisdiction\n                            where the data protection laws may differ than those from Your jurisdiction."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Your consent to this Privacy\n                            Policy followed by Your submission of such information represents Your agreement\n                            to that transfer."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Company will take all steps\n                            reasonably necessary to ensure that Your data is treated securely and in\n                            accordance with this Privacy Policy and no transfer of Your Personal Data will\n                            take place to an organization or a country unless there are adequate controls in\n                            place including the security of Your data and other personal information."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Disclosure of Your Personal Data")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Business Transactions")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "If the Company is involved in a\n                            merger, acquisition or asset sale, Your Personal Data may be transferred. We\n                            will provide notice before Your Personal Data is transferred and becomes subject\n                            to a different Privacy Policy."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Law enforcement")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Under certain circumstances, the\n                            Company may be required to disclose Your Personal Data if required to do so by\n                            law or in response to valid requests by public authorities (e.g. a court or a\n                            government agency)."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Other legal requirements")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Company may disclose Your\n                            Personal Data in the good faith belief that such action is necessary to:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [_vm._v("Comply with a legal obligation")]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "Protect and defend the rights or property of the Company"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "Prevent or investigate possible wrongdoing in connection with the Service\n                            "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "Protect the personal safety of Users of the Service or the public"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("Protect against legal liability")]),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Security of Your Personal Data")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The security of Your Personal Data\n                            is important to Us, but remember that no method of transmission over the\n                            Internet, or method of electronic storage is 100% secure. While We strive to use\n                            commercially acceptable means to protect Your Personal Data, We cannot guarantee\n                            its absolute security."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [
+                  _vm._v(
+                    "Detailed Information on the Processing of Your Personal Data"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Service Providers We use may\n                            have access to Your Personal Data. These third-party vendors collect, store,\n                            use, process and transfer information about Your activity on Our Service in\n                            accordance with their Privacy Policies."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Analytics")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may use third-party Service\n                            providers to monitor and analyze the use of our Service."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Google\n                                        Analytics"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Google Analytics is a web\n                                    analytics service offered by Google that tracks and reports website\n                                    traffic. Google uses the data collected to track and monitor the use of\n                                    our Service. This data is shared with other Google services. Google may\n                                    use the collected data to contextualize and personalize the ads of its\n                                    own advertising network."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "You can opt-out of having\n                                    made your activity on the Service available to Google Analytics by\n                                    installing the Google Analytics opt-out browser add-on. The add-on\n                                    prevents the Google Analytics JavaScript (ga.js, analytics.js and dc.js)\n                                    from sharing information with Google Analytics about visits activity.\n                                "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "For more information on\n                                    the privacy practices of Google, please visit the Google Privacy &\n                                    Terms web page: "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://policies.google.com/privacy",
+                            rel: "external nofollow noopener",
+                            target: "_blank",
+                          },
+                        },
+                        [_vm._v("https://policies.google.com/privacy")]
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("Salesforce")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Their Privacy Policy can\n                                    be viewed at "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://www.salesforce.com/company/privacy/",
+                            rel: "external nofollow noopener",
+                            target: "_blank",
+                          },
+                        },
+                        [_vm._v("https://www.salesforce.com/company/privacy/")]
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Email Marketing")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may use Your Personal Data to\n                            contact You with newsletters, marketing or promotional materials and other\n                            information that may be of interest to You. You may opt-out of receiving any, or\n                            all, of these communications from Us by following the unsubscribe link or\n                            instructions provided in any email We send or by contacting Us."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may use Email Marketing Service\n                            Providers to manage and send emails to You."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [_vm._v("SendGrid")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Their Privacy Policy can\n                                    be viewed at "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://www.twilio.com/legal/privacy",
+                            rel: "external nofollow noopener",
+                            target: "_blank",
+                          },
+                        },
+                        [_vm._v("https://www.twilio.com/legal/privacy")]
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h1", [_vm._v("GDPR Privacy")]),
+                _vm._v(" "),
+                _c("h2", [
+                  _vm._v("Legal Basis for Processing Personal Data under GDPR"),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may process Personal Data under\n                            the following conditions:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("strong", [_vm._v("Consent:")]),
+                    _vm._v(
+                      " You have given Your consent for processing\n                                Personal Data for one or more specific purposes."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Performance of a contract:")]),
+                    _vm._v(
+                      " Provision of Personal Data is\n                                necessary for the performance of an agreement with You and/or for any\n                                pre-contractual obligations thereof."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Legal obligations:")]),
+                    _vm._v(
+                      " Processing Personal Data is necessary\n                                for compliance with a legal obligation to which the Company is subject."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Vital interests:")]),
+                    _vm._v(
+                      " Processing Personal Data is necessary in\n                                order to protect Your vital interests or of another natural person."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Public interests:")]),
+                    _vm._v(
+                      " Processing Personal Data is related to a\n                                task that is carried out in the public interest or in the exercise of\n                                official authority vested in the Company."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Legitimate interests:")]),
+                    _vm._v(
+                      " Processing Personal Data is necessary\n                                for the purposes of the legitimate interests pursued by the Company."
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "In any case, the Company will\n                            gladly help to clarify the specific legal basis that applies to the processing,\n                            and in particular whether the provision of Personal Data is a statutory or\n                            contractual requirement, or a requirement necessary to enter into a contract.\n                        "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Your Rights under the GDPR")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Company undertakes to respect\n                            the confidentiality of Your Personal Data and to guarantee You can exercise Your\n                            rights."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "You have the right under this\n                            Privacy Policy, and by law if You are within the EU, to:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("strong", [
+                      _vm._v("Request access to Your Personal Data."),
+                    ]),
+                    _vm._v(
+                      " The right to access,\n                                update or delete the information We have on You. Whenever made possible, you\n                                can access, update or request deletion of Your Personal Data directly within\n                                Your account settings section. If you are unable to perform these actions\n                                yourself, please contact Us to assist You. This also enables You to receive\n                                a copy of the Personal Data We hold about You."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [
+                      _vm._v(
+                        "Request correction of the Personal Data that We hold about\n                                    You."
+                      ),
+                    ]),
+                    _vm._v(
+                      " You have the right to have any incomplete or inaccurate\n                                information We hold about You corrected."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [
+                      _vm._v("Object to processing of Your Personal Data."),
+                    ]),
+                    _vm._v(
+                      " This right\n                                exists where We are relying on a legitimate interest as the legal basis for\n                                Our processing and there is something about Your particular situation, which\n                                makes You want to object to our processing of Your Personal Data on this\n                                ground. You also have the right to object where We are processing Your\n                                Personal Data for direct marketing purposes."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [
+                      _vm._v("Request erasure of Your Personal Data."),
+                    ]),
+                    _vm._v(
+                      " You have the right\n                                to ask Us to delete or remove Personal Data when there is no good reason for\n                                Us to continue processing it."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [
+                      _vm._v("Request the transfer of Your Personal Data."),
+                    ]),
+                    _vm._v(
+                      " We will provide\n                                to You, or to a third-party You have chosen, Your Personal Data in a\n                                structured, commonly used, machine-readable format. Please note that this\n                                right only applies to automated information which You initially provided\n                                consent for Us to use or where We used the information to perform a contract\n                                with You."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Withdraw Your consent.")]),
+                    _vm._v(
+                      " You have the right to withdraw Your\n                                consent on using your Personal Data. If You withdraw Your consent, We may\n                                not be able to provide You with access to certain specific functionalities\n                                of the Service."
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h2", [
+                  _vm._v("Exercising of Your GDPR Data Protection Rights"),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "You may exercise Your rights of\n                            access, rectification, cancellation and opposition by contacting Us. Please note\n                            that we may ask You to verify Your identity before responding to such requests.\n                            If You make a request, We will try our best to respond to You as soon as\n                            possible."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "You have the right to complain to\n                            a Data Protection Authority about Our collection and use of Your Personal Data.\n                            For more information, if You are in the European Economic Area (EEA), please\n                            contact Your local data protection authority in the EEA."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [_vm._v("Facebook Fan Page")]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Data Controller for the Facebook Fan Page")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Company is the Data Controller\n                            of Your Personal Data collected while using the Service. As operator of the\n                            Facebook Fan Page "
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "https://www.facebook.com/heartofgoldmedtransport",
+                        rel: "external nofollow noopener",
+                        target: "_blank",
+                      },
+                    },
+                    [_vm._v("https://www.facebook.com/heartofgoldmedtransport")]
+                  ),
+                  _vm._v(
+                    ", the\n                            Company and the operator of the social network Facebook are Joint Controllers.\n                        "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Company has entered into\n                            agreements with Facebook that define the terms for use of the Facebook Fan Page,\n                            among other things. These terms are mostly based on the Facebook Terms of\n                            Service: "
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "https://www.facebook.com/terms.php",
+                        rel: "external nofollow noopener",
+                        target: "_blank",
+                      },
+                    },
+                    [_vm._v("https://www.facebook.com/terms.php")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Visit the Facebook Privacy Policy\n                            "
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "https://www.facebook.com/policy.php",
+                        rel: "external nofollow noopener",
+                        target: "_blank",
+                      },
+                    },
+                    [_vm._v("https://www.facebook.com/policy.php")]
+                  ),
+                  _vm._v(
+                    " for more information\n                            about how Facebook manages Personal data or contact Facebook online, or by mail:\n                            Facebook, Inc. ATTN, Privacy Operations, 1601 Willow Road, Menlo Park, CA 94025,\n                            United States.\n                        "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Facebook Insights")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We use the Facebook Insights\n                            function in connection with the operation of the Facebook Fan Page and on the\n                            basis of the GDPR, in order to obtain anonymized statistical data about Our\n                            users."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "For this purpose, Facebook places\n                            a Cookie on the device of the user visiting Our Facebook Fan Page. Each Cookie\n                            contains a unique identifier code and remains active for a period of two years,\n                            except when it is deleted before the end of this period."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Facebook receives, records and\n                            processes the information stored in the Cookie, especially when the user visits\n                            the Facebook services, services that are provided by other members of the\n                            Facebook Fan Page and services by other companies that use Facebook services.\n                        "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "For more information on the\n                            privacy practices of Facebook, please visit Facebook Privacy Policy here: "
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "https://www.facebook.com/full_data_use_policy",
+                        rel: "external nofollow noopener",
+                        target: "_blank",
+                      },
+                    },
+                    [_vm._v("https://www.facebook.com/full_data_use_policy")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [_vm._v("CCPA Privacy")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "This privacy notice section for\n                            California residents supplements the information contained in Our Privacy Policy\n                            and it applies solely to all visitors, users, and others who reside in the State\n                            of California."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [
+                  _vm._v("Categories of Personal Information Collected"),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We collect information that\n                            identifies, relates to, describes, references, is capable of being associated\n                            with, or could reasonably be linked, directly or indirectly, with a particular\n                            Consumer or Device. The following is a list of categories of personal\n                            information which we may collect or may have been collected from California\n                            residents within the last twelve (12) months."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Please note that the categories\n                            and examples provided in the list below are those defined in the CCPA. This does\n                            not mean that all examples of that category of personal information were in fact\n                            collected by Us, but reflects our good faith belief to the best of our knowledge\n                            that some of that information from the applicable category may be and may have\n                            been collected. For example, certain categories of personal information would\n                            only be collected if You provided such personal information directly to Us."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category A:\n                                        Identifiers."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: A real name,\n                                    alias, postal address, unique personal identifier, online identifier,\n                                    Internet Protocol address, email address, account name, driver's license\n                                    number, passport number, or other similar identifiers."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: Yes."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category B:\n                                        Personal information categories listed in the California Customer\n                                        Records statute (Cal. Civ. Code § 1798.80(e))."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: A name,\n                                    signature, Social Security number, physical characteristics or\n                                    description, address, telephone number, passport number, driver's\n                                    license or state identification card number, insurance policy number,\n                                    education, employment, employment history, bank account number, credit\n                                    card number, debit card number, or any other financial information,\n                                    medical information, or health insurance information. Some personal\n                                    information included in this category may overlap with other categories.\n                                "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: Yes."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category C:\n                                        Protected classification characteristics under California or federal\n                                        law."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: Age (40 years or\n                                    older), race, color, ancestry, national origin, citizenship, religion or\n                                    creed, marital status, medical condition, physical or mental disability,\n                                    sex (including gender, gender identity, gender expression, pregnancy or\n                                    childbirth and related medical conditions), sexual orientation, veteran\n                                    or military status, genetic information (including familial genetic\n                                    information)."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: No."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category D:\n                                        Commercial information."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: Records and\n                                    history of products or services purchased or considered."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: No."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category E:\n                                        Biometric information."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: Genetic,\n                                    physiological, behavioral, and biological characteristics, or activity\n                                    patterns used to extract a template or other identifier or identifying\n                                    information, such as, fingerprints, faceprints, and voiceprints, iris or\n                                    retina scans, keystroke, gait, or other physical patterns, and sleep,\n                                    health, or exercise data."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: No."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category F:\n                                        Internet or other similar network activity."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: Interaction with\n                                    our Service or advertisement."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: Yes."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category G:\n                                        Geolocation data."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: Approximate\n                                    physical location."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: No."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category H:\n                                        Sensory data."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: Audio,\n                                    electronic, visual, thermal, olfactory, or similar information."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: No."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category I:\n                                        Professional or employment-related information."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: Current or past\n                                    job history or performance evaluations."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: No."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category J:\n                                        Non-public education information (per the Family Educational Rights\n                                        and Privacy Act (20 U.S.C. Section 1232g, 34 C.F.R. Part\n                                        99))."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: Education\n                                    records directly related to a student maintained by an educational\n                                    institution or party acting on its behalf, such as grades, transcripts,\n                                    class lists, student schedules, student identification codes, student\n                                    financial information, or student disciplinary records."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: No."),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "Category K:\n                                        Inferences drawn from other personal information."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Examples: Profile\n                                    reflecting a person's preferences, characteristics, psychological\n                                    trends, predispositions, behavior, attitudes, intelligence, abilities,\n                                    and aptitudes."
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Collected: No."),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Under CCPA, personal information\n                            does not include:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _vm._v(
+                      "Publicly available information from government records"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v("Deidentified or aggregated consumer information"),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "Information excluded from the CCPA's scope, such as:"
+                    ),
+                    _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                      _c("li", [
+                        _vm._v(
+                          "Health or medical information covered by the Health Insurance\n                                        Portability and Accountability Act of 1996 (HIPAA) and the\n                                        California Confidentiality of Medical Information Act (CMIA) or\n                                        clinical trial data"
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Personal Information covered by certain sector-specific privacy\n                                        laws, including the Fair Credit Reporting Act (FRCA), the\n                                        Gramm-Leach-Bliley Act (GLBA) or California Financial Information\n                                        Privacy Act (FIPA), and the Driver's Privacy Protection Act of 1994\n                                    "
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Sources of Personal Information")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We obtain the categories of\n                            personal information listed above from the following categories of sources:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("strong", [_vm._v("Directly from You")]),
+                    _vm._v(
+                      ". For example, from the forms You complete\n                                on our Service, preferences You express or provide through our Service."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Indirectly from You")]),
+                    _vm._v(
+                      ". For example, from observing Your\n                                activity on our Service."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("Automatically from You")]),
+                    _vm._v(
+                      ". For example, through cookies We or\n                                our Service Providers set on Your Device as You navigate through our\n                                Service."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("From Service Providers")]),
+                    _vm._v(
+                      ". For example, third-party vendors to\n                                monitor and analyze the use of our Service, or other third-party vendors\n                                that We use to provide the Service to You."
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h2", [
+                  _vm._v(
+                    "Use of Personal Information for Business Purposes or Commercial Purposes"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    'We may use or disclose personal\n                            information We collect for "business purposes" or "commercial purposes" (as\n                            defined under the CCPA), which may include the following examples:'
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _vm._v(
+                      "To operate our Service and provide You with our Service."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "To provide You with support and to respond to Your inquiries, including to\n                                investigate and address Your concerns and monitor and improve our Service.\n                            "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "To fulfill or meet the reason You provided the information. For example, if\n                                You share Your contact information to ask a question about our Service, We\n                                will use that personal information to respond to Your inquiry."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "To respond to law enforcement requests and as required by applicable law,\n                                court order, or governmental regulations."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "As described to You when collecting Your personal information or as\n                                otherwise set forth in the CCPA."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "For internal administrative and auditing purposes."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "To detect security incidents and protect against malicious, deceptive,\n                                fraudulent or illegal activity, including, when necessary, to prosecute\n                                those responsible for such activities."
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    'Please note that the examples\n                            provided above are illustrative and not intended to be exhaustive. For more\n                            details on how we use this information, please refer to the "Use of Your\n                            Personal Data" section.'
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "If We decide to collect additional\n                            categories of personal information or use the personal information We collected\n                            for materially different, unrelated, or incompatible purposes We will update\n                            this Privacy Policy."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [
+                  _vm._v(
+                    "Disclosure of Personal Information for Business Purposes or Commercial Purposes\n                        "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may use or disclose and may\n                            have used or disclosed in the last twelve (12) months the following categories\n                            of personal information for business or commercial purposes:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Category A: Identifiers\n                                "
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Category B: Personal\n                                    information categories listed in the California Customer Records statute\n                                    (Cal. Civ. Code § 1798.80(e))"
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Category F: Internet or\n                                    other similar network activity"
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Please note that the categories\n                            listed above are those defined in the CCPA. This does not mean that all examples\n                            of that category of personal information were in fact disclosed, but reflects\n                            our good faith belief to the best of our knowledge that some of that information\n                            from the applicable category may be and may have been disclosed."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "When We disclose personal\n                            information for a business purpose or a commercial purpose, We enter a contract\n                            that describes the purpose and requires the recipient to both keep that personal\n                            information confidential and not use it for any purpose except performing the\n                            contract."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Sale of Personal Information")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    'As defined in the CCPA, "sell" and\n                            "sale" mean selling, renting, releasing, disclosing, disseminating, making\n                            available, transferring, or otherwise communicating orally, in writing, or by\n                            electronic or other means, a consumer\'s personal information by the business to\n                            a third party for valuable consideration. This means that We may have received\n                            some kind of benefit in return for sharing personal information, but not\n                            necessarily a monetary benefit.'
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Please note that the categories\n                            listed below are those defined in the CCPA. This does not mean that all examples\n                            of that category of personal information were in fact sold, but reflects our\n                            good faith belief to the best of our knowledge that some of that information\n                            from the applicable category may be and may have been shared for value in\n                            return."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may sell and may have sold in\n                            the last twelve (12) months the following categories of personal information:\n                        "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Category A: Identifiers\n                                "
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Category B: Personal\n                                    information categories listed in the California Customer Records statute\n                                    (Cal. Civ. Code § 1798.80(e))"
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Category F: Internet or\n                                    other similar network activity"
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Share of Personal Information")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may share Your personal\n                            information identified in the above categories with the following categories of\n                            third parties:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Service Providers"),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Our affiliates"),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v("Our business partners"),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "Third party vendors to\n                                    whom You or Your agents authorize Us to disclose Your personal\n                                    information in connection with products or services We provide to You\n                                "
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h2", [
+                  _vm._v(
+                    "Sale of Personal Information of Minors Under 16 Years of Age"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We do not knowingly collect\n                            personal information from minors under the age of 16 through our Service,\n                            although certain third party websites that we link to may do so. These\n                            third-party websites have their own terms of use and privacy policies and we\n                            encourage parents and legal guardians to monitor their children's Internet usage\n                            and instruct their children to never provide information on other websites\n                            without their permission."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    'We do not sell the personal\n                            information of Consumers We actually know are less than 16 years of age, unless\n                            We receive affirmative authorization (the "right to opt-in") from either the\n                            Consumer who is between 13 and 16 years of age, or the parent or guardian of a\n                            Consumer less than 13 years of age. Consumers who opt-in to the sale of personal\n                            information may opt-out of future sales at any time. To exercise the right to\n                            opt-out, You (or Your authorized representative) may submit a request to Us by\n                            contacting Us.'
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "If You have reason to believe that\n                            a child under the age of 13 (or 16) has provided Us with personal information,\n                            please contact Us with sufficient detail to enable Us to delete that\n                            information."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Your Rights under the CCPA")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The CCPA provides California\n                            residents with specific rights regarding their personal information. If You are\n                            a resident of California, You have the following rights:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("strong", [_vm._v("The right to notice.")]),
+                    _vm._v(
+                      " You have the right to be notified\n                                which categories of Personal Data are being collected and the purposes for\n                                which the Personal Data is being used."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [_vm._v("The right to request.")]),
+                    _vm._v(
+                      " Under CCPA, You have the right to\n                                request that We disclose information to You about Our collection, use, sale,\n                                disclosure for business purposes and share of personal information. Once We\n                                receive and confirm Your request, We will disclose to You:"
+                    ),
+                    _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                      _c("li", [
+                        _vm._v(
+                          "The categories of personal information We collected about You"
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "The categories of sources for the personal information We collected\n                                        about You"
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Our business or commercial purpose for collecting or selling that\n                                        personal information"
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "The categories of third parties with whom We share that personal\n                                        information"
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "The specific pieces of personal information We collected about You\n                                    "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "If we sold Your personal information or disclosed Your personal\n                                        information for a business purpose, We will disclose to You:"
+                        ),
+                        _c(
+                          "ul",
+                          { staticClass: "MuiList-root MuiList-padding" },
+                          [
+                            _c("li", [
+                              _vm._v(
+                                "The categories of personal information categories sold"
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v(
+                                "The categories of personal information categories disclosed\n                                            "
+                              ),
+                            ]),
+                          ]
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [
+                      _vm._v(
+                        "The right to say no to the sale of Personal Data (opt-out)."
+                      ),
+                    ]),
+                    _vm._v(
+                      "\n                                You have the right to direct Us to not sell Your personal information. To\n                                submit an opt-out request please contact Us."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [
+                      _vm._v("The right to delete Personal Data."),
+                    ]),
+                    _vm._v(
+                      " You have the right to\n                                request the deletion of Your Personal Data, subject to certain exceptions.\n                                Once We receive and confirm Your request, We will delete (and direct Our\n                                Service Providers to delete) Your personal information from our records,\n                                unless an exception applies. We may deny Your deletion request if retaining\n                                the information is necessary for Us or Our Service Providers to:"
+                    ),
+                    _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                      _c("li", [
+                        _vm._v(
+                          "Complete the transaction for which We collected the personal\n                                        information, provide a good or service that You requested, take\n                                        actions reasonably anticipated within the context of our ongoing\n                                        business relationship with You, or otherwise perform our contract\n                                        with You."
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Detect security incidents, protect against malicious, deceptive,\n                                        fraudulent, or illegal activity, or prosecute those responsible for\n                                        such activities."
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Debug products to identify and repair errors that impair existing\n                                        intended functionality."
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Exercise free speech, ensure the right of another consumer to\n                                        exercise their free speech rights, or exercise another right\n                                        provided for by law."
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Comply with the California Electronic Communications Privacy Act\n                                        (Cal. Penal Code § 1546 et. seq.)."
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Engage in public or peer-reviewed scientific, historical, or\n                                        statistical research in the public interest that adheres to all\n                                        other applicable ethics and privacy laws, when the information's\n                                        deletion may likely render impossible or seriously impair the\n                                        research's achievement, if You previously provided informed consent.\n                                    "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Enable solely internal uses that are reasonably aligned with\n                                        consumer expectations based on Your relationship with Us."
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [_vm._v("Comply with a legal obligation.")]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Make other internal and lawful uses of that information that are\n                                        compatible with the context in which You provided it."
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("strong", [
+                      _vm._v("The right not to be discriminated against."),
+                    ]),
+                    _vm._v(
+                      " You have the\n                                right not to be discriminated against for exercising any of Your consumer's\n                                rights, including by:"
+                    ),
+                    _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                      _c("li", [_vm._v("Denying goods or services to You")]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Charging different prices or rates for goods or services, including\n                                        the use of discounts or other benefits or imposing penalties"
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Providing a different level or quality of goods or services to You\n                                    "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _vm._v(
+                          "Suggesting that You will receive a different price or rate for goods\n                                        or services or a different level or quality of goods or services\n                                    "
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h2", [
+                  _vm._v("Exercising Your CCPA Data Protection Rights"),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "In order to exercise any of Your\n                            rights under the CCPA, and if You are a California resident, You can contact Us:\n                        "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "By email:\n                                    contact@heartofgoldmedtransport.com"
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "By visiting this page on\n                                    our website: "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://www.heartofgoldmedtransport.com/contact",
+                            rel: "external nofollow noopener",
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "https://www.heartofgoldmedtransport.com/contact"
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "By phone number:\n                                    9167406447"
+                      ),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Only You, or a person registered\n                            with the California Secretary of State that You authorize to act on Your behalf,\n                            may make a verifiable request related to Your personal information."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v("Your request to Us must:"),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _vm._v(
+                      "Provide sufficient information that allows Us to reasonably verify You are\n                                the person about whom We collected personal information or an authorized\n                                representative"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "Describe Your request with sufficient detail that allows Us to properly\n                                understand, evaluate, and respond to it"
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We cannot respond to Your request\n                            or provide You with the required information if We cannot:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _vm._v(
+                      "Verify Your identity or authority to make the request"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "And confirm that the personal information relates to You"
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We will disclose and deliver the\n                            required information free of charge within 45 days of receiving Your verifiable\n                            request. The time period to provide the required information may be extended\n                            once by an additional 45 days when reasonable necessary and with prior notice.\n                        "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Any disclosures We provide will\n                            only cover the 12-month period preceding the verifiable request's receipt."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "For data portability requests, We\n                            will select a format to provide Your personal information that is readily\n                            useable and should allow You to transmit the information from one entity to\n                            another entity without hindrance."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h2", [_vm._v("Do Not Sell My Personal Information")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "You have the right to opt-out of\n                            the sale of Your personal information. Once We receive and confirm a verifiable\n                            consumer request from You, we will stop selling Your personal information. To\n                            exercise Your right to opt-out, please contact Us."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The Service Providers we partner\n                            with (for example, our analytics or advertising partners) may use technology on\n                            the Service that sells personal information as defined by the CCPA law. If you\n                            wish to opt out of the use of Your personal information for interest-based\n                            advertising purposes and these potential sales as defined under CCPA law, you\n                            may do so by following the instructions below."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Please note that any opt out is\n                            specific to the browser You use. You may need to opt out on every browser that\n                            You use."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Website")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "You can opt out of receiving ads\n                            that are personalized as served by our Service Providers by following our\n                            instructions presented on the Service:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _vm._v("The NAI's opt-out platform: "),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href: "http://www.networkadvertising.org/choices/",
+                          rel: "external nofollow noopener",
+                          target: "_blank",
+                        },
+                      },
+                      [_vm._v("http://www.networkadvertising.org/choices/")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v("The EDAA's opt-out platform "),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href: "http://www.youronlinechoices.com/",
+                          rel: "external nofollow noopener",
+                          target: "_blank",
+                        },
+                      },
+                      [_vm._v("http://www.youronlinechoices.com/")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v("The DAA's opt-out platform: "),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href: "http://optout.aboutads.info/?c=2&lang=EN",
+                          rel: "external nofollow noopener",
+                          target: "_blank",
+                        },
+                      },
+                      [_vm._v("http://optout.aboutads.info/?c=2&lang=EN")]
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "The opt out will place a cookie on\n                            Your computer that is unique to the browser You use to opt out. If you change\n                            browsers or delete the cookies saved by your browser, You will need to opt out\n                            again."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Mobile Devices")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Your mobile device may give You\n                            the ability to opt out of the use of information about the apps You use in order\n                            to serve You ads that are targeted to Your interests:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _vm._v(
+                      '"Opt out of Interest-Based Ads" or "Opt out of Ads Personalization" on\n                                Android devices'
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v('"Limit Ad Tracking" on iOS devices')]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "You can also stop the collection\n                            of location information from Your mobile device by changing the preferences on\n                            Your mobile device."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [
+                  _vm._v(
+                    '"Do Not Track" Policy as Required by California Online Privacy Protection Act\n                            (CalOPPA)'
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Our Service does not respond to Do\n                            Not Track signals."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "However, some third party websites\n                            do keep track of Your browsing activities. If You are visiting such websites,\n                            You can set Your preferences in Your web browser to inform websites that You do\n                            not want to be tracked. You can enable or disable DNT by visiting the\n                            preferences or settings page of Your web browser."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [_vm._v("Children's Privacy")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Our Service does not address\n                            anyone under the age of 13. We do not knowingly collect personally identifiable\n                            information from anyone under the age of 13. If You are a parent or guardian and\n                            You are aware that Your child has provided Us with Personal Data, please contact\n                            Us. If We become aware that We have collected Personal Data from anyone under\n                            the age of 13 without verification of parental consent, We take steps to remove\n                            that information from Our servers."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "If We need to rely on consent as a\n                            legal basis for processing Your information and Your country requires consent\n                            from a parent, We may require Your parent's consent before We collect and use\n                            that information."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [
+                  _vm._v(
+                    "Your California Privacy Rights (California's Shine the Light law)"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Under California Civil Code\n                            Section 1798 (California's Shine the Light law), California residents with an\n                            established business relationship with us can request information once a year\n                            about sharing their Personal Data with third parties for the third parties'\n                            direct marketing purposes."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "If you'd like to request more\n                            information under the California Shine the Light law, and if You are a\n                            California resident, You can contact Us using the contact information provided\n                            below."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [
+                  _vm._v(
+                    "California Privacy Rights for Minor Users (California Business and Professions\n                            Code Section 22581)"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "California Business and\n                            Professions Code section 22581 allow California residents under the age of 18\n                            who are registered users of online sites, services or applications to request\n                            and obtain removal of content or information they have publicly posted."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "To request removal of such data,\n                            and if You are a California resident, You can contact Us using the contact\n                            information provided below, and include the email address associated with Your\n                            account."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Be aware that Your request does\n                            not guarantee complete or comprehensive removal of content or information posted\n                            online and that the law may not permit or require removal in certain\n                            circumstances."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [_vm._v("Links to Other Websites")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "Our Service may contain links to\n                            other websites that are not operated by Us. If You click on a third party link,\n                            You will be directed to that third party's site. We strongly advise You to\n                            review the Privacy Policy of every site You visit."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We have no control over and assume\n                            no responsibility for the content, privacy policies or practices of any third\n                            party sites or services."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [_vm._v("Changes to this Privacy Policy")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "We may update Our Privacy Policy\n                            from time to time. We will notify You of any changes by posting the new Privacy\n                            Policy on this page."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    'We will let You know via email\n                            and/or a prominent notice on Our Service, prior to the change becoming effective\n                            and update the "Last updated" date at the top of this Privacy Policy.'
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "You are advised to review this\n                            Privacy Policy periodically for any changes. Changes to this Privacy Policy are\n                            effective when they are posted on this page."
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("h1", [_vm._v("Contact Us")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "policy-cs-p" }, [
+                  _vm._v(
+                    "If you have any questions about\n                            this Privacy Policy, You can contact us:"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "MuiList-root MuiList-padding" }, [
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "By email:\n                                    contact@heartofgoldmedtransport.com"
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "By visiting this page on\n                                    our website: "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://www.heartofgoldmedtransport.com/contact",
+                            rel: "external nofollow noopener",
+                            target: "_blank",
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "https://www.heartofgoldmedtransport.com/contact"
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("p", { staticClass: "policy-cs-p" }, [
+                      _vm._v(
+                        "By phone number:\n                                    9167406447"
+                      ),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
         ]),
       ]),
     ])
@@ -59653,15 +62484,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!****************************************************!*\
   !*** ./resources/js/components/frontend/about.vue ***!
   \****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about_vue_vue_type_template_id_56b2af4a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./about.vue?vue&type=template&id=56b2af4a& */ "./resources/js/components/frontend/about.vue?vue&type=template&id=56b2af4a&");
 /* harmony import */ var _about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./about.vue?vue&type=script&lang=js& */ "./resources/js/components/frontend/about.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -59691,7 +62521,7 @@ component.options.__file = "resources/js/components/frontend/about.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/frontend/about.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59723,15 +62553,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./resources/js/components/frontend/contact.vue ***!
   \******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contact_vue_vue_type_template_id_481ad1ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contact.vue?vue&type=template&id=481ad1ee& */ "./resources/js/components/frontend/contact.vue?vue&type=template&id=481ad1ee&");
 /* harmony import */ var _contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contact.vue?vue&type=script&lang=js& */ "./resources/js/components/frontend/contact.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -59761,7 +62590,7 @@ component.options.__file = "resources/js/components/frontend/contact.vue"
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/frontend/contact.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59789,19 +62618,71 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/frontend/fqa.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/frontend/fqa.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _fqa_vue_vue_type_template_id_148a2a78___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fqa.vue?vue&type=template&id=148a2a78& */ "./resources/js/components/frontend/fqa.vue?vue&type=template&id=148a2a78&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _fqa_vue_vue_type_template_id_148a2a78___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _fqa_vue_vue_type_template_id_148a2a78___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/frontend/fqa.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/fqa.vue?vue&type=template&id=148a2a78&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/frontend/fqa.vue?vue&type=template&id=148a2a78& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_fqa_vue_vue_type_template_id_148a2a78___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./fqa.vue?vue&type=template&id=148a2a78& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/fqa.vue?vue&type=template&id=148a2a78&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_fqa_vue_vue_type_template_id_148a2a78___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_fqa_vue_vue_type_template_id_148a2a78___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/frontend/home.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/frontend/home.vue ***!
   \***************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_vue_vue_type_template_id_3ef8d081___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.vue?vue&type=template&id=3ef8d081& */ "./resources/js/components/frontend/home.vue?vue&type=template&id=3ef8d081&");
 /* harmony import */ var _home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.vue?vue&type=script&lang=js& */ "./resources/js/components/frontend/home.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -59831,7 +62712,7 @@ component.options.__file = "resources/js/components/frontend/home.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/components/frontend/home.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59923,6 +62804,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_form_vue_vue_type_template_id_0d2bc5e3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_form_vue_vue_type_template_id_0d2bc5e3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/policy.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/frontend/policy.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _policy_vue_vue_type_template_id_66f5b658___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./policy.vue?vue&type=template&id=66f5b658& */ "./resources/js/components/frontend/policy.vue?vue&type=template&id=66f5b658&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _policy_vue_vue_type_template_id_66f5b658___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _policy_vue_vue_type_template_id_66f5b658___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/frontend/policy.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/policy.vue?vue&type=template&id=66f5b658&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/frontend/policy.vue?vue&type=template&id=66f5b658& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_policy_vue_vue_type_template_id_66f5b658___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./policy.vue?vue&type=template&id=66f5b658& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/policy.vue?vue&type=template&id=66f5b658&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_policy_vue_vue_type_template_id_66f5b658___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_policy_vue_vue_type_template_id_66f5b658___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -60087,6 +63021,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_frontend_services_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/frontend/services.vue */ "./resources/js/components/frontend/services.vue");
 /* harmony import */ var _components_frontend_contact_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/frontend/contact.vue */ "./resources/js/components/frontend/contact.vue");
 /* harmony import */ var _components_frontend_resources_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/frontend/resources.vue */ "./resources/js/components/frontend/resources.vue");
+/* harmony import */ var _components_frontend_fqa_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/frontend/fqa.vue */ "./resources/js/components/frontend/fqa.vue");
+/* harmony import */ var _components_frontend_policy_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/frontend/policy.vue */ "./resources/js/components/frontend/policy.vue");
+
+
 
 
 
@@ -60112,6 +63050,14 @@ var routes = [{
   name: 'resources',
   path: '/resources',
   component: _components_frontend_resources_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+}, {
+  name: 'fqa',
+  path: '/fqa',
+  component: _components_frontend_fqa_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+}, {
+  name: 'policy',
+  path: '/policy',
+  component: _components_frontend_policy_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
 }];
 
 /***/ }),

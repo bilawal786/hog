@@ -3,6 +3,8 @@ import about from './components/frontend/about.vue';
 import services from './components/frontend/services.vue';
 import contact from './components/frontend/contact.vue';
 import resources from './components/frontend/resources.vue';
+import fqa from './components/frontend/fqa.vue';
+import policy from './components/frontend/policy.vue';
  
 export const routes = [
     {
@@ -29,5 +31,15 @@ export const routes = [
         name: 'resources',
         path: '/resources',
         component: resources
+    },
+    {
+        name: 'fqa',
+        path: '/fqa',
+        component: fqa
+    },
+    {
+        name: 'policy',
+        path: '/policy',
+        component: policy
     }
 ];
