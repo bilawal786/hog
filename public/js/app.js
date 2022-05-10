@@ -2806,121 +2806,550 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    var plugin = document.createElement("script");
-    plugin.setAttribute("src", "assets/js/plugins.min.js");
-    plugin.async = true;
-    document.head.appendChild(plugin);
-    jQuery(document).ready(function () {
-      var $sliderSelector = jQuery(".carrent-slider");
-      $sliderSelector.revolution({
-        sliderType: "standard",
-        sliderLayout: "fullwidth",
-        delay: 9000,
-        navigation: {
-          keyboardNavigation: "on",
-          keyboard_direction: "horizontal",
-          mouseScrollNavigation: "off",
-          onHoverStop: "on",
-          touch: {
-            touchenabled: "on",
-            swipe_threshold: 75,
-            swipe_min_touches: 1,
-            swipe_direction: "horizontal",
-            drag_block_vertical: false
-          },
-          arrows: {
-            style: "gyges",
-            enable: true,
-            hide_onmobile: false,
-            hide_onleave: true,
-            tmp: '',
-            left: {
-              h_align: "left",
-              v_align: "center",
-              h_offset: 10,
-              v_offset: 0
-            },
-            right: {
-              h_align: "right",
-              v_align: "center",
-              h_offset: 10,
-              v_offset: 0
+    var modelApp = {
+      /* ---------------------------------------------
+       Menu
+       --------------------------------------------- */
+      menu: function menu() {
+        var $combinedmenu = $(".site-navigation .menu-list").clone();
+        $combinedmenu.appendTo("#mobile-main-nav #main-mobile-container");
+        var $submenu = $(".sub-menu"),
+            $hasSubmenu = $(".menu-list li").has(".sub-menu"),
+            $subMenuMark = $("<span class='fa fa-angle-down'></span>"),
+            $mobileNavClass = $("#main-mobile-container .main-navigation"),
+            $mobileOverlay = $(".mobile-menu-main .menucontent.overlaybg, .mobile-menu-main .slideLeft"),
+            $mobileNavContent = $('.mobile-menu-main .menucontent'),
+            $mobileNavBar = $('#navtoggole-main');
+
+        if ($hasSubmenu) {
+          $submenu.prev().append($subMenuMark);
+        } // Main Navigation Mobile
+        // --------------------------------
+
+
+        $mobileNavClass.addClass('slideLeft');
+
+        var menuopen_main = function menuopen_main() {
+          $mobileOverlay.removeClass('menuclose').addClass('menuopen');
+        },
+            menuclose_main = function menuclose_main() {
+          $mobileOverlay.removeClass('menuopen').addClass('menuclose');
+        };
+
+        $mobileNavBar.on('click', function () {
+          if ($mobileNavContent.hasClass('menuopen')) {
+            $(menuclose_main);
+          } else {
+            $(menuopen_main);
+          }
+        });
+        $mobileNavContent.on('click', function () {
+          if ($mobileNavContent.hasClass('menuopen')) {
+            $(menuclose_main);
+          }
+        }); // Sub Menu
+        // --------------------------------
+
+        $hasSubmenu.prepend("<span class='menu-click'><i class='menu-arrow fa fa-plus'></i></span>");
+        var $menuMobile = $(".menu-mobile"),
+            $menuWrap = $(".menu-list");
+        $menuMobile.on("click", function () {
+          $menuWrap.slideToggle("slow");
+        });
+        var $mobileSubMenuOpen = $(".menu-click");
+        $mobileSubMenuOpen.on("click", function () {
+          var $self = $(this);
+          $self.siblings(".sub-menu").slideToggle("slow");
+          $self.children(".menu-arrow").toggleClass("menu-extend");
+        });
+        var $navRightIssue = $(".navigation .mainmenu li");
+        $navRightIssue.on("mouseenter mouseleave", function (e) {
+          var $self = $(this);
+
+          if ($("ul", $self).length) {
+            var elm = $("ul:first", $self),
+                off = elm.offset(),
+                l = off.left,
+                w = elm.width(),
+                docW = $(".header-bottom > .container").width(),
+                isEntirelyVisible = l + w <= docW;
+
+            if (!isEntirelyVisible) {
+              $self.addClass("right-side-menu");
+            } else {
+              $self.removeClass("right-side-menu");
             }
           }
-        },
-        responsiveLevels: [1400, 1368, 992, 480],
-        visibilityLevels: [1400, 1368, 992, 480],
-        gridwidth: [1400, 1368, 992, 480],
-        gridheight: [600, 600, 500, 380],
-        disableProgressBar: "on"
-      });
+        });
+        var $mbHeaderTop = $('.header-top-menu li a');
+        $mbHeaderTop.on('click', function () {
+          $(this).next('ul').slideToggle('slow');
+          return false;
+        });
+        var $slimeScrollSelector = $(".mb-navigation .menu-wrapper, .author-area-content");
+        $slimeScrollSelector.slimscroll({
+          height: '100%',
+          size: '5px'
+        });
+      },
+
+      /* ---------------------------------------------
+      slider_style_two
+       --------------------------------------------- */
+      slider_style_two: function slider_style_two() {
+        var $mainSliderTwo = $(".slider-style-two");
+        $mainSliderTwo.each(function () {
+          var $self = $(this);
+          var $sliderItems = $(this).data("item");
+          var $sliderItemsMargin = $(this).data("margin");
+          var $sliderCenterItem = $(this).data("center");
+          $sliderCenterItem == "true" ? true : false;
+          typeof $sliderItemsMargin !== "undefined" ? $sliderItemsMargin : $sliderItemsMargin = 30;
+          $self.owlCarousel({
+            loop: true,
+            items: typeof $sliderItems !== "undefined" ? $sliderItems[0] : 3,
+            margin: $sliderItemsMargin,
+            center: $sliderCenterItem,
+            responsive: {
+              280: {
+                items: typeof $sliderItems !== "undefined" ? $sliderItems[3] : 1
+              },
+              480: {
+                items: typeof $sliderItems !== "undefined" ? $sliderItems[2] : 1
+              },
+              768: {
+                items: typeof $sliderItems !== "undefined" ? $sliderItems[1] : 2
+              },
+              1200: {
+                items: typeof $sliderItems !== "undefined" ? $sliderItems[0] : 3
+              }
+            }
+          });
+          $self.each(function () {
+            var $this = $(this),
+                $next_element = $this.prevAll().find('.block-navigation-area .item-navigation  .next-item'),
+                $previous_element = $this.prevAll().find('.block-navigation-area .item-navigation .previous-item');
+            $next_element.on('click', function (e) {
+              e.preventDefault();
+              $this.trigger('next.owl.carousel');
+            });
+            $previous_element.on('click', function (e) {
+              e.preventDefault();
+              $this.trigger('prev.owl.carousel', [300]);
+            });
+          });
+        });
+      },
+
+      /* ---------------------------------------------
+      brand-slider
+       --------------------------------------------- */
+      brand_slider: function brand_slider() {
+        var $brandSlider = $(".brand-carousel");
+        $brandSlider.owlCarousel({
+          loop: true,
+          margin: 15,
+          responsive: {
+            280: {
+              items: 1
+            },
+            480: {
+              items: 3
+            },
+            768: {
+              items: 4
+            },
+            1200: {
+              items: 7
+            }
+          }
+        });
+        $brandSlider.each(function () {
+          var $this = $(this),
+              $next_element = $this.prevAll().find('.block-navigation-area .item-navigation  .next-item'),
+              $previous_element = $this.prevAll().find('.block-navigation-area .item-navigation .previous-item');
+          $next_element.on('click', function (e) {
+            e.preventDefault();
+            $this.trigger('next.owl.carousel');
+          });
+          $previous_element.on('click', function (e) {
+            e.preventDefault(); // With optional speed parameter
+            // Parameters has to be in square bracket '[]'
+
+            $this.trigger('prev.owl.carousel', [300]);
+          });
+        });
+      },
+
+      /* ---------------------------------------------
+       fun_fects
+       --------------------------------------------- */
+      fun_fects: function fun_fects() {
+        var $countSelector = $(".stat-count");
+
+        if ($countSelector.length) {
+          $countSelector.countTo();
+        }
+      },
+
+      /* ---------------------------------------------
+       Time Count For Coming Soon
+       --------------------------------------------- */
+      time_count: function time_count() {
+        var $selector = $('.commingsoon-count');
+        $selector.each(function () {
+          var $this = $(this),
+              data_year = $this.attr('data-year'),
+              data_month = $this.attr('data-month'),
+              data_day = $this.attr('data-day'),
+              data_hour = $this.attr('data-hour'),
+              data_minutes = $this.attr('data-minutes');
+          $this.syotimer({
+            year: data_year,
+            month: data_month,
+            day: data_day,
+            hour: data_hour,
+            minute: data_minutes
+          });
+        });
+      },
+
+      /* ---------------------------------------------
+       Accordion Panel
+       --------------------------------------------- */
+      accordion: function accordion() {
+        var $panelHeading = $(".panel-heading");
+        $panelHeading.each(function () {
+          if ($(this).next().hasClass('in')) {
+            $(this).children().addClass('menu-extend');
+          }
+
+          $(this).on('click', function (e) {
+            if ($(this).parent().prevAll().children().children().hasClass('menu-extend')) {
+              $(this).parent().prevAll().children().children().removeClass('menu-extend');
+            } else if ($(this).parent().nextAll().children().children().hasClass('menu-extend')) {
+              $(this).parent().nextAll().children().children().removeClass('menu-extend');
+            }
+
+            $(this).children().addClass('menu-extend');
+          });
+        });
+      },
+
+      /* ---------------------------------------------
+      Gallery Style Two Carousel
+      --------------------------------------------- */
+      gallary: function gallary() {
+        var $sync1 = $(".full-view"),
+            $sync2 = $(".list-view"),
+            duration = 300;
+        $sync1.owlCarousel({
+          items: 1,
+          margin: 0,
+          nav: false,
+          owl2row: 'true',
+          owl2rowTarget: 'item'
+        }).on('changed.owl.carousel', function (e) {
+          var syncedPosition = syncPosition(e.item.index);
+
+          if (syncedPosition !== "stayStill") {
+            $sync2.trigger('to.owl.carousel', [syncedPosition, duration, true]);
+          }
+        });
+        $sync2.owlCarousel({
+          margin: 15,
+          items: 6,
+          nav: false,
+          center: false,
+          dots: false,
+          responsive: {
+            280: {
+              items: 2
+            },
+            500: {
+              items: 2
+            },
+            600: {
+              items: 3
+            },
+            800: {
+              items: 4
+            },
+            1000: {
+              items: 6
+            },
+            1200: {
+              items: 6
+            },
+            1400: {
+              items: 6
+            }
+          }
+        }).on('initialized.owl.carousel', function () {
+          addClassCurrent(0);
+        }).on('click', '.owl-item', function () {
+          $sync1.trigger('to.owl.carousel', [$(this).index(), duration, true]);
+        });
+
+        function addClassCurrent(index) {
+          $sync2.find(".owl-item.active").removeClass("current").eq(index).addClass("current");
+        }
+
+        addClassCurrent(0);
+
+        function syncPosition(index) {
+          addClassCurrent(index);
+          var itemsNo = $sync2.find(".owl-item").length;
+          var visibleItemsNo = $sync2.find(".owl-item.active").length;
+
+          if (itemsNo === visibleItemsNo) {
+            return "stayStill";
+          }
+
+          var visibleCurrentIndex = $sync2.find(".owl-item.active").index($sync2.find(".owl-item.current"));
+
+          if (visibleCurrentIndex === 0 && index !== 0) {
+            return index - 1;
+          }
+
+          if (visibleCurrentIndex === visibleItemsNo - 1 && index !== itemsNo - 1) {
+            return index - visibleItemsNo + 2;
+          }
+
+          return "stayStill";
+        }
+      },
+
+      /* ---------------------------------------------
+       Scroll top
+       --------------------------------------------- */
+      scroll_top: function scroll_top() {
+        var $bodyElement = $("body"),
+            $window = $(window),
+            $scrollHtml = $("<a href='#top' id='scroll-top' class='topbutton btn-hide'><span class='glyphicon glyphicon-menu-up'></span></a>");
+        $bodyElement.append($scrollHtml);
+        var $scrolltop = $("#scroll-top");
+        $window.on("scroll", function () {
+          if ($(this).scrollTop() > $(this).height()) {
+            $scrolltop.addClass("btn-show").removeClass("btn-hide");
+          } else {
+            $scrolltop.addClass("btn-hide").removeClass("btn-show");
+          }
+        });
+        var $selectorAnchor = $("a[href='#top']");
+        $selectorAnchor.on("click", function () {
+          $("html, body").animate({
+            scrollTop: 0
+          }, "normal");
+          return false;
+        });
+      },
+
+      /* ---------------------------------------------
+      Date Picker
+      --------------------------------------------- */
+      datePicker: function datePicker() {
+        var $dateSelector = $(".date-selector");
+        var $timeSelector = $(".time-selector");
+        $dateSelector.datetimepicker({
+          yearOffset: 0,
+          lang: 'en',
+          timepicker: false,
+          format: 'd/m/Y',
+          formatDate: 'Y/m/d',
+          minDate: "1"
+        });
+        $timeSelector.datetimepicker({
+          datepicker: false,
+          format: 'H:i',
+          step: 5
+        });
+      },
+
+      /* ---------------------------------------------
+      Search Overlay
+      --------------------------------------------- */
+      searchOverlay: function searchOverlay() {
+        var triggerBttn = $(".search-open"),
+            overlay = $("div.overlay-scale"),
+            closeBttn = $("button.overlay-close");
+        triggerBttn.on("click", function () {
+          overlay.addClass("open");
+          console.log(overlay);
+          return false;
+        });
+        closeBttn.on("click", function () {
+          overlay.removeClass("open");
+          return false;
+        });
+
+        function openNav() {
+          var $authorSelector = $(".author-area");
+          $authorSelector.addClass("open");
+        }
+
+        function closeNav() {
+          var $authorSelector = $(".author-area");
+          $authorSelector.removeClass("open");
+        }
+
+        var $triggerBtn = $(".trigger-overlay");
+        $triggerBtn.on("click", function () {
+          openNav();
+          return false;
+        });
+        var $closeBtn = $(".closebtn");
+        $closeBtn.on("click", function () {
+          closeNav();
+          return false;
+        });
+        $(document).on('click', function (e) {
+          var $authorSelectorDoc = $(".author-area");
+
+          if (!$authorSelectorDoc.is(e.target) && $authorSelectorDoc.has(e.target).length === 0) {
+            $authorSelectorDoc.removeClass("open");
+          }
+        });
+        var $advanceSearchBtn = $(".advanced-search-btn");
+        $advanceSearchBtn.on("click", function () {
+          var $advanceSerachContainer = $(".advance-search");
+          $advanceSerachContainer.slideToggle();
+          return false;
+        });
+      },
+
+      /* ---------------------------------------------
+      Mobile Tab
+      --------------------------------------------- */
+      mobileTab: function mobileTab() {
+        var $tabli = $('.vehicle-filter-area li a, .post-filter-area li a');
+        var $nextEL = $('.vehicle-filter-area, .post-filter-area');
+        var $selectOption = $('<select class="responsive-nav visible-xs-block visible-sm-block"/>');
+        $tabli.each(function (e, value) {
+          var $select = $("<option value='" + e + "'>" + $(this).text() + "</option>");
+          $selectOption.append($select);
+        });
+        $selectOption.appendTo($nextEL);
+        var $responsiveNav = $(".responsive-nav");
+        $responsiveNav.on("change", function (e) {
+          var url = $(this).val();
+
+          if ($.isNumeric(url) === true) {
+            var $navSlector = $(".vehicle-filter-area li a, .post-filter-area li a");
+            $navSlector.eq(url).tab('show');
+          } else {
+            window.location = url;
+          }
+        });
+      },
+
+      /* ---------------------------------------------
+      Map iframe
+      --------------------------------------------- */
+      mapIframe: function mapIframe() {
+        var $mapIframe = $(".header-map-content");
+        $mapIframe.click(function () {
+          var $self = $(this);
+          $self.find("iframe").addClass("clicked");
+        }).mouseleave(function () {
+          var $self = $(this);
+          $self.find("iframe").removeClass("clicked");
+        });
+      },
+
+      /* ---------------------------------------------
+       Widget Mobile fix
+       --------------------------------------------- */
+      widget_mobile: function widget_mobile() {
+        function debouncer(func, timeout) {
+          var timeoutID,
+              timeout = timeout || 500;
+          return function () {
+            var scope = this,
+                args = arguments;
+            clearTimeout(timeoutID);
+            timeoutID = setTimeout(function () {
+              func.apply(scope, Array.prototype.slice.call(args));
+            }, timeout);
+          };
+        }
+
+        function resized() {
+          var getWidgetTitle = $('.widget .widget-title');
+          var getWidgetTitleContent;
+
+          if ($(window).width() <= 991) {
+            getWidgetTitleContent = $('.widget .widget-title').nextAll().hide();
+            getWidgetTitle.addClass('expand-margin');
+            getWidgetTitle.on('click', function (e) {
+              e.stopImmediatePropagation();
+              $(this).toggleClass('expand');
+              $(this).nextAll().slideToggle();
+              return false;
+            });
+            getWidgetTitle.each(function () {
+              $(this).addClass('mb-widget');
+            });
+          } else {
+            getWidgetTitleContent = $('.widget .widget-title').nextAll().show();
+            getWidgetTitle.removeClass('expand-margin');
+            getWidgetTitle.each(function () {
+              $(this).parent().removeClass('mb-widget');
+            });
+          }
+
+          ;
+        }
+
+        resized();
+        var prevW = window.innerWidth || $(window).width();
+        $(window).resize(debouncer(function (e) {
+          var currentW = window.innerWidth || $(window).width();
+
+          if (currentW != prevW) {
+            resized();
+          }
+
+          prevW = window.innerWidth || $(window).width();
+        })); //Mobile Responsive
+
+        var $extendBtn = $(".extend-btn .extend-icon");
+        $extendBtn.on("click", function (e) {
+          e.preventDefault();
+          var $self = $(this);
+          $self.parent().prev().toggleClass("mobile-extend");
+          $self.parent().toggleClass("extend-btn");
+          $self.toggleClass("up");
+        });
+      },
+
+      /* ---------------------------------------------
+       function initializ
+       --------------------------------------------- */
+      initializ: function initializ() {
+        modelApp.menu();
+        modelApp.slider_style_two();
+        modelApp.brand_slider();
+        modelApp.accordion();
+        modelApp.fun_fects();
+        modelApp.time_count();
+        modelApp.mobileTab();
+        modelApp.datePicker();
+        modelApp.gallary();
+        modelApp.searchOverlay();
+        modelApp.widget_mobile();
+        modelApp.mapIframe();
+        modelApp.scroll_top();
+      }
+    };
+    /* ---------------------------------------------
+     Document ready function
+     --------------------------------------------- */
+
+    $(function () {
+      modelApp.initializ();
     });
   }
 });
@@ -2931,261 +3360,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/about.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/contact.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/contact.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuejs_datetimepicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuejs-datetimepicker */ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _includes_contact_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./includes/contact-form */ "./resources/js/components/frontend/includes/contact-form.vue");
 //
 //
 //
@@ -3260,9 +3440,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    datetime: vuejs_datetimepicker__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  methods: {}
+    ContactForm: _includes_contact_form__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/contact.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/contact.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _includes_contact_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./includes/contact-form */ "./resources/js/components/frontend/includes/contact-form.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ContactForm: _includes_contact_form__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
 });
 
 /***/ }),
@@ -3271,9 +3535,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/home.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -3482,6 +3748,67 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    jQuery(document).ready(function () {
+      var $sliderSelector = jQuery(".carrent-slider");
+      $sliderSelector.revolution({
+        sliderType: "standard",
+        sliderLayout: "fullwidth",
+        delay: 9000,
+        navigation: {
+          keyboardNavigation: "on",
+          keyboard_direction: "horizontal",
+          mouseScrollNavigation: "off",
+          onHoverStop: "on",
+          touch: {
+            touchenabled: "on",
+            swipe_threshold: 75,
+            swipe_min_touches: 1,
+            swipe_direction: "horizontal",
+            drag_block_vertical: false
+          },
+          arrows: {
+            style: "gyges",
+            enable: true,
+            hide_onmobile: false,
+            hide_onleave: true,
+            tmp: '',
+            left: {
+              h_align: "left",
+              v_align: "center",
+              h_offset: 10,
+              v_offset: 0
+            },
+            right: {
+              h_align: "right",
+              v_align: "center",
+              h_offset: 10,
+              v_offset: 0
+            }
+          }
+        },
+        responsiveLevels: [1400, 1368, 992, 480],
+        visibilityLevels: [1400, 1368, 992, 480],
+        gridwidth: [1400, 1368, 992, 480],
+        gridheight: [600, 600, 500, 380],
+        disableProgressBar: "on"
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/includes/contact-form.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/includes/contact-form.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -3557,6 +3884,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -3631,6 +3991,19 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10020,25 +10393,6 @@ exports.push([module.i, "", ""]);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.year-month-wrapper[data-v-4bd11526]{\n  background-color: #ed4d00;\n}\ninput[data-v-4bd11526]{\n  min-width: 226px;\n  width:100%;\n  height: 30px;\n  padding: 3px;\n  border: 1px solid #ddd;\n}\n.datetime-picker[data-v-4bd11526]{\n  position: relative;\n}\n.calender-div[data-v-4bd11526]{\n  min-width: 270px;\n  box-shadow: 1px 2px 5px #ccc;\n  background: #FFF;\n  position: absolute;\n  display: inline-block;\n  left: 0;\n  top: 35px;\n  color: #444;\n  font-size: 14px;\n  padding-bottom: 10px;\n  z-index: 100;\n}\n.port[data-v-4bd11526], .days[data-v-4bd11526]{\n  display: inline-block;\n  width: 30px;\n  height: 30px;\n  padding: 5px 3px;\n  margin: 2px;\n  border-radius: 2px;\n  text-align: center;\n  vertical-align: top;\n  cursor: pointer;\n}\n.days[data-v-4bd11526]{\n  color: #ed4d00;\n  font-weight: bold;\n}\n.port[data-v-4bd11526]:hover{\n  color: #ed4d00;\n  font-weight: bold;\n}\n.activePort[data-v-4bd11526], .activePort[data-v-4bd11526]:hover {\n  background-color: #ed4d00;\n  color: white;\n}\n.month-setter[data-v-4bd11526], .year-setter[data-v-4bd11526]{\n  margin: 0 1px;\n  width: 48.2%;\n  color: white;\n  font-weight: 900;\n  display: inline-block;\n}\n.nav-l[data-v-4bd11526]:hover, .nav-r[data-v-4bd11526]:hover {\n  background-color: #dc3c00;\n}\n.nav-l[data-v-4bd11526], .nav-r[data-v-4bd11526] {\n  display: inline-block;\n  width: 25px;\n  background-color: #ed4d00;\n  color: white;\n  font-size: 16px;\n  cursor: pointer;\n  border: 0;\n  padding: 7px;\n  margin:0;\n}\n.nav-l[data-v-4bd11526]:focus, .nav-r[data-v-4bd11526]:focus{\n  outline: none;\n}\n.nav-l[data-v-4bd11526]{\n  float: left;\n}\n.nav-r[data-v-4bd11526]{\n  float: right;\n}\n.month[data-v-4bd11526], .year[data-v-4bd11526]{\n  width: 40px;\n  text-align: right;\n  display: inline-block;\n  color: white;\n  padding: 7px 0;\n}\n/* .headers>span{\n\n} */\n.hour-selector[data-v-4bd11526], .minute-selector[data-v-4bd11526]{\n  width: 30px;\n  display: inline-block;\n  text-align: center;\n  font-weight: bold;\n  position: relative;\n  cursor: pointer;\n}\n.time-separator[data-v-4bd11526]{\n  display: inline-block;\n  font-weight: bold;\n}\n.time-picker[data-v-4bd11526]{\n  margin: 10px\n}\n.nav-t[data-v-4bd11526], .nav-d[data-v-4bd11526]{\n  font-weight: bold;\n  cursor: pointer;\n}\n.scroll-hider[data-v-4bd11526] {\n  display: none;\n  vertical-align:top;\n  overflow:hidden;\n  border:0;\n  position: absolute;\n  top: -40px;\n  left: 0;\n  box-shadow: 0 0 3px #333;\n  background-color: white;\n}\n.scroll-hider ul[data-v-4bd11526] {\n  padding:5px;\n  margin:-5px -13px -5px -5px;\n  list-style-type: none;\n  height: 100px;\n  overflow: auto;\n  width:55px;\n  color: #999;\n  overflow-x: hidden;\n}\n.showSelector[data-v-4bd11526]{\n  display:inline-block;\n}\nli.active[data-v-4bd11526]{\n  background-color: #ed4d00;\n  color: white;\n}\nli[data-v-4bd11526]{\n  padding: 4px;\n  font-size: 16px;\n  width: 100%;\n  cursor: pointer;\n}\n.time-picker[data-v-4bd11526]{\n  display: inline-block;\n}\n.noDisplay[data-v-4bd11526]{\n  display: none;\n}\n.okButton[data-v-4bd11526]{\n  color: #ed4d00;\n  font-size: 15px;\n  font-weight: bold;\n  padding: 0;\n  float: right;\n  border: 0;\n  margin-right: 10px;\n  margin-top: 10px;\n  cursor: pointer;\n  background: transparent;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/lib/css-base.js":
 /*!*************************************************!*\
   !*** ./node_modules/css-loader/lib/css-base.js ***!
@@ -10122,1674 +10476,6 @@ function toComment(sourceMap) {
 
 	return '/*# ' + data + ' */';
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds/index.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds/index.js ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var MILLISECONDS_IN_MINUTE = 60000
-
-/**
- * Google Chrome as of 67.0.3396.87 introduced timezones with offset that includes seconds.
- * They usually appear for dates that denote time before the timezones were introduced
- * (e.g. for 'Europe/Prague' timezone the offset is GMT+00:57:44 before 1 October 1891
- * and GMT+01:00:00 after that date)
- *
- * Date#getTimezoneOffset returns the offset in minutes and would return 57 for the example above,
- * which would lead to incorrect calculations.
- *
- * This function returns the timezone offset in milliseconds that takes seconds in account.
- */
-module.exports = function getTimezoneOffsetInMilliseconds (dirtyDate) {
-  var date = new Date(dirtyDate.getTime())
-  var baseTimezoneOffset = date.getTimezoneOffset()
-  date.setSeconds(0, 0)
-  var millisecondsPartOfTimezoneOffset = date.getTime() % MILLISECONDS_IN_MINUTE
-
-  return baseTimezoneOffset * MILLISECONDS_IN_MINUTE + millisecondsPartOfTimezoneOffset
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/difference_in_calendar_days/index.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/date-fns/difference_in_calendar_days/index.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var startOfDay = __webpack_require__(/*! ../start_of_day/index.js */ "./node_modules/date-fns/start_of_day/index.js")
-
-var MILLISECONDS_IN_MINUTE = 60000
-var MILLISECONDS_IN_DAY = 86400000
-
-/**
- * @category Day Helpers
- * @summary Get the number of calendar days between the given dates.
- *
- * @description
- * Get the number of calendar days between the given dates.
- *
- * @param {Date|String|Number} dateLeft - the later date
- * @param {Date|String|Number} dateRight - the earlier date
- * @returns {Number} the number of calendar days
- *
- * @example
- * // How many calendar days are between
- * // 2 July 2011 23:00:00 and 2 July 2012 00:00:00?
- * var result = differenceInCalendarDays(
- *   new Date(2012, 6, 2, 0, 0),
- *   new Date(2011, 6, 2, 23, 0)
- * )
- * //=> 366
- */
-function differenceInCalendarDays (dirtyDateLeft, dirtyDateRight) {
-  var startOfDayLeft = startOfDay(dirtyDateLeft)
-  var startOfDayRight = startOfDay(dirtyDateRight)
-
-  var timestampLeft = startOfDayLeft.getTime() -
-    startOfDayLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
-  var timestampRight = startOfDayRight.getTime() -
-    startOfDayRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
-
-  // Round the number of days to the nearest integer
-  // because the number of milliseconds in a day is not constant
-  // (e.g. it's different in the day of the daylight saving time clock shift)
-  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_DAY)
-}
-
-module.exports = differenceInCalendarDays
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/each_day/index.js":
-/*!*************************************************!*\
-  !*** ./node_modules/date-fns/each_day/index.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-
-/**
- * @category Day Helpers
- * @summary Return the array of dates within the specified range.
- *
- * @description
- * Return the array of dates within the specified range.
- *
- * @param {Date|String|Number} startDate - the first date
- * @param {Date|String|Number} endDate - the last date
- * @param {Number} [step=1] - the step between each day
- * @returns {Date[]} the array with starts of days from the day of startDate to the day of endDate
- * @throws {Error} startDate cannot be after endDate
- *
- * @example
- * // Each day between 6 October 2014 and 10 October 2014:
- * var result = eachDay(
- *   new Date(2014, 9, 6),
- *   new Date(2014, 9, 10)
- * )
- * //=> [
- * //   Mon Oct 06 2014 00:00:00,
- * //   Tue Oct 07 2014 00:00:00,
- * //   Wed Oct 08 2014 00:00:00,
- * //   Thu Oct 09 2014 00:00:00,
- * //   Fri Oct 10 2014 00:00:00
- * // ]
- */
-function eachDay (dirtyStartDate, dirtyEndDate, dirtyStep) {
-  var startDate = parse(dirtyStartDate)
-  var endDate = parse(dirtyEndDate)
-  var step = dirtyStep !== undefined ? dirtyStep : 1
-
-  var endTime = endDate.getTime()
-
-  if (startDate.getTime() > endTime) {
-    throw new Error('The first date cannot be after the second date')
-  }
-
-  var dates = []
-
-  var currentDate = startDate
-  currentDate.setHours(0, 0, 0, 0)
-
-  while (currentDate.getTime() <= endTime) {
-    dates.push(parse(currentDate))
-    currentDate.setDate(currentDate.getDate() + step)
-  }
-
-  return dates
-}
-
-module.exports = eachDay
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/end_of_month/index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/date-fns/end_of_month/index.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-
-/**
- * @category Month Helpers
- * @summary Return the end of a month for the given date.
- *
- * @description
- * Return the end of a month for the given date.
- * The result will be in the local timezone.
- *
- * @param {Date|String|Number} date - the original date
- * @returns {Date} the end of a month
- *
- * @example
- * // The end of a month for 2 September 2014 11:55:00:
- * var result = endOfMonth(new Date(2014, 8, 2, 11, 55, 0))
- * //=> Tue Sep 30 2014 23:59:59.999
- */
-function endOfMonth (dirtyDate) {
-  var date = parse(dirtyDate)
-  var month = date.getMonth()
-  date.setFullYear(date.getFullYear(), month + 1, 0)
-  date.setHours(23, 59, 59, 999)
-  return date
-}
-
-module.exports = endOfMonth
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/format/index.js":
-/*!***********************************************!*\
-  !*** ./node_modules/date-fns/format/index.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getDayOfYear = __webpack_require__(/*! ../get_day_of_year/index.js */ "./node_modules/date-fns/get_day_of_year/index.js")
-var getISOWeek = __webpack_require__(/*! ../get_iso_week/index.js */ "./node_modules/date-fns/get_iso_week/index.js")
-var getISOYear = __webpack_require__(/*! ../get_iso_year/index.js */ "./node_modules/date-fns/get_iso_year/index.js")
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-var isValid = __webpack_require__(/*! ../is_valid/index.js */ "./node_modules/date-fns/is_valid/index.js")
-var enLocale = __webpack_require__(/*! ../locale/en/index.js */ "./node_modules/date-fns/locale/en/index.js")
-
-/**
- * @category Common Helpers
- * @summary Format the date.
- *
- * @description
- * Return the formatted date string in the given format.
- *
- * Accepted tokens:
- * | Unit                    | Token | Result examples                  |
- * |-------------------------|-------|----------------------------------|
- * | Month                   | M     | 1, 2, ..., 12                    |
- * |                         | Mo    | 1st, 2nd, ..., 12th              |
- * |                         | MM    | 01, 02, ..., 12                  |
- * |                         | MMM   | Jan, Feb, ..., Dec               |
- * |                         | MMMM  | January, February, ..., December |
- * | Quarter                 | Q     | 1, 2, 3, 4                       |
- * |                         | Qo    | 1st, 2nd, 3rd, 4th               |
- * | Day of month            | D     | 1, 2, ..., 31                    |
- * |                         | Do    | 1st, 2nd, ..., 31st              |
- * |                         | DD    | 01, 02, ..., 31                  |
- * | Day of year             | DDD   | 1, 2, ..., 366                   |
- * |                         | DDDo  | 1st, 2nd, ..., 366th             |
- * |                         | DDDD  | 001, 002, ..., 366               |
- * | Day of week             | d     | 0, 1, ..., 6                     |
- * |                         | do    | 0th, 1st, ..., 6th               |
- * |                         | dd    | Su, Mo, ..., Sa                  |
- * |                         | ddd   | Sun, Mon, ..., Sat               |
- * |                         | dddd  | Sunday, Monday, ..., Saturday    |
- * | Day of ISO week         | E     | 1, 2, ..., 7                     |
- * | ISO week                | W     | 1, 2, ..., 53                    |
- * |                         | Wo    | 1st, 2nd, ..., 53rd              |
- * |                         | WW    | 01, 02, ..., 53                  |
- * | Year                    | YY    | 00, 01, ..., 99                  |
- * |                         | YYYY  | 1900, 1901, ..., 2099            |
- * | ISO week-numbering year | GG    | 00, 01, ..., 99                  |
- * |                         | GGGG  | 1900, 1901, ..., 2099            |
- * | AM/PM                   | A     | AM, PM                           |
- * |                         | a     | am, pm                           |
- * |                         | aa    | a.m., p.m.                       |
- * | Hour                    | H     | 0, 1, ... 23                     |
- * |                         | HH    | 00, 01, ... 23                   |
- * |                         | h     | 1, 2, ..., 12                    |
- * |                         | hh    | 01, 02, ..., 12                  |
- * | Minute                  | m     | 0, 1, ..., 59                    |
- * |                         | mm    | 00, 01, ..., 59                  |
- * | Second                  | s     | 0, 1, ..., 59                    |
- * |                         | ss    | 00, 01, ..., 59                  |
- * | 1/10 of second          | S     | 0, 1, ..., 9                     |
- * | 1/100 of second         | SS    | 00, 01, ..., 99                  |
- * | Millisecond             | SSS   | 000, 001, ..., 999               |
- * | Timezone                | Z     | -01:00, +00:00, ... +12:00       |
- * |                         | ZZ    | -0100, +0000, ..., +1200         |
- * | Seconds timestamp       | X     | 512969520                        |
- * | Milliseconds timestamp  | x     | 512969520900                     |
- *
- * The characters wrapped in square brackets are escaped.
- *
- * The result may vary by locale.
- *
- * @param {Date|String|Number} date - the original date
- * @param {String} [format='YYYY-MM-DDTHH:mm:ss.SSSZ'] - the string of tokens
- * @param {Object} [options] - the object with options
- * @param {Object} [options.locale=enLocale] - the locale object
- * @returns {String} the formatted date string
- *
- * @example
- * // Represent 11 February 2014 in middle-endian format:
- * var result = format(
- *   new Date(2014, 1, 11),
- *   'MM/DD/YYYY'
- * )
- * //=> '02/11/2014'
- *
- * @example
- * // Represent 2 July 2014 in Esperanto:
- * var eoLocale = require('date-fns/locale/eo')
- * var result = format(
- *   new Date(2014, 6, 2),
- *   'Do [de] MMMM YYYY',
- *   {locale: eoLocale}
- * )
- * //=> '2-a de julio 2014'
- */
-function format (dirtyDate, dirtyFormatStr, dirtyOptions) {
-  var formatStr = dirtyFormatStr ? String(dirtyFormatStr) : 'YYYY-MM-DDTHH:mm:ss.SSSZ'
-  var options = dirtyOptions || {}
-
-  var locale = options.locale
-  var localeFormatters = enLocale.format.formatters
-  var formattingTokensRegExp = enLocale.format.formattingTokensRegExp
-  if (locale && locale.format && locale.format.formatters) {
-    localeFormatters = locale.format.formatters
-
-    if (locale.format.formattingTokensRegExp) {
-      formattingTokensRegExp = locale.format.formattingTokensRegExp
-    }
-  }
-
-  var date = parse(dirtyDate)
-
-  if (!isValid(date)) {
-    return 'Invalid Date'
-  }
-
-  var formatFn = buildFormatFn(formatStr, localeFormatters, formattingTokensRegExp)
-
-  return formatFn(date)
-}
-
-var formatters = {
-  // Month: 1, 2, ..., 12
-  'M': function (date) {
-    return date.getMonth() + 1
-  },
-
-  // Month: 01, 02, ..., 12
-  'MM': function (date) {
-    return addLeadingZeros(date.getMonth() + 1, 2)
-  },
-
-  // Quarter: 1, 2, 3, 4
-  'Q': function (date) {
-    return Math.ceil((date.getMonth() + 1) / 3)
-  },
-
-  // Day of month: 1, 2, ..., 31
-  'D': function (date) {
-    return date.getDate()
-  },
-
-  // Day of month: 01, 02, ..., 31
-  'DD': function (date) {
-    return addLeadingZeros(date.getDate(), 2)
-  },
-
-  // Day of year: 1, 2, ..., 366
-  'DDD': function (date) {
-    return getDayOfYear(date)
-  },
-
-  // Day of year: 001, 002, ..., 366
-  'DDDD': function (date) {
-    return addLeadingZeros(getDayOfYear(date), 3)
-  },
-
-  // Day of week: 0, 1, ..., 6
-  'd': function (date) {
-    return date.getDay()
-  },
-
-  // Day of ISO week: 1, 2, ..., 7
-  'E': function (date) {
-    return date.getDay() || 7
-  },
-
-  // ISO week: 1, 2, ..., 53
-  'W': function (date) {
-    return getISOWeek(date)
-  },
-
-  // ISO week: 01, 02, ..., 53
-  'WW': function (date) {
-    return addLeadingZeros(getISOWeek(date), 2)
-  },
-
-  // Year: 00, 01, ..., 99
-  'YY': function (date) {
-    return addLeadingZeros(date.getFullYear(), 4).substr(2)
-  },
-
-  // Year: 1900, 1901, ..., 2099
-  'YYYY': function (date) {
-    return addLeadingZeros(date.getFullYear(), 4)
-  },
-
-  // ISO week-numbering year: 00, 01, ..., 99
-  'GG': function (date) {
-    return String(getISOYear(date)).substr(2)
-  },
-
-  // ISO week-numbering year: 1900, 1901, ..., 2099
-  'GGGG': function (date) {
-    return getISOYear(date)
-  },
-
-  // Hour: 0, 1, ... 23
-  'H': function (date) {
-    return date.getHours()
-  },
-
-  // Hour: 00, 01, ..., 23
-  'HH': function (date) {
-    return addLeadingZeros(date.getHours(), 2)
-  },
-
-  // Hour: 1, 2, ..., 12
-  'h': function (date) {
-    var hours = date.getHours()
-    if (hours === 0) {
-      return 12
-    } else if (hours > 12) {
-      return hours % 12
-    } else {
-      return hours
-    }
-  },
-
-  // Hour: 01, 02, ..., 12
-  'hh': function (date) {
-    return addLeadingZeros(formatters['h'](date), 2)
-  },
-
-  // Minute: 0, 1, ..., 59
-  'm': function (date) {
-    return date.getMinutes()
-  },
-
-  // Minute: 00, 01, ..., 59
-  'mm': function (date) {
-    return addLeadingZeros(date.getMinutes(), 2)
-  },
-
-  // Second: 0, 1, ..., 59
-  's': function (date) {
-    return date.getSeconds()
-  },
-
-  // Second: 00, 01, ..., 59
-  'ss': function (date) {
-    return addLeadingZeros(date.getSeconds(), 2)
-  },
-
-  // 1/10 of second: 0, 1, ..., 9
-  'S': function (date) {
-    return Math.floor(date.getMilliseconds() / 100)
-  },
-
-  // 1/100 of second: 00, 01, ..., 99
-  'SS': function (date) {
-    return addLeadingZeros(Math.floor(date.getMilliseconds() / 10), 2)
-  },
-
-  // Millisecond: 000, 001, ..., 999
-  'SSS': function (date) {
-    return addLeadingZeros(date.getMilliseconds(), 3)
-  },
-
-  // Timezone: -01:00, +00:00, ... +12:00
-  'Z': function (date) {
-    return formatTimezone(date.getTimezoneOffset(), ':')
-  },
-
-  // Timezone: -0100, +0000, ... +1200
-  'ZZ': function (date) {
-    return formatTimezone(date.getTimezoneOffset())
-  },
-
-  // Seconds timestamp: 512969520
-  'X': function (date) {
-    return Math.floor(date.getTime() / 1000)
-  },
-
-  // Milliseconds timestamp: 512969520900
-  'x': function (date) {
-    return date.getTime()
-  }
-}
-
-function buildFormatFn (formatStr, localeFormatters, formattingTokensRegExp) {
-  var array = formatStr.match(formattingTokensRegExp)
-  var length = array.length
-
-  var i
-  var formatter
-  for (i = 0; i < length; i++) {
-    formatter = localeFormatters[array[i]] || formatters[array[i]]
-    if (formatter) {
-      array[i] = formatter
-    } else {
-      array[i] = removeFormattingTokens(array[i])
-    }
-  }
-
-  return function (date) {
-    var output = ''
-    for (var i = 0; i < length; i++) {
-      if (array[i] instanceof Function) {
-        output += array[i](date, formatters)
-      } else {
-        output += array[i]
-      }
-    }
-    return output
-  }
-}
-
-function removeFormattingTokens (input) {
-  if (input.match(/\[[\s\S]/)) {
-    return input.replace(/^\[|]$/g, '')
-  }
-  return input.replace(/\\/g, '')
-}
-
-function formatTimezone (offset, delimeter) {
-  delimeter = delimeter || ''
-  var sign = offset > 0 ? '-' : '+'
-  var absOffset = Math.abs(offset)
-  var hours = Math.floor(absOffset / 60)
-  var minutes = absOffset % 60
-  return sign + addLeadingZeros(hours, 2) + delimeter + addLeadingZeros(minutes, 2)
-}
-
-function addLeadingZeros (number, targetLength) {
-  var output = Math.abs(number).toString()
-  while (output.length < targetLength) {
-    output = '0' + output
-  }
-  return output
-}
-
-module.exports = format
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/get_day/index.js":
-/*!************************************************!*\
-  !*** ./node_modules/date-fns/get_day/index.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-
-/**
- * @category Weekday Helpers
- * @summary Get the day of the week of the given date.
- *
- * @description
- * Get the day of the week of the given date.
- *
- * @param {Date|String|Number} date - the given date
- * @returns {Number} the day of week
- *
- * @example
- * // Which day of the week is 29 February 2012?
- * var result = getDay(new Date(2012, 1, 29))
- * //=> 3
- */
-function getDay (dirtyDate) {
-  var date = parse(dirtyDate)
-  var day = date.getDay()
-  return day
-}
-
-module.exports = getDay
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/get_day_of_year/index.js":
-/*!********************************************************!*\
-  !*** ./node_modules/date-fns/get_day_of_year/index.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-var startOfYear = __webpack_require__(/*! ../start_of_year/index.js */ "./node_modules/date-fns/start_of_year/index.js")
-var differenceInCalendarDays = __webpack_require__(/*! ../difference_in_calendar_days/index.js */ "./node_modules/date-fns/difference_in_calendar_days/index.js")
-
-/**
- * @category Day Helpers
- * @summary Get the day of the year of the given date.
- *
- * @description
- * Get the day of the year of the given date.
- *
- * @param {Date|String|Number} date - the given date
- * @returns {Number} the day of year
- *
- * @example
- * // Which day of the year is 2 July 2014?
- * var result = getDayOfYear(new Date(2014, 6, 2))
- * //=> 183
- */
-function getDayOfYear (dirtyDate) {
-  var date = parse(dirtyDate)
-  var diff = differenceInCalendarDays(date, startOfYear(date))
-  var dayOfYear = diff + 1
-  return dayOfYear
-}
-
-module.exports = getDayOfYear
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/get_iso_week/index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/date-fns/get_iso_week/index.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-var startOfISOWeek = __webpack_require__(/*! ../start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js")
-var startOfISOYear = __webpack_require__(/*! ../start_of_iso_year/index.js */ "./node_modules/date-fns/start_of_iso_year/index.js")
-
-var MILLISECONDS_IN_WEEK = 604800000
-
-/**
- * @category ISO Week Helpers
- * @summary Get the ISO week of the given date.
- *
- * @description
- * Get the ISO week of the given date.
- *
- * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
- *
- * @param {Date|String|Number} date - the given date
- * @returns {Number} the ISO week
- *
- * @example
- * // Which week of the ISO-week numbering year is 2 January 2005?
- * var result = getISOWeek(new Date(2005, 0, 2))
- * //=> 53
- */
-function getISOWeek (dirtyDate) {
-  var date = parse(dirtyDate)
-  var diff = startOfISOWeek(date).getTime() - startOfISOYear(date).getTime()
-
-  // Round the number of days to the nearest integer
-  // because the number of milliseconds in a week is not constant
-  // (e.g. it's different in the week of the daylight saving time clock shift)
-  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1
-}
-
-module.exports = getISOWeek
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/get_iso_year/index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/date-fns/get_iso_year/index.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-var startOfISOWeek = __webpack_require__(/*! ../start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js")
-
-/**
- * @category ISO Week-Numbering Year Helpers
- * @summary Get the ISO week-numbering year of the given date.
- *
- * @description
- * Get the ISO week-numbering year of the given date,
- * which always starts 3 days before the year's first Thursday.
- *
- * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
- *
- * @param {Date|String|Number} date - the given date
- * @returns {Number} the ISO week-numbering year
- *
- * @example
- * // Which ISO-week numbering year is 2 January 2005?
- * var result = getISOYear(new Date(2005, 0, 2))
- * //=> 2004
- */
-function getISOYear (dirtyDate) {
-  var date = parse(dirtyDate)
-  var year = date.getFullYear()
-
-  var fourthOfJanuaryOfNextYear = new Date(0)
-  fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4)
-  fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0)
-  var startOfNextYear = startOfISOWeek(fourthOfJanuaryOfNextYear)
-
-  var fourthOfJanuaryOfThisYear = new Date(0)
-  fourthOfJanuaryOfThisYear.setFullYear(year, 0, 4)
-  fourthOfJanuaryOfThisYear.setHours(0, 0, 0, 0)
-  var startOfThisYear = startOfISOWeek(fourthOfJanuaryOfThisYear)
-
-  if (date.getTime() >= startOfNextYear.getTime()) {
-    return year + 1
-  } else if (date.getTime() >= startOfThisYear.getTime()) {
-    return year
-  } else {
-    return year - 1
-  }
-}
-
-module.exports = getISOYear
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/is_date/index.js":
-/*!************************************************!*\
-  !*** ./node_modules/date-fns/is_date/index.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * @category Common Helpers
- * @summary Is the given argument an instance of Date?
- *
- * @description
- * Is the given argument an instance of Date?
- *
- * @param {*} argument - the argument to check
- * @returns {Boolean} the given argument is an instance of Date
- *
- * @example
- * // Is 'mayonnaise' a Date?
- * var result = isDate('mayonnaise')
- * //=> false
- */
-function isDate (argument) {
-  return argument instanceof Date
-}
-
-module.exports = isDate
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/is_equal/index.js":
-/*!*************************************************!*\
-  !*** ./node_modules/date-fns/is_equal/index.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-
-/**
- * @category Common Helpers
- * @summary Are the given dates equal?
- *
- * @description
- * Are the given dates equal?
- *
- * @param {Date|String|Number} dateLeft - the first date to compare
- * @param {Date|String|Number} dateRight - the second date to compare
- * @returns {Boolean} the dates are equal
- *
- * @example
- * // Are 2 July 2014 06:30:45.000 and 2 July 2014 06:30:45.500 equal?
- * var result = isEqual(
- *   new Date(2014, 6, 2, 6, 30, 45, 0)
- *   new Date(2014, 6, 2, 6, 30, 45, 500)
- * )
- * //=> false
- */
-function isEqual (dirtyLeftDate, dirtyRightDate) {
-  var dateLeft = parse(dirtyLeftDate)
-  var dateRight = parse(dirtyRightDate)
-  return dateLeft.getTime() === dateRight.getTime()
-}
-
-module.exports = isEqual
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/is_valid/index.js":
-/*!*************************************************!*\
-  !*** ./node_modules/date-fns/is_valid/index.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isDate = __webpack_require__(/*! ../is_date/index.js */ "./node_modules/date-fns/is_date/index.js")
-
-/**
- * @category Common Helpers
- * @summary Is the given date valid?
- *
- * @description
- * Returns false if argument is Invalid Date and true otherwise.
- * Invalid Date is a Date, whose time value is NaN.
- *
- * Time value of Date: http://es5.github.io/#x15.9.1.1
- *
- * @param {Date} date - the date to check
- * @returns {Boolean} the date is valid
- * @throws {TypeError} argument must be an instance of Date
- *
- * @example
- * // For the valid date:
- * var result = isValid(new Date(2014, 1, 31))
- * //=> true
- *
- * @example
- * // For the invalid date:
- * var result = isValid(new Date(''))
- * //=> false
- */
-function isValid (dirtyDate) {
-  if (isDate(dirtyDate)) {
-    return !isNaN(dirtyDate)
-  } else {
-    throw new TypeError(toString.call(dirtyDate) + ' is not an instance of Date')
-  }
-}
-
-module.exports = isValid
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/locale/_lib/build_formatting_tokens_reg_exp/index.js":
-/*!************************************************************************************!*\
-  !*** ./node_modules/date-fns/locale/_lib/build_formatting_tokens_reg_exp/index.js ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var commonFormatterKeys = [
-  'M', 'MM', 'Q', 'D', 'DD', 'DDD', 'DDDD', 'd',
-  'E', 'W', 'WW', 'YY', 'YYYY', 'GG', 'GGGG',
-  'H', 'HH', 'h', 'hh', 'm', 'mm',
-  's', 'ss', 'S', 'SS', 'SSS',
-  'Z', 'ZZ', 'X', 'x'
-]
-
-function buildFormattingTokensRegExp (formatters) {
-  var formatterKeys = []
-  for (var key in formatters) {
-    if (formatters.hasOwnProperty(key)) {
-      formatterKeys.push(key)
-    }
-  }
-
-  var formattingTokens = commonFormatterKeys
-    .concat(formatterKeys)
-    .sort()
-    .reverse()
-  var formattingTokensRegExp = new RegExp(
-    '(\\[[^\\[]*\\])|(\\\\)?' + '(' + formattingTokens.join('|') + '|.)', 'g'
-  )
-
-  return formattingTokensRegExp
-}
-
-module.exports = buildFormattingTokensRegExp
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/locale/en/build_distance_in_words_locale/index.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/date-fns/locale/en/build_distance_in_words_locale/index.js ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function buildDistanceInWordsLocale () {
-  var distanceInWordsLocale = {
-    lessThanXSeconds: {
-      one: 'less than a second',
-      other: 'less than {{count}} seconds'
-    },
-
-    xSeconds: {
-      one: '1 second',
-      other: '{{count}} seconds'
-    },
-
-    halfAMinute: 'half a minute',
-
-    lessThanXMinutes: {
-      one: 'less than a minute',
-      other: 'less than {{count}} minutes'
-    },
-
-    xMinutes: {
-      one: '1 minute',
-      other: '{{count}} minutes'
-    },
-
-    aboutXHours: {
-      one: 'about 1 hour',
-      other: 'about {{count}} hours'
-    },
-
-    xHours: {
-      one: '1 hour',
-      other: '{{count}} hours'
-    },
-
-    xDays: {
-      one: '1 day',
-      other: '{{count}} days'
-    },
-
-    aboutXMonths: {
-      one: 'about 1 month',
-      other: 'about {{count}} months'
-    },
-
-    xMonths: {
-      one: '1 month',
-      other: '{{count}} months'
-    },
-
-    aboutXYears: {
-      one: 'about 1 year',
-      other: 'about {{count}} years'
-    },
-
-    xYears: {
-      one: '1 year',
-      other: '{{count}} years'
-    },
-
-    overXYears: {
-      one: 'over 1 year',
-      other: 'over {{count}} years'
-    },
-
-    almostXYears: {
-      one: 'almost 1 year',
-      other: 'almost {{count}} years'
-    }
-  }
-
-  function localize (token, count, options) {
-    options = options || {}
-
-    var result
-    if (typeof distanceInWordsLocale[token] === 'string') {
-      result = distanceInWordsLocale[token]
-    } else if (count === 1) {
-      result = distanceInWordsLocale[token].one
-    } else {
-      result = distanceInWordsLocale[token].other.replace('{{count}}', count)
-    }
-
-    if (options.addSuffix) {
-      if (options.comparison > 0) {
-        return 'in ' + result
-      } else {
-        return result + ' ago'
-      }
-    }
-
-    return result
-  }
-
-  return {
-    localize: localize
-  }
-}
-
-module.exports = buildDistanceInWordsLocale
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/locale/en/build_format_locale/index.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/date-fns/locale/en/build_format_locale/index.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var buildFormattingTokensRegExp = __webpack_require__(/*! ../../_lib/build_formatting_tokens_reg_exp/index.js */ "./node_modules/date-fns/locale/_lib/build_formatting_tokens_reg_exp/index.js")
-
-function buildFormatLocale () {
-  // Note: in English, the names of days of the week and months are capitalized.
-  // If you are making a new locale based on this one, check if the same is true for the language you're working on.
-  // Generally, formatted dates should look like they are in the middle of a sentence,
-  // e.g. in Spanish language the weekdays and months should be in the lowercase.
-  var months3char = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  var monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-  var weekdays2char = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
-  var weekdays3char = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-  var weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-  var meridiemUppercase = ['AM', 'PM']
-  var meridiemLowercase = ['am', 'pm']
-  var meridiemFull = ['a.m.', 'p.m.']
-
-  var formatters = {
-    // Month: Jan, Feb, ..., Dec
-    'MMM': function (date) {
-      return months3char[date.getMonth()]
-    },
-
-    // Month: January, February, ..., December
-    'MMMM': function (date) {
-      return monthsFull[date.getMonth()]
-    },
-
-    // Day of week: Su, Mo, ..., Sa
-    'dd': function (date) {
-      return weekdays2char[date.getDay()]
-    },
-
-    // Day of week: Sun, Mon, ..., Sat
-    'ddd': function (date) {
-      return weekdays3char[date.getDay()]
-    },
-
-    // Day of week: Sunday, Monday, ..., Saturday
-    'dddd': function (date) {
-      return weekdaysFull[date.getDay()]
-    },
-
-    // AM, PM
-    'A': function (date) {
-      return (date.getHours() / 12) >= 1 ? meridiemUppercase[1] : meridiemUppercase[0]
-    },
-
-    // am, pm
-    'a': function (date) {
-      return (date.getHours() / 12) >= 1 ? meridiemLowercase[1] : meridiemLowercase[0]
-    },
-
-    // a.m., p.m.
-    'aa': function (date) {
-      return (date.getHours() / 12) >= 1 ? meridiemFull[1] : meridiemFull[0]
-    }
-  }
-
-  // Generate ordinal version of formatters: M -> Mo, D -> Do, etc.
-  var ordinalFormatters = ['M', 'D', 'DDD', 'd', 'Q', 'W']
-  ordinalFormatters.forEach(function (formatterToken) {
-    formatters[formatterToken + 'o'] = function (date, formatters) {
-      return ordinal(formatters[formatterToken](date))
-    }
-  })
-
-  return {
-    formatters: formatters,
-    formattingTokensRegExp: buildFormattingTokensRegExp(formatters)
-  }
-}
-
-function ordinal (number) {
-  var rem100 = number % 100
-  if (rem100 > 20 || rem100 < 10) {
-    switch (rem100 % 10) {
-      case 1:
-        return number + 'st'
-      case 2:
-        return number + 'nd'
-      case 3:
-        return number + 'rd'
-    }
-  }
-  return number + 'th'
-}
-
-module.exports = buildFormatLocale
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/locale/en/index.js":
-/*!**************************************************!*\
-  !*** ./node_modules/date-fns/locale/en/index.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var buildDistanceInWordsLocale = __webpack_require__(/*! ./build_distance_in_words_locale/index.js */ "./node_modules/date-fns/locale/en/build_distance_in_words_locale/index.js")
-var buildFormatLocale = __webpack_require__(/*! ./build_format_locale/index.js */ "./node_modules/date-fns/locale/en/build_format_locale/index.js")
-
-/**
- * @category Locales
- * @summary English locale.
- */
-module.exports = {
-  distanceInWords: buildDistanceInWordsLocale(),
-  format: buildFormatLocale()
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/parse/index.js":
-/*!**********************************************!*\
-  !*** ./node_modules/date-fns/parse/index.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getTimezoneOffsetInMilliseconds = __webpack_require__(/*! ../_lib/getTimezoneOffsetInMilliseconds/index.js */ "./node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds/index.js")
-var isDate = __webpack_require__(/*! ../is_date/index.js */ "./node_modules/date-fns/is_date/index.js")
-
-var MILLISECONDS_IN_HOUR = 3600000
-var MILLISECONDS_IN_MINUTE = 60000
-var DEFAULT_ADDITIONAL_DIGITS = 2
-
-var parseTokenDateTimeDelimeter = /[T ]/
-var parseTokenPlainTime = /:/
-
-// year tokens
-var parseTokenYY = /^(\d{2})$/
-var parseTokensYYY = [
-  /^([+-]\d{2})$/, // 0 additional digits
-  /^([+-]\d{3})$/, // 1 additional digit
-  /^([+-]\d{4})$/ // 2 additional digits
-]
-
-var parseTokenYYYY = /^(\d{4})/
-var parseTokensYYYYY = [
-  /^([+-]\d{4})/, // 0 additional digits
-  /^([+-]\d{5})/, // 1 additional digit
-  /^([+-]\d{6})/ // 2 additional digits
-]
-
-// date tokens
-var parseTokenMM = /^-(\d{2})$/
-var parseTokenDDD = /^-?(\d{3})$/
-var parseTokenMMDD = /^-?(\d{2})-?(\d{2})$/
-var parseTokenWww = /^-?W(\d{2})$/
-var parseTokenWwwD = /^-?W(\d{2})-?(\d{1})$/
-
-// time tokens
-var parseTokenHH = /^(\d{2}([.,]\d*)?)$/
-var parseTokenHHMM = /^(\d{2}):?(\d{2}([.,]\d*)?)$/
-var parseTokenHHMMSS = /^(\d{2}):?(\d{2}):?(\d{2}([.,]\d*)?)$/
-
-// timezone tokens
-var parseTokenTimezone = /([Z+-].*)$/
-var parseTokenTimezoneZ = /^(Z)$/
-var parseTokenTimezoneHH = /^([+-])(\d{2})$/
-var parseTokenTimezoneHHMM = /^([+-])(\d{2}):?(\d{2})$/
-
-/**
- * @category Common Helpers
- * @summary Convert the given argument to an instance of Date.
- *
- * @description
- * Convert the given argument to an instance of Date.
- *
- * If the argument is an instance of Date, the function returns its clone.
- *
- * If the argument is a number, it is treated as a timestamp.
- *
- * If an argument is a string, the function tries to parse it.
- * Function accepts complete ISO 8601 formats as well as partial implementations.
- * ISO 8601: http://en.wikipedia.org/wiki/ISO_8601
- *
- * If all above fails, the function passes the given argument to Date constructor.
- *
- * @param {Date|String|Number} argument - the value to convert
- * @param {Object} [options] - the object with options
- * @param {0 | 1 | 2} [options.additionalDigits=2] - the additional number of digits in the extended year format
- * @returns {Date} the parsed date in the local time zone
- *
- * @example
- * // Convert string '2014-02-11T11:30:30' to date:
- * var result = parse('2014-02-11T11:30:30')
- * //=> Tue Feb 11 2014 11:30:30
- *
- * @example
- * // Parse string '+02014101',
- * // if the additional number of digits in the extended year format is 1:
- * var result = parse('+02014101', {additionalDigits: 1})
- * //=> Fri Apr 11 2014 00:00:00
- */
-function parse (argument, dirtyOptions) {
-  if (isDate(argument)) {
-    // Prevent the date to lose the milliseconds when passed to new Date() in IE10
-    return new Date(argument.getTime())
-  } else if (typeof argument !== 'string') {
-    return new Date(argument)
-  }
-
-  var options = dirtyOptions || {}
-  var additionalDigits = options.additionalDigits
-  if (additionalDigits == null) {
-    additionalDigits = DEFAULT_ADDITIONAL_DIGITS
-  } else {
-    additionalDigits = Number(additionalDigits)
-  }
-
-  var dateStrings = splitDateString(argument)
-
-  var parseYearResult = parseYear(dateStrings.date, additionalDigits)
-  var year = parseYearResult.year
-  var restDateString = parseYearResult.restDateString
-
-  var date = parseDate(restDateString, year)
-
-  if (date) {
-    var timestamp = date.getTime()
-    var time = 0
-    var offset
-
-    if (dateStrings.time) {
-      time = parseTime(dateStrings.time)
-    }
-
-    if (dateStrings.timezone) {
-      offset = parseTimezone(dateStrings.timezone) * MILLISECONDS_IN_MINUTE
-    } else {
-      var fullTime = timestamp + time
-      var fullTimeDate = new Date(fullTime)
-
-      offset = getTimezoneOffsetInMilliseconds(fullTimeDate)
-
-      // Adjust time when it's coming from DST
-      var fullTimeDateNextDay = new Date(fullTime)
-      fullTimeDateNextDay.setDate(fullTimeDate.getDate() + 1)
-      var offsetDiff =
-        getTimezoneOffsetInMilliseconds(fullTimeDateNextDay) -
-        getTimezoneOffsetInMilliseconds(fullTimeDate)
-      if (offsetDiff > 0) {
-        offset += offsetDiff
-      }
-    }
-
-    return new Date(timestamp + time + offset)
-  } else {
-    return new Date(argument)
-  }
-}
-
-function splitDateString (dateString) {
-  var dateStrings = {}
-  var array = dateString.split(parseTokenDateTimeDelimeter)
-  var timeString
-
-  if (parseTokenPlainTime.test(array[0])) {
-    dateStrings.date = null
-    timeString = array[0]
-  } else {
-    dateStrings.date = array[0]
-    timeString = array[1]
-  }
-
-  if (timeString) {
-    var token = parseTokenTimezone.exec(timeString)
-    if (token) {
-      dateStrings.time = timeString.replace(token[1], '')
-      dateStrings.timezone = token[1]
-    } else {
-      dateStrings.time = timeString
-    }
-  }
-
-  return dateStrings
-}
-
-function parseYear (dateString, additionalDigits) {
-  var parseTokenYYY = parseTokensYYY[additionalDigits]
-  var parseTokenYYYYY = parseTokensYYYYY[additionalDigits]
-
-  var token
-
-  // YYYY or ±YYYYY
-  token = parseTokenYYYY.exec(dateString) || parseTokenYYYYY.exec(dateString)
-  if (token) {
-    var yearString = token[1]
-    return {
-      year: parseInt(yearString, 10),
-      restDateString: dateString.slice(yearString.length)
-    }
-  }
-
-  // YY or ±YYY
-  token = parseTokenYY.exec(dateString) || parseTokenYYY.exec(dateString)
-  if (token) {
-    var centuryString = token[1]
-    return {
-      year: parseInt(centuryString, 10) * 100,
-      restDateString: dateString.slice(centuryString.length)
-    }
-  }
-
-  // Invalid ISO-formatted year
-  return {
-    year: null
-  }
-}
-
-function parseDate (dateString, year) {
-  // Invalid ISO-formatted year
-  if (year === null) {
-    return null
-  }
-
-  var token
-  var date
-  var month
-  var week
-
-  // YYYY
-  if (dateString.length === 0) {
-    date = new Date(0)
-    date.setUTCFullYear(year)
-    return date
-  }
-
-  // YYYY-MM
-  token = parseTokenMM.exec(dateString)
-  if (token) {
-    date = new Date(0)
-    month = parseInt(token[1], 10) - 1
-    date.setUTCFullYear(year, month)
-    return date
-  }
-
-  // YYYY-DDD or YYYYDDD
-  token = parseTokenDDD.exec(dateString)
-  if (token) {
-    date = new Date(0)
-    var dayOfYear = parseInt(token[1], 10)
-    date.setUTCFullYear(year, 0, dayOfYear)
-    return date
-  }
-
-  // YYYY-MM-DD or YYYYMMDD
-  token = parseTokenMMDD.exec(dateString)
-  if (token) {
-    date = new Date(0)
-    month = parseInt(token[1], 10) - 1
-    var day = parseInt(token[2], 10)
-    date.setUTCFullYear(year, month, day)
-    return date
-  }
-
-  // YYYY-Www or YYYYWww
-  token = parseTokenWww.exec(dateString)
-  if (token) {
-    week = parseInt(token[1], 10) - 1
-    return dayOfISOYear(year, week)
-  }
-
-  // YYYY-Www-D or YYYYWwwD
-  token = parseTokenWwwD.exec(dateString)
-  if (token) {
-    week = parseInt(token[1], 10) - 1
-    var dayOfWeek = parseInt(token[2], 10) - 1
-    return dayOfISOYear(year, week, dayOfWeek)
-  }
-
-  // Invalid ISO-formatted date
-  return null
-}
-
-function parseTime (timeString) {
-  var token
-  var hours
-  var minutes
-
-  // hh
-  token = parseTokenHH.exec(timeString)
-  if (token) {
-    hours = parseFloat(token[1].replace(',', '.'))
-    return (hours % 24) * MILLISECONDS_IN_HOUR
-  }
-
-  // hh:mm or hhmm
-  token = parseTokenHHMM.exec(timeString)
-  if (token) {
-    hours = parseInt(token[1], 10)
-    minutes = parseFloat(token[2].replace(',', '.'))
-    return (hours % 24) * MILLISECONDS_IN_HOUR +
-      minutes * MILLISECONDS_IN_MINUTE
-  }
-
-  // hh:mm:ss or hhmmss
-  token = parseTokenHHMMSS.exec(timeString)
-  if (token) {
-    hours = parseInt(token[1], 10)
-    minutes = parseInt(token[2], 10)
-    var seconds = parseFloat(token[3].replace(',', '.'))
-    return (hours % 24) * MILLISECONDS_IN_HOUR +
-      minutes * MILLISECONDS_IN_MINUTE +
-      seconds * 1000
-  }
-
-  // Invalid ISO-formatted time
-  return null
-}
-
-function parseTimezone (timezoneString) {
-  var token
-  var absoluteOffset
-
-  // Z
-  token = parseTokenTimezoneZ.exec(timezoneString)
-  if (token) {
-    return 0
-  }
-
-  // ±hh
-  token = parseTokenTimezoneHH.exec(timezoneString)
-  if (token) {
-    absoluteOffset = parseInt(token[2], 10) * 60
-    return (token[1] === '+') ? -absoluteOffset : absoluteOffset
-  }
-
-  // ±hh:mm or ±hhmm
-  token = parseTokenTimezoneHHMM.exec(timezoneString)
-  if (token) {
-    absoluteOffset = parseInt(token[2], 10) * 60 + parseInt(token[3], 10)
-    return (token[1] === '+') ? -absoluteOffset : absoluteOffset
-  }
-
-  return 0
-}
-
-function dayOfISOYear (isoYear, week, day) {
-  week = week || 0
-  day = day || 0
-  var date = new Date(0)
-  date.setUTCFullYear(isoYear, 0, 4)
-  var fourthOfJanuaryDay = date.getUTCDay() || 7
-  var diff = week * 7 + day + 1 - fourthOfJanuaryDay
-  date.setUTCDate(date.getUTCDate() + diff)
-  return date
-}
-
-module.exports = parse
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/start_of_day/index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/date-fns/start_of_day/index.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-
-/**
- * @category Day Helpers
- * @summary Return the start of a day for the given date.
- *
- * @description
- * Return the start of a day for the given date.
- * The result will be in the local timezone.
- *
- * @param {Date|String|Number} date - the original date
- * @returns {Date} the start of a day
- *
- * @example
- * // The start of a day for 2 September 2014 11:55:00:
- * var result = startOfDay(new Date(2014, 8, 2, 11, 55, 0))
- * //=> Tue Sep 02 2014 00:00:00
- */
-function startOfDay (dirtyDate) {
-  var date = parse(dirtyDate)
-  date.setHours(0, 0, 0, 0)
-  return date
-}
-
-module.exports = startOfDay
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/start_of_iso_week/index.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/date-fns/start_of_iso_week/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var startOfWeek = __webpack_require__(/*! ../start_of_week/index.js */ "./node_modules/date-fns/start_of_week/index.js")
-
-/**
- * @category ISO Week Helpers
- * @summary Return the start of an ISO week for the given date.
- *
- * @description
- * Return the start of an ISO week for the given date.
- * The result will be in the local timezone.
- *
- * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
- *
- * @param {Date|String|Number} date - the original date
- * @returns {Date} the start of an ISO week
- *
- * @example
- * // The start of an ISO week for 2 September 2014 11:55:00:
- * var result = startOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
- * //=> Mon Sep 01 2014 00:00:00
- */
-function startOfISOWeek (dirtyDate) {
-  return startOfWeek(dirtyDate, {weekStartsOn: 1})
-}
-
-module.exports = startOfISOWeek
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/start_of_iso_year/index.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/date-fns/start_of_iso_year/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getISOYear = __webpack_require__(/*! ../get_iso_year/index.js */ "./node_modules/date-fns/get_iso_year/index.js")
-var startOfISOWeek = __webpack_require__(/*! ../start_of_iso_week/index.js */ "./node_modules/date-fns/start_of_iso_week/index.js")
-
-/**
- * @category ISO Week-Numbering Year Helpers
- * @summary Return the start of an ISO week-numbering year for the given date.
- *
- * @description
- * Return the start of an ISO week-numbering year,
- * which always starts 3 days before the year's first Thursday.
- * The result will be in the local timezone.
- *
- * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
- *
- * @param {Date|String|Number} date - the original date
- * @returns {Date} the start of an ISO year
- *
- * @example
- * // The start of an ISO week-numbering year for 2 July 2005:
- * var result = startOfISOYear(new Date(2005, 6, 2))
- * //=> Mon Jan 03 2005 00:00:00
- */
-function startOfISOYear (dirtyDate) {
-  var year = getISOYear(dirtyDate)
-  var fourthOfJanuary = new Date(0)
-  fourthOfJanuary.setFullYear(year, 0, 4)
-  fourthOfJanuary.setHours(0, 0, 0, 0)
-  var date = startOfISOWeek(fourthOfJanuary)
-  return date
-}
-
-module.exports = startOfISOYear
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/start_of_month/index.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/date-fns/start_of_month/index.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-
-/**
- * @category Month Helpers
- * @summary Return the start of a month for the given date.
- *
- * @description
- * Return the start of a month for the given date.
- * The result will be in the local timezone.
- *
- * @param {Date|String|Number} date - the original date
- * @returns {Date} the start of a month
- *
- * @example
- * // The start of a month for 2 September 2014 11:55:00:
- * var result = startOfMonth(new Date(2014, 8, 2, 11, 55, 0))
- * //=> Mon Sep 01 2014 00:00:00
- */
-function startOfMonth (dirtyDate) {
-  var date = parse(dirtyDate)
-  date.setDate(1)
-  date.setHours(0, 0, 0, 0)
-  return date
-}
-
-module.exports = startOfMonth
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/start_of_week/index.js":
-/*!******************************************************!*\
-  !*** ./node_modules/date-fns/start_of_week/index.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-
-/**
- * @category Week Helpers
- * @summary Return the start of a week for the given date.
- *
- * @description
- * Return the start of a week for the given date.
- * The result will be in the local timezone.
- *
- * @param {Date|String|Number} date - the original date
- * @param {Object} [options] - the object with options
- * @param {Number} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
- * @returns {Date} the start of a week
- *
- * @example
- * // The start of a week for 2 September 2014 11:55:00:
- * var result = startOfWeek(new Date(2014, 8, 2, 11, 55, 0))
- * //=> Sun Aug 31 2014 00:00:00
- *
- * @example
- * // If the week starts on Monday, the start of the week for 2 September 2014 11:55:00:
- * var result = startOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})
- * //=> Mon Sep 01 2014 00:00:00
- */
-function startOfWeek (dirtyDate, dirtyOptions) {
-  var weekStartsOn = dirtyOptions ? (Number(dirtyOptions.weekStartsOn) || 0) : 0
-
-  var date = parse(dirtyDate)
-  var day = date.getDay()
-  var diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn
-
-  date.setDate(date.getDate() - diff)
-  date.setHours(0, 0, 0, 0)
-  return date
-}
-
-module.exports = startOfWeek
-
-
-/***/ }),
-
-/***/ "./node_modules/date-fns/start_of_year/index.js":
-/*!******************************************************!*\
-  !*** ./node_modules/date-fns/start_of_year/index.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var parse = __webpack_require__(/*! ../parse/index.js */ "./node_modules/date-fns/parse/index.js")
-
-/**
- * @category Year Helpers
- * @summary Return the start of a year for the given date.
- *
- * @description
- * Return the start of a year for the given date.
- * The result will be in the local timezone.
- *
- * @param {Date|String|Number} date - the original date
- * @returns {Date} the start of a year
- *
- * @example
- * // The start of a year for 2 September 2014 11:55:00:
- * var result = startOfYear(new Date(2014, 8, 2, 11, 55, 00))
- * //=> Wed Jan 01 2014 00:00:00
- */
-function startOfYear (dirtyDate) {
-  var cleanDate = parse(dirtyDate)
-  var date = new Date(0)
-  date.setFullYear(cleanDate.getFullYear(), 0, 1)
-  date.setHours(0, 0, 0, 0)
-  return date
-}
-
-module.exports = startOfYear
 
 
 /***/ }),
@@ -43065,36 +41751,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../vue-loader/lib/loaders/stylePostLoader.js!../../postcss-loader/src??ref--6-2!../../vue-loader/lib??vue-loader-options!./datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -43692,869 +42348,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var date_fns_start_of_month__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! date-fns/start_of_month */ "./node_modules/date-fns/start_of_month/index.js");
-/* harmony import */ var date_fns_start_of_month__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(date_fns_start_of_month__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var date_fns_end_of_month__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns/end_of_month */ "./node_modules/date-fns/end_of_month/index.js");
-/* harmony import */ var date_fns_end_of_month__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(date_fns_end_of_month__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var date_fns_each_day__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns/each_day */ "./node_modules/date-fns/each_day/index.js");
-/* harmony import */ var date_fns_each_day__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(date_fns_each_day__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var date_fns_get_day__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns/get_day */ "./node_modules/date-fns/get_day/index.js");
-/* harmony import */ var date_fns_get_day__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(date_fns_get_day__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var date_fns_format__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns/format */ "./node_modules/date-fns/format/index.js");
-/* harmony import */ var date_fns_format__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(date_fns_format__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var date_fns_start_of_day__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns/start_of_day */ "./node_modules/date-fns/start_of_day/index.js");
-/* harmony import */ var date_fns_start_of_day__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(date_fns_start_of_day__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var date_fns_is_equal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns/is_equal */ "./node_modules/date-fns/is_equal/index.js");
-/* harmony import */ var date_fns_is_equal__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(date_fns_is_equal__WEBPACK_IMPORTED_MODULE_6__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-
-
-
-
-const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-const AM = 'AM'
-const PM = 'PM'
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'datetime-picker',
-  props: {
-    format: {
-      type: String,
-      default: 'YYYY-MM-DD h:i:s',
-    },
-    name: {
-      type: String
-    },
-    width: {
-      type: String
-    },
-    value: {
-      type: String,
-      default: ""
-    },
-    required: {
-      type: Boolean,
-      default: false
-    },
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-    firstDayOfWeek: {
-      default: 0,
-      validator: function(value) {
-        try {
-          const val = parseInt(value, 10)
-          return val >= 0 && val <= 1
-        } catch (e) {
-          console.warn(e.message)
-          return false
-        }
-      },
-      message: 'Only 0 (Sunday) and 1 (Monday) are supported.'
-    },
-  },
-  data () {
-    return {
-      date: this.value,
-      hideCal: true,
-      activePort: null,
-      timeStamp: new Date(),
-      months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      days: [],
-      monthIndex: 0,
-      hourIndex: 0,
-      minuteIndex: 0,
-      year: 2017,
-      portsHolder: [],
-      minute: '00',
-      hour: '01',
-      day: 1,
-      minuteSelectorVisible: false,
-      hourSelectorVisible: false,
-      period: AM,
-      periodStyle: 12
-    }
-  },
-  methods: {
-    leftMonth () {
-      let index = this.months.indexOf(this.month)
-      if (index === 0) {
-        this.monthIndex = 11
-      } else {
-        this.monthIndex = index - 1
-      }
-      this.updateCalendar()
-    },
-    rightMonth () {
-      let index = this.months.indexOf(this.month)
-      if (index === 11) {
-        this.monthIndex = 0
-      } else {
-        this.monthIndex = index + 1
-      }
-      this.updateCalendar()
-    },
-    rightYear () {
-      this.year++
-      this.updateCalendar()
-    },
-    leftYear () {
-      this.year--
-      this.updateCalendar()
-    },
-    updateActivePortFromWeek (week, weekIndex) {
-      const currentActive = date_fns_start_of_day__WEBPACK_IMPORTED_MODULE_5___default()(this.timeStamp);
-      const index = week.findIndex(day => date_fns_is_equal__WEBPACK_IMPORTED_MODULE_6___default()(currentActive, day));
-      if (index !== -1) {
-        this.activePort = weekIndex*7 + index;
-      }
-    },
-    updateCalendar () {
-      const date = new Date(this.year, this.monthIndex, 1, 0, 0, 0);
-      const weeks = [];
-      let week = null;
-      let weekDays = new Array(7);
-      // let index = 0;
-      this.activePort = null;
-      date_fns_each_day__WEBPACK_IMPORTED_MODULE_2___default()(date, date_fns_end_of_month__WEBPACK_IMPORTED_MODULE_1___default()(date)).forEach(day => {
-        const weekday = date_fns_get_day__WEBPACK_IMPORTED_MODULE_3___default()(day);
-        if (weekday === this.normalizedFirstDayOfWeek) {
-          if (week) {
-            weeks.push(week);
-            // Add those days that were not part of the month to the index
-            // index += week.filter(d => d === null).length;
-            this.updateActivePortFromWeek(weekDays, weeks.length - 1);
-            weekDays = new Array(7);
-          }
-          week = new Array(7);
-        } else if (week === null) {
-          week = new Array(7);
-        }
-        const idx = (weekday - this.normalizedFirstDayOfWeek + 7) % 7
-        week[idx] = date_fns_format__WEBPACK_IMPORTED_MODULE_4___default()(day, 'DD');
-        weekDays[idx] = day;
-      });
-      if (week && week.some(n => n)) {
-        weeks.push(week);
-        this.updateActivePortFromWeek(weekDays, weeks.length - 1);
-      }
-      this.weeks = weeks;
-    },
-    setDay (index, port) {
-      if (port) {
-        this.activePort = index;
-        this.day = parseInt(port, 10);
-        this.timeStamp = new Date(this.year, this.monthIndex, this.day);
-      }
-    },
-    setMinute (index, closeAfterSet) {
-      this.minuteIndex = index
-      this.minute = this.minutes[index]
-      if (closeAfterSet) {
-        this.minuteSelectorVisible = false
-      }
-    },
-    setHour (index, closeAfterSet) {
-      this.hourIndex = index
-      this.hour = this.hours[index]
-      if (closeAfterSet) {
-        this.hourSelectorVisible = false
-      }
-    },
-    showHourSelector () {
-      this.hourSelectorVisible = true
-      this.minuteSelectorVisible = false
-    },
-    showMinuteSelector () {
-      this.minuteSelectorVisible = true
-      this.hourSelectorVisible = false
-    },
-    keyIsDown (event) {
-      let key = event.which || event.keycode
-      if (key === 38) {
-        if (this.minuteSelectorVisible && this.minuteIndex > 0) {
-          this.setMinute(this.minuteIndex - 1, false)
-          this.scrollTopMinute()
-        } else if (this.hourSelectorVisible && this.hourIndex > 0) {
-          this.setHour(this.hourIndex - 1, false)
-          this.scrollTopHour()
-        }
-      } else if (key === 40) {
-        if (this.minuteSelectorVisible && this.minuteIndex < this.minutes.length - 1) {
-          this.setMinute(this.minuteIndex + 1, false)
-          this.scrollTopMinute()
-        } else if (this.hourSelectorVisible && this.hourIndex < this.hours.length - 1) {
-          this.setHour(this.hourIndex + 1, false)
-          this.scrollTopHour()
-        }
-      } else if (key === 13) {
-        this.minuteSelectorVisible = false
-        this.hourSelectorVisible = false
-      }
-    if (this.minuteSelectorVisible || this.hourSelectorVisible) {
-    event.preventDefault()
-    this.minuteSelectorVisible = false
-        this.hourSelectorVisible = false
-    }
-    },
-    scrollTopMinute () {
-      let mHeight = this.$refs.minuteScroller.scrollHeight
-      let wHeight = this.$refs.minuteScrollerWrapper.clientHeight
-      let top = mHeight * (this.minuteIndex / (this.minutes.length - 1)) - (wHeight / 2)
-      this.$refs.minuteScroller.scrollTop = top
-    },
-    scrollTopHour () {
-      let mHeight = this.$refs.hourScroller.scrollHeight
-      let wHeight = this.$refs.hourScrollerWrapper.clientHeight
-      let top = mHeight * (this.hourIndex / (this.hours.length - 1)) - (wHeight / 2)
-      this.$refs.hourScroller.scrollTop = top
-    },
-    changePeriod () {
-      this.period = this.period === AM ? PM : AM
-    },
-    calendarClicked (event) {
-      if (event.target.id !== 'j-hour' && event.target.id !== 'j-minute') {
-        this.minuteSelectorVisible = false
-        this.hourSelectorVisible = false
-      }
-      event.cancelBubble = true
-      if (event.stopPropagation) {
-        event.stopPropagation()
-      }
-    },
-    documentClicked (event) {
-      if (event.target.id !== 'tj-datetime-input') {
-        this.hideCal = true
-      }
-    },
-    toggleCal () {
-      this.hideCal = !this.hideCal
-    },
-    setPeriodStyle () {
-      if (this.dateFormat.indexOf('H') !== -1) {
-        this.periodStyle = 24;
-        this.period = null;
-      } else {
-        this.periodStyle = 12;
-      }
-    },
-    setDate () {
-      let d = null
-
-      this.setPeriodStyle()
-
-      let h = this.hour + ''
-
-      if (this.periodStyle === 12) {
-        if (h === '12') {
-          h = this.period === AM ? '00' : '12'
-        } else if (this.period === PM && parseInt(h) < 12) {
-          h = parseInt(h) + 12
-          h = '' + h
-        } else if (this.period === AM && parseInt(h) > 12) {
-          h = parseInt(h) - 12
-          h = '' + h
-        }
-      }
-      d = this.dateFormat
-      d = d.replace('YYYY', this.year)
-      d = d.replace('DD', this.day < 10 ? '0' + this.day : this.day)
-      let m = this.monthIndex + 1
-      d = d.replace('MM', m < 10 ? '0' + m : m)
-      this.minute += ''
-      d = d.replace(this.periodStyle === 24 ? 'H' : 'h', h.length < 2 ? '0' + h : '' + h )
-      d = d.replace('i', this.minute.length < 2 ? '0' + this.minute : '' + this.minute)
-      d = d.replace('s', '00')
-      this.$emit('input', d)
-      this.date = d
-      this.hideCal = true
-    },
-    /**
-    `*Creates a date object from a given date string
-    */
-    makeDateObject (val) {
-      // handle support for eu date format
-      let dateAndTime = val.split(' ')
-      let arr = []
-      if (this.format.indexOf('-') !== -1) {
-        arr = dateAndTime[0].split('-')
-      } else {
-        arr = dateAndTime[0].split('/')
-      }
-      let year = 0
-      let month = 0
-      let day = 0
-      if (this.format.indexOf('DD/MM/YYYY') === 0 || this.format.indexOf('DD-MM-YYYY') === 0) {
-        year = arr[2]
-        month = arr[1]
-        day = arr[0]
-      } else if (this.format.indexOf('YYYY/MM/DD') === 0 || this.format.indexOf('YYYY-MM-DD') === 0) {
-        year = arr[0]
-        month = arr[1]
-        day = arr[2]
-      } else {
-        year = arr[2]
-        month = arr[0]
-        day = arr[1]
-      }
-
-      let date = new Date();
-      if(this.hideDate){
-        // time only
-        let splitTime = dateAndTime[0].split(':')
-        // handle date format without seconds
-        let secs = splitTime.length > 2 ? parseInt(splitTime[2]) : 0
-        date.setHours(parseInt(splitTime[0]), parseInt(splitTime[1]), secs, 0)
-      } else if (this.hideTime) {
-        // date only
-        date = new Date(parseInt(year), parseInt(month)-1, parseInt(day))
-      } else {
-        // we have both date and time
-        let splitTime = dateAndTime[1].split(':')
-        // handle date format without seconds
-        let secs = splitTime.length > 2 ? parseInt(splitTime[2]) : 0
-        date = new Date(parseInt(year), parseInt(month)-1, parseInt(day), parseInt(splitTime[0]), parseInt(splitTime[1]), secs)
-      }
-
-      return date
-    },
-    clearDate(){
-      this.date = ''
-      this.$emit('input', '')
-      this.toggleCal ()
-    },
-  },
-  created () {
-    if (this.value) {
-      try {
-        this.timeStamp = this.makeDateObject(this.value)
-
-        // set #period (am or pm) based on date hour
-        if (this.timeStamp.getHours() >= 12) {
-          this.period = PM
-        } else {
-          this.period = AM
-        }
-      } catch (e) {
-        this.timeStamp = new Date()
-        console.log(e);
-      }
-    }
-
-    this.year = this.timeStamp.getFullYear()
-    this.monthIndex = this.timeStamp.getMonth()
-    this.day = this.timeStamp.getDate()
-    this.hour = this.timeStamp.getHours()
-    this.hour = this.hour < 10 ? '0' + this.hour : '' + this.hour
-    this.minute = this.timeStamp.getMinutes()
-    this.minute = this.minute < 10 ? '0' + this.minute : '' + this.minute
-    this.updateCalendar()
-    days.forEach((day, idx) => {
-      this.days[(idx - this.normalizedFirstDayOfWeek + 7) % 7] = day;
-    });
-    document.addEventListener('keydown', this.keyIsDown)
-    document.addEventListener('click', this.documentClicked)
-    // this.setDate()
-    this.setPeriodStyle()
-  },
-  watch: {
-    value (newVal, oldVal) {
-      if (newVal) {
-        this.value = newVal;
-        try {
-          this.timeStamp = this.makeDateObject(this.value)
-        } catch (e) {
-          console.warn(e.message +'. Current date is being used.')
-          this.timeStamp = new Date()
-        }
-        this.year = this.timeStamp.getFullYear()
-        this.monthIndex = this.timeStamp.getMonth()
-        this.day = this.timeStamp.getDate()
-        this.hour = this.timeStamp.getHours()
-        this.hour = this.hour < 10 ? '0' + this.hour : '' + this.hour
-        this.minute = this.timeStamp.getMinutes()
-        this.minute = this.minute < 10 ? '0' + this.minute : '' + this.minute
-        this.updateCalendar()
-        this.setDate()
-      }
-
-    }
-  },
-  destroyed: function () {
-    document.removeEventListener('keydown', this.keyIsDown)
-    document.removeEventListener('click', this.documentClicked)
-  },
-  computed: {
-    normalizedFirstDayOfWeek: function() {
-      return parseInt(this.firstDayOfWeek, 10);
-    },
-    ports: {
-      get: function () {
-        let p = []
-        if (this.portsHolder.length === 0) {
-          for (let i = 0; i < 42; i++) {
-            p.push('')
-          }
-        } else {
-          p = this.portsHolder
-        }
-        return p
-      },
-      set: function (newValue) {
-        this.portsHolder = newValue
-      }
-    },
-    month () {
-      return this.months[this.monthIndex]
-    },
-    dateTime () {
-      return this.timeStamp.getFullYear() + '-' + (this.timeStamp.getMonth() + 1) + '-' + this.timeStamp.getUTCDay()
-    },
-    minutes () {
-      let arr = []
-      for (let i = 0; i < 60; i++) {
-        i < 10 ? arr.push('0' + i) : arr.push('' + i)
-      }
-      return arr
-    },
-    hours () {
-      let arr = []
-      if (this.periodStyle === 24) {
-        for (let i = 0; i < this.periodStyle; i++) {
-          i < 10 ? arr.push('0' + i) : arr.push('' + i)
-        }
-      } else {
-        for (let i = 1; i <= this.periodStyle; i++) {
-          i < 10 ? arr.push('0' + i) : arr.push('' + i)
-        }
-      }
-      return arr
-    },
-    dateFormat () {
-      let f = 'YYYY-MM-DD h:i:s'
-      let allowedFormats = [
-        'YYYY-MM-DD h:i:s', 'DD-MM-YYYY h:i:s', 'MM-DD-YYYY h:i:s',
-        'YYYY-MM-DD h:i', 'DD-MM-YYYY h:i', 'MM-DD-YYYY h:i',
-        'YYYY-MM-DD H:i:s', 'DD-MM-YYYY H:i:s', 'MM-DD-YYYY H:i:s',
-        'YYYY-MM-DD H:i', 'DD-MM-YYYY H:i', 'MM-DD-YYYY H:i',
-        'YYYY-MM-DD', 'DD-MM-YYYY', 'MM-DD-YYYY',
-        'YYYY/MM/DD', 'DD/MM/YYYY', 'MM/DD/YYYY',
-        'h:i:s', 'H:i:s', 'h:i', 'H:i',
-        'YYYY/MM/DD h:i:s', 'DD/MM/YYYY h:i:s', 'MM/DD/YYYY h:i:s',
-        'YYYY/MM/DD h:i', 'DD/MM/YYYY h:i', 'MM/DD/YYYY h:i',
-        'YYYY/MM/DD H:i:s', 'DD/MM/YYYY H:i:s', 'MM/DD/YYYY H:i:s',
-        'YYYY/MM/DD H:i', 'DD/MM/YYYY H:i', 'MM/DD/YYYY H:i'
-      ]
-      if (this.format) {
-        f = this.format
-      }
-      if (allowedFormats.indexOf(f) < 0) {
-        console.warn('Invalid date format supplied. Current default date format is being used.')
-        // return default date format if date format is invalid
-        return 'YYYY-MM-DD h:i:s'
-      } else {
-        return f
-      }
-    },
-    hideTime () {
-      return this.dateFormat.indexOf('h:i:s') === -1
-          && this.dateFormat.indexOf('H:i:s') === -1
-          && this.dateFormat.indexOf('h:i') === -1
-          && this.dateFormat.indexOf('H:i') === -1
-    },
-    hideDate () {
-      return this.dateFormat === 'h:i:s' || this.dateFormat === 'H:i:s'
-        || this.dateFormat === 'h:i' || this.dateFormat === 'H:i'
-    }
-  }
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=template&id=4bd11526&scoped=true&":
-/*!********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=template&id=4bd11526&scoped=true& ***!
-  \********************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "datetime-picker",
-      style: { width: _vm.width },
-      on: {
-        click: function ($event) {
-          return _vm.calendarClicked($event)
-        },
-        blur: _vm.toggleCal,
-      },
-    },
-    [
-      _c("div", [
-        _c("input", {
-          attrs: {
-            type: "text",
-            readonly: _vm.readonly,
-            id: "tj-datetime-input",
-            required: _vm.required,
-            name: _vm.name,
-            autocomplete: "off",
-          },
-          domProps: { value: _vm.date },
-          on: { click: _vm.toggleCal },
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "calender-div", class: { noDisplay: _vm.hideCal } },
-          [
-            _c("div", { class: { noDisplay: _vm.hideDate } }, [
-              _c("div", { staticClass: "year-month-wrapper" }, [
-                _c("div", { staticClass: "month-setter" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "nav-l",
-                      attrs: { type: "button" },
-                      on: { click: _vm.leftYear },
-                    },
-                    [_vm._v("<")]
-                  ),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "year" }, [
-                    _vm._v(_vm._s(_vm.year)),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "nav-r",
-                      attrs: { type: "button" },
-                      on: { click: _vm.rightYear },
-                    },
-                    [_vm._v(">")]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "month-setter" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "nav-l",
-                      attrs: { type: "button" },
-                      on: { click: _vm.leftMonth },
-                    },
-                    [_vm._v("<")]
-                  ),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "month" }, [
-                    _vm._v(_vm._s(_vm.month)),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "nav-r",
-                      attrs: { type: "button" },
-                      on: { click: _vm.rightMonth },
-                    },
-                    [_vm._v(">")]
-                  ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "headers" },
-                _vm._l(_vm.days, function (port) {
-                  return _c("span", { key: port, staticClass: "days" }, [
-                    _vm._v(_vm._s(port)),
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                _vm._l(_vm.weeks, function (week, weekIndex) {
-                  return _c(
-                    "div",
-                    { key: weekIndex, staticClass: "week" },
-                    _vm._l(week, function (day, dayIndex) {
-                      return _c(
-                        "span",
-                        {
-                          key: dayIndex,
-                          staticClass: "port",
-                          class: {
-                            activePort:
-                              weekIndex * 7 + dayIndex === _vm.activePort,
-                          },
-                          on: {
-                            click: function ($event) {
-                              return _vm.setDay(weekIndex * 7 + dayIndex, day)
-                            },
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n              " + _vm._s(day) + "\n            "
-                          ),
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                }),
-                0
-              ),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "time-picker",
-                class: { noDisplay: _vm.hideTime },
-              },
-              [
-                _c("div", { staticClass: "hour-selector" }, [
-                  _c(
-                    "div",
-                    {
-                      attrs: { id: "j-hour" },
-                      on: { click: _vm.showHourSelector },
-                    },
-                    [
-                      _vm._v(
-                        _vm._s(
-                          _vm.periodStyle === 12 && _vm.hour > 12
-                            ? _vm.hour - 12
-                            : _vm.hour
-                        )
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      ref: "hourScrollerWrapper",
-                      staticClass: "scroll-hider",
-                      class: { showSelector: _vm.hourSelectorVisible },
-                    },
-                    [
-                      _c(
-                        "ul",
-                        { ref: "hourScroller" },
-                        _vm._l(_vm.hours, function (h, index) {
-                          return _c(
-                            "li",
-                            {
-                              key: index,
-                              class: { active: index === _vm.hourIndex },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.setHour(index, true)
-                                },
-                              },
-                            },
-                            [_vm._v(_vm._s(h))]
-                          )
-                        }),
-                        0
-                      ),
-                    ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _vm._m(0),
-                _vm._v(" "),
-                _c("div", { staticClass: "minute-selector" }, [
-                  _c(
-                    "div",
-                    {
-                      attrs: { id: "j-minute" },
-                      on: { click: _vm.showMinuteSelector },
-                    },
-                    [_vm._v(_vm._s(_vm.minute))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      ref: "minuteScrollerWrapper",
-                      staticClass: "scroll-hider",
-                      class: { showSelector: _vm.minuteSelectorVisible },
-                    },
-                    [
-                      _c(
-                        "ul",
-                        { ref: "minuteScroller" },
-                        _vm._l(_vm.minutes, function (m, index) {
-                          return _c(
-                            "li",
-                            {
-                              key: index,
-                              class: { active: index === _vm.minuteIndex },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.setMinute(index, true)
-                                },
-                              },
-                            },
-                            [_vm._v(_vm._s(m))]
-                          )
-                        }),
-                        0
-                      ),
-                    ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _vm.periodStyle === 12
-                  ? _c("div", { staticClass: "time-separator" }, [
-                      _c("span", [_vm._v(":")]),
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.periodStyle === 12
-                  ? _c("div", { staticClass: "minute-selector" }, [
-                      _c("div", { on: { click: _vm.changePeriod } }, [
-                        _vm._v(_vm._s(_vm.period)),
-                      ]),
-                    ])
-                  : _vm._e(),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "okButton",
-                attrs: { type: "button" },
-                on: { click: _vm.clearDate },
-              },
-              [_vm._v("Clear")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "okButton ok",
-                attrs: { type: "button" },
-                on: { click: _vm.setDate },
-              },
-              [_vm._v("OK")]
-            ),
-          ]
-        ),
-      ]),
-    ]
-  )
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "time-separator" }, [
-      _c("span", [_vm._v(":")]),
-    ])
-  },
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/App.vue?vue&type=template&id=f348271a&scoped=true&":
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/App.vue?vue&type=template&id=f348271a&scoped=true& ***!
@@ -44685,7 +42478,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "col-md-6 col-sm-5" }, [
             _c("div", { staticClass: "header-content-right" }, [
               _c("ul", { staticClass: "header-top-menu" }, [
-                _c("li", [
+                _c("li", { staticClass: "mdn" }, [
                   _c(
                     "a",
                     {
@@ -44700,7 +42493,7 @@ var staticRenderFns = [
                   ),
                 ]),
                 _vm._v(" "),
-                _c("li", [
+                _c("li", { staticClass: "mdn" }, [
                   _c(
                     "a",
                     {
@@ -44716,14 +42509,6 @@ var staticRenderFns = [
                         _vm._v("contact@heartofgoldmedtransport.com"),
                       ]),
                     ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    { staticClass: "trigger-overlay", attrs: { href: "#" } },
-                    [_c("i", { staticClass: "fa fa-bars" })]
                   ),
                 ]),
               ]),
@@ -44872,6 +42657,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "site-logo" }, [
         _c("a", { attrs: { href: "index.html" } }, [
           _c("img", {
+            staticClass: "mlogo",
             staticStyle: { "margin-top": "-40px" },
             attrs: { src: "assets/images/heart-of-gold.png", alt: "logo" },
           }),
@@ -44928,75 +42714,67 @@ var staticRenderFns = [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "footer-top-block yellow-theme" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-3 col-sm-6" }, [
+              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
                 _c("div", { staticClass: "widget widget_about" }, [
                   _c("h3", { staticClass: "widget-title" }, [
                     _vm._v(
-                      "\n                               About us\n                           "
+                      "\n                                About us\n                            "
                     ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "widget-about-content" }, [
                     _c("img", {
-                      attrs: { src: "assets/images/car-logo.png", alt: "logo" },
+                      attrs: { src: "assets/images/footlogo.png", alt: "logo" },
                     }),
                     _vm._v(" "),
                     _c("p", [
                       _vm._v(
-                        "We Provide Premium Word Press, Ghost and HTML template. Our Prem tjium Templates is, develo gped in a way so that the clients find  Support. Themes are developed in a way so that  the clients find."
+                        "Heart of Gold Medical Transport is a family-owned non-emergency medical transportation company serving the greater Sacramento area since 2016. Its owners are Megan and Cecilia.\n\n                                    Megan has worked as a nurse since 2009, becoming a Registered Nurse"
                       ),
                     ]),
                     _vm._v(" "),
-                    _c("a", { staticClass: "button", attrs: { href: "#" } }, [
-                      _vm._v("More"),
-                    ]),
+                    _c(
+                      "a",
+                      { staticClass: "button", attrs: { href: "/about" } },
+                      [_vm._v("Reade More")]
+                    ),
                   ]),
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-2 col-sm-6" }, [
+              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
                 _c("div", { staticClass: "widget widget_menu" }, [
                   _c("h3", { staticClass: "widget-title" }, [
                     _vm._v(
-                      "\n                               Useful link\n                           "
+                      "\n                                Useful link\n                            "
                     ),
                   ]),
                   _vm._v(" "),
                   _c("ul", [
                     _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v("Home")]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v(" Get a cab")]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v("Our car")]),
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("FAQ")]),
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Contact page"),
+                        _vm._v(" Contact Support"),
                       ]),
                     ]),
                     _vm._v(" "),
                     _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v("Reviews")]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [_vm._v(" Booking")]),
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Privacy Policy"),
+                      ]),
                     ]),
                   ]),
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3 col-sm-6" }, [
+              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
                 _c("div", { staticClass: "widget widget_hot_contact" }, [
                   _c("h3", { staticClass: "widget-title" }, [
                     _vm._v(
-                      "\n                               Hot contact\n                           "
+                      "\n                                STAY CONNECTED\n                            "
                     ),
                   ]),
                   _vm._v(" "),
@@ -45004,171 +42782,21 @@ var staticRenderFns = [
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("i", { staticClass: "fa fa-envelope" }),
-                        _vm._v("example@domain.com"),
+                        _vm._v("contact@heartofgoldmedtransport.com"),
                       ]),
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("i", { staticClass: "fa fa-phone" }),
-                        _vm._v("(+880)023985471"),
+                        _vm._v(" (916) 740-6447"),
                       ]),
                     ]),
                     _vm._v(" "),
                     _c("li", [
                       _c("a", { attrs: { href: "#" } }, [
                         _c("i", { staticClass: "fa fa-map-marker" }),
-                        _vm._v("Road 8A, 112/B, Australia"),
-                      ]),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "widget widget_newsletter" }, [
-                  _c("h3", { staticClass: "widget-title" }, [
-                    _vm._v("Subscribe"),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "form",
-                    {
-                      staticClass: "subscribes-newsletter",
-                      attrs: { action: "#", method: "get" },
-                    },
-                    [
-                      _c("label", [_vm._v("Subscribe to our Newsletters")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "input-group" }, [
-                        _c("input", {
-                          staticClass: "form-controller",
-                          attrs: {
-                            type: "search",
-                            name: "s",
-                            placeholder: "Your email",
-                          },
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "input-group-btn" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "submit" },
-                            },
-                            [_c("span", { staticClass: "fa fa-paper-plane" })]
-                          ),
-                        ]),
-                      ]),
-                    ]
-                  ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-4 col-sm-6" }, [
-                _c("div", { staticClass: "widget widget_photo_gallery" }, [
-                  _c("h3", { staticClass: "widget-title" }, [
-                    _vm._v(
-                      "\n                               Photo Gallery\n                           "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", { staticClass: "photo-gallery-content" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-01.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-02.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-03.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-04.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-05.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-06.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-07.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-08.png",
-                            alt: "instagram",
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", {
-                          attrs: {
-                            src: "assets/images/instagram/instagram-09.png",
-                            alt: "instagram",
-                          },
-                        }),
+                        _vm._v("1329 Howe Ave #205, Sacramento, CA 95825"),
                       ]),
                     ]),
                   ]),
@@ -45240,299 +42868,111 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "about-main-content mr-top-90" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "about-top-content" }, [
+              _c("div", { staticClass: "row" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("form", { attrs: { action: "#" } }, [
+                    _c(
+                      "div",
+                      { staticClass: "input-content" },
+                      [_vm._m(2), _vm._v(" "), _c("ContactForm")],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "page-header nevy-bg" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("h2", { staticClass: "page-title" }, [_vm._v("About")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "page-description yellow-color" }, [
-                _vm._v("About your company"),
-              ]),
-            ]),
+    return _c("div", { staticClass: "page-header nevy-bg" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("h2", { staticClass: "page-title" }, [_vm._v("About us")]),
           ]),
         ]),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "about-main-content mr-top-90" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "about-top-content" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-12" }, [
-                    _c("div", { staticClass: "heading-content-three" }, [
-                      _c("h2", { staticClass: "title" }, [
-                        _vm._v("Why "),
-                        _c("br"),
-                        _vm._v("Choose Us"),
-                      ]),
-                      _vm._v(" "),
-                      _c("h4", { staticClass: "sub-title" }, [
-                        _vm._v("Best offers Information"),
-                      ]),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-12" }, [
-                    _c("h2", { staticClass: "extra-big-title" }, [
-                      _vm._v("Best Rent Service enjoy your life"),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", { staticClass: "about-content-left" }, [
-                      _c("p", [
-                        _vm._v(
-                          "Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo maximus blandit. Curabitur lacinia, eros sit amet maximus suscipit, magna sapien veneuynatis eros, et gravida urna massa ut lectus. Quisque lacinia laciunia viverra. Nullram nec est et lorem sodales ornare a in sapien. In trtset urna marximus, conse ctetur iligula in, gravida erat. Nullam digniifssrim hendrerit auctor. Sed varius, dolor vitae iaculis condim rtweentum, massa nisl cursus sapien, gravida ultrices nisi dolor non erat. Nullam digniifssrim hendrerit auctor. Sed varius, dolor vitae dolor vitae iaculis condim rtweentum."
-                        ),
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          "Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo maximus blandit. Curabitur lacinia, eros sit amet maximus suscipit, magna sapien veneuynatis eros, et gravida urna massa ut lectus. Quisque lacinia."
-                        ),
-                      ]),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "assets/images/about/about-01.png",
-                        alt: "car-item",
-                      },
-                    }),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "driver-block pd-t-54 pd-btm-72" }, [
-        _c("div", { staticClass: "container" }, [
-          _c(
-            "div",
-            { staticClass: "row tb default-margin-bottom yellow-theme" },
-            [
-              _c("div", { staticClass: "col-md-9 block-title-area tb-cell" }, [
-                _c("div", { staticClass: "heading-content style-one border" }, [
-                  _c("h3", { staticClass: "subtitle" }, [
-                    _vm._v("Full Time and Part Time "),
-                  ]),
-                  _vm._v(" "),
-                  _c("h2", { staticClass: "title" }, [_vm._v("Our Team")]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col-md-3 block-navigation-area hidden-xs tb-cell",
-                },
-                [
-                  _c("div", { staticClass: "pull-right" }, [
-                    _c("div", { staticClass: "item-navigation" }, [
-                      _c(
-                        "a",
-                        { staticClass: "previous-item", attrs: { href: "#" } },
-                        [_c("i", { staticClass: "fa fa-angle-left" })]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        { staticClass: "next-item", attrs: { href: "#" } },
-                        [_c("i", { staticClass: "fa fa-angle-right" })]
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "view-all-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "view-all-btn", attrs: { href: "#" } },
-                        [_vm._v("View all")]
-                      ),
-                    ]),
-                  ]),
-                ]
-              ),
-            ]
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("div", { staticClass: "about-content-left" }, [
+        _c("h3", [_vm._v("Non-Emergency Medical Transportation (NEMT)")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Heart of Gold Medical Transport is a family-owned non-emergency medical\n                                        transportation company serving the greater Sacramento area since 2016. Its\n                                        owners are Megan and Cecilia."
           ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "driver-carousel slider-style-two owl-carousel",
-              attrs: { "data-item": "[4,2,2,1]" },
-            },
-            [
-              _c("div", { staticClass: "item" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "driver-content vehicle-content theme-yellow",
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "driver-thumb vehicle-thumbnail" },
-                      [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/driver/driver-01.jpg",
-                              alt: "car-item",
-                            },
-                          }),
-                        ]),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "vehicle-bottom-content" }, [
-                      _c("h2", { staticClass: "driver-name vehicle-title" }, [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Mr. Sagor Smith"),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("h4", { staticClass: "driver-desc" }, [
-                        _vm._v("Full Time Work,  Age 27"),
-                      ]),
-                    ]),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "driver-content vehicle-content theme-yellow",
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "driver-thumb vehicle-thumbnail" },
-                      [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/driver/driver-02.jpg",
-                              alt: "car-item",
-                            },
-                          }),
-                        ]),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "vehicle-bottom-content" }, [
-                      _c("h2", { staticClass: "driver-name vehicle-title" }, [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Mr. Sagor Smith"),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("h4", { staticClass: "driver-desc" }, [
-                        _vm._v("Full Time Work,  Age 27"),
-                      ]),
-                    ]),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "driver-content vehicle-content theme-yellow",
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "driver-thumb vehicle-thumbnail" },
-                      [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/driver/driver-03.jpg",
-                              alt: "car-item",
-                            },
-                          }),
-                        ]),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "vehicle-bottom-content" }, [
-                      _c("h2", { staticClass: "driver-name vehicle-title" }, [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Mr. Sagor Smith"),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("h4", { staticClass: "driver-desc" }, [
-                        _vm._v("Full Time Work,  Age 27"),
-                      ]),
-                    ]),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "driver-content vehicle-content theme-yellow",
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "driver-thumb vehicle-thumbnail" },
-                      [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/driver/driver-04.jpg",
-                              alt: "car-item",
-                            },
-                          }),
-                        ]),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "vehicle-bottom-content" }, [
-                      _c("h2", { staticClass: "driver-name vehicle-title" }, [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Mr. Sagor Smith"),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("h4", { staticClass: "driver-desc" }, [
-                        _vm._v("Full Time Work,  Age 27"),
-                      ]),
-                    ]),
-                  ]
-                ),
-              ]),
-            ]
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Megan has worked as a nurse since 2009, becoming a Registered Nurse in 2010.\n                                        She has worked as a nurse in various settings including skilled nursing,\n                                        drug rehabilitation, and cosmetic surgery. Most recently she was Director of\n                                        Nursing at a Sacramento-based skilled nursing facility."
+          ),
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Cecilia was a Medical Assistant for 13 years, and she has almost 10 years of\n                                        experience as a business owner. She has a passion for taking care of others\n                                        and for always providing the best possible customer service."
+          ),
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v("COMPASSION")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Heart of Gold Medical Transport serves everyone with great compassion and\n                                        care. We know that every client is different and may have unique situations.\n                                        With this in mind, we strive to make each and every client feel comfortable,\n                                        like they are part of the Heart of Gold family."
+          ),
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v("SAFETY")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "All of our vehicles are ADA (Americans with Disabilities Act) compliant and\n                                        are specially equipped with custom wheelchair ramps and safety fasteners.\n                                    "
+          ),
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v("TIMELINESS")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "In the transportation industry, being on time is everything. Heart of Gold\n                                        Medical Transport understands that the time of each and every client, as\n                                        well as the time of physicians and nursing staff who may be caring for the\n                                        patient, is invaluable. Because of this, timeliness is of the utmost\n                                        importance to us."
           ),
         ]),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container footer-top-border" }, [
-        _c("div", { staticClass: "vehicle-multi-border" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "contact" }, [
+      _c("div", { staticClass: "contact-btn" }, [
+        _vm._v("REQUEST A RIDE TODAY"),
       ]),
     ])
   },
@@ -45572,59 +43012,34 @@ var render = function () {
                   attrs: { "aria-hidden": "true" },
                 }),
                 _vm._v(" "),
-                _c("div", { staticClass: "input-content clearfix" }, [
-                  _c("h3", { staticClass: "from-title" }, [
-                    _vm._v("Send a message"),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v("What is the reason you need to contact us today?"),
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-md-6" },
-                      [
-                        _c("datetime", {
-                          attrs: { format: "MM/DD/YYYY H:i:s", width: "300px" },
-                          model: {
-                            value: _vm.val,
-                            callback: function ($$v) {
-                              _vm.val = $$v
-                            },
-                            expression: "val",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
+                _c(
+                  "div",
+                  { staticClass: "input-content clearfix" },
+                  [
+                    _c("h3", { staticClass: "from-title" }, [
+                      _vm._v("Send a message"),
+                    ]),
                     _vm._v(" "),
-                    _vm._m(3),
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(4),
-                  _vm._v(" "),
-                  _vm._m(5),
-                  _vm._v(" "),
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _vm._m(7),
-                ]),
+                    _c("p", [
+                      _vm._v(
+                        "What is the reason you need to contact us today?"
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("ContactForm"),
+                  ],
+                  1
+                ),
               ]),
             ]),
           ]),
           _vm._v(" "),
-          _vm._m(8),
+          _vm._m(1),
         ]),
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(9),
+    _vm._m(2),
   ])
 }
 var staticRenderFns = [
@@ -45646,6 +43061,596 @@ var staticRenderFns = [
       ]),
     ])
   },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4" }, [
+      _c("div", { staticClass: "contact-us-content-left" }, [
+        _c("div", { staticClass: "contact" }, [
+          _c("div", { staticClass: "contact-btn" }, [_vm._v("Contact Info")]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "contact" }, [
+          _c("p", [
+            _vm._v(
+              "Ready to set up transportation for yourself or loved one, or to talk about transportation needs for your organization? Just fill out the form and let us know how we can help."
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "contact" }, [
+          _c("p", { staticClass: "c-h" }, [
+            _vm._v("We are available 24-7 to schedule and provide rides."),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "contact" }, [
+          _c("h4", [
+            _c("i", { staticClass: "fa fa-envelope" }),
+            _vm._v("Mail"),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c(
+              "a",
+              { attrs: { href: "mailto:contact@heartofgoldmedtransport.com" } },
+              [_vm._v("contact@heartofgoldmedtransport.com")]
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "contact" }, [
+          _c("h4", [_c("i", { staticClass: "fa fa-phone" }), _vm._v("Call")]),
+          _vm._v(" "),
+          _c("p", [
+            _c("a", { attrs: { href: "tel:+19167406447" } }, [
+              _vm._v(" (916) 740-6447"),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container footer-top-border" }, [
+      _c("div", { staticClass: "vehicle-multi-border yellow-black" }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/home.vue?vue&type=template&id=3ef8d081&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/home.vue?vue&type=template&id=3ef8d081& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "slider-block" }, [
+        _c("div", { staticClass: "rev_slider_wrapper" }, [
+          _c("div", { staticClass: "rev_slider carrent-slider" }, [
+            _c("ul", [
+              _c(
+                "li",
+                {
+                  attrs: {
+                    "data-transition": "fade",
+                    "data-slotamount": "default",
+                    "data-easein": "Power4.easeInOut",
+                    "data-easeout": "Power4.easeInOut",
+                    "data-masterspeed": "2000",
+                    "data-rotate": "0",
+                    "data-fstransition": "fade",
+                    "data-fsmasterspeed": "1500",
+                    "data-fsslotamount": "7",
+                    "data-saveperformance": "off",
+                    "data-title": "materialize Material",
+                    "data-description": "",
+                  },
+                },
+                [
+                  _c("img", {
+                    staticClass: "rev-slidebg",
+                    attrs: {
+                      src: "assets/images/01.jpg",
+                      alt: "",
+                      "data-bgposition": "center center",
+                      "data-bgfit": "cover",
+                      "data-bgrepeat": "no-repeat",
+                      "data-no-retina": "",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme rev-subheading",
+                      staticStyle: {
+                        "z-index": "5",
+                        color: "white",
+                        "font-weight": "900",
+                        "font-family": "inherit",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['105','105','75','-85']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['-163','-163','-130','-130']",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
+                        "data-width": "none",
+                        "data-height": "none",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "800",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [_vm._v("We Care\n                        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme rev-subheading",
+                      staticStyle: {
+                        "z-index": "6",
+                        color: "white",
+                        "font-family": "'Exo', sans-serif",
+                        "font-weight": "800",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['102','102','75','-75']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['-110','-110','-90','-90']",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-fontsize": "['60','60','45','45']",
+                        "data-lineheight": "['60','60','60','60']",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "1000",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                            With a Heart of Gold\n                        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
+                      staticStyle: {
+                        "z-index": "7",
+                        color: "rgb(210 153 100)",
+                        "font-family": "'Exo', sans-serif",
+                        "font-weight": "900",
+                        "text-transform": "uppercase",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['103','103','75','0']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['0']",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "1000",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Providing Ambulatory and wheelchair\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        " transportation for the greater\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(" Sacramento area and beyond BBB "),
+                      _c("br"),
+                      _vm._v(
+                        " Accredited: A rating!\n                        "
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  attrs: {
+                    "data-transition": "fade",
+                    "data-slotamount": "default",
+                    "data-easein": "Power4.easeInOut",
+                    "data-easeout": "Power4.easeInOut",
+                    "data-masterspeed": "2000",
+                    "data-rotate": "0",
+                    "data-fstransition": "fade",
+                    "data-fsmasterspeed": "1500",
+                    "data-fsslotamount": "7",
+                    "data-saveperformance": "off",
+                    "data-title": "materialize Material",
+                    "data-description": "",
+                  },
+                },
+                [
+                  _c("img", {
+                    staticClass: "rev-slidebg",
+                    attrs: {
+                      src: "assets/images/02.jpg",
+                      alt: "",
+                      "data-bgposition": "center center",
+                      "data-bgfit": "cover",
+                      "data-bgrepeat": "no-repeat",
+                      "data-no-retina": "",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme rev-subheading",
+                      staticStyle: {
+                        "z-index": "5",
+                        color: "white",
+                        "font-weight": "900",
+                        "font-family": "inherit",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['105','105','75','-85']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['-163','-163','-130','-130']",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
+                        "data-width": "none",
+                        "data-height": "none",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "800",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [_vm._v("We Care\n                        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme rev-subheading",
+                      staticStyle: {
+                        "z-index": "6",
+                        color: "white",
+                        "font-family": "'Exo', sans-serif",
+                        "font-weight": "800",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['102','102','75','-75']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['-110','-110','-90','-90']",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-fontsize": "['60','60','45','45']",
+                        "data-lineheight": "['60','60','60','60']",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "1000",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                            With a Heart of Gold\n                        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
+                      staticStyle: {
+                        "z-index": "7",
+                        color: "rgb(210 153 100)",
+                        "font-family": "'Exo', sans-serif",
+                        "font-weight": "900",
+                        "text-transform": "uppercase",
+                      },
+                      attrs: {
+                        "data-type": "text",
+                        "data-x": "['left','left','left','center']",
+                        "data-hoffset": "['103','103','75','0']",
+                        "data-y": "['middle']",
+                        "data-voffset": "['0']",
+                        "data-whitespace": "nowrap",
+                        "data-transform_idle": "o:1;",
+                        "data-fontsize": "['22','22','22','22']",
+                        "data-lineheight": "['30','30','30','30']",
+                        "data-transform_in":
+                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                        "data-transform_out":
+                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                        "data-mask_out":
+                          "x:inherit;y:inherit;s:inherit;e:inherit;",
+                        "data-start": "1000",
+                        "data-splitin": "none",
+                        "data-splitout": "none",
+                        "data-responsive_offset": "on",
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Providing Ambulatory and wheelchair\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        " transportation for the greater\n                            "
+                      ),
+                      _c("br"),
+                      _vm._v(" Sacramento area and beyond BBB "),
+                      _c("br"),
+                      _vm._v(
+                        " Accredited: A rating!\n                        "
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: {
+              "text-align": "center",
+              padding: "10px",
+              "background-color": "#cd9700",
+              color: "white",
+            },
+          },
+          [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("h3", [_vm._v("WELCOME TO")]),
+              _vm._v(" "),
+              _c("h1", [
+                _vm._v("HEART OF GOLD MEDICAL TRANSPORT\n                "),
+              ]),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: { "text-align": "center", padding: "20px" },
+          },
+          [
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("img", { attrs: { src: "assets/images/02.jpg", alt: "" } }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Non-Emergency Medical Transport (NEMT)")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "We provide non-emergency medical transport for both ambulatory and wheelchair bound individuals.\n                    All of our drivers have basic CPR and First Aid certification. This type of transportation is\n                    meant for individuals who are stable and do not require medical attention during transport."
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("img", { attrs: { src: "assets/images/03.jpg", alt: "" } }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Ambulatory and Wheelchair Bound Individuals")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "We provide both ambulatory and wheelchair transportation, whether it is to a doctor’s\n                    appointment, dialysis, home, or even to a family event!"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("img", { attrs: { src: "assets/images/04.jpg", alt: "" } }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Bring a Loved One")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "A loved one or caregiver is always welcome to ride along."
+                ),
+              ]),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: {
+              padding: "10px",
+              "background-color": "black",
+              color: "white",
+            },
+          },
+          [
+            _c("div", { staticClass: "col-md-2" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("h3", [
+                _vm._v(
+                  "HOW CAN HEART OF GOLD MEDICAL TRANSPORT BE OF SERVICE TO YOU?\n                "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Drop us an email and we’ll be happy to answer any questions you may have.\n                "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4 pt-4" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "button",
+                  staticStyle: { "background-color": "#cd9700" },
+                },
+                [_vm._v("Contact Us Today")]
+              ),
+            ]),
+          ]
+        ),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/includes/contact-form.vue?vue&type=template&id=0d2bc5e3&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/includes/contact-form.vue?vue&type=template&id=0d2bc5e3& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-6" },
+        [
+          _c("datetime", {
+            attrs: { format: "MM/DD/YYYY H:i:s", width: "300px" },
+            model: {
+              value: _vm.val,
+              callback: function ($$v) {
+                _vm.val = $$v
+              },
+              expression: "val",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(2),
+    ]),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _vm._m(5),
+    _vm._v(" "),
+    _vm._m(6),
+  ])
+}
+var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -45858,656 +43863,6 @@ var staticRenderFns = [
       ]),
     ])
   },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-4" }, [
-      _c("div", { staticClass: "contact-us-content-left" }, [
-        _c("div", { staticClass: "contact" }, [
-          _c("div", { staticClass: "contact-btn" }, [_vm._v("Contact Info")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "contact" }, [
-          _c("p", [
-            _vm._v(
-              "Ready to set up transportation for yourself or loved one, or to talk about transportation needs for your organization? Just fill out the form and let us know how we can help."
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "contact" }, [
-          _c("p", { staticClass: "c-h" }, [
-            _vm._v("We are available 24-7 to schedule and provide rides."),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "contact" }, [
-          _c("h4", [
-            _c("i", { staticClass: "fa fa-envelope" }),
-            _vm._v("Mail"),
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _c(
-              "a",
-              { attrs: { href: "mailto:contact@heartofgoldmedtransport.com" } },
-              [_vm._v("contact@heartofgoldmedtransport.com")]
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "contact" }, [
-          _c("h4", [_c("i", { staticClass: "fa fa-phone" }), _vm._v("Call")]),
-          _vm._v(" "),
-          _c("p", [
-            _c("a", { attrs: { href: "tel:+19167406447" } }, [
-              _vm._v(" (916) 740-6447"),
-            ]),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container footer-top-border" }, [
-      _c("div", { staticClass: "vehicle-multi-border yellow-black" }),
-    ])
-  },
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/home.vue?vue&type=template&id=3ef8d081&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/home.vue?vue&type=template&id=3ef8d081& ***!
-  \****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "slider-block" }, [
-        _c("div", { staticClass: "rev_slider_wrapper" }, [
-          _c("div", { staticClass: "rev_slider carrent-slider" }, [
-            _c("ul", [
-              _c(
-                "li",
-                {
-                  attrs: {
-                    "data-transition": "fade",
-                    "data-slotamount": "default",
-                    "data-easein": "Power4.easeInOut",
-                    "data-easeout": "Power4.easeInOut",
-                    "data-masterspeed": "2000",
-                    "data-rotate": "0",
-                    "data-fstransition": "fade",
-                    "data-fsmasterspeed": "1500",
-                    "data-fsslotamount": "7",
-                    "data-saveperformance": "off",
-                    "data-title": "materialize Material",
-                    "data-description": "",
-                  },
-                },
-                [
-                  _c("img", {
-                    staticClass: "rev-slidebg",
-                    attrs: {
-                      src: "assets/images/slider-car/slider-bg.jpg",
-                      alt: "",
-                      "data-bgposition": "center center",
-                      "data-bgfit": "cover",
-                      "data-bgrepeat": "no-repeat",
-                      "data-no-retina": "",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "#464646",
-                        "font-weight": "600",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-85']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-163','-163','-130','-130']",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [_vm._v("All discount just for you\n                    ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "6",
-                        color: "#e91e22",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "800",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['102','102','75','-75']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-110','-110','-90','-90']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['60','60','60','60']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [_vm._v("Need A Ride?\n                    ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
-                      staticStyle: {
-                        "z-index": "7",
-                        color: "#000000",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "900",
-                        "text-transform": "uppercase",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['103','103','75','0']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['0']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['75','75','60','60']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v("Choose your"),
-                      _c("br"),
-                      _vm._v(" Comfortable Taxi\n                    "),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption rev-subheading tp-resizeme",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "#464646",
-                        "font-weight": "600",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-28']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['95','95','75','75']",
-                        "data-fontsize": "['24']",
-                        "data-lineheight": "['20']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "Best worldwide car hire deals!!!!!\n                    "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme",
-                      staticStyle: {
-                        "z-index": "7",
-                        "font-weight": "bold",
-                        "font-family": "'Exo', sans-serif",
-                      },
-                      attrs: {
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-105']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['150','150','135','120']",
-                        "data-fontsize": "['22']",
-                        "data-lineheight": "['45']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-style_hover": "cursor:default;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:600;e:Power2.easeInOut;s:600;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1200",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "button black-button slider-button",
-                          attrs: {
-                            href: "#",
-                            "data-fontsize": "['22','22','22','22']",
-                          },
-                        },
-                        [_vm._v("Contact Now")]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme",
-                      attrs: {
-                        "data-x": "['right','right','right','center']",
-                        "data-hoffset": "['0','-15','30','-10']",
-                        "data-y": "['middle','middle','middle','bottom']",
-                        "data-voffset": "['15','15','0','0']",
-                        "data-transform_idle": "o:1;",
-                        "data-visibility": "['on','on','on','off']",
-                        "data-transform_in":
-                          "z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:300;e:Power3.easeInOut;",
-                        "data-transform_out": "auto:auto;s:600;",
-                        "data-splitin": "none",
-                        "data-start": "1500",
-                        "data-type": "image",
-                        "data-responsive_offset": "on",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-no-retina": "",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "assets/images/dummy.png",
-                          alt: "",
-                          "data-lazyload":
-                            "assets/images/slider-car/slider-car-01.png",
-                          "data-ww": "['805','805','500','350']",
-                          "data-hh": "['auto']",
-                        },
-                      }),
-                    ]
-                  ),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
-                  attrs: {
-                    "data-transition": "fade",
-                    "data-slotamount": "default",
-                    "data-easein": "Power4.easeInOut",
-                    "data-easeout": "Power4.easeInOut",
-                    "data-masterspeed": "2000",
-                    "data-rotate": "0",
-                    "data-fstransition": "fade",
-                    "data-fsmasterspeed": "1500",
-                    "data-fsslotamount": "7",
-                    "data-saveperformance": "off",
-                    "data-title": "materialize Material",
-                    "data-description": "",
-                  },
-                },
-                [
-                  _c("img", {
-                    staticClass: "rev-slidebg",
-                    attrs: {
-                      src: "assets/images/slider-car/slider-bg.jpg",
-                      alt: "",
-                      "data-bgposition": "center center",
-                      "data-bgfit": "cover",
-                      "data-bgrepeat": "no-repeat",
-                      "data-no-retina": "",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "#464646",
-                        "font-weight": "600",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-85']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-163','-163','-130','-130']",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [_vm._v("All discount just for you\n                    ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "6",
-                        color: "#e91e22",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "800",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['102','102','75','-75']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-110','-110','-90','-90']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['60','60','60','60']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [_vm._v("Need A Ride?\n                    ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
-                      staticStyle: {
-                        "z-index": "7",
-                        color: "#000000",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "900",
-                        "text-transform": "uppercase",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['103','103','75','0']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['0']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['75','75','60','60']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v("Choose your"),
-                      _c("br"),
-                      _vm._v(" Comfortable Taxi\n                    "),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption rev-subheading tp-resizeme",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "#464646",
-                        "font-weight": "600",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-28']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['95','95','75','75']",
-                        "data-fontsize": "['24']",
-                        "data-lineheight": "['20']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "Best worldwide car hire deals!!!!!\n                    "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme",
-                      staticStyle: {
-                        "z-index": "7",
-                        "font-weight": "bold",
-                        "font-family": "'Exo', sans-serif",
-                      },
-                      attrs: {
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-105']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['150','150','135','120']",
-                        "data-fontsize": "['22']",
-                        "data-lineheight": "['45']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-style_hover": "cursor:default;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:600;e:Power2.easeInOut;s:600;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1200",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "button black-button slider-button",
-                          attrs: {
-                            href: "#",
-                            "data-fontsize": "['22','22','22','22']",
-                          },
-                        },
-                        [_vm._v("Contact Now")]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme",
-                      attrs: {
-                        "data-x": "['right','right','right','center']",
-                        "data-hoffset": "['0','-15','30','-10']",
-                        "data-y": "['middle','middle','middle','bottom']",
-                        "data-voffset": "['15','15','0','0']",
-                        "data-transform_idle": "o:1;",
-                        "data-visibility": "['on','on','on','off']",
-                        "data-transform_in":
-                          "z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:300;e:Power3.easeInOut;",
-                        "data-transform_out": "auto:auto;s:600;",
-                        "data-splitin": "none",
-                        "data-start": "1500",
-                        "data-type": "image",
-                        "data-responsive_offset": "on",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-no-retina": "",
-                      },
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src: "assets/images/dummy.png",
-                          alt: "",
-                          "data-lazyload":
-                            "assets/images/slider-car/slider-car-01.png",
-                          "data-ww": "['805','805','500','350']",
-                          "data-hh": "['auto']",
-                        },
-                      }),
-                    ]
-                  ),
-                ]
-              ),
-            ]),
-          ]),
-        ]),
-      ]),
-    ])
-  },
 ]
 render._withStripped = true
 
@@ -46687,11 +44042,47 @@ var staticRenderFns = [
                 ),
               ]),
               _vm._v(" "),
-              _c("p", [_vm._v("*Weekend and Holiday prices vary")]),
+              _c("h6", [_vm._v("*Weekend and Holiday prices vary")]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6" }, [
-              _c("img", { attrs: { src: "", alt: "" } }),
+              _c("img", { attrs: { src: "assets/images/ss.jpg", alt: "" } }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("img", { attrs: { src: "assets/images/s1-1.jpg", alt: "" } }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("h3", [_vm._v("WHEELCHAIR BOUND TRANSPORTATION")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "This service is provided for individuals who need or prefer to travel via wheelchair. You and your wheelchair will be securely fastened using ADA-compliant seatbelts and wheelchair securements. Your driver will assist you in getting in and out of the building of your pickup location and destination, whether it is a doctor’s office or your home, and will bring in any belongings you may have with you."
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "One-Way Wheelchair Transport (during regular bus. hours): $70.00 pickup (+$3/mi after 1st 10 miles)"
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Round-Trip Wheelchair Transport (during regular bus. hours): $120.00 pickup (+$3/mi after 1st 10 miles each way)"
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "*A family member or caregiver may accompany client at no extra charge. Please inform us at time of scheduling."
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("*Weekend and Holiday prices vary")]),
             ]),
           ]),
         ]),
@@ -62017,93 +59408,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue":
-/*!*******************************************************************!*\
-  !*** ./node_modules/vuejs-datetimepicker/src/datetime_picker.vue ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _datetime_picker_vue_vue_type_template_id_4bd11526_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datetime_picker.vue?vue&type=template&id=4bd11526&scoped=true& */ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=template&id=4bd11526&scoped=true&");
-/* harmony import */ var _datetime_picker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datetime_picker.vue?vue&type=script&lang=js& */ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _datetime_picker_vue_vue_type_style_index_0_id_4bd11526_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css& */ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css&");
-/* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _datetime_picker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _datetime_picker_vue_vue_type_template_id_4bd11526_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _datetime_picker_vue_vue_type_template_id_4bd11526_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "4bd11526",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "node_modules/vuejs-datetimepicker/src/datetime_picker.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../vue-loader/lib??vue-loader-options!./datetime_picker.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js?!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css&":
-/*!****************************************************************************************************************************!*\
-  !*** ./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css& ***!
-  \****************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_style_index_0_id_4bd11526_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../style-loader!../../css-loader??ref--6-1!../../vue-loader/lib/loaders/stylePostLoader.js!../../postcss-loader/src??ref--6-2!../../vue-loader/lib??vue-loader-options!./datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=style&index=0&id=4bd11526&scoped=true&lang=css&");
-/* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_style_index_0_id_4bd11526_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_style_index_0_id_4bd11526_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_style_index_0_id_4bd11526_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_style_index_0_id_4bd11526_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=template&id=4bd11526&scoped=true&":
-/*!**************************************************************************************************************!*\
-  !*** ./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=template&id=4bd11526&scoped=true& ***!
-  \**************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_template_id_4bd11526_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../vue-loader/lib??vue-loader-options!./datetime_picker.vue?vue&type=template&id=4bd11526&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vuejs-datetimepicker/src/datetime_picker.vue?vue&type=template&id=4bd11526&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_template_id_4bd11526_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_datetime_picker_vue_vue_type_template_id_4bd11526_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -62393,9 +59697,7 @@ component.options.__file = "resources/js/components/frontend/about.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./about.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/about.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_about_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -62421,14 +59723,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./resources/js/components/frontend/contact.vue ***!
   \******************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contact_vue_vue_type_template_id_481ad1ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contact.vue?vue&type=template&id=481ad1ee& */ "./resources/js/components/frontend/contact.vue?vue&type=template&id=481ad1ee&");
 /* harmony import */ var _contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contact.vue?vue&type=script&lang=js& */ "./resources/js/components/frontend/contact.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -62458,7 +59761,7 @@ component.options.__file = "resources/js/components/frontend/contact.vue"
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/frontend/contact.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -62534,9 +59837,7 @@ component.options.__file = "resources/js/components/frontend/home.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/home.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -62553,6 +59854,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_template_id_3ef8d081___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_template_id_3ef8d081___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/includes/contact-form.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/frontend/includes/contact-form.vue ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _contact_form_vue_vue_type_template_id_0d2bc5e3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contact-form.vue?vue&type=template&id=0d2bc5e3& */ "./resources/js/components/frontend/includes/contact-form.vue?vue&type=template&id=0d2bc5e3&");
+/* harmony import */ var _contact_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contact-form.vue?vue&type=script&lang=js& */ "./resources/js/components/frontend/includes/contact-form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _contact_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _contact_form_vue_vue_type_template_id_0d2bc5e3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _contact_form_vue_vue_type_template_id_0d2bc5e3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/frontend/includes/contact-form.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/includes/contact-form.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/frontend/includes/contact-form.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./contact-form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/includes/contact-form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/includes/contact-form.vue?vue&type=template&id=0d2bc5e3&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/frontend/includes/contact-form.vue?vue&type=template&id=0d2bc5e3& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_form_vue_vue_type_template_id_0d2bc5e3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./contact-form.vue?vue&type=template&id=0d2bc5e3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/includes/contact-form.vue?vue&type=template&id=0d2bc5e3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_form_vue_vue_type_template_id_0d2bc5e3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_form_vue_vue_type_template_id_0d2bc5e3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
