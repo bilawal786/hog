@@ -1,146 +1,80 @@
 <template>
     <div>
-            <!-- ====== Page Header ====== -->
-    <div class="page-header nevy-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">                
-                    <h2 class="page-title">About</h2>
-                    <p class="page-description yellow-color">About your company</p>        
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row-->
-        </div><!-- /.container-fluid -->           
-    </div>
+        <!-- ====== Page Header ====== -->
+        <div class="page-header nevy-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="page-title">About us</h2>
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row-->
+            </div><!-- /.container-fluid -->
+        </div>
 
-    <!-- ====== About Main Content ====== --> 
-    <div class="about-main-content mr-top-90">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="about-top-content">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="heading-content-three">
-                                    <h2 class="title">Why <br />Choose Us</h2>
-                                    <h4 class="sub-title">Best offers Information</h4>
-                                </div><!-- /.section-title-area -->
-                            </div><!-- /.col-md-12 -->
-                        </div><!-- /.row -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="extra-big-title">Best Rent Service enjoy your life</h2>
-                            </div><!-- /.col-md-12 -->
-                            <div class="col-md-6">
-                                <div class="about-content-left">
-                                    <p>Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo maximus blandit. Curabitur lacinia, eros sit amet maximus suscipit, magna sapien veneuynatis eros, et gravida urna massa ut lectus. Quisque lacinia laciunia viverra. Nullram nec est et lorem sodales ornare a in sapien. In trtset urna marximus, conse ctetur iligula in, gravida erat. Nullam digniifssrim hendrerit auctor. Sed varius, dolor vitae iaculis condim rtweentum, massa nisl cursus sapien, gravida ultrices nisi dolor non erat. Nullam digniifssrim hendrerit auctor. Sed varius, dolor vitae dolor vitae iaculis condim rtweentum.</p>
-                                    <p>Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo maximus blandit. Curabitur lacinia, eros sit amet maximus suscipit, magna sapien veneuynatis eros, et gravida urna massa ut lectus. Quisque lacinia.</p>
-                                </div><!-- /.about-content-left-->
-                            </div><!-- /.col-md-5 -->
-                            <div class="col-md-6">
-                                <img src="assets/images/about/about-01.png" alt="car-item" />
-                            </div><!-- /.col-md-7 -->
-                        </div><!-- /.row -->
-                    </div><!-- /.top-content -->
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div><!-- /.about-main-content -->
+        <!-- ====== About Main Content ====== -->
+        <div class="about-main-content mr-top-90">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="about-top-content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="about-content-left">
+                                        <h3>Non-Emergency Medical Transportation (NEMT)</h3>
+                                        <p>Heart of Gold Medical Transport is a family-owned non-emergency medical
+                                            transportation company serving the greater Sacramento area since 2016. Its
+                                            owners are Megan and Cecilia.</p>
+                                        <p>Megan has worked as a nurse since 2009, becoming a Registered Nurse in 2010.
+                                            She has worked as a nurse in various settings including skilled nursing,
+                                            drug rehabilitation, and cosmetic surgery. Most recently she was Director of
+                                            Nursing at a Sacramento-based skilled nursing facility.</p>
+                                        <p>Cecilia was a Medical Assistant for 13 years, and she has almost 10 years of
+                                            experience as a business owner. She has a passion for taking care of others
+                                            and for always providing the best possible customer service.</p>
+                                        <h3>COMPASSION</h3>
+                                        <p>Heart of Gold Medical Transport serves everyone with great compassion and
+                                            care. We know that every client is different and may have unique situations.
+                                            With this in mind, we strive to make each and every client feel comfortable,
+                                            like they are part of the Heart of Gold family.</p>
+                                        <h3>SAFETY</h3>
+                                        <p>All of our vehicles are ADA (Americans with Disabilities Act) compliant and
+                                            are specially equipped with custom wheelchair ramps and safety fasteners.
+                                        </p>
+                                        <h3>TIMELINESS</h3>
+                                        <p>In the transportation industry, being on time is everything. Heart of Gold
+                                            Medical Transport understands that the time of each and every client, as
+                                            well as the time of physicians and nursing staff who may be caring for the
+                                            patient, is invaluable. Because of this, timeliness is of the utmost
+                                            importance to us.</p>
 
-    <!-- ======driver block======= --> 
-    <div class="driver-block pd-t-54 pd-btm-72">
-        <div class="container">
-            <div class="row tb default-margin-bottom yellow-theme">
-                <div class="col-md-9 block-title-area tb-cell">
-                    <div class="heading-content style-one border">
-                        <h3 class="subtitle">Full Time and Part Time </h3>
-                        <h2 class="title">Our Team</h2>
-                    </div><!-- /.heading-content-one -->
-                </div><!-- /.col-md-10 -->
-                <div class="col-md-3 block-navigation-area hidden-xs tb-cell">
-                    <div class="pull-right">                    
-                        <div class="item-navigation">
-                            <a href="#" class="previous-item">
-                                <i class="fa fa-angle-left"></i> 
-                            </a>
-
-                            <a href="#" class="next-item">
-                                <i class="fa fa-angle-right"></i> 
-                            </a>
-                        </div><!-- /.item-navigation -->
-
-                        <div class="view-all-item">
-                            <a href="#" class="view-all-btn">View all</a>
-                        </div><!-- /.view-all-item -->
-                    </div><!-- /.pull-right -->
-                </div><!-- /.col-md-2 -->
-            </div><!-- /.row --> 
-
-            <div class="driver-carousel slider-style-two owl-carousel" data-item="[4,2,2,1]">
-                <div class="item">
-                    <div class="driver-content vehicle-content theme-yellow">
-                        <div class="driver-thumb vehicle-thumbnail">
-                            <a href="#">
-                                <img src="assets/images/driver/driver-01.jpg" alt="car-item" />
-                            </a>
-                        </div><!-- /.vehicle-thumbnail -->
-                        <div class="vehicle-bottom-content">
-                           <h2 class="driver-name vehicle-title"><a href="#">Mr. Sagor Smith</a></h2>
-                            <h4 class="driver-desc">Full Time Work,  Age 27</h4>
-                        </div><!-- /.vehicle-bottom-content -->
-                    </div><!-- /.car-content -->
-                </div><!-- /.item -->
-
-                <div class="item">
-                    <div class="driver-content vehicle-content theme-yellow">
-                        <div class="driver-thumb vehicle-thumbnail">
-                            <a href="#">
-                                <img src="assets/images/driver/driver-02.jpg" alt="car-item" />
-                            </a>
-                        </div><!-- /.vehicle-thumbnail -->
-                        <div class="vehicle-bottom-content">
-                           <h2 class="driver-name vehicle-title"><a href="#">Mr. Sagor Smith</a></h2>
-                            <h4 class="driver-desc">Full Time Work,  Age 27</h4>
-                        </div><!-- /.vehicle-bottom-content -->
-                    </div><!-- /.car-content -->
-                </div><!-- /.item -->
-                
-                <div class="item">
-                    <div class="driver-content vehicle-content theme-yellow">
-                        <div class="driver-thumb vehicle-thumbnail">
-                            <a href="#">
-                                <img src="assets/images/driver/driver-03.jpg" alt="car-item" />
-                            </a>
-                        </div><!-- /.vehicle-thumbnail -->
-                        <div class="vehicle-bottom-content">
-                           <h2 class="driver-name vehicle-title"><a href="#">Mr. Sagor Smith</a></h2>
-                            <h4 class="driver-desc">Full Time Work,  Age 27</h4>
-                        </div><!-- /.vehicle-bottom-content -->
-                    </div><!-- /.car-content -->
-                </div><!-- /.item -->
-
-                <div class="item">
-                    <div class="driver-content vehicle-content theme-yellow">
-                        <div class="driver-thumb vehicle-thumbnail">
-                            <a href="#">
-                                <img src="assets/images/driver/driver-04.jpg" alt="car-item" />
-                            </a>
-                        </div><!-- /.vehicle-thumbnail -->
-                        <div class="vehicle-bottom-content">
-                           <h2 class="driver-name vehicle-title"><a href="#">Mr. Sagor Smith</a></h2>
-                            <h4 class="driver-desc">Full Time Work,  Age 27</h4>
-                        </div><!-- /.vehicle-bottom-content -->
-                    </div><!-- /.car-content -->
-                </div><!-- /.item -->
-            </div><!-- /.driver-carousel -->
-        </div><!-- /.container  -->
-    </div><!-- /.driver-area -->
-
-    <!-- ======footer area======= -->
-    <div class="container footer-top-border">
-        <div class="vehicle-multi-border"></div><!-- /.vehicle-multi-border -->
-    </div><!-- /.container -->
+                                    </div><!-- /.about-content-left-->
+                                </div><!-- /.col-md-5 -->
+                                <div class="col-md-6">
+                                    <form action="#">
+                                         
+                                        <div class="input-content">
+                                            <div class="contact">
+                                                <div class="contact-btn">REQUEST A RIDE TODAY</div>
+                                            </div>
+                                            <ContactForm></ContactForm>
+                                        </div>
+                                    </form>
+                                    <br>
+                                </div><!-- /.col-md-7 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.top-content -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.about-main-content -->
     </div>
 </template>
 <script>
+import ContactForm from './includes/contact-form';
 
+export default {
+    components: {
+        ContactForm
+    }
+};
 </script>
