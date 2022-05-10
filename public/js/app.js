@@ -3250,6 +3250,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3614,8 +3621,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /***/ }),
 
@@ -3626,6 +3631,28 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -45790,7 +45817,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("button", [_vm._v("Calculate Cost")]),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("button", { staticClass: "btn-contact" }, [
+          _vm._v("Calculate Cost"),
+        ]),
+      ]),
     ])
   },
   function () {
@@ -45798,11 +45829,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6" }, [
+      _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "header-map-content" }, [
           _c("iframe", {
             attrs: {
               height: "300",
+              width: "100%",
               src: "https://www.google.com/maps/embed/v1/place?key=AIzaSyC871wKM6aoCLSV_pT3xBVsYzNGXaDh7Pw&q=121+King+St,Melbourne+VIC+3000,Australia",
               allowfullscreen: "allowfullscreen",
             },
@@ -45815,11 +45847,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "subimt-button clearfix" }, [
-      _c("input", {
-        staticClass: "submit yellow-button",
-        attrs: { type: "submit", value: "Submit" },
-      }),
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "subimt-button-contact clearfix" }, [
+          _c("input", {
+            staticClass: "submit yellow-button",
+            attrs: { type: "submit", value: "Submit" },
+          }),
+        ]),
+      ]),
     ])
   },
   function () {
@@ -46514,54 +46550,51 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "about-main-content mr-top-90" }, [
         _c("div", { staticClass: "container" }, [
-          _c("div", {}, [
-            _c("ul", {}, [
-              _c("li", {}, [
+          _c("div", { staticClass: "resources-cs" }, [
+            _c("ul", { staticClass: "resources-ul-cs" }, [
+              _c("li", { staticClass: "resources-li-cs" }, [
                 _c("div", {}, [
-                  _c("span", {}, [_vm._v("HOSPICE")]),
+                  _c("span", { staticClass: "resources-h" }, [
+                    _vm._v("HOSPICE"),
+                  ]),
                   _vm._v(" "),
-                  _c("p", {}),
-                  _c("div", [
+                  _c("div", { staticClass: "resources-list" }, [
                     _c("p", [_vm._v("Snowline Hospice")]),
                     _vm._v(" "),
                     _c("p", [_vm._v("www.snowlinehospice.org")]),
                     _vm._v(" "),
                     _c("p", [_vm._v("(916) 817-2338")]),
                   ]),
-                  _vm._v(" "),
-                  _c("p"),
                 ]),
               ]),
               _vm._v(" "),
-              _c("li", {}, [
+              _c("li", { staticClass: "resources-li-cs" }, [
                 _c("div", {}, [
-                  _c("span", {}, [_vm._v("IN-HOME CAREGIVERS")]),
+                  _c("span", { staticClass: "resources-h" }, [
+                    _vm._v("IN-HOME CAREGIVERS"),
+                  ]),
                   _vm._v(" "),
-                  _c("p", {}),
-                  _c("div", [
+                  _c("div", { staticClass: "resources-list" }, [
                     _c("p", [_vm._v("A Better Living Home Care Agency")]),
                     _vm._v(" "),
                     _c("p", [_vm._v("www.blhc.org ")]),
                     _vm._v(" "),
                     _c("p", [_vm._v("(916) 361-3000")]),
                   ]),
-                  _vm._v(" "),
-                  _c("p"),
                 ]),
               ]),
               _vm._v(" "),
-              _c("li", {}, [
+              _c("li", { staticClass: "resources-li-cs" }, [
                 _c("div", {}, [
-                  _c("span", {}, [_vm._v("All For You Home Care")]),
+                  _c("span", { staticClass: "resources-h" }, [
+                    _vm._v("All For You Home Care"),
+                  ]),
                   _vm._v(" "),
-                  _c("p", {}),
-                  _c("div", [
+                  _c("div", { staticClass: "resources-list" }, [
                     _c("p", [_vm._v("www.allforyouhomecare.com")]),
                     _vm._v(" "),
                     _c("p", [_vm._v("(916) 479-8554")]),
                   ]),
-                  _vm._v(" "),
-                  _c("p"),
                 ]),
               ]),
             ]),
@@ -46604,11 +46637,61 @@ var staticRenderFns = [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-md-12" }, [
-              _c("h2", { staticClass: "page-title" }, [_vm._v("Services")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "page-description yellow-color" }, [
-                _vm._v("About your company"),
+              _c("h2", { staticClass: "page-title" }, [
+                _vm._v("Non-Emergency Medical Transportation (NEMT)"),
               ]),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "contact-us-area mr-top-60" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("p", [
+                _vm._v(
+                  "Regular business hours are Monday-Friday 7am-5pm. Weekend and after-hours transportation is available, when scheduled in advance, for an additional cost. Transportation can also be provided on holidays for an additional cost."
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("HABLAMOS ESPAÑOL.")]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("h3", [_vm._v("AMBULATORY TRANSPORTATION")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "This service is provided for individuals who are able to ambulate and who are able to get in and out of a vehicle with minimal assistance. An ambulatory client does not require a wheelchair at any time during transport. Your driver will assist you in getting in and out of the building of your pickup location and destination, whether it is a doctor’s office or your home, and will bring in any belongings you may have with you."
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "One-Way Ambulatory Transport (during regular bus. hours): $70.00 pickup (+$3/mi after 1st 10 miles)"
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Round-Trip Ambulatory Transport (during regular bus. hours): $120.00 pickup (+$3/mi after 1st 10 miles each way)"
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "*A family member or caregiver may accompany client at no extra charge. Please inform us at time of scheduling."
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("*Weekend and Holiday prices vary")]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("img", { attrs: { src: "", alt: "" } }),
             ]),
           ]),
         ]),

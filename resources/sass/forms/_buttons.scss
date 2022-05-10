@@ -206,3 +206,24 @@ a.more-content {
 .bg-gray-color {
 	background-color: $color__white_smoke;
 }
+.btn-contact{
+	border: 1px solid #ccc;
+    box-shadow: none;
+    border-bottom: 1px solid #DDDDDD;
+    border-radius: 0;
+    float: left;
+    margin-bottom: 30px;
+    margin-right: 50px;
+    color: #8c8c8c;
+    font-size: 15px;
+    padding: 10px 20px;
+}
+.subimt-button-contact{
+	display: table;
+    margin: 20px 0;
+	.submit{
+		color: #FFF;
+		border-radius: 5px;
+		padding: 15px 25px;
+	}
+}

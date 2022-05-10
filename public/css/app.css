@@ -10080,7 +10080,7 @@ html {
 
 body {
   background-color: white;
-  font-family: "Roboto Slab", serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1.45em;
@@ -10089,7 +10089,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   line-height: 1.4em;
   color: #1d1d1f;
   font-weight: 400;
@@ -11170,6 +11170,29 @@ a.more-content {
   background-color: #f7f7f7;
 }
 
+.btn-contact {
+  border: 1px solid #ccc;
+  box-shadow: none;
+  border-bottom: 1px solid #DDDDDD;
+  border-radius: 0;
+  float: left;
+  margin-bottom: 30px;
+  margin-right: 50px;
+  color: #8c8c8c;
+  font-size: 15px;
+  padding: 10px 20px;
+}
+
+.subimt-button-contact {
+  display: table;
+  margin: 20px 0;
+}
+.subimt-button-contact .submit {
+  color: #FFF;
+  border-radius: 5px;
+  padding: 15px 25px;
+}
+
 input[type=text]:focus,
 input[type=email]:focus,
 input[type=url]:focus,
@@ -11491,7 +11514,7 @@ a:hover, a:active {
     text-transform: capitalize;
     text-decoration: none;
     position: relative;
-    font-family: "Exo", sans-serif;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
     color: #1d1d1f;
     vertical-align: middle;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
@@ -12247,7 +12270,7 @@ pagination
   opacity: 1;
 }
 .header-two .header-bottom-block .nav-right-content > ul > li > a {
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .header-two .header-top-block {
   padding-top: 30px;
@@ -12271,7 +12294,7 @@ pagination
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.015em;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .header-two .header-content-right ul li .icon-block {
   display: inline-block;
@@ -12393,7 +12416,7 @@ pagination
 }
 .tel-contact-number a {
   color: #E91E22;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   font-size: 18px;
   font-weight: 700;
   margin-right: 15px;
@@ -12887,7 +12910,7 @@ pagination
 }
 @media only screen and (max-width: 768px) {
   .brand-carousel .owl-nav.disabled > div {
-    font-family: "Exo", sans-serif;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
     background-color: #000;
     padding: 8px 15px;
     font-size: 14px;
@@ -13027,7 +13050,7 @@ pagination
   margin-bottom: 0;
   margin-top: 0;
   font-weight: 900;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   line-height: 50px;
 }
 .check-content .subtitle {
@@ -13125,7 +13148,7 @@ pagination
   margin-right: 15px;
   float: right;
   color: #1d1d1f;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   font-weight: 900;
   font-size: 16px;
   letter-spacing: 0.035em;
@@ -13399,7 +13422,7 @@ pagination
   border-radius: 0;
   display: inline-block;
   font-size: 16px;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   letter-spacing: 0.025em;
   padding: 10px 30px;
 }
@@ -13420,6 +13443,29 @@ pagination
   .about-us-block .about-us-slider img {
     margin-bottom: 20px;
   }
+}
+
+/*--------------------------------------------------------------
+## resources us section
+--------------------------------------------------------------*/
+.resources-cs {
+  margin-bottom: 100px;
+}
+.resources-cs .resources-ul-cs .resources-li-cs {
+  list-style-type: none;
+}
+.resources-cs .resources-ul-cs .resources-li-cs .resources-h {
+  font-weight: bold;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+}
+.resources-cs .resources-ul-cs .resources-li-cs .resources-list {
+  margin: 10px 0 20px 0;
+}
+.resources-cs .resources-ul-cs .resources-li-cs p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -13617,7 +13663,7 @@ pagination
   margin-bottom: 30px;
 }
 .faq-bolck .heading-content .subtitle {
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 
 .menu-extend .fa-plus:before {
@@ -13709,7 +13755,7 @@ pagination
   border-radius: 5px;
   min-height: 90px;
   font-size: 13px;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   font-weight: 600;
 }
 .shipping-from-content .advance-search-query .input input,
@@ -13863,7 +13909,7 @@ pagination
   margin-left: 20px;
 }
 .view-all-item .view-all-btn {
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   background-color: #000;
   padding: 8px 15px;
   font-size: 14px;
@@ -13911,7 +13957,7 @@ pagination
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.015em;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .vehicle-bottom-content .meta-item span {
   font-size: 16px;
@@ -13967,7 +14013,7 @@ pagination
 .vehicle-top-meta .meta-item {
   float: left;
   margin-right: 15px;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .vehicle-top-meta .meta-item span {
   color: #ffffff;
@@ -14104,7 +14150,7 @@ pagination
 }
 @media only screen and (max-width: 768px) {
   .slider-style-two .owl-nav.disabled > div {
-    font-family: "Exo", sans-serif;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
     background-color: #000;
     padding: 8px 15px;
     font-size: 14px;
@@ -14261,7 +14307,7 @@ pagination
   font-weight: 700;
   font-size: 24px;
   color: #ffffff;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   margin-bottom: 20px;
   line-height: 1.15;
 }
@@ -14719,7 +14765,7 @@ pagination
   border-radius: 0;
   display: inline-block;
   margin-right: 0;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   letter-spacing: 0.015em;
   font-weight: 700;
 }
@@ -14836,7 +14882,7 @@ pagination
   background-color: #ffffff;
   font-weight: bold;
   border: 1px solid #ddd;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .blog-block .nav-tabs > li > a:hover {
   background-color: none;
@@ -15195,7 +15241,7 @@ pagination
   letter-spacing: 0.01em;
   margin-top: 5px;
   position: relative;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   transition: all 0.5s ease;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -15215,7 +15261,7 @@ pagination
 }
 .pricing-table-item .price .price-subtille {
   margin-bottom: 10px;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   font-weight: 600;
   letter-spacing: 0.015em;
 }
@@ -15241,7 +15287,7 @@ pagination
   padding-bottom: 45px;
 }
 .pricing-table-item .pricing-table-footer .button {
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   font-size: 18px;
   display: inline-block;
 }
@@ -15612,7 +15658,7 @@ pagination
   color: #cbcaca;
   margin-right: 5px;
   font-weight: bold;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .social-profile a {
   padding: 5px;
@@ -15781,7 +15827,7 @@ pagination
   color: #181818;
   font-size: 18px;
   margin-bottom: 5px;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 @media only screen and (max-width: 992px) {
   .single-main-content .entry-meta .meta-title {
@@ -15958,7 +16004,7 @@ pagination
   font-size: 45px;
   font-weight: 900;
   line-height: 1em;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 @media only screen and (max-width: 767px) {
   .commingsoon-count .timer-body-block > div .tab-val {
@@ -16084,7 +16130,7 @@ pagination
   font-size: 15px;
   color: #161616;
   line-height: 20px;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .google-map-area .contact-style-one .social-icon {
   margin-left: 30px;
@@ -16224,7 +16270,7 @@ pagination
 }
 .vehicle-sidebar .advance-search-query .form-content label {
   color: #454545;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   font-size: 18px;
   text-transform: capitalize;
   font-weight: 800;
@@ -16245,7 +16291,7 @@ pagination
   font-size: 24px;
   color: #232c3b;
   font-weight: 800;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   margin-bottom: 20px;
 }
 .vehicle-sidebar .advance-search-query .form-content .input-filter select option {
@@ -16640,7 +16686,7 @@ pagination
 .comments-area .comment-metadata .author {
   font-size: 18px;
   font-weight: 800;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .comments-area .comment-metadata .says, .comments-area .comment-metadata .comment-edit-link {
   color: #777;
@@ -16957,7 +17003,7 @@ input[type=checkbox]::-ms-check {
   margin-bottom: 5px;
   color: #ffffff;
   font-weight: bold;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .widget_popular_posts .post-info .post-date {
   font-size: 12px;
@@ -17030,7 +17076,7 @@ input[type=checkbox]::-ms-check {
 .widget.widget_menu ul li {
   line-height: 45px;
   position: relative;
-  font-family: "Exo", sans-serif;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.025em;

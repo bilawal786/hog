@@ -107,18 +107,25 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <button>Calculate Cost</button>
+                                    <div class="col-md-12">
+                                        <button class="btn-contact">Calculate Cost</button>
+                                    </div>
+                                    
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                     <div class="header-map-content">
-                                        <iframe height="300" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC871wKM6aoCLSV_pT3xBVsYzNGXaDh7Pw&q=121+King+St,Melbourne+VIC+3000,Australia" allowfullscreen="allowfullscreen"></iframe>
+                                        <iframe height="300" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC871wKM6aoCLSV_pT3xBVsYzNGXaDh7Pw&q=121+King+St,Melbourne+VIC+3000,Australia" allowfullscreen="allowfullscreen"></iframe>
                                     </div>
                                     </div>
                                 </div>
-                                <div class="subimt-button clearfix">
-                                    <input type="submit" value="Submit" class="submit yellow-button">
-                                </div><!-- /.subimt -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="subimt-button-contact clearfix">
+                                            <input type="submit" value="Submit" class="submit yellow-button">
+                                        </div><!-- /.subimt -->
+                                    </div>
+                                </div>
                             </div><!-- /.input-content -->
                         </form>
                     </div><!-- /.contactus-content-right -->

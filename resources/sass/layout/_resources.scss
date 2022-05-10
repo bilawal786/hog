@@ -1,0 +1,21 @@
+.resources-cs{
+    margin-bottom: 100px;
+    .resources-ul-cs{
+        .resources-li-cs{
+            list-style-type: none;
+            .resources-h{
+                font-weight: bold;
+                font-family: "Open Sans","Helvetica", "Arial", sans-serif;
+            }
+            .resources-list{
+                margin: 10px 0 20px 0;
+            }
+            p{
+                margin: 0;
+                padding: 0;
+                font-size: 14px;
+                font-family: "Open Sans","Helvetica", "Arial", sans-serif;
+            }
+        }
+    }
+}
