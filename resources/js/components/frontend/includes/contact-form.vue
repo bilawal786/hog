@@ -3,11 +3,11 @@
         <div class="row">
             <div class="col-sm-6">
                 <select class="form-section">
-                    <option value="1" selected="selected">Intermediate</option>
-                    <option value="2">Compact</option>
-                    <option value="3">Station Wagon</option>
-                    <option value="4">SUV</option>
-                    <option value="5">Minibus</option>
+                    <option class="form-option" value="1" selected="selected">Intermediate</option>
+                    <option class="form-option" value="2">Compact</option>
+                    <option class="form-option" value="3">Station Wagon</option>
+                    <option class="form-option" value="4">SUV</option>
+                    <option class="form-option" value="5">Minibus</option>
                 </select>
             </div>
         </div>
@@ -27,47 +27,34 @@
             <div class="col-sm-6">
                 <p class="form-text">Do you need wheelchair accessibility?</p>
                 <div>
-                    <span>
-                        <input type="radio" name="wheelchair" value="1" class="form-radio">
-                    </span>
-                    <span>
-                        <label for="yes" class="form-radio-lable">Yes</label>
-                    </span>
-                </div>
-                <div>
-                    <span>
-                        <input type="radio" name="wheelchair" value="0" class="form-radio">
-                    </span>
-                    <span>
-                        <label for="no" class="form-radio-lable">No</label>
-                    </span>
+                    <label class="form-radio-custom"> Yes
+                         <input type="radio" name="wheelchair" value="1" class="form-radio">
+                         <span class="checkmark"></span>
+                    </label>
+                    <label class="form-radio-custom"> No
+                         <input type="radio" name="wheelchair" value="2" class="form-radio" checked="checked" >
+                         <span class="checkmark"></span>
+                    </label>
                 </div>
 
             </div>
             <div class="col-sm-6">
                 <p class="form-text">Is this a round trip request?</p>
                 <div>
-                    <span>
-                        <input type="radio" name="roundtrip" value="1" class="form-radio">
-                    </span>
-                    <span>
-                        <label for="yes" class="form-radio-lable">Yes</label>
-                    </span>
+                    <label class="form-radio-custom"> Yes
+                         <input type="radio" name="roundtrip" value="1" class="form-radio">
+                         <span class="checkmark"></span>
+                    </label>
+                    <label class="form-radio-custom"> No
+                         <input type="radio" name="roundtrip" value="2" class="form-radio"  checked="checked">
+                         <span class="checkmark"></span>
+                    </label>
                 </div>
-                <div>
-                    <span>
-                        <input type="radio" name="roundtrip" value="0" class="form-radio">
-                    </span>
-                    <span>
-                        <label for="no" class="form-radio-lable">No</label>
-                    </span>
-                </div>
-
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <datetime format="MM/DD/YYYY H:i:s" width="300px" v-model="val"></datetime>
+                <datetime format="MM/DD/YYYY h:i" width="300px" v-model="date" :class="form-control"></datetime>
             </div><!-- /.col-md-12 -->
             <div class="col-md-12">
                 <textarea rows="5" cols="80">your massage</textarea>
@@ -106,7 +93,15 @@
     </div>
 </template>
 <script>
+import datetime from 'vuejs-datetimepicker';
+ 
 export default {
-
-}
-</script>
+        data() {
+            return {
+            date: new Date(),
+            
+            };
+        },
+    components: { datetime }
+};
+</script> 

@@ -5,7 +5,9 @@ import contact from './components/frontend/contact.vue';
 import resources from './components/frontend/resources.vue';
 import fqa from './components/frontend/fqa.vue';
 import policy from './components/frontend/policy.vue';
- 
+import NotFound from './components/frontend/404.vue';
+
+  
 export const routes = [
     {
         name: 'index',
@@ -41,5 +43,13 @@ export const routes = [
         name: 'policy',
         path: '/policy',
         component: policy
-    }
+    },
+    {
+        path: '/404',
+        component: NotFound
+    },  
+    {
+        path: '*',
+         component: NotFound
+    } 
 ];

@@ -75,6 +75,9 @@ import ContactForm from './includes/contact-form';
 export default {
     components: {
         ContactForm
+    },
+    mounted () {
+        window.scrollTo(0, 0)
     }
 };
 </script>

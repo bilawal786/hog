@@ -6,7 +6,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="page-title">Contact</h2>
-                    <p class="page-description yellow-color">Contact With Us</p>
                 </div><!-- /.col-md-12 -->
             </div><!-- /.row-->
         </div><!-- /.container-fluid -->
@@ -60,7 +59,10 @@ import ContactForm from './includes/contact-form';
 export default {
  components: {
     ContactForm
-  }
+  },
+   mounted () {
+        window.scrollTo(0, 0)
+    }
  };
 </script>
 

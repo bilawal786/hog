@@ -19,7 +19,7 @@ Vue.use(VueAxios, axios);
  
 const router = new VueRouter({
     mode: 'history',
-    routes: routes
+    routes: routes,
 });
 
 const app = new Vue({

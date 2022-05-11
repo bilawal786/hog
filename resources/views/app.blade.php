@@ -37,13 +37,8 @@
     ================================================== -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/icons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/color-schemer.css') }}">
-
     <!-- RS5.4 Main Stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/revolution/css/settings.css') }}">
-    <!-- RS5.4 Layers and Navigation Styles -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/revolution/css/layers.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/revolution/css/navigation.css') }}">
     <style>
         .header-nav-area {
             background-color: black;
@@ -87,9 +82,7 @@
         .yellow-theme .widget .button {
             background: #cd9700;
         }
-        .page-header{
-            margin: 0px 0px 20px !important;
-        }
+     
         @media only screen and (max-width: 600px) {
            .mdn{
                display: none;
