@@ -7,6 +7,9 @@ import fqa from './components/frontend/fqa.vue';
 import policy from './components/frontend/policy.vue';
 import NotFound from './components/frontend/404.vue';
 
+
+import adminLogin from './components/admin/login.vue';
+
   
 export const routes = [
     {
@@ -51,5 +54,11 @@ export const routes = [
     {
         path: '*',
          component: NotFound
-    } 
+    },
+    //admin
+    {
+        name: 'adminLogin',
+        path: '/admin/login',
+         component: adminLogin
+    }
 ];

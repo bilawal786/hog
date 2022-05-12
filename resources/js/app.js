@@ -8,6 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import App from './App.vue';
+import Admin from './Admin.vue';
 import VueAxios from 'vue-axios';
 import VueRouter from 'vue-router';
 import axios from 'axios';
@@ -23,7 +24,12 @@ const router = new VueRouter({
 });
 
 const app = new Vue({
-    el: '#app',
+    el: '#app', 
     router: router,
     render: h => h(App),
+});
+const admin = new Vue({
+    el: '#admin', 
+    router: router,
+    render: h => h(Admin),
 });
