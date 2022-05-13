@@ -12,9 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/admin', function () {
-    return view('admin');
-});
+
+ Route::get('/admin','AdminController@login')->name('login');
+ Route::get('/admin/reset','AdminController@reset')->name('reset');
+ Route::get('/admin/dashboard','AdminController@dashboard')->name('dashboard');
+
+
 Route::get('/admin/{any}', function () {
     return view('admin');
 });
@@ -22,7 +25,8 @@ Route::get('/admin/{any}', function () {
 Route::get('{any}', function () {
     return view('app');
 })->where('any', '.*');
-// Route::get('/', function () {
-//     return view('app');
-// });
+
+
+
+
 

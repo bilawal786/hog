@@ -5,20 +5,18 @@ import contact from './components/frontend/contact.vue';
 import resources from './components/frontend/resources.vue';
 import fqa from './components/frontend/fqa.vue';
 import policy from './components/frontend/policy.vue';
+import login from './components/frontend/login.vue';
+import registration from './components/frontend/registration.vue';
 import NotFound from './components/frontend/404.vue';
 
 
 import adminLogin from './components/admin/login.vue';
 
-  
 export const routes = [
     {
         name: 'index',
         path: '/',
         component: home,
-        meta: {
-            title: 'Liste des événements'
-        }
     },
     {
         name: 'about',
@@ -51,6 +49,16 @@ export const routes = [
         component: policy
     },
     {
+        name:'login',
+        path:'/login',
+        component:login
+    },
+    {
+        name:'registration',
+        path:'/registration',
+        component:registration
+    },
+    {
         path: '/404',
         component: NotFound
     },  
@@ -59,9 +67,9 @@ export const routes = [
          component: NotFound
     },
     //admin
-    {
-        name: 'adminLogin',
-        path: '/admin/login',
-         component: adminLogin
-    }
+    // {
+    //     name: 'adminLogin',
+    //     path: '/admin/login',
+    //      component: adminLogin
+    // }
 ];
