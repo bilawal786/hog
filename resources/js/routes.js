@@ -15,7 +15,10 @@ export const routes = [
     {
         name: 'index',
         path: '/',
-        component: home
+        component: home,
+        meta: {
+            title: 'Liste des événements'
+        }
     },
     {
         name: 'about',
