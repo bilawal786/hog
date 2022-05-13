@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "vue-axios": "^3.4.1",
+        "vue-datetime": "^1.0.0-beta.14",
         "vue-router": "^3.5.3",
         "vuejs-datetimepicker": "^1.1.13"
     }

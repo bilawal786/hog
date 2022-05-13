@@ -16,14 +16,9 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="contact-us-content-right">
-                        <form action="#">
-                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                            <div class="input-content clearfix">
-                                <h3 class="from-title">Send a message</h3>
-                                <p>What is the reason you need to contact us today?</p>
+                       
                                 <ContactForm></ContactForm>
-                            </div><!-- /.input-content -->
-                        </form>
+                            
                     </div><!-- /.contactus-content-right -->
                 </div><!-- /.col-md-8 -->
                 <div class="col-md-4">

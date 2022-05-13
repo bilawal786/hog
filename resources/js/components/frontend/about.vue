@@ -50,15 +50,11 @@
                                     </div><!-- /.about-content-left-->
                                 </div><!-- /.col-md-5 -->
                                 <div class="col-md-6">
-                                    <form action="#">
-                                         
-                                        <div class="input-content">
+                                   
                                             <div class="contact">
                                                 <div class="contact-btn">REQUEST A RIDE TODAY</div>
                                             </div>
                                             <ContactForm></ContactForm>
-                                        </div>
-                                    </form>
                                     <br>
                                 </div><!-- /.col-md-7 -->
                             </div><!-- /.row -->
@@ -73,6 +69,16 @@
 import ContactForm from './includes/contact-form';
 
 export default {
+    // props:[
+    //     option,
+    //     about,
+    // ],
+    date(){
+        return{
+            option:2,
+            about:true
+        }
+    },
     components: {
         ContactForm
     },

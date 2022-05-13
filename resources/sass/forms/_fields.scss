@@ -25,7 +25,7 @@ select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-   // background: transparent url("../images/select-bg.png") no-repeat scroll 95% 50%;
+    background: transparent url("select-bg.png") no-repeat scroll 95% 50%;
    .form-option{
        padding: 10px;
    }
@@ -224,7 +224,7 @@ textarea {
     -ms-user-select: none;
     user-select: none;
   }
-  
+
   /* Hide the browser's default radio button */
   .form-radio-custom input {
     position: absolute;
@@ -274,3 +274,21 @@ textarea {
       border-radius: 50%;
       background: #FAFAFA;
   }
+ 
+    @media only screen and (max-width: 620px) {
+        .m-v-radio{
+            width: 50%;
+            float: left;
+    }
+  }
+  .theme-orange .vdatetime-popup__header,
+.theme-orange .vdatetime-calendar__month__day--selected > span > span,
+.theme-orange .vdatetime-calendar__month__day--selected:hover > span > span {
+  background: $color_yellow;
+}
+
+.theme-orange .vdatetime-year-picker__item--selected,
+.theme-orange .vdatetime-time-picker__item--selected,
+.theme-orange .vdatetime-popup__actions__button {
+  color: $color_yellow;
+}

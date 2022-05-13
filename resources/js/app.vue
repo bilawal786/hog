@@ -90,7 +90,8 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-10 col-xs-10">
                         <div class="site-logo">
-                            <router-link to="/"><img class="mlogo" style="margin-top: -40px" src="assets/images/heart-of-gold.png" alt="logo" /></router-link>
+                            <router-link to="/"><img class="mlogo" style="margin-top: -40px"
+                                    src="assets/images/heart-of-gold.png" alt="logo" /></router-link>
                         </div><!-- /.logo -->
                     </div><!-- /.col-md-3 -->
                     <div class="col-md-9 col-sm-2 col-xs-2 pd-right-0">
@@ -99,7 +100,7 @@
                                 <div class="menu-content">
                                     <ul class="menu-list">
                                         <li>
-                                            <router-link to="/">HOME</router-link>
+                                            <router-link to="/" exact>HOME</router-link>
                                         </li>
                                         <li>
                                             <router-link to="/about">ABOUT</router-link>
@@ -168,9 +169,24 @@
                                     Useful link
                                 </h3><!-- /.widget-title -->
                                 <ul>
-                                    <li><router-link to="/fqa">FAQ</router-link></li>
-                                    <li><router-link to="/contact"> Contact Support</router-link></li>
-                                    <li><router-link to="/policy">Privacy Policy</router-link></li>
+                                    <li>
+                                        <router-link to="/fqa">FAQ</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link to="/contact"> Contact Support</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link to="/policy">Privacy Policy</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link to="/services">Services</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link to="/resource">Resources</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link to="/about">About</router-link>
+                                    </li>
                                 </ul>
                             </div><!-- /.widget -->
                         </div><!-- /.col-md-3 -->
@@ -181,11 +197,11 @@
                                     STAY CONNECTED
                                 </h3><!-- /.widget-title -->
                                 <ul>
-                                    <li><a href="#"><i
-                                                class="fa fa-envelope"></i>contact@heartofgoldmedtransport.com</a></li>
+                                    <li><a href="#"><i class="fa fa-envelope"></i>contact@heartofgoldmedtransport.com</a></li>
                                     <li><a href="#"><i class="fa fa-phone"></i> (916) 740-6447</a></li>
-                                    <li><a href="#"><i class="fa fa-map-marker"></i>1329 Howe Ave #205, Sacramento, CA
-                                            95825</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i><span>Office Address:</span> 1329 Howe Ave #205, Sacramento, CA 95825</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i><span>Mailing Address:</span> 7828 Zenith Dr. #7862, Citrus Heights, CA 95621</a></li>
+                                    
                                 </ul>
                             </div><!-- /.widget -->
                         </div><!-- /.col-md-3 -->
@@ -202,7 +218,7 @@
                             </div><!-- /.bottom-top-content -->
                         </div><!-- /.col-md-9 -->
                         <div class="col-md-3">
-                           
+
                         </div><!-- /.col-md-3 -->
                     </div><!-- /.row -->
                 </div><!-- /.footer-bottom-block -->
@@ -354,21 +370,21 @@ export default {
             /* ---------------------------------------------
             brand-slider
              --------------------------------------------- */
-        
+
             /* ---------------------------------------------
              fun_fects
              --------------------------------------------- */
-         
 
-      
+
+
             /* ---------------------------------------------
              Accordion Panel
              --------------------------------------------- */
-         
+
             /* ---------------------------------------------
             Gallery Style Two Carousel
             --------------------------------------------- */
- 
+
             /* ---------------------------------------------
              Scroll top
              --------------------------------------------- */
@@ -381,7 +397,7 @@ export default {
             /* ---------------------------------------------
             Mobile Tab
             --------------------------------------------- */
-   
+
             /* ---------------------------------------------
             Map iframe
             --------------------------------------------- */
@@ -389,7 +405,7 @@ export default {
             /* ---------------------------------------------
              Widget Mobile fix
              --------------------------------------------- */
-         
+
             /* ---------------------------------------------
              function initializ
              --------------------------------------------- */

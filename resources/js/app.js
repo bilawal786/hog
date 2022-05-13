@@ -28,6 +28,7 @@ const app = new Vue({
     router: router,
     render: h => h(App),
 });
+
 const admin = new Vue({
     el: '#admin', 
     router: router,
