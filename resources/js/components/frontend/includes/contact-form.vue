@@ -145,7 +145,7 @@
                     <div class="col-md-6" v-if="option==2">
                         <datetime
                            type="datetime"
-                            v-model="date"
+                          
                             input-class="my-class"
                             value-zone="America/New_York"
                             zone="Asia/Shanghai"
@@ -153,12 +153,9 @@
                             :phrases="{ok: 'Continue', cancel: 'Exit'}"
                             :hour-step="2"
                             :minute-step="15"
-                            :min-datetime="minDatetime"
-                            :max-datetime="maxDatetime"
                             :week-start="7"
                             use12-hour
                             auto
-                            :value="getTodayDateNow()"
                             class="theme-orange"
                         ></datetime>
                     </div>
@@ -226,16 +223,16 @@ export default {
    
     data() {
         return {
-            dateValue:'',
-            date: new Date(),
+            // dateValue:'',
+            // date: new Date(),
             option: 2,
         };
     },
     methods: {
-        getTodayDateNow: function() {
-              //  this.date = this.date.getMonth()+'/'+this.date.getDate()+'/'+this.date.getFullYear()
-                return this.date
-            }
+        // getTodayDateNow: function() {
+        //       //  this.date = this.date.getMonth()+'/'+this.date.getDate()+'/'+this.date.getFullYear()
+        //         return this.date
+          //  }
     },
     components: { 
         datetime: Datetime

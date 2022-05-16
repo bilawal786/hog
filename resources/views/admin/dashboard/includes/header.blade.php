@@ -296,7 +296,13 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+                    <a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        <i class="zmdi zmdi-power"></i>
+                        <span>{{ __('Logout') }}</span>
+                    </a>
                 </li>
             </ul>
         </li>

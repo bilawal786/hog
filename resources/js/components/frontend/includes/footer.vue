@@ -39,7 +39,7 @@
                                         <router-link to="/services">Services</router-link>
                                     </li>
                                     <li>
-                                        <router-link to="/resource">Resources</router-link>
+                                        <router-link to="/resources">Resources</router-link>
                                     </li>
                                     <li>
                                         <router-link to="/about">About</router-link>

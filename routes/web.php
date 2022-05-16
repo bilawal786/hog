@@ -13,14 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- Route::get('/admin','AdminController@login')->name('login');
+
+
+
+ Route::get('/admin','AdminController@login')->name('admin-login');
  Route::get('/admin/reset','AdminController@reset')->name('reset');
- Route::get('/admin/dashboard','AdminController@dashboard')->name('dashboard');
+ 
+Route::get('/admin/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/admin/gernal/setting', 'HomeController@gernalsetting')->name('gernalsetting');
 
 
-Route::get('/admin/{any}', function () {
-    return view('admin');
-});
+Auth::routes();
+
+
+//  Route::get('/admin/dashboard','AdminController@dashboard')->name('dashboard');
+
+// Route::get('/admin/{any}', function () {
+//     return view('admin');
+// });
 
 Route::get('{any}', function () {
     return view('app');
