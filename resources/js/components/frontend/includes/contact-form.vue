@@ -143,9 +143,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6" v-if="option==2">
-                        <datetime
+                        <date-time
                            type="datetime"
-                          
+                            v-model="getdate"
                             input-class="my-class"
                             value-zone="America/New_York"
                             zone="Asia/Shanghai"
@@ -157,11 +157,11 @@
                             use12-hour
                             auto
                             class="theme-orange"
-                        ></datetime>
+                        ></date-time>
                     </div>
                     <!-- /.col-md-12 -->
                     <div class="col-md-12">
-                        <textarea rows="5" cols="80">your massage</textarea>
+                        <textarea rows="5" cols="80">Your Message</textarea>
                     </div>
                     <!-- /.col-md-12 -->
                 </div>
@@ -223,19 +223,23 @@ export default {
    
     data() {
         return {
-            // dateValue:'',
+            getdate:new Date().toJSON(),
             // date: new Date(),
             option: 2,
         };
     },
     methods: {
+      
         // getTodayDateNow: function() {
         //       //  this.date = this.date.getMonth()+'/'+this.date.getDate()+'/'+this.date.getFullYear()
         //         return this.date
           //  }
     },
+    mounted () {
+      
+    },
     components: { 
-        datetime: Datetime
+        DateTime: Datetime
          },
 };
 </script>

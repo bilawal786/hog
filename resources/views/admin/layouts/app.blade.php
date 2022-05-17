@@ -13,15 +13,20 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	
 	<!-- Morris Charts CSS -->
-    <link href="/vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/vendors/bower_components/morris.js/morris.css')}}" rel="stylesheet" type="text/css"/>
 	
 	<!-- Data table CSS -->
-	<link href="/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
 	
-	<link href="/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+	<link href="{{ asset('/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css')}}" rel="stylesheet" type="text/css">
+
+	<!-- Bootstrap Dropify CSS -->
+	<link href="{{ asset('/vendors/bower_components/dropify/dist/css/dropify.min.css')}}" rel="stylesheet" type="text/css"/>
 		
 	<!-- Custom CSS -->
-	<link href="/dist/css/style.css" rel="stylesheet" type="text/css">
+	<link href="{{ asset('/dist/css/style.css')}}" rel="stylesheet" type="text/css">
+
+
 </head>
 
 <body>
@@ -56,7 +61,7 @@
 						<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{ asset('dist/img/user1.png')}}" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
 						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
 							<li>
-								<a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+								<a href="{{ url('admin/profile')}}"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
 							</li>
 							<li class="divider"></li>
 							<li>
@@ -77,24 +82,10 @@
 					<i class="zmdi zmdi-more"></i>
 				</li>
 				<li>
-					<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-					<ul id="dashboard_dr" class="collapse collapse-level-1">
-						<li>
-							<a class="active-page" href="index.html">Analytical</a>
-						</li>
-						<li>
-							<a  href="index2.html">Demographic</a>
-						</li>
-						<li>
-							<a href="index3.html">Project</a>
-						</li>
-						<li>
-							<a href="profile.html">profile</a>
-						</li>
-					</ul>
+					<a class="active" href="{{ route('dashboard')}}" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 				</li>
 				<li>
-					<a class="" href="{{ url('admin/gernal/setting')}}" ><div class="pull-left"><i class="zmdi zmdi-settings mr-20"></i><span class="right-nav-text">Gernal Setting</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+					<a class="" href="{{ route('generalsetting')}}" ><div class="pull-left"><i class="zmdi zmdi-settings mr-20"></i><span class="right-nav-text">Gernal Setting</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 				</li>
 			</ul>
 		</div>
@@ -114,49 +105,60 @@
 	<!-- JavaScript -->
 	
     <!-- jQuery -->
-    <script src="/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="{{ asset('/vendors/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ asset('/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+
+	<!-- Bootstrap Daterangepicker JavaScript -->
+	<script src="{{ asset('/vendors/bower_components/dropify/dist/js/dropify.min.js')}}"></script>
     
 	<!-- Data table JavaScript -->
-	<script src="/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="{{ asset('/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+
+	<script src="{{ asset('vendors/bower_components/bootstrap-validator/dist/validator.min.js')}}"></script>
 	
 	<!-- Slimscroll JavaScript -->
-	<script src="/dist/js/jquery.slimscroll.js"></script>
+	<script src="{{ asset('/dist/js/jquery.slimscroll.js')}}"></script>
+
+	<!-- Form Flie Upload Data JavaScript -->
+	<script src="{{ asset('/dist/js/form-file-upload-data.js')}}"></script>
 	
 	<!-- simpleWeather JavaScript -->
-	<script src="/vendors/bower_components/moment/min/moment.min.js"></script>
-	<script src="/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
-	<script src="/dist/js/simpleweather-data.js"></script>
+	<script src="{{ asset('/vendors/bower_components/moment/min/moment.min.js')}}"></script>
+	<script src="{{ asset('/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js')}}"></script>
+	<script src="{{ asset('/dist/js/simpleweather-data.js')}}"></script>
 	
 	<!-- Progressbar Animation JavaScript -->
-	<script src="/vendors/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
-	<script src="/vendors/bower_components/jquery.counterup/jquery.counterup.min.js"></script>
+	<script src="{{ asset('/vendors/bower_components/waypoints/lib/jquery.waypoints.min.js')}}"></script>
+	<script src="{{ asset('/vendors/bower_components/jquery.counterup/jquery.counterup.min.js')}}"></script>
 	
 	<!-- Fancy Dropdown JS -->
-	<script src="/dist/js/dropdown-bootstrap-extended.js"></script>
+	<script src="{{ asset('/dist/js/dropdown-bootstrap-extended.js')}}"></script>
 	
 	<!-- Sparkline JavaScript -->
-	<script src="/vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
+	<script src="{{ asset('/vendors/jquery.sparkline/dist/jquery.sparkline.min.js')}}"></script>
 	
 	<!-- Owl JavaScript -->
-	<script src="/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+	<script src="{{ asset('/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js')}}"></script>
 	
 	<!-- ChartJS JavaScript -->
-	<script src="/vendors/chart.js/Chart.min.js"></script>
+	<script src="{{ asset('/vendors/chart.js/Chart.min.js')}}"></script>
 	
 	<!-- Morris Charts JavaScript -->
-    <script src="/vendors/bower_components/raphael/raphael.min.js"></script>
-    <script src="/vendors/bower_components/morris.js/morris.min.js"></script>
-    <script src="/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+    <script src="{{ asset('/vendors/bower_components/raphael/raphael.min.js')}}"></script>
+    <script src="{{ asset('/vendors/bower_components/morris.js/morris.min.js')}}"></script>
+    <script src="{{ asset('/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js')}}"></script>
 	
 	<!-- Switchery JavaScript -->
-	<script src="/vendors/bower_components/switchery/dist/switchery.min.js"></script>
+	<script src="{{ asset('/vendors/bower_components/switchery/dist/switchery.min.js')}}"></script>
 	
 	<!-- Init JavaScript -->
-	<script src="/dist/js/init.js"></script>
-	<script src="/dist/js/dashboard-data.js"></script>
+	<script src="{{ asset('/dist/js/init.js')}}"></script>
+	<script src="{{ asset('/dist/js/dashboard-data.js')}}"></script>
+
+
+
 </body>
 
 </html>

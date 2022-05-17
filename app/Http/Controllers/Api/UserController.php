@@ -22,7 +22,7 @@ class UserController extends Controller
   
             $author->name = $request->name;
             $author->email = $request->email;
-            $author->password =  $request->password;
+            $author->password =  bcrypt($request->password);
   
         //dave data and send response
             $author->save();
@@ -44,7 +44,8 @@ class UserController extends Controller
         if(!auth()->attempt($login_data)){
             return response()->json([
                 'status' => false,
-                'message' => 'not login successfully'
+                'message' => 'not login successfully',
+                'auth'=> auth()
             ]);
         }
         $token = auth()->user()->createToken("auth_token")->accessToken;

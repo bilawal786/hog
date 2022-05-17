@@ -7,6 +7,7 @@ require('./bootstrap');
  import VueRouter from 'vue-router';
  import axios from 'axios';
  import { routes } from './routes';
+ 
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);

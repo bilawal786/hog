@@ -126,28 +126,44 @@
                 </div><!-- /.author-area -->
             </div><!-- /.overlay-sidebar -->
         </div><!-- /.header-modal-area -->
-        <Navigationbar></Navigationbar>
+        <navigation-bar></navigation-bar>
         <router-view> </router-view>
-        <webfooter></webfooter>
+        <web-footer></web-footer>
     </div>
 </template>
 <script>
-
-import Navigationbar from './components/frontend/includes/navigationbar.vue';
-import webfooter from './components/frontend/includes/footer.vue'
+import http from "./http-common";
+import NavigationBar from './components/frontend/includes/navigationbar.vue';
+import WebFooter from './components/frontend/includes/footer.vue'
 export default {
     data(){
         return{
+            allData:null,
             registration:true
         }
     },
     methods: {
         changetoggle () {
             this.registration = !this.registration
-
         },
+        // async getAllData() {
+        // try {
+        //     const res = await http.get("/general/setting");
+        //     const result = {
+        //         status: res.status + "-" + res.statusText,
+        //         headers: res.headers,
+        //         data: res.data,
+        //         };
+        //     this.getResult = this.fortmatResponse(result);
+        //     } catch (err) {
+        //         this.getResult = this.fortmatResponse(err.response?.data) || err;
+        //     }
+        // },
     },
-    mounted() {
+     mounted () {
+        // getAllData()
+        axios.get('http://127.0.0.1:8000/api/general/setting').then(response => (this.allData = response))
+
         var modelApp = {
             /* ---------------------------------------------
              Menu
@@ -640,6 +656,6 @@ export default {
             modelApp.initializ();
         });
     },
-    components: { Navigationbar, webfooter }
+    components: { NavigationBar, WebFooter }
 }
 </script>

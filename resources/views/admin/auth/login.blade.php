@@ -37,8 +37,7 @@
 					</a>
 				</div>
 				<div class="form-group mb-0 pull-right">
-					<span class="inline-block pr-10">Don't have an account?</span>
-					<a class="inline-block btn btn-info btn-rounded btn-outline" href="signup.html">Sign Up</a>
+					
 				</div>
 				<div class="clearfix"></div>
 			</header>
@@ -53,8 +52,8 @@
 								<div class="row">
 									<div class="col-sm-12 col-xs-12">
 										<div class="mb-30">
-											<h3 class="text-center txt-dark mb-10">Sign in to Hound</h3>
-											<h6 class="text-center nonecase-font txt-grey">Enter your details below</h6>
+											<h3 class="text-center txt-dark mb-10">Sign in to Heart of Gold</h3>
+										
 										</div>	
 										<div class="form-wrap">
 											<form method="POST" action="{{ route('login') }}">
@@ -72,7 +71,7 @@
 												
 												<div class="form-group">
 													<div class="checkbox checkbox-primary pr-10 pull-left">
-														<input id="checkbox_2" required="" type="checkbox">
+														<input id="checkbox_2" type="checkbox">
 														<label for="checkbox_2"> Keep me logged in</label>
 													</div>
 													<div class="clearfix"></div>

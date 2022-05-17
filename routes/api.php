@@ -15,6 +15,9 @@ use App\Http\Controllers\Api\AuthController;
 |
 */
 
+Route::get('general/setting', 'Api\GenernalSettingController@index')->name('generalSetting');
+
+
 Route::post('register', 'Api\UserController@register')->name('register');
 Route::post('login', 'Api\UserController@login')->name('login');
 

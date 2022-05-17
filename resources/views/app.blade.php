@@ -10,9 +10,9 @@
     <!-- Specific Meta
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Texicab is a modern presentation HTML5 Car Rent template.">
-    <meta name="keywords" content="HTML5, Template, Design, Development, Car Rent"/>
-    <meta name="author" content="">
+    <meta name="description" content="ADA compliant vehicles, providing ambulatory and wheelchair transportation for the greater Sacramento area and beyond.">
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Heart of Gold">
 
     <!-- Titles
     ================================================== -->
