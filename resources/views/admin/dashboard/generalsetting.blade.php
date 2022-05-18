@@ -28,7 +28,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-wrap">
-                                        <form action="{{route('updategeneralsetting')}}" method="POST" class="form-horizontal">
+                                        <form action="{{route('updategeneralsetting')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                             @csrf
                                             <div class="form-body">
                                                 <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account mr-10"></i>Logo Upload</h6>
@@ -42,7 +42,7 @@
                                                         <div class="clearfix"></div>
                                                         <p class="text-muted" >Your logo size<code>50 x 50</code></p>
                                                         <div class="mt-40">
-                                                            <input type="file" id="input-file-now-custom-1" class="dropify" name="header_logo"  data-default-file="{{$generaldata->header_logo}}"/>
+                                                            <input type="file" id="input-file-now-custom-1" class="dropify" name="header_logo" data-default-file="{{ asset($generaldata->header_logo) }}"/>
                                                         </div>	
                                                         <br>
                                                     </div>
@@ -57,7 +57,8 @@
                                                         <div class="clearfix"></div>
                                                         <p class="text-muted" >Your logo size<code>50 x 50</code></p>
                                                         <div class="mt-40">
-                                                            <input type="file" id="input-file-now-custom-1" class="dropify" name="footer_logo" data-default-file="{{$generaldata->footer_logo}}"/>
+                                                            <input type="file" id="input-file-now-custom-1" class="dropify" name="footer_logo" data-default-file="{{ asset($generaldata->footer_logo) }}"/>
+                                                            
                                                         </div>	
                                                         <br>
                                                     </div>
@@ -130,12 +131,13 @@
                                                     <div class="col-md-6">
                                                         <div class="row">
                                                             <div class="col-md-offset-3 col-md-9">
-                                                                <button type="submit" class="btn btn-success  mr-10">Submit</button>
-                                                                <button type="button" class="btn btn-default">Cancel</button>
+                                                                <button type="submit" class="btn btn-success  mr-10">Update</button>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6"> </div>
+                                                    <div class="col-md-6">
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>

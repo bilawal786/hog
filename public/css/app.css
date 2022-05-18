@@ -14216,9 +14216,13 @@ pagination
   color: #cd9700;
 }
 
+.author-area .auth-form-wrap #login-form {
+  padding: 0 20px !important;
+}
+
 @media only screen and (max-width: 767px) {
   .author-area .auth-form-wrap {
-    width: 80%;
+    width: 90%;
     margin: 20px auto;
     padding: 15px 0 0 0;
   }
@@ -14515,6 +14519,57 @@ pagination
     letter-spacing: 0.015em;
     text-transform: capitalize;
   }
+}
+
+.slider-text-all {
+  top: 30px;
+  left: 60px;
+  padding: 32px;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.33);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+@media only screen and (max-width: 767px) {
+  .slider-text-all {
+    top: 5px;
+    left: 5px;
+  }
+}
+
+.slider-text-all .slider-text-h4 {
+  font-size: 18px !important;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  font-weight: 300 !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0.00735em !important;
+}
+
+.slider-text-all .slider-text-h3 {
+  font-size: 24px !important;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  font-weight: 300 !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0em !important;
+}
+
+.slider-text-all .slider-text-p {
+  margin: 0 0 10px !important;
+  font-size: 1.7rem !important;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  font-weight: 300 !important;
+  line-height: 1.5 !important;
+}
+
+.tp-mask-wrap {
+  overflow: visible !important;
+}
+
+.tp-parallax-wrap {
+  left: 0 !important;
+  top: 0 !important;
 }
 
 /*--------------------------------------------------------------
@@ -17754,13 +17809,49 @@ pagination
   margin: 0 160px;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .fqa-cs {
+    margin: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .fqa-cs {
+    margin: 0 10px;
+  }
+}
+
 .fqa-cs h5 {
   font-weight: 600;
   font-size: 20px;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .fqa-cs h5 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .fqa-cs h5 {
+    font-size: 16px;
+  }
+}
+
 .fqa-cs p {
   font-size: 18px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .fqa-cs p {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .fqa-cs p {
+    font-size: 14px;
+  }
 }
 
 /*--------------------------------------------------------------

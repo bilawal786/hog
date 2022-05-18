@@ -30,7 +30,7 @@
                                             Nursing at a Sacramento-based skilled nursing facility.</p>
                                         <p>Caleb began working in a hospital at just 16 years old, transporting patients to medical appointments within the hospital grounds. After 40 years of managing some of the biggest companies in various fields, Caleb returns to work with patients once again.</p>
 
-                                        <p> brings with him his love and compassion for people, as well as his desire to provide the best experience possible.</p>
+                                        <p>He brings with him his love and compassion for people, as well as his desire to provide the best experience possible.</p>
 
                                             <br>
 

@@ -29,6 +29,9 @@
                                         <li>
                                             <router-link to="/resources">RESOURCES</router-link>
                                         </li>
+                                        <li class="hidden-md hidden-lg">
+                                            <router-link class="trigger-overlay" to="">login</router-link>
+                                        </li>
                                     </ul> <!-- /.menu-list -->
                                 </div> <!-- /.menu-content-->
                             </div> <!-- /.menu-wrapper -->

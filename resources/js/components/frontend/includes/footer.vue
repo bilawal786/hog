@@ -12,9 +12,7 @@
                                 <div class="widget-about-content">
                                     <img src="assets/images/footlogo.png" alt="logo" />
                                     <p>Heart of Gold Medical Transport is a family-owned non-emergency medical
-                                        transportation company serving the greater Sacramento area since 2016. Its
-                                        owners are Megan and Cecilia.
-
+                                        transportation company serving the greater Sacramento area since 2016. Its owner is Megan.
                                         Megan has worked as a nurse since 2009, becoming a Registered Nurse</p>
                                     <router-link to="/about" class="button">Reade More</router-link>
                                 </div><!-- /.widget-content -->

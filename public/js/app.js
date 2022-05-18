@@ -3125,22 +3125,17 @@ __webpack_require__.r(__webpack_exports__);
       Search Overlay
       --------------------------------------------- */
       searchOverlay: function searchOverlay() {
-        var triggerBttn = $(".search-open"),
-            overlay = $("div.overlay-scale"),
-            closeBttn = $("button.overlay-close");
-        triggerBttn.on("click", function () {
-          overlay.addClass("open");
-          console.log(overlay);
-          return false;
-        });
+        var closeBttn = $("button.overlay-close");
         closeBttn.on("click", function () {
           overlay.removeClass("open");
           return false;
         });
 
         function openNav() {
-          var $authorSelector = $(".author-area");
+          var $authorSelector = $(".author-area"),
+              $mobileOverlay = $(".mobile-menu-main .menucontent.overlaybg, .mobile-menu-main .slideLeft");
           $authorSelector.addClass("open");
+          $mobileOverlay.removeClass("menuopen").addClass("menuclose");
         }
 
         function closeNav() {
@@ -3156,19 +3151,6 @@ __webpack_require__.r(__webpack_exports__);
         var $closeBtn = $(".closebtn");
         $closeBtn.on("click", function () {
           closeNav();
-          return false;
-        });
-        $(document).on("click", function (e) {
-          var $authorSelectorDoc = $(".author-area");
-
-          if (!$authorSelectorDoc.is(e.target) && $authorSelectorDoc.has(e.target).length === 0) {
-            $authorSelectorDoc.removeClass("open");
-          }
-        });
-        var $advanceSearchBtn = $(".advanced-search-btn");
-        $advanceSearchBtn.on("click", function () {
-          var $advanceSerachContainer = $(".advance-search");
-          $advanceSerachContainer.slideToggle();
           return false;
         });
       },
@@ -3790,142 +3772,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     window.scrollTo(0, 0), jQuery(document).ready(function () {
@@ -4239,6 +4085,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+//
+//
+//
 //
 //
 //
@@ -57319,13 +57168,13 @@ var staticRenderFns = [
     return _c("header", { staticClass: "header-top-area bg-nero" }, [
       _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6 col-sm-7 hidden-xs" }, [
+          _c("div", { staticClass: "col-md-6 col-sm-7 hidden-xs hidden-sm" }, [
             _c("div", { staticClass: "header-content-left" }, [
               _c("ul", { staticClass: "header-top-menu" }),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 col-sm-5" }, [
+          _c("div", { staticClass: "col-md-6 col-sm-5 hidden-xs hidden-sm" }, [
             _c("div", { staticClass: "header-content-right" }, [
               _c("ul", { staticClass: "header-top-menu" }, [
                 _c("li", { staticClass: "mdn" }, [
@@ -57365,7 +57214,7 @@ var staticRenderFns = [
                 _c("li", [
                   _c(
                     "a",
-                    { staticClass: "trigger-overlay", attrs: { href: "" } },
+                    { staticClass: "mdn trigger-overlay", attrs: { href: "" } },
                     [
                       _c("i", { staticClass: "fa fa-user" }),
                       _vm._v(" "),
@@ -59051,7 +58900,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            " brings with him his love and compassion for people, as well as his desire to provide the best experience possible."
+            "He brings with him his love and compassion for people, as well as his desire to provide the best experience possible."
           ),
         ]),
         _vm._v(" "),
@@ -59321,768 +59170,502 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container-fluid" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "row",
+          staticStyle: {
+            padding: "10px",
+            "background-color": "black",
+            color: "white",
+          },
+        },
+        [
+          _c("div", { staticClass: "col-md-2" }),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-4 pt-4" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "button",
+                  staticStyle: { "background-color": "#cd9700" },
+                  attrs: { to: "/contact" },
+                },
+                [_vm._v("Contact Us Today")]
+              ),
+            ],
+            1
+          ),
+        ]
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "slider-block" }, [
-        _c("div", { staticClass: "rev_slider_wrapper" }, [
-          _c("div", { staticClass: "rev_slider carrent-slider" }, [
-            _c("ul", [
-              _c(
-                "li",
-                {
-                  attrs: {
-                    "data-transition": "fade",
-                    "data-slotamount": "default",
-                    "data-easein": "Power4.easeInOut",
-                    "data-easeout": "Power4.easeInOut",
-                    "data-masterspeed": "2000",
-                    "data-rotate": "0",
-                    "data-fstransition": "fade",
-                    "data-fsmasterspeed": "1500",
-                    "data-fsslotamount": "7",
-                    "data-saveperformance": "off",
-                    "data-title": "materialize Material",
-                    "data-description": "",
-                  },
+    return _c("div", { staticClass: "slider-block" }, [
+      _c("div", { staticClass: "rev_slider_wrapper" }, [
+        _c("div", { staticClass: "rev_slider carrent-slider" }, [
+          _c("ul", [
+            _c(
+              "li",
+              {
+                attrs: {
+                  "data-transition": "fade",
+                  "data-slotamount": "default",
+                  "data-easein": "Power4.easeInOut",
+                  "data-easeout": "Power4.easeInOut",
+                  "data-masterspeed": "2000",
+                  "data-rotate": "0",
+                  "data-fstransition": "fade",
+                  "data-fsmasterspeed": "1500",
+                  "data-fsslotamount": "7",
+                  "data-saveperformance": "off",
+                  "data-title": "materialize Material",
+                  "data-description": "",
                 },
-                [
-                  _c("img", {
-                    staticClass: "rev-slidebg",
-                    attrs: {
-                      src: "assets/images/slider/01.jpg",
-                      alt: "",
-                      "data-bgposition": "center center",
-                      "data-bgfit": "cover",
-                      "data-bgrepeat": "no-repeat",
-                      "data-no-retina": "",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "white",
-                        "font-weight": "900",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-85']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-163','-163','-130','-130']",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [_vm._v("ADA COMPLIANT VEHICLES\n                        ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "6",
-                        color: "white",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "800",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['102','102','75','-75']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-110','-110','-90','-90']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['60','60','60','60']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            CONTACT US TODAY!\n                        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
-                      staticStyle: {
-                        "z-index": "7",
-                        color: "rgb(210 153 100)",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "900",
-                        "text-transform": "uppercase",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['103','103','75','0']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['0']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Providing ambulatory and wheelchair\n                            "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        " transportation for the greater\n                            "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        " Sacramento area and beyond.\n                            "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        " Accredited: A rating!\n                        "
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
+              },
+              [
+                _c("img", {
+                  staticClass: "rev-slidebg",
                   attrs: {
-                    "data-transition": "fade",
-                    "data-slotamount": "default",
-                    "data-easein": "Power4.easeInOut",
-                    "data-easeout": "Power4.easeInOut",
-                    "data-masterspeed": "2000",
-                    "data-rotate": "0",
-                    "data-fstransition": "fade",
-                    "data-fsmasterspeed": "1500",
-                    "data-fsslotamount": "7",
-                    "data-saveperformance": "off",
-                    "data-title": "materialize Material",
-                    "data-description": "",
+                    src: "assets/images/slider/01.jpg",
+                    alt: "",
+                    "data-bgposition": "center center",
+                    "data-bgfit": "cover",
+                    "data-bgrepeat": "no-repeat",
+                    "data-no-retina": "",
                   },
-                },
-                [
-                  _c("img", {
-                    staticClass: "rev-slidebg",
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "tp-caption tp-resizeme rev-subheading main-slider-text",
                     attrs: {
-                      src: "assets/images/slider/02.jpg",
-                      alt: "",
-                      "data-bgposition": "center center",
-                      "data-bgfit": "cover",
-                      "data-bgrepeat": "no-repeat",
-                      "data-no-retina": "",
+                      "data-type": "text",
+                      "data-x": "['left','left','left','center']",
+                      "data-hoffset": "['105','105','75','-85']",
+                      "data-y": "['middle']",
+                      "data-voffset": "['-163','-163','-130','-130']",
+                      "data-fontsize": "['22','22','22','22']",
+                      "data-lineheight": "['30','30','30','30']",
+                      "data-width": "none",
+                      "data-height": "none",
+                      "data-whitespace": "nowrap",
+                      "data-transform_idle": "o:1;",
+                      "data-transform_in":
+                        "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                      "data-transform_out":
+                        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                      "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                      "data-mask_out":
+                        "x:inherit;y:inherit;s:inherit;e:inherit;",
+                      "data-start": "800",
+                      "data-splitin": "none",
+                      "data-splitout": "none",
+                      "data-responsive_offset": "on",
                     },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "white",
-                        "font-weight": "900",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-85']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-163','-163','-130','-130']",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [_vm._v("We Care\n                        ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "6",
-                        color: "white",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "800",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['102','102','75','-75']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-110','-110','-90','-90']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['60','60','60','60']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            With a Heart of Gold\n                        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
-                      staticStyle: {
-                        "z-index": "7",
-                        color: "rgb(210 153 100)",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "900",
-                        "text-transform": "uppercase",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['103','103','75','0']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['0']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            We will always treat your loved\n                            "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        " ones like they are part of our family.\n                            "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        " Accredited: A rating!\n                        "
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
+                  },
+                  [
+                    _c("div", { staticClass: "slider-text-all" }, [
+                      _c("h4", { staticClass: "slider-text-h4" }, [
+                        _vm._v("ADA COMPLIANT VEHICLES"),
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", { staticClass: "slider-text-h3" }, [
+                        _vm._v("CONTACT US TODAY!"),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "slider-text-p" }, [
+                        _vm._v(
+                          "Providing ambulatory and wheelchair transportation\n                                     "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "for the greater Sacramento area and beyond.\n                                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "slider-text-p" }, [
+                        _vm._v("BBB Accredited: A rating!"),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                attrs: {
+                  "data-transition": "fade",
+                  "data-slotamount": "default",
+                  "data-easein": "Power4.easeInOut",
+                  "data-easeout": "Power4.easeInOut",
+                  "data-masterspeed": "2000",
+                  "data-rotate": "0",
+                  "data-fstransition": "fade",
+                  "data-fsmasterspeed": "1500",
+                  "data-fsslotamount": "7",
+                  "data-saveperformance": "off",
+                  "data-title": "materialize Material",
+                  "data-description": "",
+                },
+              },
+              [
+                _c("img", {
+                  staticClass: "rev-slidebg",
                   attrs: {
-                    "data-transition": "fade",
-                    "data-slotamount": "default",
-                    "data-easein": "Power4.easeInOut",
-                    "data-easeout": "Power4.easeInOut",
-                    "data-masterspeed": "2000",
-                    "data-rotate": "0",
-                    "data-fstransition": "fade",
-                    "data-fsmasterspeed": "1500",
-                    "data-fsslotamount": "7",
-                    "data-saveperformance": "off",
-                    "data-title": "materialize Material",
-                    "data-description": "",
+                    src: "assets/images/slider/02.jpg",
+                    alt: "",
+                    "data-bgposition": "center center",
+                    "data-bgfit": "cover",
+                    "data-bgrepeat": "no-repeat",
+                    "data-no-retina": "",
                   },
-                },
-                [
-                  _c("img", {
-                    staticClass: "rev-slidebg",
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "tp-caption tp-resizeme rev-subheading main-slider-text",
                     attrs: {
-                      src: "assets/images/slider/03.jpg",
-                      alt: "",
-                      "data-bgposition": "center center",
-                      "data-bgfit": "cover",
-                      "data-bgrepeat": "no-repeat",
-                      "data-no-retina": "",
+                      "data-type": "text",
+                      "data-x": "['left','left','left','center']",
+                      "data-hoffset": "['105','105','75','-85']",
+                      "data-y": "['middle']",
+                      "data-voffset": "['-163','-163','-130','-130']",
+                      "data-fontsize": "['22','22','22','22']",
+                      "data-lineheight": "['30','30','30','30']",
+                      "data-width": "none",
+                      "data-height": "none",
+                      "data-whitespace": "nowrap",
+                      "data-transform_idle": "o:1;",
+                      "data-transform_in":
+                        "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                      "data-transform_out":
+                        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                      "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                      "data-mask_out":
+                        "x:inherit;y:inherit;s:inherit;e:inherit;",
+                      "data-start": "800",
+                      "data-splitin": "none",
+                      "data-splitout": "none",
+                      "data-responsive_offset": "on",
                     },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "white",
-                        "font-weight": "900",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-85']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-163','-163','-130','-130']",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [_vm._v("WE PROVIDE SERVICES…\n                        ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "6",
-                        color: "white",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "800",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['102','102','75','-75']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-110','-110','-90','-90']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['60','60','60','60']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            WITH A HEART OF GOLD!\n                        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
-                      staticStyle: {
-                        "z-index": "7",
-                        color: "rgb(210 153 100)",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "900",
-                        "text-transform": "uppercase",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['103','103','75','0']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['0']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Contact us today to set up a ride!\n                            "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        " Accredited: A rating!\n                        "
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
+                  },
+                  [
+                    _c("div", { staticClass: "slider-text-all" }, [
+                      _c("h4", { staticClass: "slider-text-h4" }, [
+                        _vm._v("We Care..."),
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", { staticClass: "slider-text-h3" }, [
+                        _vm._v("With a Heart of Gold!"),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "slider-text-p" }, [
+                        _vm._v(
+                          " We will always treat your loved\n                                "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          " ones like they are part of our family.\n                                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "slider-text-p" }, [
+                        _vm._v("BBB Accredited: A rating!"),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                attrs: {
+                  "data-transition": "fade",
+                  "data-slotamount": "default",
+                  "data-easein": "Power4.easeInOut",
+                  "data-easeout": "Power4.easeInOut",
+                  "data-masterspeed": "2000",
+                  "data-rotate": "0",
+                  "data-fstransition": "fade",
+                  "data-fsmasterspeed": "1500",
+                  "data-fsslotamount": "7",
+                  "data-saveperformance": "off",
+                  "data-title": "materialize Material",
+                  "data-description": "",
+                },
+              },
+              [
+                _c("img", {
+                  staticClass: "rev-slidebg",
                   attrs: {
-                    "data-transition": "fade",
-                    "data-slotamount": "default",
-                    "data-easein": "Power4.easeInOut",
-                    "data-easeout": "Power4.easeInOut",
-                    "data-masterspeed": "2000",
-                    "data-rotate": "0",
-                    "data-fstransition": "fade",
-                    "data-fsmasterspeed": "1500",
-                    "data-fsslotamount": "7",
-                    "data-saveperformance": "off",
-                    "data-title": "materialize Material",
-                    "data-description": "",
+                    src: "assets/images/slider/03.jpg",
+                    alt: "",
+                    "data-bgposition": "center center",
+                    "data-bgfit": "cover",
+                    "data-bgrepeat": "no-repeat",
+                    "data-no-retina": "",
                   },
-                },
-                [
-                  _c("img", {
-                    staticClass: "rev-slidebg",
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "tp-caption tp-resizeme rev-subheading main-slider-text",
                     attrs: {
-                      src: "assets/images/slider/04.jpg",
-                      alt: "",
-                      "data-bgposition": "center center",
-                      "data-bgfit": "cover",
-                      "data-bgrepeat": "no-repeat",
-                      "data-no-retina": "",
+                      "data-type": "text",
+                      "data-x": "['left','left','left','center']",
+                      "data-hoffset": "['105','105','75','-85']",
+                      "data-y": "['middle']",
+                      "data-voffset": "['-163','-163','-130','-130']",
+                      "data-fontsize": "['22','22','22','22']",
+                      "data-lineheight": "['30','30','30','30']",
+                      "data-width": "none",
+                      "data-height": "none",
+                      "data-whitespace": "nowrap",
+                      "data-transform_idle": "o:1;",
+                      "data-transform_in":
+                        "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                      "data-transform_out":
+                        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                      "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                      "data-mask_out":
+                        "x:inherit;y:inherit;s:inherit;e:inherit;",
+                      "data-start": "800",
+                      "data-splitin": "none",
+                      "data-splitout": "none",
+                      "data-responsive_offset": "on",
                     },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "5",
-                        color: "white",
-                        "font-weight": "900",
-                        "font-family": "inherit",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['105','105','75','-85']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-163','-163','-130','-130']",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-width": "none",
-                        "data-height": "none",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "800",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
+                  },
+                  [
+                    _c("div", { staticClass: "slider-text-all" }, [
+                      _c("h4", { staticClass: "slider-text-h4" }, [
+                        _vm._v("WE PROVIDE SERVICES…"),
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", { staticClass: "slider-text-h3" }, [
+                        _vm._v("WITH A HEART OF GOLD!"),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "slider-text-p" }, [
+                        _vm._v(
+                          "Contact us today to set up a ride!\n                                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "slider-text-p" }, [
+                        _vm._v("BBB Accredited: A rating!"),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                attrs: {
+                  "data-transition": "fade",
+                  "data-slotamount": "default",
+                  "data-easein": "Power4.easeInOut",
+                  "data-easeout": "Power4.easeInOut",
+                  "data-masterspeed": "2000",
+                  "data-rotate": "0",
+                  "data-fstransition": "fade",
+                  "data-fsmasterspeed": "1500",
+                  "data-fsslotamount": "7",
+                  "data-saveperformance": "off",
+                  "data-title": "materialize Material",
+                  "data-description": "",
+                },
+              },
+              [
+                _c("img", {
+                  staticClass: "rev-slidebg",
+                  attrs: {
+                    src: "assets/images/slider/04.jpg",
+                    alt: "",
+                    "data-bgposition": "center center",
+                    "data-bgfit": "cover",
+                    "data-bgrepeat": "no-repeat",
+                    "data-no-retina": "",
+                  },
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "tp-caption tp-resizeme rev-subheading main-slider-text",
+                    attrs: {
+                      "data-type": "text",
+                      "data-x": "['left','left','left','center']",
+                      "data-hoffset": "['105','105','75','-85']",
+                      "data-y": "['middle']",
+                      "data-voffset": "['-163','-163','-130','-130']",
+                      "data-fontsize": "['22','22','22','22']",
+                      "data-lineheight": "['30','30','30','30']",
+                      "data-width": "none",
+                      "data-height": "none",
+                      "data-whitespace": "nowrap",
+                      "data-transform_idle": "o:1;",
+                      "data-transform_in":
+                        "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
+                      "data-transform_out":
+                        "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
+                      "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
+                      "data-mask_out":
+                        "x:inherit;y:inherit;s:inherit;e:inherit;",
+                      "data-start": "800",
+                      "data-splitin": "none",
+                      "data-splitout": "none",
+                      "data-responsive_offset": "on",
                     },
-                    [
-                      _vm._v(
-                        "WE TRANSPORT YOUR LOVED ONES…\n                        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme rev-subheading",
-                      staticStyle: {
-                        "z-index": "6",
-                        color: "white",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "800",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['102','102','75','-75']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['-110','-110','-90','-90']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['60','60','45','45']",
-                        "data-lineheight": "['60','60','60','60']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Ambulatory and wheelchair NEMT transportation.\n                        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tp-caption tp-resizeme NotGeneric-Title",
-                      staticStyle: {
-                        "z-index": "7",
-                        color: "rgb(210 153 100)",
-                        "font-family": "'Exo', sans-serif",
-                        "font-weight": "900",
-                        "text-transform": "uppercase",
-                      },
-                      attrs: {
-                        "data-type": "text",
-                        "data-x": "['left','left','left','center']",
-                        "data-hoffset": "['103','103','75','0']",
-                        "data-y": "['middle']",
-                        "data-voffset": "['0']",
-                        "data-whitespace": "nowrap",
-                        "data-transform_idle": "o:1;",
-                        "data-fontsize": "['22','22','22','22']",
-                        "data-lineheight": "['30','30','30','30']",
-                        "data-transform_in":
-                          "y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:600;e:Power4.easeInOut;",
-                        "data-transform_out":
-                          "y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;",
-                        "data-mask_in": "x:0px;y:[100%];s:inherit;e:inherit;",
-                        "data-mask_out":
-                          "x:inherit;y:inherit;s:inherit;e:inherit;",
-                        "data-start": "1000",
-                        "data-splitin": "none",
-                        "data-splitout": "none",
-                        "data-responsive_offset": "on",
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\n                             WITH A HEART OF GOLD!\n                             "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        " Accredited: A rating!\n                        "
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-            ]),
+                  },
+                  [
+                    _c("div", { staticClass: "slider-text-all" }, [
+                      _c("h4", { staticClass: "slider-text-h4" }, [
+                        _vm._v("WE TRANSPORT YOUR LOVED ONES…"),
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", { staticClass: "slider-text-h3" }, [
+                        _vm._v(" WE TRANSPORT YOUR LOVED ONES…"),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "slider-text-p" }, [
+                        _vm._v(
+                          "  Ambulatory and wheelchair NEMT transportation.\n                                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "slider-text-p" }, [
+                        _vm._v("BBB Accredited: A rating!"),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            ),
           ]),
         ]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "row",
+        staticStyle: {
+          "text-align": "center",
+          padding: "10px",
+          "background-color": "#cd9700",
+          color: "white",
+        },
+      },
+      [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("h3", [_vm._v("WELCOME TO")]),
+          _vm._v(" "),
+          _c("h1", [
+            _vm._v("HEART OF GOLD MEDICAL TRANSPORT\n                "),
+          ]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "row",
+        staticStyle: { "text-align": "center", padding: "20px" },
+      },
+      [
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("img", { attrs: { src: "assets/images/02.jpg", alt: "" } }),
+          _vm._v(" "),
+          _c("h3", [_vm._v("Non-Emergency Medical Transport (NEMT)")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "We provide non-emergency medical transport for both ambulatory and wheelchair bound individuals.\n                    All of our drivers have basic CPR and First Aid certification. This type of transportation is\n                    meant for individuals who are stable and do not require medical attention during transport."
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("img", { attrs: { src: "assets/images/03.jpg", alt: "" } }),
+          _vm._v(" "),
+          _c("h3", [_vm._v("Ambulatory and Wheelchair Bound Individuals")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "We provide both ambulatory and wheelchair transportation, whether it is to a doctor’s\n                    appointment, dialysis, home, or even to a family event!"
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("img", { attrs: { src: "assets/images/04.jpg", alt: "" } }),
+          _vm._v(" "),
+          _c("h3", [_vm._v("Bring a Loved One")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("A loved one or caregiver is always welcome to ride along."),
+          ]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("h3", [
+        _vm._v(
+          "HOW CAN HEART OF GOLD MEDICAL TRANSPORT BE OF SERVICE TO YOU?\n                "
+        ),
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "container-fluid" }, [
-        _c(
-          "div",
-          {
-            staticClass: "row",
-            staticStyle: {
-              "text-align": "center",
-              padding: "10px",
-              "background-color": "#cd9700",
-              color: "white",
-            },
-          },
-          [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("h3", [_vm._v("WELCOME TO")]),
-              _vm._v(" "),
-              _c("h1", [
-                _vm._v("HEART OF GOLD MEDICAL TRANSPORT\n                "),
-              ]),
-            ]),
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "row",
-            staticStyle: { "text-align": "center", padding: "20px" },
-          },
-          [
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("img", { attrs: { src: "assets/images/02.jpg", alt: "" } }),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Non-Emergency Medical Transport (NEMT)")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "We provide non-emergency medical transport for both ambulatory and wheelchair bound individuals.\n                    All of our drivers have basic CPR and First Aid certification. This type of transportation is\n                    meant for individuals who are stable and do not require medical attention during transport."
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("img", { attrs: { src: "assets/images/03.jpg", alt: "" } }),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Ambulatory and Wheelchair Bound Individuals")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "We provide both ambulatory and wheelchair transportation, whether it is to a doctor’s\n                    appointment, dialysis, home, or even to a family event!"
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("img", { attrs: { src: "assets/images/04.jpg", alt: "" } }),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Bring a Loved One")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "A loved one or caregiver is always welcome to ride along."
-                ),
-              ]),
-            ]),
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "row",
-            staticStyle: {
-              padding: "10px",
-              "background-color": "black",
-              color: "white",
-            },
-          },
-          [
-            _c("div", { staticClass: "col-md-2" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("h3", [
-                _vm._v(
-                  "HOW CAN HEART OF GOLD MEDICAL TRANSPORT BE OF SERVICE TO YOU?\n                "
-                ),
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Drop us an email and we’ll be happy to answer any questions you may have.\n                "
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 pt-4" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "button",
-                  staticStyle: { "background-color": "#cd9700" },
-                },
-                [_vm._v("Contact Us Today")]
-              ),
-            ]),
-          ]
+      _c("p", [
+        _vm._v(
+          "Drop us an email and we’ll be happy to answer any questions you may have.\n                "
         ),
       ]),
     ])
@@ -60554,7 +60137,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("p", [
                       _vm._v(
-                        "Heart of Gold Medical Transport is a family-owned non-emergency medical\n                                transportation company serving the greater Sacramento area since 2016. Its\n                                owners are Megan and Cecilia.\n\n                                Megan has worked as a nurse since 2009, becoming a Registered Nurse"
+                        "Heart of Gold Medical Transport is a family-owned non-emergency medical\n                                transportation company serving the greater Sacramento area since 2016. Its owner is Megan.\n                                Megan has worked as a nurse since 2009, becoming a Registered Nurse"
                       ),
                     ]),
                     _vm._v(" "),
@@ -60814,6 +60397,19 @@ var render = function () {
                         _c("router-link", { attrs: { to: "/resources" } }, [
                           _vm._v("RESOURCES"),
                         ]),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "hidden-md hidden-lg" },
+                      [
+                        _c(
+                          "router-link",
+                          { staticClass: "trigger-overlay", attrs: { to: "" } },
+                          [_vm._v("login")]
+                        ),
                       ],
                       1
                     ),

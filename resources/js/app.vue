@@ -4,7 +4,7 @@
         <header class="header-top-area bg-nero">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6 col-sm-7 hidden-xs">
+                    <div class="col-md-6 col-sm-7 hidden-xs hidden-sm">
                         <div class="header-content-left">
                             <ul class="header-top-menu">
 
@@ -12,7 +12,7 @@
                         </div><!-- /.header-content-left -->
                     </div><!-- /.col-md-9 -->
 
-                    <div class="col-md-6 col-sm-5">
+                    <div class="col-md-6 col-sm-5 hidden-xs hidden-sm">
                         <div class="header-content-right">
                             <ul class="header-top-menu">
                                 <li class="mdn">
@@ -28,7 +28,7 @@
                                     </a>
                                 </li>
                             <li>
-                                <a href="" class="trigger-overlay">
+                                <a href="" class="mdn trigger-overlay">
                                     <i class="fa fa-user"></i>
                                     <span>Login</span>
                                 </a>
@@ -492,19 +492,15 @@ export default {
             Search Overlay
             --------------------------------------------- */
             searchOverlay: function () {
-                var triggerBttn = $(".search-open"), overlay = $("div.overlay-scale"), closeBttn = $("button.overlay-close");
-                triggerBttn.on("click", function () {
-                    overlay.addClass("open");
-                    console.log(overlay);
-                    return false;
-                });
+                var  closeBttn = $("button.overlay-close");
                 closeBttn.on("click", function () {
                     overlay.removeClass("open");
                     return false;
                 });
                 function openNav() {
-                    var $authorSelector = $(".author-area");
+                    var $authorSelector = $(".author-area"), $mobileOverlay = $(".mobile-menu-main .menucontent.overlaybg, .mobile-menu-main .slideLeft");
                     $authorSelector.addClass("open");
+                    $mobileOverlay.removeClass("menuopen").addClass("menuclose");
                 }
                 function closeNav() {
                     var $authorSelector = $(".author-area");
@@ -518,18 +514,6 @@ export default {
                 var $closeBtn = $(".closebtn");
                 $closeBtn.on("click", function () {
                     closeNav();
-                    return false;
-                });
-                $(document).on("click", function (e) {
-                    var $authorSelectorDoc = $(".author-area");
-                    if (!$authorSelectorDoc.is(e.target) && $authorSelectorDoc.has(e.target).length === 0) {
-                        $authorSelectorDoc.removeClass("open");
-                    }
-                });
-                var $advanceSearchBtn = $(".advanced-search-btn");
-                $advanceSearchBtn.on("click", function () {
-                    var $advanceSerachContainer = $(".advance-search");
-                    $advanceSerachContainer.slideToggle();
                     return false;
                 });
             },
