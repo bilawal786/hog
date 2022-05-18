@@ -22,7 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/admin/general/setting', 'HomeController@generalsetting')->name('generalsetting');
 Route::post('/admin/general/setting', 'HomeController@updategeneralsetting')->name('updategeneralsetting');
-Route::get('/admin/profile', 'HomeController@profile')->name('profile');
+
+Route::get('/admin/profile', 'Admin\ProfileController@profile')->name('profile');
+Route::post('/admin/profile', 'Admin\ProfileController@updateProfile')->name('updateProfile');
 
 
 Auth::routes();

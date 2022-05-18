@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GeneralSetting;
+
 class HomeController extends Controller
 {
     /**
@@ -68,10 +69,5 @@ class HomeController extends Controller
        
        
         return redirect()->route('generalsetting');
-    }
-    public function profile()
-    {
-       // dd();
-        return view('admin.dashboard.profile');
     }
 }

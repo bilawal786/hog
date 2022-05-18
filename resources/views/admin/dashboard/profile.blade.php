@@ -25,54 +25,49 @@
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-wrap">
-                                        <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
-                                            @csrf
-                                            <div class="form-body">
-                                                <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account mr-10"></i>Profile Update</h6>
-                                                <hr class="light-grey-hr"/>
-                                                
-                                             
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">Full Name</label>
-                                                            <div class="col-md-9">
-                                                                <input type="text" class="form-control" placeholder="Phone No." name="phone" value="">
+                                <div class="col-lg-12">
+                                    <div class="">
+                                        <div class="panel-wrapper collapse in">
+                                            <div class="panel-body pa-0">
+                                                <div class="col-sm-12 col-xs-12">
+                                                    <div class="form-wrap">
+                                                        <form method="POST" action="{{route('updateProfile')}}">
+                                                            <div class="form-body overflow-hide">
+                                                                <div class="form-group">
+                                                                    <label class="control-label mb-10" for="exampleInputuname_01">Name:</label>
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-addon"><i class="icon-user"></i></div>
+                                                                        <input type="text" class="form-control" placeholder="Name" name="name" value="{{auth()->user()->name}}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label mb-10" for="exampleInputEmail_01">Email address:</label>
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
+                                                                        <input type="email" class="form-control" placeholder="Email" name="email" value="{{auth()->user()->email}}">
+                                                                    </div>
+                                                                </div>
+                                                                {{-- <div class="form-group">
+                                                                    <label class="control-label mb-10" for="exampleInputpwd_01">Password</label>
+                                                                    <div class="input-group">
+                                                                        <div class="input-group-addon"><i class="icon-lock"></i></div>
+                                                                        <input type="password" class="form-control" id="exampleInputpwd_01" placeholder="Enter pwd" value="password">
+                                                                    </div>
+                                                                </div> --}}
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">E-mail</label>
-                                                            <div class="col-md-9">
-                                                                <input type="text" class="form-control" placeholder="Phone No." name="phone" value="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                              
-                                                <!-- /Row -->
-                                            </div>
-                                            <div class="form-actions mt-10">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="row">
-                                                            <div class="col-md-offset-3 col-md-9">
-                                                                <button type="submit" class="btn btn-success  mr-10">Update</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-
+                                                            <div class="form-actions mt-10">			
+                                                                <button type="submit" class="btn btn-success mr-10 mb-30">Update profile</button>
+                                                                <button class="btn btn-primary mr-10 mb-30" data-toggle="modal" data-target="#myModal">Change Password</button>
+                                                            </div>			
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                    
                         </div>
                     </div>
                 </div>
@@ -89,11 +84,76 @@
     <footer class="footer container-fluid pl-30 pr-30">
         <div class="row">
             <div class="col-sm-12">
-                <p>2017 &copy; Hound. Pampered by Hencework</p>
+                <p>2022 &copy; Hear of Gold</p>
             </div>
         </div>
     </footer>
     <!-- /Footer -->
+
+
+    {{-- Model --}}
+    <div id="myModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h5 class="modal-title" id="myModalLabel">Change Password</h5>
+                </div>
+                <div class="modal-body">
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="">
+                                <div class="panel-wrapper collapse in">
+                                    <div class="panel-body pa-0">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="form-wrap">
+                                                <form action="#">
+                                                    <div class="form-body overflow-hide">
+                                                       <div class="form-group">
+                                                            <label class="control-label mb-10" for="exampleInputpwd_01">Old Password</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-addon"><i class="icon-lock"></i></div>
+                                                                <input type="password" class="form-control" id="exampleInputpwd_01" placeholder="Old Password">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label mb-10" for="exampleInputpwd_01">New Password</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-addon"><i class="icon-lock"></i></div>
+                                                                <input type="password" class="form-control" id="exampleInputpwd_01" placeholder="New Password" value="password">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label mb-10" for="exampleInputpwd_01">Conform Password</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-addon"><i class="icon-lock"></i></div>
+                                                                <input type="password" class="form-control" id="exampleInputpwd_01" placeholder="Conform Password" value="password">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions mt-10">			
+                                                        <button type="submit" class="btn btn-success mr-10 mb-30">Update profile</button>
+                                                    </div>				
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success waves-effect" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
     
 </div>
 <!-- /Main Content -->
