@@ -13,16 +13,16 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'Default User',
-                'email' => 'du@codingcrust.com',
+                'name' => 'User 01',
+                'email' => 'user01@heartofgold.com',
                 'password' => '$2y$10$dvLLS2tLu3nJPMCtmaX.COKdocxEzO.mpVfHA9uSOoq8/GYr0Z75u',
                 'role' => 'user',
                 'created_at'=>'2022-05-17 05:48:18',
                 'updated_at'=>'2022-05-17 05:48:18'
             ],
             [
-                'name' => 'Default Admin',
-                'email' => 'da@codingcrust.com',
+                'name' => 'Admin 01',
+                'email' => 'admin01@heartofgold.com',
                 'password' => '$2y$10$dvLLS2tLu3nJPMCtmaX.COKdocxEzO.mpVfHA9uSOoq8/GYr0Z75u',
                 'role' => 'admin',
                 'created_at'=>'2022-05-17 05:48:18',

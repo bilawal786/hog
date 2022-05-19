@@ -2,11 +2,11 @@ require('./bootstrap');
 
  window.Vue = require('vue');
  import App from './App.vue';
- import Admin from './Admin.vue';
+//  import Admin from './Admin.vue';
  import VueAxios from 'vue-axios';
  import VueRouter from 'vue-router';
- import axios from 'axios';
  import { routes } from './routes';
+ import store from "./store";
  
 
 Vue.use(VueRouter);
@@ -25,12 +25,13 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app', 
     router: router,
+    store,
     render: h => h(App),
 });
 
 
-const admin = new Vue({
-    el: '#admin', 
-    router: router,
-    render: h => h(Admin),
-});
+// const admin = new Vue({
+//     el: '#admin', 
+//     router: router,
+//     render: h => h(Admin),
+// });

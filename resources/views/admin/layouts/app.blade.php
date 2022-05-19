@@ -65,7 +65,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="#"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+								<a href="{{route('admin.logout')}}"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
 							</li>
 						</ul>
 					</li>

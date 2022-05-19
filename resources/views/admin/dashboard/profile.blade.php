@@ -18,6 +18,17 @@
             <!-- /Breadcrumb -->
         </div>
         <!-- Row -->
+        @if(count($errors) > 0 )
+        
+            <ul class="p-0 m-0" style="list-style: none;">
+                @foreach($errors->all() as $error)
+                <li><p class="alert alert-info">{{$error}}</p></li>
+                @endforeach
+            </ul>
+        @endif
+        @if(Session::has('message'))
+        <p class="alert alert-info">{{ Session::get('message') }}</p>
+        @endif
         <div class="row">
             <div class="col-lg-9 col-xs-12">
                 <div class="panel panel-default card-view">
@@ -32,6 +43,7 @@
                                                 <div class="col-sm-12 col-xs-12">
                                                     <div class="form-wrap">
                                                         <form method="POST" action="{{route('updateProfile')}}">
+                                                            @csrf
                                                             <div class="form-body overflow-hide">
                                                                 <div class="form-group">
                                                                     <label class="control-label mb-10" for="exampleInputuname_01">Name:</label>
@@ -57,7 +69,7 @@
                                                             </div>
                                                             <div class="form-actions mt-10">			
                                                                 <button type="submit" class="btn btn-success mr-10 mb-30">Update profile</button>
-                                                                <button class="btn btn-primary mr-10 mb-30" data-toggle="modal" data-target="#myModal">Change Password</button>
+                                                                <a href="" class="btn btn-primary mr-10 mb-30" data-toggle="modal" data-target="#myModal">Change Password</a>
                                                             </div>			
                                                         </form>
                                                     </div>
@@ -108,32 +120,34 @@
                                     <div class="panel-body pa-0">
                                         <div class="col-sm-12 col-xs-12">
                                             <div class="form-wrap">
-                                                <form action="#">
+                                                <form method="POST" action="{{route('adminChangePassword')}}">
+                                                    @csrf
                                                     <div class="form-body overflow-hide">
                                                        <div class="form-group">
-                                                            <label class="control-label mb-10" for="exampleInputpwd_01">Old Password</label>
+                                                            <label class="control-label mb-10" >Old Password</label>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                                <input type="password" class="form-control" id="exampleInputpwd_01" placeholder="Old Password">
+                                                                <input type="password" class="form-control" name="oldPassword" placeholder="Old Password">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="control-label mb-10" for="exampleInputpwd_01">New Password</label>
+                                                            <label class="control-label mb-10" >New Password</label>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                                <input type="password" class="form-control" id="exampleInputpwd_01" placeholder="New Password" value="password">
+                                                                <input type="password" class="form-control" name="newPassword" placeholder="New Password">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="control-label mb-10" for="exampleInputpwd_01">Conform Password</label>
+                                                            <label class="control-label mb-10" >Conform Password</label>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                                <input type="password" class="form-control" id="exampleInputpwd_01" placeholder="Conform Password" value="password">
+                                                                <input type="password" class="form-control" name="conformPassword" placeholder="Conform Password">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-actions mt-10">			
-                                                        <button type="submit" class="btn btn-success mr-10 mb-30">Update profile</button>
+                                                        <button type="submit" class="btn btn-success mr-10 mb-30">Change Password</button>
+                                                        <button type="button" class="btn btn-default mr-10 mb-30" data-dismiss="modal">Cancel</button>
                                                     </div>				
                                                 </form>
                                             </div>
@@ -143,10 +157,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success waves-effect" data-dismiss="modal">Save</button>
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
             <!-- /.modal-content -->

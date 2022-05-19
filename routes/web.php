@@ -14,20 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-
- Route::get('/admin','AdminController@login')->name('admin-login');
- Route::get('/admin/reset','AdminController@reset')->name('reset');
- 
-Route::get('/admin/dashboard', 'HomeController@index')->name('dashboard');
-Route::get('/admin/general/setting', 'HomeController@generalsetting')->name('generalsetting');
-Route::post('/admin/general/setting', 'HomeController@updategeneralsetting')->name('updategeneralsetting');
-
-Route::get('/admin/profile', 'Admin\ProfileController@profile')->name('profile');
-Route::post('/admin/profile', 'Admin\ProfileController@updateProfile')->name('updateProfile');
-
-
 Auth::routes();
+
+ Route::get('/admin', 'AdminController@login')->name('admin.login');
+ Route::get('/admin/reset', 'AdminController@reset')->name('admin.reset');
+
+Route::group(['middleware' => ['auth']], function() {
+
+    Route::get('/admin/logout', 'Admin\LogOutController@logout')->name('admin.logout');
+    Route::post('/admin/profile', 'Admin\ProfileController@updateProfile')->name('updateProfile');
+    Route::post('/admin/profile/change/password', 'Admin\ChangePassword@changePassword')->name('adminChangePassword');
+
+    Route::get('/admin/dashboard', 'HomeController@index')->name('dashboard');
+    Route::get('/admin/general/setting', 'HomeController@generalsetting')->name('generalsetting');
+    Route::post('/admin/general/setting', 'HomeController@updategeneralsetting')->name('updategeneralsetting');
+
+    Route::get('/admin/profile', 'Admin\ProfileController@profile')->name('profile');
+    
+    
+ });
 
 
 //  Route::get('/admin/dashboard','AdminController@dashboard')->name('dashboard');

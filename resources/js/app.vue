@@ -47,15 +47,15 @@
 
                     <div class="auth-form-wrap" v-if="registration==true">
                         <h2><i class="fa fa-user login-icon"></i> Login</h2>
-                        <form id="login-form">
+                        <form id="login-form" @submit.prevent="login" >
                             <p>
-                            <input type="email" id="email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
+                            <input type="email" id="email" name="email" v-model="user.email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
                             </p>
                              <p>
-                            <input type="password" id="password" name="password" placeholder="password" required><i class="validation"><span></span><span></span></i>
+                            <input type="password" id="password" name="password" v-model="user.password" placeholder="password" required><i class="validation"><span></span><span></span></i>
                             </p>
                             <p>
-                            <input type="submit" id="login" value="Login">
+                            <button type="submit" id="login">Login</button>
                             </p>
                         </form>
                         <div id="create-account-wrap">
@@ -66,27 +66,27 @@
 
                     <div class="auth-form-wrap" v-if="registration==false">
                         <h2><i class="fa fa-user login-icon"></i> Registration</h2>
-                        <form id="login-form">
+                        <form id="registration-form" @submit.stop.prevent="onSubmit" @reset="onReset" >
                             <p>
-                            <input type="text" id="Fname" name="Fname" placeholder="Fist Name" required>
+                            <input type="text" id="name" v-model="form.name" name="name" placeholder="Name" required>
                             </p>
                             <p>
-                            <input type="text" id="Lname" name="Lname" placeholder="Last Name" required>
-                            </p>
-                            <p>
-                            <input type="email" id="email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
+                            <input type="email" id="email" v-model="form.email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
                             </p>
                              <p>
-                            <input type="password" id="password" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
+                            <input type="password" id="password" v-model="form.password" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
                             </p>
                             <p>
-                            <input type="password" id="vpassword" name="vpassword" placeholder="Verify Password" required><i class="validation"><span></span><span></span></i>
+                            <input type="password" id="password_confirmation" v-model="form.password_confirmation" name="password_confirmation" placeholder="Verify Password" required><i class="validation"><span></span><span></span></i>
                             </p>
                             <p>
-                            <input type="submit" id="login" value="Login">
+                            <Button type="submit" id="login">Registration</button>
+                            </p>
+                            <p>
+                            <Button type="reset" id="login">Reset</button>
                             </p>
                         </form>
-                        <div id="create-account-wrap">
+                        <div id="login">
                             <p>Not a member? <a href="#" v-on:click="changetoggle">Login</a></p>
                         </div><!--create-account-wrap-->
                     </div><!--login-form-wrap-->
@@ -135,14 +135,93 @@
 import http from "./http-common";
 import NavigationBar from './components/frontend/includes/navigationbar.vue';
 import WebFooter from './components/frontend/includes/footer.vue'
+
 export default {
     data(){
         return{
+            form: {
+                name: "",
+                email: "",
+                password: "",
+                password_confirmation: "",
+                },
+            user:{
+                email: "",
+                password: "",
+                },
+            errors: null,
             allData:null,
             registration:true
         }
     },
     methods: {
+        login () {
+            this.$store.dispatch('auth/loginUser', this.user)
+        },
+        onLogin(event) {
+
+            axios.post("/login", {
+                ...this.loginForm,
+                })
+                .then((res) => {
+                    console.log(res)
+                this.getUser().then((res) => {
+                    console.log(res)
+                    this.$router.push("/dashboard");
+                });
+                })
+                .catch((err) => {
+                   
+                    });
+          
+        
+            },
+            onResetLogin(event) {
+                event.preventDefault();
+                // Reset our form values
+                this.form.email = "";
+                this.form.name = "";
+                this.form.password = null;
+                this.$nextTick(() => {
+                    this.$validator.reset();
+                });
+            },
+        //registration methods
+        validateState(ref) {
+      if (
+        this.veeFields[ref] &&
+        (this.veeFields[ref].dirty || this.veeFields[ref].validated)
+      ) {
+        return !this.veeErrors.has(ref);
+      }
+      return null;
+    },
+        onSubmit(event) {
+        event.preventDefault();
+        axios.get("http://localhost:8000/sanctum/csrf-cookie").then(() => {
+            axios
+            .post("/register", {
+                ...this.form,
+            })
+            .then(() => {
+                this.changetoggle ();
+                this.onReset();
+                this.$router.push("/");
+            })
+            .catch((err) => {
+                this.errors = err.response.data.errors;
+            });
+        });
+        },
+        onReset(event) {
+        event.preventDefault();
+        // Reset our form values
+            this.form.email = "";
+            this.form.name = "";
+            this.form.password = null;
+            this.form.password_confirmation = null;
+        },
+        //end registration
         changetoggle () {
             this.registration = !this.registration
         },
@@ -159,6 +238,9 @@ export default {
         //         this.getResult = this.fortmatResponse(err.response?.data) || err;
         //     }
         // },
+    },
+    created(){
+        axios.defaults.header.common["Authorization"]="Bearer "+ localStorage.getItem("Bearer");
     },
      mounted () {
         // getAllData()

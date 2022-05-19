@@ -30,6 +30,7 @@ class UserController extends Controller
             return response()->json([
                 "status" => 1,
                 "message" => "Auth Created Successfully"
+                
             ]);
   
     }

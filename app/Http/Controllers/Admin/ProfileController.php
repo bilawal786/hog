@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -24,8 +25,10 @@ class ProfileController extends Controller
     }
     public function updateProfile(Request $request)
     {
-       
-        dd($request);
-        return view('admin.dashboard.profile');
+        $user =Auth::user();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->save();
+        return back()->with('message','Profile Updated');
     }
 }

@@ -11,6 +11,8 @@ class AdminController extends Controller
     {
         return view('admin.auth.login');
     }
+    public function logut(){
+    }
     public function reset()
     {
         return view('admin.auth.reset');
