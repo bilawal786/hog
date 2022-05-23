@@ -1,21 +1,41 @@
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import VueAxios from 'vue-axios';
+import axios from "axios";
+Vue.use(VueAxios, axios);
+
+Vue.config.productionTip = false;
+
+axios.interceptors.response.use(
+  response => response,
+  error => {
+    if (error.response.status === 422) {
+      store.commit("setErrors", error.response.data.errors);
+    } else if (error.response.status === 401) {
+      store.commit("auth/setUserData", null);
+      localStorage.removeItem("authToken");
+      router.push({ name: "Login" });
+    } else {
+      return Promise.reject(error);
+    }
+  }
+);
+
+axios.interceptors.request.use(function(config) {
+  config.headers.common = {
+    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    "Content-Type": "application/json",
+    Accept: "application/json"
+  };
+
+  return config;
+});
+
 require('./bootstrap');
 
  window.Vue = require('vue');
- import App from './App.vue';
-//  import Admin from './Admin.vue';
- import VueAxios from 'vue-axios';
- import VueRouter from 'vue-router';
- import { routes } from './routes';
- import store from "./store";
- 
-
-Vue.use(VueRouter);
-Vue.use(VueAxios, axios);
- 
-const router = new VueRouter({
-    mode: 'history',
-    routes: routes,
-});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -24,7 +44,7 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app', 
-    router: router,
+    router,
     store,
     render: h => h(App),
 });

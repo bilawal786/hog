@@ -14,24 +14,45 @@ use App\Http\Controllers\Api\AuthController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
+    // Route::post('register', 'Api\UserController@register')->name('register');
+    // Route::post('login', 'Api\UserController@login')->name('login');
+    Route::get('general/setting', 'GenernalSettingController@index')->name('generalSetting');
+    Route::post('login', 'LoginController@login')->name('login');
+    Route::post('register', 'RegisterController@register')->name('register');
 
-Route::get('general/setting', 'Api\GenernalSettingController@index')->name('generalSetting');
+    Route::group(['middleware' => ['auth:api']], function () {
+        // Route::get('user', 'UserController@profile')->name('profile');
 
+        // Route::post('logout', 'UserController@logout')->name('logout');
 
-Route::post('register', 'Api\UserController@register')->name('register');
-Route::post('login', 'Api\UserController@login')->name('login');
+        // Route::get('email/verify/{hash}', 'VerificationController@verify')->name('verification.verify');
 
+        // Route::get('email/resend', 'VerificationController@resend')->name('verification.resend');
 
-Route::group(['middleware' => ['auth:api']], function(){
-    Route::get('profile', 'Api\UserController@profile')->name('profile');
-    Route::post('logout', 'Api\UserController@logout')->name('logout');
+        Route::get('user', 'AuthenticationController@user')->name('user');
+
+        Route::post('logout', 'LoginController@logout')->name('logout');
+
+    });
+
 });
 
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
+
+
+
+// Route::group(['middleware' => ['auth:api']], function(){
+    
+// });
+
+
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
 

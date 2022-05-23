@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>Hound I Fast build Admin dashboard for any platform</title>
-		<meta name="description" content="Hound is a Dashboard & Admin Site Responsive Template by hencework." />
-		<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Hound Admin, Houndadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
-		<meta name="author" content="hencework"/>
+		<title>Heart of Gold | Admin</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Heart of gold"/>
 		
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico">
@@ -20,6 +20,12 @@
 		
 		<!-- Custom CSS -->
 		<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+		<style>
+			.page-wrapper.auth-page {
+				background: #000000;
+			}
+		</style>
+
 	</head>
 	<body>
 		<!--Preloader-->
@@ -32,8 +38,7 @@
 			<header class="sp-header">
 				<div class="sp-logo-wrap pull-left">
 					<a href="index.html">
-						<img class="brand-img mr-10" src="dist/img/logo.png" alt="brand"/>
-						<span class="brand-text">Hound</span>
+						<img class="brand-img mr-10" src="images/heart-of-gold.png" alt="brand"/>
 					</a>
 				</div>
 				<div class="form-group mb-0 pull-right">

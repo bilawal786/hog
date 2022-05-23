@@ -22,6 +22,8 @@
 
 	<!-- Bootstrap Dropify CSS -->
 	<link href="{{ asset('/vendors/bower_components/dropify/dist/css/dropify.min.css')}}" rel="stylesheet" type="text/css"/>
+
+	<link href="{{ asset('vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css')}}"/>
 		
 	<!-- Custom CSS -->
 	<link href="{{ asset('/dist/css/style.css')}}" rel="stylesheet" type="text/css">
@@ -42,8 +44,8 @@
 				<div class="nav-header pull-left">
 					<div class="logo-wrap">
 						<a href="index.html">
-							<img class="brand-img" src="{{ asset('dist/img/logo.png') }}" alt="brand"/>
-							<span class="brand-text">Hound</span>
+							<img class="brand-img" src="{{ asset('images/logo.png') }}" alt="brand"/>
+							<span class="brand-text">HOG</span>
 						</a>
 					</div>
 				</div>	
@@ -82,11 +84,43 @@
 					<i class="zmdi zmdi-more"></i>
 				</li>
 				<li>
-					<a class="active" href="{{ route('dashboard')}}" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+					<a class="active" href="{{ route('dashboard')}}" data-toggle="collapse" data-target="#dashboard_dr">
+						<div class="pull-left">
+							<i class="zmdi zmdi-landscape mr-20"></i>
+							<span class="right-nav-text">Dashboard</span>
+						</div>
+						
+						<div class="clearfix"></div></a>
 				</li>
 				<li>
-					<a class="" href="{{ route('generalsetting')}}" ><div class="pull-left"><i class="zmdi zmdi-settings mr-20"></i><span class="right-nav-text">Gernal Setting</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+					<a class="" href="{{ route('generalsetting')}}"  >
+						<div class="pull-left">
+							<i class="zmdi zmdi-settings mr-20"></i>
+							<span class="right-nav-text">Gernal Setting</span>
+						</div>
+						<div class="clearfix"></div>
+					</a>
 				</li>
+				<li>
+					<a class="" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left">
+						<i class="zmdi zmdi-account mr-20"></i>
+						<span class="right-nav-text">Users</span>
+					</div>
+					<div class="pull-right">
+						<i class="zmdi zmdi-caret-down"></i>
+					</div>
+					<div class="clearfix"></div>
+				</a>
+					<ul id="dashboard_dr" class="collapse collapse-level-1">
+						<li>
+							<a class="active-page" href="{{ route('clients')}}">Clients</a>
+						</li>
+						<li>
+							<a  href="{{ route('drivers')}}">Drivers</a>
+						</li>
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 		<!-- /Left Sidebar Menu -->
@@ -118,8 +152,7 @@
 
 	<script src="{{ asset('vendors/bower_components/bootstrap-validator/dist/validator.min.js')}}"></script>
 	
-	<!-- Slimscroll JavaScript -->
-	<script src="{{ asset('/dist/js/jquery.slimscroll.js')}}"></script>
+	
 
 	<!-- Form Flie Upload Data JavaScript -->
 	<script src="{{ asset('/dist/js/form-file-upload-data.js')}}"></script>
@@ -133,14 +166,12 @@
 	<script src="{{ asset('/vendors/bower_components/waypoints/lib/jquery.waypoints.min.js')}}"></script>
 	<script src="{{ asset('/vendors/bower_components/jquery.counterup/jquery.counterup.min.js')}}"></script>
 	
-	<!-- Fancy Dropdown JS -->
-	<script src="{{ asset('/dist/js/dropdown-bootstrap-extended.js')}}"></script>
+	
 	
 	<!-- Sparkline JavaScript -->
 	<script src="{{ asset('/vendors/jquery.sparkline/dist/jquery.sparkline.min.js')}}"></script>
 	
-	<!-- Owl JavaScript -->
-	<script src="{{ asset('/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js')}}"></script>
+	
 	
 	<!-- ChartJS JavaScript -->
 	<script src="{{ asset('/vendors/chart.js/Chart.min.js')}}"></script>
@@ -150,9 +181,25 @@
     <script src="{{ asset('/vendors/bower_components/morris.js/morris.min.js')}}"></script>
     <script src="{{ asset('/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js')}}"></script>
 	
+	
+	
+	
+	<!-- Data table JavaScript -->
+	<script src="{{ asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{ asset('dist/js/dataTables-data.js')}}"></script>
+
+	<!-- Slimscroll JavaScript -->
+	<script src="{{ asset('/dist/js/jquery.slimscroll.js')}}"></script>
+
+	<!-- Owl JavaScript -->
+	<script src="{{ asset('/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js')}}"></script>
+
 	<!-- Switchery JavaScript -->
 	<script src="{{ asset('/vendors/bower_components/switchery/dist/switchery.min.js')}}"></script>
-	
+
+	<!-- Fancy Dropdown JS -->
+	<script src="{{ asset('/dist/js/dropdown-bootstrap-extended.js')}}"></script>
+
 	<!-- Init JavaScript -->
 	<script src="{{ asset('/dist/js/init.js')}}"></script>
 	<script src="{{ asset('/dist/js/dashboard-data.js')}}"></script>

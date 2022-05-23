@@ -29,6 +29,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/general/setting', 'HomeController@generalsetting')->name('generalsetting');
     Route::post('/admin/general/setting', 'HomeController@updategeneralsetting')->name('updategeneralsetting');
 
+    Route::get('/admin/users/clents', 'Admin\ClientsController@clients')->name('clients');
+    Route::get('/admin/user/drivers', 'Admin\DriversController@drivers')->name('drivers');
+
+
+
     Route::get('/admin/profile', 'Admin\ProfileController@profile')->name('profile');
     
     

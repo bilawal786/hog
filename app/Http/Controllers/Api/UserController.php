@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
+
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\User;
+use Auth;
+
+
 
 class UserController extends Controller
 {
@@ -50,10 +57,12 @@ class UserController extends Controller
             ]);
         }
         $token = auth()->user()->createToken("auth_token")->accessToken;
+        $user = Auth::user();
         return response()->json([
             'status' => true,
             'message' => 'Author login successfully',
-            'access_token' => $token
+            'access_token' => $token,
+            'user' => $user
         ]);
         //send respons
     }
@@ -67,6 +76,16 @@ class UserController extends Controller
             'data'=>$user_data
         ]);
     }
+    // public function currentUser(){
+
+    //     $user_data = auth()->user();
+  
+    //     return response()->json([
+    //         'status'=>true,
+    //         'message'=>'user data',
+    //         'data'=>$user_data
+    //     ]);
+    // }
    //LOGOUT METHOD - post
    public function logout(Request $request){
         //get token value

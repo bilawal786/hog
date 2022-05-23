@@ -1,5 +1,7 @@
 <template>
     <div>
+        <top-header></top-header>
+        <navigation-bar></navigation-bar>
     <!-- ====== Page Header ====== -->
     <div class="page-header nevy-bg">
         <div class="container">
@@ -16,9 +18,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="contact-us-content-right">
-                       
-                                <ContactForm></ContactForm>
-                            
+                        <contact-form></contact-form>
                     </div><!-- /.contactus-content-right -->
                 </div><!-- /.col-md-8 -->
                 <div class="col-md-4">
@@ -47,14 +47,16 @@
     </div><!-- /.contact-us -->
     <!-- ====== Map Block ====== -->
     <!-- ======footer area======= -->
+    <web-footer></web-footer>
     </div>
 </template>
 <script>
+import TopHeader from './includes/TopHeader.vue';
+import NavigationBar from './includes/navigationbar.vue';
+import WebFooter from './includes/footer.vue'
 import ContactForm from './includes/contact-form';
 export default {
- components: {
-    ContactForm
-  },
+ components: { TopHeader, NavigationBar, WebFooter, ContactForm },
    mounted () {
         window.scrollTo(0, 0)
     }

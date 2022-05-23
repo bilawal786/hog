@@ -1,251 +1,25 @@
 <template>
     <div>
-        <!-- ====== Header Top Area ====== -->
-        <header class="header-top-area bg-nero">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 col-sm-7 hidden-xs hidden-sm">
-                        <div class="header-content-left">
-                            <ul class="header-top-menu">
-
-                            </ul><!-- /.header-top-menu -->
-                        </div><!-- /.header-content-left -->
-                    </div><!-- /.col-md-9 -->
-
-                    <div class="col-md-6 col-sm-5 hidden-xs hidden-sm">
-                        <div class="header-content-right">
-                            <ul class="header-top-menu">
-                                <li class="mdn">
-                                    <a href="tel:+19167406447" class="top-left-menu">
-                                        <i class="fa fa-phone"></i>
-                                        <span>(916) 740-6447</span>
-                                    </a>
-                                </li>
-                                <li class="mdn">
-                                    <a href="mailto:contact@heartofgoldmedtransport.com" class="top-left-menu">
-                                        <i class="fa fa-envelope"></i>
-                                        <span>contact@heartofgoldmedtransport.com</span>
-                                    </a>
-                                </li>
-                            <li>
-                                <a href="" class="mdn trigger-overlay">
-                                    <i class="fa fa-user"></i>
-                                    <span>Login</span>
-                                </a>
-                            </li>
-                        </ul>
-                        </div><!-- /.left-content -->
-                    </div><!-- /.col-md-3 -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </header><!-- /.head-area -->
-        <div class="header-modal-area">
-            <!-- Modal Search -->
-            <div class="overlay-sidebar">
-                <div class="author-area">
-                    <a href="#" class="closebtn">&times;</a>
-
-                    <div class="auth-form-wrap" v-if="registration==true">
-                        <h2><i class="fa fa-user login-icon"></i> Login</h2>
-                        <form id="login-form" @submit.prevent="login" >
-                            <p>
-                            <input type="email" id="email" name="email" v-model="user.email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
-                            </p>
-                             <p>
-                            <input type="password" id="password" name="password" v-model="user.password" placeholder="password" required><i class="validation"><span></span><span></span></i>
-                            </p>
-                            <p>
-                            <button type="submit" id="login">Login</button>
-                            </p>
-                        </form>
-                        <div id="create-account-wrap">
-                            <p>Not a member? <a href="#" v-on:click="changetoggle">Create Account</a></p>
-                        </div><!--create-account-wrap-->
-                    </div><!--login-form-wrap-->
-                    
-
-                    <div class="auth-form-wrap" v-if="registration==false">
-                        <h2><i class="fa fa-user login-icon"></i> Registration</h2>
-                        <form id="registration-form" @submit.stop.prevent="onSubmit" @reset="onReset" >
-                            <p>
-                            <input type="text" id="name" v-model="form.name" name="name" placeholder="Name" required>
-                            </p>
-                            <p>
-                            <input type="email" id="email" v-model="form.email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
-                            </p>
-                             <p>
-                            <input type="password" id="password" v-model="form.password" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
-                            </p>
-                            <p>
-                            <input type="password" id="password_confirmation" v-model="form.password_confirmation" name="password_confirmation" placeholder="Verify Password" required><i class="validation"><span></span><span></span></i>
-                            </p>
-                            <p>
-                            <Button type="submit" id="login">Registration</button>
-                            </p>
-                            <p>
-                            <Button type="reset" id="login">Reset</button>
-                            </p>
-                        </form>
-                        <div id="login">
-                            <p>Not a member? <a href="#" v-on:click="changetoggle">Login</a></p>
-                        </div><!--create-account-wrap-->
-                    </div><!--login-form-wrap-->
-
-
-                    <!-- <div class="author-area-content">
-                        <div class="login-author">
-
-                            <div class="author-info">
-                                <div class="author-image yellow-border">
-                                    <img src="assets/images/driver/driver-03.png" alt="author-image" />
-                                </div>
-                                <div class="author-des">
-                                    <h4 class="author-name">Mr. Johan Smith</h4>
-                                    <p class="author-description">Programmer</p>
-                                </div>
-                            </div>
-
-                            <div class="author-menu">
-                                <ul class="yellow-color">
-                                    <li><a href=""><i class="fa fa-user-circle-o"></i>Author Dashboard</a></li>
-                                    <li><a href=""><i class="fa fa-envelope-open"></i>Your Inbox</a></li>
-                                    <li><a href=""><i class="fa fa-location-arrow"></i>Track your texi</a></li>
-                                    <li><a href=""><i class="fa fa-area-chart"></i>Your Bookings Status</a></li>
-                                    <li><a href=""><i class="fa fa-automobile"></i>New Bookings</a></li>
-                                    <li><a href=""><i class="fa fa-archive"></i>Your Bookings</a></li>
-                                    <li><a href=""><i class="fa fa-money"></i>Your Deposit - $150.00</a></li>
-                                    <li><a href=""><i class="fa fa-sign-out"></i>Sign Out</a></li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                    </div> -->
-
-
-
-                </div><!-- /.author-area -->
-            </div><!-- /.overlay-sidebar -->
-        </div><!-- /.header-modal-area -->
-        <navigation-bar></navigation-bar>
         <router-view> </router-view>
-        <web-footer></web-footer>
     </div>
 </template>
 <script>
-import http from "./http-common";
-import NavigationBar from './components/frontend/includes/navigationbar.vue';
-import WebFooter from './components/frontend/includes/footer.vue'
 
 export default {
     data(){
         return{
-            form: {
-                name: "",
-                email: "",
-                password: "",
-                password_confirmation: "",
-                },
-            user:{
-                email: "",
-                password: "",
-                },
-            errors: null,
-            allData:null,
-            registration:true
         }
     },
-    methods: {
-        login () {
-            this.$store.dispatch('auth/loginUser', this.user)
-        },
-        onLogin(event) {
+    computed:{
 
-            axios.post("/login", {
-                ...this.loginForm,
-                })
-                .then((res) => {
-                    console.log(res)
-                this.getUser().then((res) => {
-                    console.log(res)
-                    this.$router.push("/dashboard");
-                });
-                })
-                .catch((err) => {
-                   
-                    });
-          
-        
-            },
-            onResetLogin(event) {
-                event.preventDefault();
-                // Reset our form values
-                this.form.email = "";
-                this.form.name = "";
-                this.form.password = null;
-                this.$nextTick(() => {
-                    this.$validator.reset();
-                });
-            },
-        //registration methods
-        validateState(ref) {
-      if (
-        this.veeFields[ref] &&
-        (this.veeFields[ref].dirty || this.veeFields[ref].validated)
-      ) {
-        return !this.veeErrors.has(ref);
-      }
-      return null;
     },
-        onSubmit(event) {
-        event.preventDefault();
-        axios.get("http://localhost:8000/sanctum/csrf-cookie").then(() => {
-            axios
-            .post("/register", {
-                ...this.form,
-            })
-            .then(() => {
-                this.changetoggle ();
-                this.onReset();
-                this.$router.push("/");
-            })
-            .catch((err) => {
-                this.errors = err.response.data.errors;
-            });
-        });
-        },
-        onReset(event) {
-        event.preventDefault();
-        // Reset our form values
-            this.form.email = "";
-            this.form.name = "";
-            this.form.password = null;
-            this.form.password_confirmation = null;
-        },
-        //end registration
-        changetoggle () {
-            this.registration = !this.registration
-        },
-        // async getAllData() {
-        // try {
-        //     const res = await http.get("/general/setting");
-        //     const result = {
-        //         status: res.status + "-" + res.statusText,
-        //         headers: res.headers,
-        //         data: res.data,
-        //         };
-        //     this.getResult = this.fortmatResponse(result);
-        //     } catch (err) {
-        //         this.getResult = this.fortmatResponse(err.response?.data) || err;
-        //     }
-        // },
+    methods: {
+        
     },
     created(){
-        axios.defaults.header.common["Authorization"]="Bearer "+ localStorage.getItem("Bearer");
+     
     },
      mounted () {
-        // getAllData()
-        axios.get('http://127.0.0.1:8000/api/general/setting').then(response => (this.allData = response))
-
         var modelApp = {
             /* ---------------------------------------------
              Menu
@@ -722,6 +496,5 @@ export default {
             modelApp.initializ();
         });
     },
-    components: { NavigationBar, WebFooter }
 }
 </script>

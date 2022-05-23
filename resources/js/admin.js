@@ -11,7 +11,7 @@
  import VueAxios from 'vue-axios';
  import VueRouter from 'vue-router';
  import axios from 'axios';
- import { routes } from './routes';
+ import { routes } from './routes-not';
  
  
  Vue.use(VueRouter);

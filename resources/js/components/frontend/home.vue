@@ -1,5 +1,7 @@
 <template>
     <div>
+        <top-header></top-header>
+        <navigation-bar></navigation-bar>
         <!-- ======= Header Modal Area =======-->
         <!-- ======= Main Slider Area =======-->
         <div class="slider-block">
@@ -194,10 +196,15 @@
                 </div>
             </div>
         </div>
+         <web-footer></web-footer>
     </div>
 </template>
 <script>
+import TopHeader from './includes/TopHeader.vue';
+import NavigationBar from './includes/navigationbar.vue';
+import WebFooter from './includes/footer.vue';
 export default {
+     components: { TopHeader, NavigationBar, WebFooter },
     mounted() {
         window.scrollTo(0, 0),
         jQuery(document).ready(function () {

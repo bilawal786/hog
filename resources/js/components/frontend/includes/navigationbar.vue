@@ -30,7 +30,7 @@
                                             <router-link to="/resources">RESOURCES</router-link>
                                         </li>
                                         <li class="hidden-md hidden-lg">
-                                            <router-link class="trigger-overlay" to="">login</router-link>
+                                            <router-link class="trigger-overlay" to="/login">login</router-link>
                                         </li>
                                     </ul> <!-- /.menu-list -->
                                 </div> <!-- /.menu-content-->
@@ -60,6 +60,22 @@
         </header><!-- /.header-bottom-area -->
 </template>
 <script>
+import { mapGetters, mapActions } from "vuex";
 
+export default {
+  computed: {
+    ...mapGetters("auth", ["user"])
+  },
 
+  mounted() {
+    if (localStorage.getItem("authToken")) {
+      this.getUserData();
+    }
+  },
+
+  methods: {
+    ...mapActions("auth", ["getUserData"]),
+  }
+};
 </script>
+
