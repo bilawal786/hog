@@ -3971,10 +3971,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_datetime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-datetime */ "./node_modules/vue-datetime/dist/vue-datetime.js");
-/* harmony import */ var vue_datetime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_datetime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_google_autocomplete__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-google-autocomplete */ "./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue");
+/* harmony import */ var vue_datetime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-datetime */ "./node_modules/vue-datetime/dist/vue-datetime.js");
+/* harmony import */ var vue_datetime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_datetime__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -4193,24 +4194,92 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      getdate: new Date().toJSON(),
-      // date: new Date(),
-      option: 2
+      sendMessage: {
+        type: 'Request Ride',
+        Fname: null,
+        Lname: null,
+        email: null,
+        phone: null,
+        account: null,
+        invoice: null,
+        wheelChair: 'no',
+        roundTrip: 'no',
+        rideDate: new Date().toJSON(),
+        message: 'Message',
+        start_latitude: null,
+        start_longitude: null,
+        end_latitude: null,
+        end_longitude: null,
+        cost: null
+      },
+      addressStart: "",
+      addressEnd: ""
     };
   },
-  methods: {// getTodayDateNow: function() {
-    //       //  this.date = this.date.getMonth()+'/'+this.date.getDate()+'/'+this.date.getFullYear()
-    //         return this.date
-    //  }
+  methods: {
+    getAddressStart: function getAddressStart(addressData, placeResultData, id) {
+      this.sendMessage.start_latitude = addressData.latitude;
+      this.sendMessage.start_longitude = addressData.longitude;
+      this.addressStart = addressData;
+    },
+    getAddressEnd: function getAddressEnd(addressData, placeResultData, id) {
+      this.sendMessage.end_latitude = addressData.latitude;
+      this.sendMessage.end_longitude = addressData.longitude;
+      this.addressEnd = addressData;
+    },
+    sendDatatoDB: function sendDatatoDB() {
+      var _this = this;
+
+      console.log('onclick');
+      axios.post("send/message", this.sendMessage).then(function (response) {
+        if (response.status == 200) {
+          _this.sendMessage.type = "Request Ride", _this.sendMessage.Fname = null, _this.sendMessage.Lname = null, _this.sendMessage.email = null, _this.sendMessage.phone = null, _this.sendMessage.account = null, _this.sendMessage.invoice = null, _this.sendMessage.wheelChair = 'no', _this.sendMessage.roundTrip = 'no', _this.sendMessage.rideDate = new Date().toJSON(), _this.sendMessage.message = 'message', _this.sendMessage.start_latitude = null, _this.sendMessage.start_longitude = null, _this.sendMessage.end_latitude = null, _this.sendMessage.end_longitude = null, _this.sendMessage.cost = null;
+        }
+
+        console.log(response.data.type);
+        console.log(response.status);
+      })["catch"](function (error) {});
+    }
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.$refs.addressStart.focus();
+    this.$refs.addressEnd.focus();
+  },
   components: {
-    DateTime: vue_datetime__WEBPACK_IMPORTED_MODULE_0__["Datetime"]
+    DateTime: vue_datetime__WEBPACK_IMPORTED_MODULE_1__["Datetime"],
+    VueGoogleAutocomplete: vue_google_autocomplete__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -53710,6 +53779,522 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue":
+/*!****************************************************************************!*\
+  !*** ./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _VueGoogleAutocomplete_vue_vue_type_template_id_a72a90ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VueGoogleAutocomplete.vue?vue&type=template&id=a72a90ea& */ "./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=template&id=a72a90ea&");
+/* harmony import */ var _VueGoogleAutocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VueGoogleAutocomplete.vue?vue&type=script&lang=js& */ "./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _VueGoogleAutocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _VueGoogleAutocomplete_vue_vue_type_template_id_a72a90ea___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _VueGoogleAutocomplete_vue_vue_type_template_id_a72a90ea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_VueGoogleAutocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../vue-loader/lib??vue-loader-options!./VueGoogleAutocomplete.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_VueGoogleAutocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=template&id=a72a90ea&":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=template&id=a72a90ea& ***!
+  \***********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_VueGoogleAutocomplete_vue_vue_type_template_id_a72a90ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../vue-loader/lib??vue-loader-options!./VueGoogleAutocomplete.vue?vue&type=template&id=a72a90ea& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=template&id=a72a90ea&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_VueGoogleAutocomplete_vue_vue_type_template_id_a72a90ea___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_VueGoogleAutocomplete_vue_vue_type_template_id_a72a90ea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+    const ADDRESS_COMPONENTS = {
+        subpremise : 'short_name',
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        administrative_area_level_2: 'long_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+    };
+
+    const CITIES_TYPE = ['locality', 'administrative_area_level_3'];
+    const REGIONS_TYPE = ['locality', 'sublocality', 'postal_code', 'country',
+        'administrative_area_level_1', 'administrative_area_level_2'];
+
+    /*
+      By default, we're only including basic place data because requesting these 
+      fields place data is not additionally charged by Google. Please refer to:
+
+      https://developers.google.com/maps/billing/understanding-cost-of-use#basic-data
+    */
+    const BASIC_DATA_FIELDS = ['address_components', 'adr_address', 'alt_id', 
+        'formatted_address', 'geometry', 'icon', 'id', 'name', 
+        'business_status', 'photo', 'place_id', 'scope', 'type', 'url', 
+        'utc_offset_minutes', 'vicinity'];
+
+    /* harmony default export */ __webpack_exports__["default"] = ({
+        name: 'VueGoogleAutocomplete',
+
+        props: {
+          id: {
+            type: String,
+            required: true
+          },
+
+          classname: String,
+
+          placeholder: {
+            type: String,
+            default: 'Start typing'
+          },
+
+          disabled: {
+            type: Boolean,
+            default: false
+          },
+
+          types: {
+            type: String,
+            default: 'address'
+          },
+
+          fields: {
+            type: Array,
+            default: function() {
+              return BASIC_DATA_FIELDS;
+            },
+          },
+
+          country: {
+            type: [String, Array],
+            default: null
+          },
+
+          enableGeolocation: {
+            type: Boolean,
+            default: false
+          },
+
+          geolocationOptions: {
+            type: Object,
+            default: null
+          }
+        },
+
+        data() {
+            return {
+                /**
+                 * The Autocomplete object.
+                 *
+                 * @type {Autocomplete}
+                 * @link https://developers.google.com/maps/documentation/javascript/reference#Autocomplete
+                 */
+                autocomplete: null,
+
+                /**
+                 * Autocomplete input text
+                 * @type {String}
+                 */
+                autocompleteText: '',
+
+                geolocation: {
+                    /**
+                     * Google Geocoder Objet
+                     * @type {Geocoder}
+                     * @link https://developers.google.com/maps/documentation/javascript/reference#Geocoder
+                     */
+                    geocoder: null,
+
+                    /**
+                     * Filled after geolocate result
+                     * @type {Coordinates}
+                     * @link https://developer.mozilla.org/en-US/docs/Web/API/Coordinates
+                     */
+                    loc: null,
+
+                    /**
+                     * Filled after geolocate result
+                     * @type {Position}
+                     * @link https://developer.mozilla.org/en-US/docs/Web/API/Position
+                     */
+                    position: null
+                }
+            }
+        },
+
+        watch: {
+            autocompleteText: function (newVal, oldVal) {
+	            this.$emit('inputChange', { newVal, oldVal }, this.id);
+            },
+            country: function(newVal, oldVal) {
+              this.autocomplete.setComponentRestrictions({
+                country: this.country === null ? [] : this.country
+              });
+            }
+        },
+
+        mounted: function() {
+          const options = {};
+
+          if (this.types) {
+            options.types = [this.types];
+          }
+
+          if (this.country) {
+            options.componentRestrictions = {
+              country: this.country
+            };
+          }
+
+          this.autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById(this.id),
+                options
+            );
+
+          this.autocomplete.setFields(this.fields);
+
+          this.autocomplete.addListener('place_changed', this.onPlaceChanged);
+        },
+
+        methods: {
+            /**
+             * When a place changed
+             */
+            onPlaceChanged() {
+                let place = this.autocomplete.getPlace();
+
+                if (!place.geometry) {
+                  // User entered the name of a Place that was not suggested and
+                  // pressed the Enter key, or the Place Details request failed.
+                  this.$emit('no-results-found', place, this.id);
+                  return;
+                }
+
+                if (place.address_components !== undefined) {
+                    // return returnData object and PlaceResult object
+                    this.$emit('placechanged', this.formatResult(place), place, this.id);
+
+                    // update autocompleteText then emit change event
+                    this.autocompleteText = document.getElementById(this.id).value
+                    this.onChange()
+                }
+            },
+
+            /**
+             * When the input gets focus
+             */
+            onFocus() {
+              this.biasAutocompleteLocation();
+              this.$emit('focus');
+            },
+
+            /**
+             * When the input loses focus
+             */
+            onBlur() {
+              this.$emit('blur');
+            },
+
+            /**
+             * When the input got changed
+             */
+            onChange() {
+              this.$emit('change', this.autocompleteText);
+            },
+
+            /**
+             * When a key gets pressed
+             * @param  {Event} event A keypress event
+             */
+            onKeyPress(event) {
+              this.$emit('keypress', event);
+            },
+
+            /**
+             * When a keyup occurs
+             * @param  {Event} event A keyup event
+             */
+            onKeyUp(event) {
+              this.$emit('keyup', event);
+            },
+
+            /**
+             * Clear the input
+             */
+            clear() {
+              this.autocompleteText = ''
+            },
+
+            /**
+             * Focus the input
+             */
+            focus() {
+              this.$refs.autocomplete.focus()
+            },
+
+            /**
+             * Blur the input
+             */
+            blur() {
+              this.$refs.autocomplete.blur()
+            },
+
+            /**
+             * Update the value of the input
+             * @param  {String} value
+             */
+            update (value) {
+              this.autocompleteText = value
+            },
+
+            /**
+             * Update the coordinates of the input
+             * @param  {Coordinates} value
+             */
+            updateCoordinates (value) {
+                if (!value && !(value.lat || value.lng)) return;
+                if (!this.geolocation.geocoder) this.geolocation.geocoder = new google.maps.Geocoder();
+                this.geolocation.geocoder.geocode({'location': value}, (results, status) => {
+                    if (status === 'OK') {
+                        results = this.filterGeocodeResultTypes(results);
+                        if (results[0]) {
+                            this.$emit('placechanged', this.formatResult(results[0]), results[0], this.id);
+                            this.update(results[0].formatted_address);
+                        } else {
+                            this.$emit('error', 'no result for provided coordinates');
+                        }
+                    } else {
+                        this.$emit('error', 'error getting address from coords');
+                    }
+                })
+            },
+
+            /**
+             * Update location based on navigator geolocation
+             */
+            geolocate () {
+                this.updateGeolocation ((geolocation, position) => {
+                    this.updateCoordinates(geolocation)
+                })
+            },
+
+            /**
+             * Update internal location from navigator geolocation
+             * @param  {Function} (geolocation, position)
+             */
+            updateGeolocation (callback = null) {
+                if (navigator.geolocation) {
+                    let options = {};
+                    if(this.geolocationOptions) Object.assign(options, this.geolocationOptions);
+                    navigator.geolocation.getCurrentPosition(position => {
+                        let geolocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        this.geolocation.loc = geolocation;
+                        this.geolocation.position = position;
+
+                        if (callback) callback(geolocation, position);
+                    }, err => {
+                        this.$emit('error', 'Cannot get Coordinates from navigator', err);
+                    }, options);
+                }
+            },
+
+
+            // Bias the autocomplete object to the user's geographical location,
+            // as supplied by the browser's 'navigator.geolocation' object.
+            biasAutocompleteLocation () {
+                if (this.enableGeolocation) {
+                    this.updateGeolocation((geolocation, position) => {
+                        let circle = new google.maps.Circle({
+                            center: geolocation,
+                            radius: position.coords.accuracy
+                        });
+                        this.autocomplete.setBounds(circle.getBounds());
+                    })
+                }
+            },
+
+            /**
+             * Format result from Geo google APIs
+             * @param place
+             * @returns {{formatted output}}
+             */
+            formatResult (place) {
+                let returnData = {};
+                for (let i = 0; i < place.address_components.length; i++) {
+                    let addressType = place.address_components[i].types[0];
+
+                    if (ADDRESS_COMPONENTS[addressType]) {
+                        let val = place.address_components[i][ADDRESS_COMPONENTS[addressType]];
+                        returnData[addressType] = val;
+                    }
+                }
+
+                returnData['latitude'] = place.geometry.location.lat();
+                returnData['longitude'] = place.geometry.location.lng();
+                return returnData
+            },
+
+            /**
+             * Extract configured types out of raw result as
+             * Geocode API does not allow to do it
+             * @param results
+             * @returns {GeocoderResult}
+             * @link https://developers.google.com/maps/documentation/javascript/reference#GeocoderResult
+             */
+            filterGeocodeResultTypes (results) {
+                if (!results || !this.types) return results;
+                let output = [];
+                let types = [this.types];
+                if (types.includes('(cities)')) types = types.concat(CITIES_TYPE);
+                if (types.includes('(regions)')) types = types.concat(REGIONS_TYPE);
+
+                for (let r of results) {
+                    for (let t of r.types) {
+                        if (types.includes(t)) {
+                            output.push(r);
+                            break;
+                        }
+                    }
+                }
+                return output;
+            }
+        }
+    });
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=template&id=a72a90ea&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-google-autocomplete/src/VueGoogleAutocomplete.vue?vue&type=template&id=a72a90ea& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("input", {
+    directives: [
+      {
+        name: "model",
+        rawName: "v-model",
+        value: _vm.autocompleteText,
+        expression: "autocompleteText",
+      },
+    ],
+    ref: "autocomplete",
+    class: _vm.classname,
+    attrs: {
+      type: "text",
+      id: _vm.id,
+      placeholder: _vm.placeholder,
+      disabled: _vm.disabled,
+    },
+    domProps: { value: _vm.autocompleteText },
+    on: {
+      focus: function ($event) {
+        return _vm.onFocus()
+      },
+      blur: function ($event) {
+        return _vm.onBlur()
+      },
+      change: _vm.onChange,
+      keypress: _vm.onKeyPress,
+      keyup: _vm.onKeyUp,
+      input: function ($event) {
+        if ($event.target.composing) {
+          return
+        }
+        _vm.autocompleteText = $event.target.value
+      },
+    },
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/App.vue?vue&type=template&id=f348271a&":
 /*!*******************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/App.vue?vue&type=template&id=f348271a& ***!
@@ -55118,7 +55703,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("form", { attrs: { action: "#", method: "post" } }, [
+    _c("form", [
       _c("div", { staticClass: "input-content clearfix" }, [
         _c("h3", { staticClass: "from-title" }, [_vm._v("Send a message")]),
         _vm._v(" "),
@@ -55133,8 +55718,8 @@ var render = function () {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.option,
-                    expression: "option",
+                    value: _vm.sendMessage.type,
+                    expression: "sendMessage.type",
                   },
                 ],
                 staticClass: "form-section",
@@ -55148,9 +55733,11 @@ var render = function () {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
-                    _vm.option = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
+                    _vm.$set(
+                      _vm.sendMessage,
+                      "type",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
                   },
                 },
               },
@@ -55159,7 +55746,7 @@ var render = function () {
                   "option",
                   {
                     staticClass: "form-option",
-                    attrs: { value: "0", selected: "selected" },
+                    attrs: { value: "Submit Feedback", selected: "selected" },
                   },
                   [
                     _vm._v(
@@ -55170,7 +55757,10 @@ var render = function () {
                 _vm._v(" "),
                 _c(
                   "option",
-                  { staticClass: "form-option", attrs: { value: "1" } },
+                  {
+                    staticClass: "form-option",
+                    attrs: { value: "Billing Question" },
+                  },
                   [
                     _vm._v(
                       "\n                            Billing Question\n                        "
@@ -55180,7 +55770,10 @@ var render = function () {
                 _vm._v(" "),
                 _c(
                   "option",
-                  { staticClass: "form-option", attrs: { value: "2" } },
+                  {
+                    staticClass: "form-option",
+                    attrs: { value: "Request Ride" },
+                  },
                   [
                     _vm._v(
                       "\n                            Request Ride\n                        "
@@ -55190,7 +55783,7 @@ var render = function () {
                 _vm._v(" "),
                 _c(
                   "option",
-                  { staticClass: "form-option", attrs: { value: "3" } },
+                  { staticClass: "form-option", attrs: { value: "Others" } },
                   [
                     _vm._v(
                       "\n                            Others\n                        "
@@ -55203,33 +55796,156 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.sendMessage.Fname,
+                  expression: "sendMessage.Fname",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "First Name*", required: "" },
+              domProps: { value: _vm.sendMessage.Fname },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.sendMessage, "Fname", $event.target.value)
+                },
+              },
+            }),
+          ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.sendMessage.Lname,
+                  expression: "sendMessage.Lname",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Last Name*", required: "" },
+              domProps: { value: _vm.sendMessage.Lname },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.sendMessage, "Lname", $event.target.value)
+                },
+              },
+            }),
+          ]),
           _vm._v(" "),
-          _vm._m(2),
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.sendMessage.email,
+                  expression: "sendMessage.email",
+                },
+              ],
+              staticClass: "form-control email",
+              attrs: { type: "email", placeholder: "Email*", required: "" },
+              domProps: { value: _vm.sendMessage.email },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.sendMessage, "email", $event.target.value)
+                },
+              },
+            }),
+          ]),
           _vm._v(" "),
-          _vm._m(3),
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.sendMessage.phone,
+                  expression: "sendMessage.phone",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { type: "number", placeholder: "Phone*", required: "" },
+              domProps: { value: _vm.sendMessage.phone },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.sendMessage, "phone", $event.target.value)
+                },
+              },
+            }),
+          ]),
           _vm._v(" "),
-          _vm.option == 1 || _vm.option == 0
+          _vm.sendMessage.type == "Billing Question" ||
+          _vm.sendMessage.type == "Submit Feedback"
             ? _c("div", { staticClass: "col-sm-6" }, [
                 _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.sendMessage.account,
+                      expression: "sendMessage.account",
+                    },
+                  ],
                   staticClass: "form-control",
                   attrs: { type: "text", placeholder: "Account(Option)*" },
+                  domProps: { value: _vm.sendMessage.account },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.sendMessage, "account", $event.target.value)
+                    },
+                  },
                 }),
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.option == 1
+          _vm.sendMessage.type == "Billing Question"
             ? _c("div", { staticClass: "col-sm-6" }, [
                 _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.sendMessage.invoice,
+                      expression: "sendMessage.invoice",
+                    },
+                  ],
                   staticClass: "form-control",
                   attrs: { type: "text", placeholder: "Invoice(Option)*" },
+                  domProps: { value: _vm.sendMessage.invoice },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.sendMessage, "invoice", $event.target.value)
+                    },
+                  },
                 }),
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.option == 2
+          _vm.sendMessage.type == "Request Ride"
             ? _c("div", { staticClass: "col-sm-6" }, [
                 _c("p", { staticClass: "form-text" }, [
                   _vm._v(
@@ -55237,23 +55953,165 @@ var render = function () {
                   ),
                 ]),
                 _vm._v(" "),
-                _vm._m(4),
+                _c("div", [
+                  _c("div", { staticClass: "m-v-radio" }, [
+                    _c("label", { staticClass: "form-radio-custom" }, [
+                      _vm._v(
+                        "\n                            Yes\n                            "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.sendMessage.wheelChair,
+                            expression: "sendMessage.wheelChair",
+                          },
+                        ],
+                        staticClass: "form-radio",
+                        attrs: {
+                          type: "radio",
+                          name: "wheelchair",
+                          value: "yes",
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.sendMessage.wheelChair, "yes"),
+                        },
+                        on: {
+                          change: function ($event) {
+                            return _vm.$set(
+                              _vm.sendMessage,
+                              "wheelChair",
+                              "yes"
+                            )
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "checkmark" }),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "m-v-radio" }, [
+                    _c("label", { staticClass: "form-radio-custom" }, [
+                      _vm._v(
+                        "\n                            No\n                            "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.sendMessage.wheelChair,
+                            expression: "sendMessage.wheelChair",
+                          },
+                        ],
+                        staticClass: "form-radio",
+                        attrs: {
+                          type: "radio",
+                          name: "wheelchair",
+                          value: "no",
+                          checked: "checked",
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.sendMessage.wheelChair, "no"),
+                        },
+                        on: {
+                          change: function ($event) {
+                            return _vm.$set(_vm.sendMessage, "wheelChair", "no")
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "checkmark" }),
+                    ]),
+                  ]),
+                ]),
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.option == 2
+          _vm.sendMessage.type == "Request Ride"
             ? _c("div", { staticClass: "col-sm-6" }, [
                 _c("p", { staticClass: "form-text" }, [
                   _vm._v("Is this a round trip request?"),
                 ]),
                 _vm._v(" "),
-                _vm._m(5),
+                _c("div", [
+                  _c("div", { staticClass: "m-v-radio" }, [
+                    _c("label", { staticClass: "form-radio-custom" }, [
+                      _vm._v(
+                        "\n                            Yes\n                            "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.sendMessage.roundTrip,
+                            expression: "sendMessage.roundTrip",
+                          },
+                        ],
+                        staticClass: "form-radio",
+                        attrs: {
+                          type: "radio",
+                          name: "roundtrip",
+                          value: "yes",
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.sendMessage.roundTrip, "yes"),
+                        },
+                        on: {
+                          change: function ($event) {
+                            return _vm.$set(_vm.sendMessage, "roundTrip", "yes")
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "checkmark" }),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "m-v-radio" }, [
+                    _c("label", { staticClass: "form-radio-custom" }, [
+                      _vm._v(
+                        "\n                            No\n                            "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.sendMessage.roundTrip,
+                            expression: "sendMessage.roundTrip",
+                          },
+                        ],
+                        staticClass: "form-radio",
+                        attrs: {
+                          type: "radio",
+                          name: "roundtrip",
+                          value: "no",
+                          checked: "checked",
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.sendMessage.roundTrip, "no"),
+                        },
+                        on: {
+                          change: function ($event) {
+                            return _vm.$set(_vm.sendMessage, "roundTrip", "no")
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "checkmark" }),
+                    ]),
+                  ]),
+                ]),
               ])
             : _vm._e(),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
-          _vm.option == 2
+          _vm.sendMessage.type == "Request Ride"
             ? _c(
                 "div",
                 { staticClass: "col-md-6" },
@@ -55281,11 +56139,11 @@ var render = function () {
                       auto: "",
                     },
                     model: {
-                      value: _vm.getdate,
+                      value: _vm.sendMessage.rideDate,
                       callback: function ($$v) {
-                        _vm.getdate = $$v
+                        _vm.$set(_vm.sendMessage, "rideDate", $$v)
                       },
-                      expression: "getdate",
+                      expression: "sendMessage.rideDate",
                     },
                   }),
                 ],
@@ -55293,185 +56151,98 @@ var render = function () {
               )
             : _vm._e(),
           _vm._v(" "),
-          _vm._m(6),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "textarea",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.sendMessage.message,
+                    expression: "sendMessage.message",
+                  },
+                ],
+                attrs: { rows: "5", cols: "80", required: "" },
+                domProps: { value: _vm.sendMessage.message },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.sendMessage, "message", $event.target.value)
+                  },
+                },
+              },
+              [_vm._v("Your Message")]
+            ),
+          ]),
         ]),
         _vm._v(" "),
-        _vm.option == 2
+        _vm.sendMessage.type == "Request Ride"
           ? _c("div", { staticClass: "row" }, [
-              _vm._m(7),
+              _c(
+                "div",
+                { staticClass: "col-md-6" },
+                [
+                  _c("vue-google-autocomplete", {
+                    ref: "addressStart",
+                    attrs: {
+                      id: "mapStart",
+                      classname: "form-control",
+                      placeholder: "Start",
+                      country: "sg",
+                    },
+                    on: { placechanged: _vm.getAddressStart },
+                  }),
+                ],
+                1
+              ),
               _vm._v(" "),
-              _vm._m(8),
+              _c(
+                "div",
+                { staticClass: "col-md-6" },
+                [
+                  _c("vue-google-autocomplete", {
+                    ref: "addressEnd",
+                    attrs: {
+                      id: "mapEnd",
+                      classname: "form-control",
+                      placeholder: "End",
+                      country: "sg",
+                    },
+                    on: { placechanged: _vm.getAddressEnd },
+                  }),
+                ],
+                1
+              ),
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.option == 2
-          ? _c("div", { staticClass: "row" }, [_vm._m(9)])
+        _vm.sendMessage.type == "Request Ride"
+          ? _c("div", { staticClass: "row" }, [_vm._m(0)])
           : _vm._e(),
         _vm._v(" "),
-        _vm.option == 2
-          ? _c("div", { staticClass: "row" }, [_vm._m(10)])
+        _vm.sendMessage.type == "Request Ride"
+          ? _c("div", { staticClass: "row" }, [_vm._m(1)])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(11),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "subimt-button-contact clearfix" }, [
+              _c("input", {
+                staticClass: "submit yellow-button",
+                attrs: { type: "button", value: "Submit" },
+                on: { click: _vm.sendDatatoDB },
+              }),
+            ]),
+          ]),
+        ]),
       ]),
     ]),
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "First Name*" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "Last Name*" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("input", {
-        staticClass: "form-control email",
-        attrs: { type: "email", placeholder: "Email*" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "number", placeholder: "Phone*" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "m-v-radio" }, [
-        _c("label", { staticClass: "form-radio-custom" }, [
-          _vm._v(
-            "\n                            Yes\n                            "
-          ),
-          _c("input", {
-            staticClass: "form-radio",
-            attrs: { type: "radio", name: "wheelchair", value: "1" },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "checkmark" }),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "m-v-radio" }, [
-        _c("label", { staticClass: "form-radio-custom" }, [
-          _vm._v(
-            "\n                            No\n                            "
-          ),
-          _c("input", {
-            staticClass: "form-radio",
-            attrs: {
-              type: "radio",
-              name: "wheelchair",
-              value: "2",
-              checked: "checked",
-            },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "checkmark" }),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "m-v-radio" }, [
-        _c("label", { staticClass: "form-radio-custom" }, [
-          _vm._v(
-            "\n                            Yes\n                            "
-          ),
-          _c("input", {
-            staticClass: "form-radio",
-            attrs: { type: "radio", name: "roundtrip", value: "1" },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "checkmark" }),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "m-v-radio" }, [
-        _c("label", { staticClass: "form-radio-custom" }, [
-          _vm._v(
-            "\n                            No\n                            "
-          ),
-          _c("input", {
-            staticClass: "form-radio",
-            attrs: {
-              type: "radio",
-              name: "roundtrip",
-              value: "2",
-              checked: "checked",
-            },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "checkmark" }),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("textarea", { attrs: { rows: "5", cols: "80" } }, [
-        _vm._v("Your Message"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "Start" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "End" },
-      }),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -55485,31 +56256,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "header-map-content" }, [
-        _c("iframe", {
-          attrs: {
-            height: "300",
-            width: "100%",
-            src: "https://www.google.com/maps/embed/v1/place?key=AIzaSyC871wKM6aoCLSV_pT3xBVsYzNGXaDh7Pw&q=121+King+St,Melbourne+VIC+3000,Australia",
-            allowfullscreen: "allowfullscreen",
-          },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "subimt-button-contact clearfix" }, [
-          _c("input", {
-            staticClass: "submit yellow-button",
-            attrs: { type: "submit", value: "Submit" },
-          }),
-        ]),
-      ]),
+      _c("div", { staticClass: "header-map-content" }),
     ])
   },
 ]
@@ -77520,7 +78267,6 @@ __webpack_require__.r(__webpack_exports__);
   mutations: {
     setUserData: function setUserData(state, user) {
       state.userData = user;
-      console.log(state.userData);
     }
   },
   actions: {

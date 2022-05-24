@@ -99,6 +99,7 @@
             }
         }
     </style>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key={{ env('GOOGLE_MAP_KEY') }}"></script>
 </head>
 
 <body>
@@ -111,6 +112,7 @@
 ================================================== -->
 <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
 <!--<script src="{{ asset('assets/js/carrent.min.js') }}"></script> --><!-- main-js -->
+
 
 <!-- RS5.4 Core JS Files -->
 <script src="{{ asset('assets/revolution/js/jquery.themepunch.tools.min.js') }}"></script>

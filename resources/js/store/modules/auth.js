@@ -16,7 +16,6 @@ export default {
   mutations: {
     setUserData(state, user) {
       state.userData = user;
-      console.log(state.userData)
     }
   },
 

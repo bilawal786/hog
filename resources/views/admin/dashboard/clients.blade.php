@@ -42,16 +42,7 @@
                                               <th>Created at</th>
                                           </tr>
                                       </thead>
-                                      <tfoot>
-                                          <tr>
-                                            <th>Name</th>
-                                            <th>E-mail</th>
-                                            <th>Role</th>
-                                            <th>Phone #</th>
-                                            <th>Address</th>
-                                            <th>Created at</th>
-                                          </tr>
-                                      </tfoot>
+                                     
                                       <tbody>
                                         @foreach ($clients as $client)
                                           <tr>

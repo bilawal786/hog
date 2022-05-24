@@ -31,8 +31,8 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
         // Route::get('email/resend', 'VerificationController@resend')->name('verification.resend');
 
         Route::get('user', 'AuthenticationController@user')->name('user');
-
         Route::post('logout', 'LoginController@logout')->name('logout');
+        Route::post('send/message', 'SendMessageController@sendMessage')->name('sendMessage');
 
     });
 
