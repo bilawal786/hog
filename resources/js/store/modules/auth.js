@@ -35,6 +35,7 @@ export default {
       return axios
         .post("/login", data)
         .then(response => {
+          console.log(response)
          commit("setUserData", response.data.user);
           localStorage.setItem("authToken", response.data.token);
         });

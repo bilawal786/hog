@@ -31,6 +31,9 @@ class CreateSendMessagesTable extends Migration
             $table->double('start_lng')->nullable();
             $table->double('end_lat')->nullable();
             $table->double('end_lng')->nullable();
+            $table->double('distance')->nullable();
+            $table->string('start_address')->nullable();
+            $table->string('end_address')->nullable();
             $table->string('cost')->nullable();
             $table->timestamps();
         });

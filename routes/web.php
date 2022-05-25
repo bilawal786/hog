@@ -32,10 +32,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/users/clents', 'Admin\ClientsController@clients')->name('clients');
     Route::get('/admin/user/drivers', 'Admin\DriversController@drivers')->name('drivers');
 
-
+    Route::get('/admin/form/submit/feedback', 'Admin\FormSubmitController@submit_feedBack')->name('submit.feedback');
+    Route::get('/admin/form/billing/question', 'Admin\FormSubmitController@billing_question')->name('billing.question');
+    Route::get('/admin/form/request/ride', 'Admin\FormSubmitController@request_ride')->name('request.ride');
+    Route::get('/admin/form/other', 'Admin\FormSubmitController@other')->name('other');
 
     Route::get('/admin/profile', 'Admin\ProfileController@profile')->name('profile');
-    
     
  });
 

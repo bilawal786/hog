@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 
 class SendMessageController extends Controller
 {
@@ -42,16 +43,24 @@ class SendMessageController extends Controller
     }
     public function sendMessage(Request $request){
         
-        $validated = $request->validate([
-            'type' => 'required|max:255',
-            'Fname' => 'required|max:255',
-            'Lname' => 'required|max:255',
-            'email' => 'required|max:255',
-            'phone' => 'required|max:255',
-            'message' => 'required|max:255',
-        ]);
         switch ($request->type) {
             case "Submit Feedback":
+                try {
+                    $validated = $request->validate([
+                        'type' => 'required|max:255',
+                        'Fname' => 'required|max:255',
+                        'Lname' => 'required|max:255',
+                        'email' => 'required|max:255',
+                        'phone' => 'required|max:255',
+                        ]);
+                    }
+                    catch (ValidationException $exception) {
+                        return response()->json([
+                            'status' => 'error',
+                            'msg'    => 'Error',
+                            'errors' => $exception->errors(),
+                        ], 422);
+                    }
                 $send_message = new SendMessage;
                 $send_message->type = $request->type;
                 $send_message->Fname = $request->Fname;
@@ -67,6 +76,22 @@ class SendMessageController extends Controller
 
               break;
             case "Billing Question":
+                try {
+                    $validated = $request->validate([
+                        'type' => 'required|max:255',
+                        'Fname' => 'required|max:255',
+                        'Lname' => 'required|max:255',
+                        'email' => 'required|max:255',
+                        'phone' => 'required|max:255',
+                        ]);
+                    }
+                    catch (ValidationException $exception) {
+                        return response()->json([
+                            'status' => 'error',
+                            'msg'    => 'Error',
+                            'errors' => $exception->errors(),
+                        ], 422);
+                    }
                 $send_message = new SendMessage;
                 $send_message->type = $request->type;
                 $send_message->Fname = $request->Fname;
@@ -83,19 +108,48 @@ class SendMessageController extends Controller
              
               break;
             case "Request Ride":
+                try {
+                    $validated = $request->validate([
+                        'type' => 'required|max:255',
+                        'Fname' => 'required|max:255',
+                        'Lname' => 'required|max:255',
+                        'email' => 'required|max:255',
+                        'phone' => 'required|max:255',
+                        'wheelchair' => 'required',
+                        'round_trip' => 'required',
+                        'trip_date' => 'required',
+                        'start_lat' => 'required|max:255',
+                        'start_lng' => 'required|max:255',
+                        'end_lat' => 'required|max:255',
+                        'end_lng' => 'required|max:255',
+                        'start_address' => 'required|max:255',
+                        'end_address' => 'required|max:255',
+                        //'cost' => 'required|max:255',
+                        ]);
+                    }
+                    catch (ValidationException $exception) {
+                        return response()->json([
+                            'status' => 'error',
+                            'msg'    => 'Error',
+                            'errors' => $exception->errors(),
+                        ], 422);
+                    }
                 $send_message = new SendMessage;
                 $send_message->type = $request->type;
                 $send_message->Fname = $request->Fname;
                 $send_message->Lname = $request->Lname;
                 $send_message->email = $request->email;
                 $send_message->phone = $request->phone;
-                $send_message->wheelchair = $request->wheelChair;
-                $send_message->round_trip = $request->roundTrip;
-                $send_message->trip_date = $request->rideDate;
-                $send_message->start_lat = $request->start_latitude;
-                $send_message->start_lng = $request->start_longitude;
-                $send_message->end_lat = $request->end_latitude;
-                $send_message->end_lng = $request->end_longitude;
+                $send_message->wheelchair = $request->wheelchair;
+                $send_message->round_trip = $request->round_trip;
+                $send_message->trip_date = $request->trip_date;
+                $send_message->start_lat = $request->start_lat;
+                $send_message->start_lng = $request->start_lng;
+                $send_message->end_lat = $request->end_lat;
+                $send_message->end_lng = $request->end_lng;
+                $send_message->distance = SendMessageController::distance($request->start_lat, $request->start_lng, $request->end_lat, $request->end_lng, 'K');
+                $send_message->start_address = $request->start_address;
+                $send_message->end_address = $request->end_address;
                 $send_message->cost = $request->cost;
                 $send_message->message = $request->message;
                 $send_message->save();
@@ -104,6 +158,22 @@ class SendMessageController extends Controller
                 ]);
               break;
             default:
+            try {
+                $validated = $request->validate([
+                    'type' => 'required|max:255',
+                    'Fname' => 'required|max:255',
+                    'Lname' => 'required|max:255',
+                    'email' => 'required|max:255',
+                    'phone' => 'required|max:255',
+                    ]);
+                }
+                catch (ValidationException $exception) {
+                    return response()->json([
+                        'status' => 'error',
+                        'msg'    => 'Error',
+                        'errors' => $exception->errors(),
+                    ], 422);
+                }
                 $send_message = new SendMessage;
                 $send_message->type = $request->type;
                 $send_message->Fname = $request->Fname;
@@ -117,5 +187,26 @@ class SendMessageController extends Controller
                 ]);
           }
     }
+    public function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+        if (($lat1 == $lat2) && ($lon1 == $lon2)) {
+          return 0;
+        }
+        else {
+          $theta = $lon1 - $lon2;
+          $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+          $dist = acos($dist);
+          $dist = rad2deg($dist);
+          $miles = $dist * 60 * 1.1515;
+          $unit = strtoupper($unit);
+      
+          if ($unit == "K") {
+            return ($miles * 1.609344);
+          } else if ($unit == "N") {
+            return ($miles * 0.8684);
+          } else {
+            return $miles;
+          }
+        }
+      }
 
 }

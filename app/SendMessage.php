@@ -21,6 +21,9 @@ class SendMessage extends Model
         'start_lng',
         'end_lat',
         'end_lng',
+        'distance',
+        'start_address',
+        'end_address',
         'cost',
     ];
 }

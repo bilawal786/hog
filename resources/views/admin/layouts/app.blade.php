@@ -120,6 +120,31 @@
 						</li>
 					</ul>
 				</li>
+				<li>
+					<a class="" data-toggle="collapse" data-target="#forms"><div class="pull-left">
+						<i class="zmdi zmdi-file-text mr-20"></i>
+						<span class="right-nav-text">Forms</span>
+					</div>
+					<div class="pull-right">
+						<i class="zmdi zmdi-caret-down"></i>
+					</div>
+					<div class="clearfix"></div>
+				</a>
+					<ul id="forms" class="collapse collapse-level-1">
+						<li>
+							<a class="active-page" href="{{ route('submit.feedback')}}">Submit FeedBack</a>
+						</li>
+						<li>
+							<a  href="{{ route('billing.question')}}">Billing Question</a>
+						</li>
+						<li>
+							<a  href="{{ route('request.ride')}}">Request Ride</a>
+						</li>
+						<li>
+							<a  href="{{ route('other')}}">Others</a>
+						</li>
+					</ul>
+				</li>
 				
 			</ul>
 		</div>

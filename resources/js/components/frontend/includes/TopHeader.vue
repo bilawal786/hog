@@ -1,17 +1,9 @@
 <template>
             <!-- ====== Header Top Area ====== -->
         <header class="header-top-area bg-nero">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-7 hidden-xs hidden-sm">
-                        <div class="header-content-left">
-                            <ul class="header-top-menu">
-
-                            </ul><!-- /.header-top-menu -->
-                        </div><!-- /.header-content-left -->
-                    </div><!-- /.col-md-9 -->
-
-                    <div class="col-md-6 col-sm-5 hidden-xs hidden-sm">
+                    <div class="col-md-12  hidden-xs hidden-sm">
                         <div class="header-content-right">
                             <ul class="header-top-menu">
                                 <li class="mdn">

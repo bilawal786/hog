@@ -203,66 +203,7 @@
 		}
 	}
 }
-.input-content {
-	border: 1px solid#DDDDDD;
-	padding:50px;
-	border-radius: 10px;
-	background-color: #FAFAFA;
-	h4 {
-		font-size: 24px;
-	    text-align: center;
-	    margin-bottom: 45px;
-	    font-weight: 800;
-		color: #232c3b;
-	}
-	input {
-		border: none;
-		box-shadow: none;
-		border-bottom: 1px solid #DDDDDD;
-		border-radius: 0;
-		float: left;
-		margin-bottom: 30px;
-		padding: 10px 0;
-		margin-right: 50px;
-		color:#8c8c8c;
-		font-size: 15px;
-		background-color: #FAFAFA;
-		&:nth-of-type(3) {
-			width:100%;
-		}
-		&:nth-of-type(2) {
-			margin-right:0;
-		}
-		@media screen and (max-width: 990px) {
-			width:100%;
-		}
-	}
-	textarea {
-		border: none;
-		border-bottom: 1px solid #dddddd;
-		color: #8c8c8c;
-		margin-top: 50px;
-		float: left;
-		width: 100%;
-		margin-bottom: 40px;
-		font-size: 15px;
-		background-color: #FAFAFA;
-	}
-	.subimt-button {
-		margin:auto;
-		display:table;
-		.submit {
-			padding: 15px 60px;;
-		    color: #fff;
-		    text-transform: uppercase;
-		    font-weight: 800;
-		    letter-spacing: 1px;
-		    margin: auto;
-		    border-radius: 5px;
-		    background-color: $color_yellow;
-		}
-	}
-}
+
 
 
 .oddRow {

@@ -5,20 +5,24 @@
         <div class="container">
             <div class="ds-mg-90">
                 <div class="row">
-                    <div class="col-3 ds-list-box">
-                        <div><h3><i class="fa fa-tachometer" ></i> Dashboard</h3></div>
-                        <div class="nav flex-column nav-pills ds-pd-ud-20" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div class="col-4">
+                        <div class="contact">
+                            <div class="contact-btn">
+                                <h3><i class="fa fa-tachometer" ></i> Dashboard</h3>
+                            </div>
+                        </div>
+                        <div class="nav flex-column nav-pills ds-mg-30" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         
-                        <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                        <a class="nav-link" id="v-pills-billing-tab" data-toggle="pill" href="#v-pills-billing" role="tab" aria-controls="v-pills-billing" aria-selected="false">Billing Question</a>
-                        <a class="nav-link" id="v-pills-ride-tab" data-toggle="pill" href="#v-pills-ride" role="tab" aria-controls="v-pills-ride" aria-selected="false">Request Ride</a>
-                        <a class="nav-link" id="v-pills-other-tab" data-toggle="pill" href="#v-pills-other" role="tab" aria-controls="v-pills-other" aria-selected="false">Others</a>
-                        <a class="nav-link" id="v-pills-Logout-tab" data-toggle="pill" href="#v-pills-Logout" role="tab" aria-controls="v-pills-Logout" aria-selected="false">Logout</a>
+                        <a class="nav-link ds-pd-10 active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+                        <a class="nav-link ds-pd-10" id="v-pills-billing-tab" data-toggle="pill" href="#v-pills-billing" role="tab" aria-controls="v-pills-billing" aria-selected="false">Billing Question</a>
+                        <a class="nav-link ds-pd-10" id="v-pills-ride-tab" data-toggle="pill" href="#v-pills-ride" role="tab" aria-controls="v-pills-ride" aria-selected="false">Request Ride</a>
+                        <a class="nav-link ds-pd-10" id="v-pills-other-tab" data-toggle="pill" href="#v-pills-other" role="tab" aria-controls="v-pills-other" aria-selected="false">Others</a>
+                        <a class="nav-link ds-pd-10"  href="" v-on:click="sendLogoutRequest"  >Logout</a>
 
 
                         </div>
                     </div>
-                    <div class="col-9 ds-content-box">
+                    <div class="col-8 input-content">
                         <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                             <div class="ds-m-25">
@@ -122,7 +126,6 @@
                         <div class="tab-pane fade" id="v-pills-billing" role="tabpanel" aria-labelledby="v-pills-billing-tab">...</div>
                         <div class="tab-pane fade" id="v-pills-ride" role="tabpanel" aria-labelledby="v-pills-ride-tab">...</div>
                         <div class="tab-pane fade" id="v-pills-other" role="tabpanel" aria-labelledby="v-pills-other-tab">...</div>
-                        <div class="tab-pane fade" id="v-pills-Logout" role="tabpanel" aria-labelledby="v-pills-Logout-tab">...</div>
 
                         </div>
                     </div>
@@ -137,17 +140,32 @@
 import TopHeader from "./includes/TopHeader.vue";
 import NavigationBar from "./includes/navigationbar.vue";
 import WebFooter from "./includes/footer.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     components: { TopHeader, NavigationBar, WebFooter },
     mounted() {
         window.scrollTo(0, 0);
+        if (localStorage.getItem("authToken")) {
+            this.getUserData();
+        }
     },
     computed: {
         ...mapGetters("auth", ["user"])
     },
     methods:{
+        ...mapActions("auth", ["sendLogoutRequest", "getUserData"]),
+
+    logout() {
+      this.sendLogoutRequest();
+      console.log('function')
+      this.$router.push("Login");
+      console.log('logout')
+    }
        
     }
 };
+
+
 </script>
+

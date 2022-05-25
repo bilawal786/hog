@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Montserrat);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
@@ -12275,6 +12275,7 @@ a.more-content {
   color: #FFF;
   border-radius: 5px;
   padding: 15px 25px;
+  font-size: 15px;
 }
 
 input[type=text]:focus,
@@ -12766,6 +12767,91 @@ textarea {
 .login-form-wrap a:active:hover {
   color: #ad8003;
   transition: all 0.2s ease;
+}
+
+.input-content {
+  border: 1px solid #DDDDDD;
+  padding: 50px;
+  border-radius: 10px;
+  background-color: #FAFAFA;
+}
+
+.input-content h4 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 45px;
+  font-weight: 800;
+  color: #232c3b;
+}
+
+.input-content .mgb-30 {
+  margin-bottom: 30px;
+}
+
+.input-content .mgb-30 input {
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid #DDDDDD;
+  border-radius: 0;
+  padding: 10px 0;
+  margin-right: 50px;
+  color: #8c8c8c;
+  font-size: 15px;
+  background-color: #FAFAFA;
+}
+
+.input-content .mgb-30 input:nth-of-type(3) {
+  width: 100%;
+}
+
+.input-content .mgb-30 input:nth-of-type(2) {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 990px) {
+  .input-content .mgb-30 input {
+    width: 100%;
+  }
+}
+
+.input-content .mgb-30 textarea {
+  border: none;
+  border-bottom: 1px solid #dddddd;
+  color: #8c8c8c;
+  margin-top: 50px;
+  float: left;
+  width: 100%;
+  margin-bottom: 40px;
+  font-size: 15px;
+  background-color: #FAFAFA;
+}
+
+.input-content .mgb-30 .subimt-button {
+  margin: auto;
+  display: table;
+}
+
+.input-content .mgb-30 .subimt-button .submit {
+  padding: 15px 60px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #cd9700;
+}
+
+.contact-valid {
+  text-align: left;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #e3342f;
+}
+
+.invalid-input {
+  border-bottom: 1px solid #e3342f !important;
 }
 
 /*--------------------------------------------------------------
@@ -13805,6 +13891,10 @@ pagination
   position: relative;
 }
 
+.header-two .header-content-right ul li a i {
+  color: #fff;
+}
+
 .header-two .header-content-right ul li .menu-info,
 .header-two .header-content-right ul li .social-icon {
   display: inline-block;
@@ -13995,11 +14085,17 @@ pagination
   font-size: 20px;
   position: relative;
   top: 2px;
+  color: #FFF;
 }
 
 .header-top-area .header-top-menu li a .fa-angle-down {
   font-size: 14px;
   color: #ececec;
+}
+
+.header-top-area .header-top-menu li a:hover,
+.header-top-area .header-top-menu li a:focus {
+  text-decoration: none;
 }
 
 .header-top-area .header-top-menu li .sub-menu {
@@ -18043,20 +18139,13 @@ pagination
   margin: 90px 0;
 }
 
-.ds-list-box {
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
-  background: #f2f2f2;
-  border: 1px solid #dbdbdb;
+.ds-mg-30 {
+  margin: 30px;
 }
 
-.ds-content-box {
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
-  background: #f2f2f2;
-  border: 1px solid #dbdbdb;
-}
-
-.ds-pd-ud-20 {
-  padding: 20px 0;
+.ds-pd-10 {
+  padding: 10px;
+  border-bottom: 1px solid #DDDDDD;
 }
 
 .nav-pills .nav-link.active,
@@ -18093,6 +18182,89 @@ pagination
 .ds-profile-p {
   font-size: 1.5rem;
   margin: 0;
+}
+
+/*--------------------------------------------------------------
+## section dashboad
+--------------------------------------------------------------*/
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-family: Montserrat;
+}
+
+.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  color: #fbae17;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.bounceball {
+  position: relative;
+  display: inline-block;
+  height: 37px;
+  width: 15px;
+}
+
+.bounceball:before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fbae17;
+  transform-origin: 50%;
+  -webkit-animation: bounce 500ms alternate infinite ease;
+          animation: bounce 500ms alternate infinite ease;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    top: 30px;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+
+  35% {
+    height: 15px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    top: 30px;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+
+  35% {
+    height: 15px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    top: 0;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -20034,77 +20206,6 @@ input[type=checkbox]::-ms-check {
   position: relative;
   top: 30px;
   color: #cd9700;
-}
-
-.input-content {
-  border: 1px solid #DDDDDD;
-  padding: 50px;
-  border-radius: 10px;
-  background-color: #FAFAFA;
-}
-
-.input-content h4 {
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 45px;
-  font-weight: 800;
-  color: #232c3b;
-}
-
-.input-content input {
-  border: none;
-  box-shadow: none;
-  border-bottom: 1px solid #DDDDDD;
-  border-radius: 0;
-  float: left;
-  margin-bottom: 30px;
-  padding: 10px 0;
-  margin-right: 50px;
-  color: #8c8c8c;
-  font-size: 15px;
-  background-color: #FAFAFA;
-}
-
-.input-content input:nth-of-type(3) {
-  width: 100%;
-}
-
-.input-content input:nth-of-type(2) {
-  margin-right: 0;
-}
-
-@media screen and (max-width: 990px) {
-  .input-content input {
-    width: 100%;
-  }
-}
-
-.input-content textarea {
-  border: none;
-  border-bottom: 1px solid #dddddd;
-  color: #8c8c8c;
-  margin-top: 50px;
-  float: left;
-  width: 100%;
-  margin-bottom: 40px;
-  font-size: 15px;
-  background-color: #FAFAFA;
-}
-
-.input-content .subimt-button {
-  margin: auto;
-  display: table;
-}
-
-.input-content .subimt-button .submit {
-  padding: 15px 60px;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 1px;
-  margin: auto;
-  border-radius: 5px;
-  background-color: #cd9700;
 }
 
 .oddRow {

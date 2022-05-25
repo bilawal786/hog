@@ -1,5 +1,11 @@
 <template>
     <div>
+        <!-- <div class="wrap" v-if="loading">
+            <div class="loading">
+                <div class="bounceball"></div>
+                <div class="text">NOW LOADING</div>
+            </div>
+        </div> -->
         <top-header></top-header>
         <navigation-bar></navigation-bar>
     <!-- ====== Page Header ====== -->
@@ -56,8 +62,13 @@ import NavigationBar from './includes/navigationbar.vue';
 import WebFooter from './includes/footer.vue'
 import ContactForm from './includes/contact-form';
 export default {
- components: { TopHeader, NavigationBar, WebFooter, ContactForm },
-   mounted () {
+    data(){
+        return{
+            
+        }
+    },
+    components: { TopHeader, NavigationBar, WebFooter, ContactForm },
+    mounted () {
         window.scrollTo(0, 0)
     }
  };
