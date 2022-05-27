@@ -12,7 +12,7 @@ axios.interceptors.response.use(
   response => response,
   error => {
     if (error.response.status === 422) {
-      store.commit("setErrors", error.response.data.errors);
+      store.commit("auth/setErrors", error.response.data.errors);
     } else if (error.response.status === 401) {
       store.commit("auth/setUserData", null);
       localStorage.removeItem("authToken");

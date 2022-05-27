@@ -76,16 +76,6 @@ class UserController extends Controller
             'data'=>$user_data
         ]);
     }
-    // public function currentUser(){
-
-    //     $user_data = auth()->user();
-  
-    //     return response()->json([
-    //         'status'=>true,
-    //         'message'=>'user data',
-    //         'data'=>$user_data
-    //     ]);
-    // }
    //LOGOUT METHOD - post
    public function logout(Request $request){
         //get token value

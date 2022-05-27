@@ -229,3 +229,13 @@ a.more-content {
 
 	}
 }
+
+.btn-hog {
+    color: $color__white;
+    padding: 10px 20px;
+    background-color: $color_yellow;
+}
+.btn-hog:hover{
+	color: $color__white;
+	background-color: $color_yellow_hover;
+}

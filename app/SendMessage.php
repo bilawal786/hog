@@ -25,5 +25,6 @@ class SendMessage extends Model
         'start_address',
         'end_address',
         'cost',
+        'user_id',
     ];
 }

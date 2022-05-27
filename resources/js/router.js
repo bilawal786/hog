@@ -7,6 +7,7 @@ import home from './components/frontend/home.vue';
 import about from './components/frontend/about.vue';
 import services from './components/frontend/services.vue';
 import contact from './components/frontend/contact.vue';
+import requestRide from './components/frontend/request_ride.vue';
 import resources from './components/frontend/resources.vue';
 import dashboard from './components/frontend/dashboard.vue';
 import fqa from './components/frontend/fqa.vue';
@@ -54,7 +55,7 @@ const routes = [
 //     path: "/verify/:hash",
 //     name: "Verify",
 //     beforeEnter: auth,
-//     props: true,
+//     props: true, props: true,
 //     component: () =>
 //       import(/* webpackChunkName: "verify" */ "../views/Auth/Verify.vue")
 //   },
@@ -80,6 +81,14 @@ const routes = [
     name: 'contact',
     path: '/contact',
     component: contact,
+    props: true,
+
+},
+{
+  name: 'request1_ride',
+  path: '/request-ride',
+  component: requestRide,
+  props: true,
 
 },
 {

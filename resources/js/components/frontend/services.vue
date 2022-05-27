@@ -26,7 +26,7 @@
                     <p>One-Way Ambulatory Transport (during regular bus. hours): $70.00 pickup (+$3/mi after 1st 10 miles)</p>
                     <p>Round-Trip Ambulatory Transport (during regular bus. hours): $120.00 pickup (+$3/mi after 1st 10 miles each way)</p>
                     <p>*A family member or caregiver may accompany client at no extra charge. Please inform us at time of scheduling.</p>
-                    <h6>*Weekend and Holiday prices vary</h6>
+                     <p>*Weekend and Holiday prices vary</p>
                 </div>
                 <div class="col-md-6">
                     <img src="assets/images/ss.jpg" alt="">

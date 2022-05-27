@@ -18,21 +18,22 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
     // Route::post('register', 'Api\UserController@register')->name('register');
     // Route::post('login', 'Api\UserController@login')->name('login');
     Route::get('general/setting', 'GenernalSettingController@index')->name('generalSetting');
+    Route::post('send/message', 'SendMessageController@sendMessage')->name('sendMessage');
     Route::post('login', 'LoginController@login')->name('login');
     Route::post('register', 'RegisterController@register')->name('register');
 
     Route::group(['middleware' => ['auth:api']], function () {
         // Route::get('user', 'UserController@profile')->name('profile');
-
         // Route::post('logout', 'UserController@logout')->name('logout');
-
         // Route::get('email/verify/{hash}', 'VerificationController@verify')->name('verification.verify');
-
         // Route::get('email/resend', 'VerificationController@resend')->name('verification.resend');
+        Route::get('user/billing/questions', 'GetMessageController@getBillingQuestionsById')->name('getBillingQuestionsById');
+        Route::get('user/request/ride', 'GetMessageController@getRequestRidesByid')->name('getRequestRidesByid');
+        Route::get('user/submit/feedback', 'GetMessageController@getSubmitFeedBacksByid')->name('getSubmitFeedBacksByid');
+        Route::get('user/contact/others', 'GetMessageController@getContactOthersByid')->name('getContactOthersByid');
 
         Route::get('user', 'AuthenticationController@user')->name('user');
         Route::post('logout', 'LoginController@logout')->name('logout');
-        Route::post('send/message', 'SendMessageController@sendMessage')->name('sendMessage');
 
     });
 

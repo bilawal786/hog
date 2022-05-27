@@ -45,7 +45,6 @@
                           <button
                             type="button"
                             @click="login"
-                            class="btn btn-primary"
                         >
                             Login
                         </button>
@@ -82,11 +81,11 @@ export default {
     },
     components: { TopHeader, NavigationBar, WebFooter },
     computed: {
-        ...mapGetters(["errors"]),
+        ...mapGetters("auth", ["errors"]),
     },
 
     mounted() {
-        this.$store.commit("setErrors", {});
+        this.$store.commit("auth/setErrors", {});
     },
     methods: {
         ...mapActions("auth", ["sendLoginRequest"]),

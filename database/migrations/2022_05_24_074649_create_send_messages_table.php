@@ -35,6 +35,8 @@ class CreateSendMessagesTable extends Migration
             $table->string('start_address')->nullable();
             $table->string('end_address')->nullable();
             $table->string('cost')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

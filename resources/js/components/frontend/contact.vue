@@ -1,9 +1,9 @@
 <template>
     <div>
-        <!-- <div class="wrap" v-if="loading">
-            <div class="loading">
-                <div class="bounceball"></div>
-                <div class="text">NOW LOADING</div>
+        <!-- <div class="hog-toast"  v-bind:class = "!toggle ?'toast-hide':'toast-show'" >
+            <div class="hog-mg-20">
+                <div><strong>Success: </strong>Ride Request Sent<button class="toast-button" @click="toggle = !toggle"><span>&times;</span></button></div>
+               
             </div>
         </div> -->
         <top-header></top-header>
@@ -64,8 +64,18 @@ import ContactForm from './includes/contact-form';
 export default {
     data(){
         return{
-            
+            toggle:true
         }
+    },
+    watch: {
+        changevalue(){
+            setInterval(this.toggle=false, 5000)
+        }
+    },
+    methods:{
+        updateCart(e) {
+            console.log(e)
+      },
     },
     components: { TopHeader, NavigationBar, WebFooter, ContactForm },
     mounted () {

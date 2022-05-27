@@ -18,7 +18,7 @@
                                 required
                             />
                             <span class="server-vilidation" v-if="errors.name">
-                                {{ errors.email[0] }}
+                                {{ errors.name[0] }}
                             </span>
                             <span class="server-vilidation" v-if="!errors.name">
                             &nbsp
@@ -77,7 +77,6 @@
                           <button
                             type="button"
                             @click="register"
-                            class="btn btn-primary"
                         >
                             Register
                         </button>
@@ -120,11 +119,11 @@ export default {
     },
     components: { TopHeader, NavigationBar, WebFooter },
     computed: {
-        ...mapGetters(["errors"]),
+        ...mapGetters("auth", ["errors"]),
     },
 
     mounted() {
-        this.$store.commit("setErrors", {});
+        this.$store.commit("auth/setErrors", {});
     },
 
     methods: {

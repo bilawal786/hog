@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
- Route::get('/admin', 'AdminController@login')->name('admin.login');
+ Route::get('/admin/', 'AdminController@login')->name('admin.login');
  Route::get('/admin/reset', 'AdminController@reset')->name('admin.reset');
 
 Route::group(['middleware' => ['auth']], function() {

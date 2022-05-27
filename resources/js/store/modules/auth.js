@@ -6,16 +6,23 @@ export default {
   namespaced: true,
 
   state: {
-    userData: null
+    data:{
+      userData: null,
+      errors: [],
+    }
   },
 
   getters: {
-    user: state => state.userData,
+    user: state => state.data.userData,
+    errors: state => state.data.errors
   },
 
   mutations: {
     setUserData(state, user) {
-      state.userData = user;
+      state.data.userData = user;
+    },
+    setErrors(state, errors) {
+      state.data.errors = errors;
     }
   },
 
@@ -31,7 +38,7 @@ export default {
         });
     },
     sendLoginRequest({ commit }, data) {
-      commit("setErrors", {}, { root: true });
+      commit("setErrors", {});
       return axios
         .post("/login", data)
         .then(response => {
@@ -41,7 +48,7 @@ export default {
         });
     },
     sendRegisterRequest({ commit }, data) {
-      commit("setErrors", {}, { root: true });
+      commit("setErrors", {});
       return axios
         .post("/register", data)
         .then(response => {

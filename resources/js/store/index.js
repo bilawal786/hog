@@ -16,21 +16,21 @@ import auth from "./modules/auth.js";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    errors: []
-  },
+  // state: {
+  //   errors: []
+  // },
 
-  getters: {
-    errors: state => state.errors
-  },
+  // getters: {
+  //   errors: state => state.errors
+  // },
 
-  mutations: {
-    setErrors(state, errors) {
-      state.errors = errors;
-    }
-  },
+  // mutations: {
+  //   setErrors(state, errors) {
+  //     state.errors = errors;
+  //   }
+  // },
 
-  actions: {},
+  // actions: {},
 
   modules: {
     auth

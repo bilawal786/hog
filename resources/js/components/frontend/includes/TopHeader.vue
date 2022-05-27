@@ -1,7 +1,7 @@
 <template>
             <!-- ====== Header Top Area ====== -->
         <header class="header-top-area bg-nero">
-            <div class="container">
+            <div class="container-flud" style="margin: 0 20px;">
                 <div class="row">
                     <div class="col-md-12  hidden-xs hidden-sm">
                         <div class="header-content-right">
