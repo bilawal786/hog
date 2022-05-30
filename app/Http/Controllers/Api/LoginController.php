@@ -50,11 +50,11 @@ class LoginController extends Controller
         if ($response = $this->authenticated($request, $this->guard()->user())) {
             return $response;
         }
-
         return response()->json([
             'token'    => $request->user()->createToken($request->input('device_name'))->accessToken,
             'user'     => $request->user()
-        ]);
+            ]);
+        
     }
 
     /**
@@ -112,7 +112,8 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
-        if ($this->attemptLogin($request)) {
+        if ($this->attemptLogin($request) && $request->user()->role == 'user') {
+
             return $this->sendLoginResponse($request);
         }
 

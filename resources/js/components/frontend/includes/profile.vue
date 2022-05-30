@@ -26,7 +26,7 @@
                     <td>{{ user.address }}</td>
                 </tr>
             </table>
-            <button class="btn btn-hog">Edit Profile</button>
+            <button type="button" class="btn btn-hog" v-on:click="showStar = !showStar">Edit Profile</button>
             <button class="btn btn-hog">Change Password</button>
         </div>
     </div>
@@ -36,11 +36,22 @@
 import { mapGetters } from "vuex";
 
 export default {
+    data(){
+        return{
+            showStar : false
+        }
+    },
     mounted() {
         window.scrollTo(0, 0);
     },
     computed: {
         ...mapGetters("auth", ["user"])
+    },
+    methods:{
+        profileChange: function() {
+        this.editProfile = !this.editProfile;
+        // some code to filter users
+        }
     }
 };
 

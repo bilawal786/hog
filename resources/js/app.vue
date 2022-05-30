@@ -1,25 +1,31 @@
 <template>
     <div>
+        <!-- <div class="pg-full" v-if="this.setting">
+            <div id="loader"></div>
+        </div> -->
         <router-view> </router-view>
     </div>
 </template>
 <script>
-
+import { mapActions } from "vuex";
 export default {
     data(){
         return{
+            isLoder:true
         }
     },
-    computed:{
-
+    computed: {
     },
     methods: {
-        
+        ...mapActions("auth", ["getSettingData", "getUserData"]),
     },
     created(){
-     
+       
+        this.getSettingData()
+       this.getUserData()
     },
      mounted () {
+        
         var modelApp = {
             /* ---------------------------------------------
              Menu

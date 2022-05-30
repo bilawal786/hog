@@ -7,15 +7,15 @@
                         <div class="header-content-right">
                             <ul class="header-top-menu">
                                 <li class="mdn">
-                                    <a href="tel:+19167406447" class="top-left-menu">
+                                    <a v-bind:href="'tel:'+settings.phone" class="top-left-menu">
                                         <i class="fa fa-phone"></i>
-                                        <span>(916) 740-6447</span>
+                                        <span>{{settings.phone}}</span>
                                     </a>
                                 </li>
                                 <li class="mdn">
-                                    <a href="mailto:contact@heartofgoldmedtransport.com" class="top-left-menu">
+                                    <a v-bind:href="'mailto:'+settings.email" class="top-left-menu">
                                         <i class="fa fa-envelope"></i>
-                                        <span>contact@heartofgoldmedtransport.com</span>
+                                        <span>{{settings.email}}</span>
                                     </a>
                                 </li>
                                 <li v-show="!user">
@@ -41,22 +41,33 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  computed: {
-    ...mapGetters("auth", ["user"])
-  },
-
-  mounted() {
-    if (localStorage.getItem("authToken")) {
-      this.getUserData();
-    }
-  },
-
-  methods: {
-    ...mapActions("auth", ["sendLogoutRequest", "getUserData"]),
+    data(){
+        return{
+            st:null
+        }
+    },
+    computed: {
+        ...mapGetters("auth", ["settings", "user"])
+    },
+    mounted() {
+        
+    },
+    watch:{
+        checkVariable(){
+            if(this.settings){
+            }else{
+                this.settings.phone = null
+                this.settings.email = null
+            }
+        }
+        
+    },
+    methods: {
+    ...mapActions("auth", ["sendLogoutRequest"]),
 
     logout() {
       this.sendLogoutRequest();
-      this.$router.push("Login");
+      
     }
   }
 };

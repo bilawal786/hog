@@ -9,15 +9,20 @@ export default {
     data:{
       userData: null,
       errors: [],
+      setting:null
     }
   },
 
   getters: {
+    settings: state => state.data.setting,
     user: state => state.data.userData,
     errors: state => state.data.errors
   },
 
   mutations: {
+    setSettingData(state, settings) {
+      state.data.setting = settings;
+    },
     setUserData(state, user) {
       state.data.userData = user;
     },
@@ -27,6 +32,16 @@ export default {
   },
 
   actions: {
+    getSettingData({ commit }) {
+      axios
+        .get("/general/setting", {
+          headers: { Authorization: "" },
+        })
+        .then(response => {
+          console.log(response)
+          commit("setSettingData", response.data[0]);
+        })
+    },
     getUserData({ commit }) {
       axios
         .get("/user")
@@ -60,6 +75,7 @@ export default {
       axios.post("/logout").then(() => {
         commit("setUserData", null);
         localStorage.removeItem("authToken");
+        this.$router.push("Login");
       });
     },
     // sendVerifyResendRequest() {

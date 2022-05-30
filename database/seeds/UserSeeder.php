@@ -13,18 +13,18 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'User 01',
-                'email' => 'user01@heartofgold.com',
-                'password' => '$2y$10$dvLLS2tLu3nJPMCtmaX.COKdocxEzO.mpVfHA9uSOoq8/GYr0Z75u',
-                'role' => 'user',
+                'name' => 'Admin 01',
+                'email' => 'admin01@heartofgold.com',
+                'password' => Hash::make('12345678'),
+                'role' => 'admin',
                 'created_at'=>'2022-05-17 05:48:18',
                 'updated_at'=>'2022-05-17 05:48:18'
             ],
             [
-                'name' => 'Admin 01',
-                'email' => 'admin01@heartofgold.com',
-                'password' => '$2y$10$dvLLS2tLu3nJPMCtmaX.COKdocxEzO.mpVfHA9uSOoq8/GYr0Z75u',
-                'role' => 'admin',
+                'name' => 'User 01',
+                'email' => 'user01@heartofgold.com',
+                'password' => Hash::make("12345678"),
+                'role' => 'user',
                 'created_at'=>'2022-05-17 05:48:18',
                 'updated_at'=>'2022-05-17 05:48:18'
             ]

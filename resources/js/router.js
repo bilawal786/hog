@@ -63,18 +63,21 @@ const routes = [
     name: 'index',
     path: '/',
     component: home,
+    meta: { title: 'Heart of Gold | home' }
 
 },
 {
     name: 'about',
     path: '/about',
     component: about,
+    meta: { title: 'Heart of Gold | About' }
 
 },
 {
     name: 'services',
     path: '/services',
     component: services,
+    meta: { title: 'Heart of Gold | Services' }
 
 },
 {
@@ -82,6 +85,7 @@ const routes = [
     path: '/contact',
     component: contact,
     props: true,
+    meta: { title: 'Heart of Gold | Contact' }
 
 },
 {
@@ -89,12 +93,14 @@ const routes = [
   path: '/request-ride',
   component: requestRide,
   props: true,
+  meta: { title: 'Heart of Gold | Conform Ride Request' }
 
 },
 {
     name: 'resources',
     path: '/resources',
     component: resources,
+    meta: { title: 'Heart of Gold | Resources' }
 
 },
 {
@@ -102,17 +108,20 @@ const routes = [
     path: '/dashboard',
     component: dashboard,
     beforeEnter: auth,
+    meta: { title: 'Heart of Gold | Dashboard' }
 },
 {
     name: 'fqa',
     path: '/fqa',
     component: fqa,
+    meta: { title: 'Heart of Gold | FQA' }
 
 },
 {
     name: 'policy',
     path: '/policy',
     component: policy,
+    meta: { title: 'Heart of Gold | Policy' }
 
 },
 {
@@ -120,20 +129,24 @@ const routes = [
     path:'/login',
     component:login,
     beforeEnter: guest,
+    meta: { title: 'Heart of Gold | Login' }
 },
 {
     name:'registration',
     path:'/register',
     component:registration,
     beforeEnter: guest,
+    meta: { title: 'Heart of Gold | Registration' }
 },
 {
     path: '/404',
-    component: NotFound
+    component: NotFound,
+    meta: { title: 'Heart of Gold | 404' }
 },  
 {
     path: '*',
-     component: NotFound
+     component: NotFound,
+     meta: { title: 'Heart of Gold | 404' }
 },
 ];
 
@@ -142,5 +155,9 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+router.beforeEach((to, form, next)=>{
+  document.title = `${to.meta.title}`;
+  next();
+})
 
 export default router;

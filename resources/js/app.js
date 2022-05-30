@@ -6,7 +6,17 @@ import VueAxios from 'vue-axios';
 import axios from "axios";
 Vue.use(VueAxios, axios);
 
+require('./bootstrap');
+
+ window.Vue = require('vue');
+
 Vue.config.productionTip = false;
+
+if(process.env.MIX_VUE_HOST == 'local'){
+  axios.defaults.baseURL = 'http://localhost:8000/api/';
+}else{
+  axios.defaults.baseURL = 'https://hog.codingcrust.com/api/';
+}
 
 axios.interceptors.response.use(
   response => response,
@@ -14,9 +24,10 @@ axios.interceptors.response.use(
     if (error.response.status === 422) {
       store.commit("auth/setErrors", error.response.data.errors);
     } else if (error.response.status === 401) {
+
       store.commit("auth/setUserData", null);
       localStorage.removeItem("authToken");
-      router.push({ name: "Login" });
+      // router.push({ name: "Login" });
     } else {
       return Promise.reject(error);
     }
@@ -33,25 +44,9 @@ axios.interceptors.request.use(function(config) {
   return config;
 });
 
-require('./bootstrap');
-
- window.Vue = require('vue');
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 const app = new Vue({
     el: '#app', 
     router,
     store,
     render: h => h(App),
 });
-
-
-// const admin = new Vue({
-//     el: '#admin', 
-//     router: router,
-//     render: h => h(Admin),
-// });

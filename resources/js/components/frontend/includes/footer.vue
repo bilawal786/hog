@@ -10,10 +10,8 @@
                                     About us
                                 </h3><!-- /.widget-title -->
                                 <div class="widget-about-content">
-                                    <img src="assets/images/footlogo.png" alt="logo" />
-                                    <p>Heart of Gold Medical Transport is a family-owned non-emergency medical
-                                        transportation company serving the greater Sacramento area since 2016. Its owner is Megan.
-                                        Megan has worked as a nurse since 2009, becoming a Registered Nurse</p>
+                                    <img v-bind:src="settings.footer_logo" alt="logo" />
+                                    <p>{{settings.footer_about}}</p>
                                     <router-link to="/about" class="button">Read More</router-link>
                                 </div><!-- /.widget-content -->
                             </div><!-- /.widget widget_about -->
@@ -52,10 +50,10 @@
                                     STAY CONNECTED
                                 </h3><!-- /.widget-title -->
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-envelope"></i>contact@heartofgoldmedtransport.com</a></li>
-                                    <li><a href="#"><i class="fa fa-phone"></i> (916) 740-6447</a></li>
-                                    <li><a href="#"><i class="fa fa-map-marker"></i><span>Office Address:</span> 1329 Howe Ave #205, Sacramento, CA 95825</a></li>
-                                    <li><a href="#"><i class="fa fa-map-marker"></i><span>Mailing Address:</span> 7828 Zenith Dr. #7862, Citrus Heights, CA 95621</a></li>
+                                    <li><a v-bind:href="'mailto:'+settings.email"><i class="fa fa-envelope"></i>{{settings.email}}</a></li>
+                                    <li><a v-bind:href="'tel:'+settings.phone"><i class="fa fa-phone"></i> {{settings.phone}}</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i><span>Office Address: </span>{{settings.office_address}}</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i><span>Mailing Address: </span>{{settings.mailing_address}}</a></li>
                                     
                                 </ul>
                             </div><!-- /.widget -->
@@ -80,3 +78,23 @@
             </div><!-- /.container -->
         </footer><!-- /.footer-block -->
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters("auth", ["settings"])
+  },
+  watch:{
+        checkVariable(){
+            if(this.settings){
+            }else{
+                this.settings = null
+            }
+        }
+        
+    },
+ 
+};
+</script>

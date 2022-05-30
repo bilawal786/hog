@@ -6,7 +6,7 @@
                     <div class="col-md-3 col-sm-10 col-xs-10">
                         <div class="site-logo">
                             <router-link to="/"><img class="mlogo" style="margin-top: -40px"
-                                    src="assets/images/heart-of-gold.png" alt="logo" /></router-link>
+                                    v-bind:src="settings.header_logo" alt="logo" /></router-link>
                         </div><!-- /.logo -->
                     </div><!-- /.col-md-3 -->
                     <div class="col-md-9 col-sm-2 col-xs-2 pd-right-0">
@@ -30,7 +30,7 @@
                                             <router-link to="/resources">RESOURCES</router-link>
                                         </li>
                                         <li class="hidden-md hidden-lg">
-                                            <router-link class="trigger-overlay" to="/login">login</router-link>
+                                            <router-link to="/login">login</router-link>
                                         </li>
                                     </ul> <!-- /.menu-list -->
                                 </div> <!-- /.menu-content-->
@@ -60,22 +60,12 @@
         </header><!-- /.header-bottom-area -->
 </template>
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters("auth", ["user"])
+    ...mapGetters("auth", ["settings"])
   },
-
-  mounted() {
-    if (localStorage.getItem("authToken")) {
-      this.getUserData();
-    }
-  },
-
-  methods: {
-    ...mapActions("auth", ["getUserData"]),
-  }
+ 
 };
 </script>
-
