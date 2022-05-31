@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('content')'
+@section('content')
 
 <div class="page-wrapper">
 	<div class="container-fluid pt-25">

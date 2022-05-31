@@ -69,7 +69,6 @@
 												</div>
 												<div class="form-group">
 													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Password</label>
-													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="forgot-password.html">forgot password ?</a>
 													<div class="clearfix"></div>
 													<input type="password" placeholder="Enter pwd" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 												</div>

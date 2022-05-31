@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('content')'
+@section('content')
 <div class="page-wrapper" style="min-height: 385px;">
     <div class="container-fluid">
         <!-- Title -->
@@ -10,7 +10,7 @@
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
               <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                 <li><a href="#"><span>Billing Question</span></a></li>
 
               </ol>

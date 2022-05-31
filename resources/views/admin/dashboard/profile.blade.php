@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="page-wrapper">
-    <div class="container-fluid pt-25">
+    <div class="container-fluid">
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -11,7 +11,7 @@
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
               <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                 <li><a href="#"><span>Profile</span></a></li>
               </ol>
             </div>

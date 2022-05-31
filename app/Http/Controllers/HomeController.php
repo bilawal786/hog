@@ -66,6 +66,13 @@ class HomeController extends Controller
             'office_address' => $request->office_address ?? $generaldata->office_address,
             'mailing_address' => $request->mailing_address ?? $generaldata->mailing_address,
         ]);
+
+        // return redirect()->route('generalsetting',[
+        //         'flug'    => 1,
+        //         'status'  => 'error',
+        //         'message' => 'pyament failed for json parse error but your order currenty on  cash on delivery
+        //         if u want to pay click on My Order button',
+        //     ]);
        
        
         return redirect()->route('generalsetting');

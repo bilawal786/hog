@@ -32,6 +32,8 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     Route::get('/admin/users/clents', 'Admin\ClientsController@clients')->name('clients');
     Route::get('/admin/user/drivers', 'Admin\DriversController@drivers')->name('drivers');
 
+    Route::post('/admin/user/drivers', 'Admin\DriversController@addDriver')->name('add.drivers');
+
     Route::get('/admin/form/submit/feedback', 'Admin\FormSubmitController@submit_feedBack')->name('submit.feedback');
     Route::get('/admin/form/billing/question', 'Admin\FormSubmitController@billing_question')->name('billing.question');
     Route::get('/admin/form/request/ride', 'Admin\FormSubmitController@request_ride')->name('request.ride');

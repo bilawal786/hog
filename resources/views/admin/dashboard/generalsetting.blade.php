@@ -12,13 +12,13 @@
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
               <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="{{route('dashboard')}}">Dashboard</a></li>
                 <li><a href="#"><span>General-Setting</span></a></li>
               </ol>
             </div>
             <!-- /Breadcrumb -->
         </div>
-
+        <general-setting></general-setting>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default card-view">
@@ -154,3 +154,6 @@
     </div>
 </div>
 @endsection
+@push('script')
+    <script src="/js/general_setting.js" type="text/javascript"></script>
+@endpush
