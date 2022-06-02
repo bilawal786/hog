@@ -1,5 +1,12 @@
 {
+    "/js/admin/admin_billingRequest.js": "/js/admin/admin_billingRequest.js",
+    "/js/admin/admin_clients.js": "/js/admin/admin_clients.js",
+    "/js/admin/admin_drivers.js": "/js/admin/admin_drivers.js",
+    "/js/admin/admin_generalSetting.js": "/js/admin/admin_generalSetting.js",
+    "/js/admin/admin_others.js": "/js/admin/admin_others.js",
+    "/js/admin/admin_profile.js": "/js/admin/admin_profile.js",
+    "/js/admin/admin_requestRide.js": "/js/admin/admin_requestRide.js",
+    "/js/admin/admin_submitFeedBack.js": "/js/admin/admin_submitFeedBack.js",
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/js/general_setting.js": "/js/general_setting.js"
+    "/css/app.css": "/css/app.css"
 }

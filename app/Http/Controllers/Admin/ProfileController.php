@@ -19,8 +19,8 @@ class ProfileController extends Controller
     }
     public function profile()
     {
-       
-       // dd();
+        
+      //  return response()->json(Auth::user());
         return view('admin.dashboard.profile');
     }
     public function updateProfile(Request $request)

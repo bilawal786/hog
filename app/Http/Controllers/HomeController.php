@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GeneralSetting;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -28,9 +29,10 @@ class HomeController extends Controller
     }
     public function generalsetting()
     {
+        
         $generaldata = GeneralSetting::find(1);
-       
-        return view('admin.dashboard.generalsetting',  compact('generaldata'));
+        // return response()->json($generaldata);
+        return view('admin.dashboard.generalsetting');
     }
     public function updategeneralsetting(Request $request)
     {
@@ -65,15 +67,7 @@ class HomeController extends Controller
             'phone' => $request->phone ?? $generaldata->phone,
             'office_address' => $request->office_address ?? $generaldata->office_address,
             'mailing_address' => $request->mailing_address ?? $generaldata->mailing_address,
-        ]);
-
-        // return redirect()->route('generalsetting',[
-        //         'flug'    => 1,
-        //         'status'  => 'error',
-        //         'message' => 'pyament failed for json parse error but your order currenty on  cash on delivery
-        //         if u want to pay click on My Order button',
-        //     ]);
-       
+        ]);    
        
         return redirect()->route('generalsetting');
     }

@@ -67,3 +67,6 @@
 </div>
 
 @endsection
+@push('script')
+    <script src="{{ mix('js/admin/admin_billingRequest.js') }}" type="text/javascript"></script>
+@endpush

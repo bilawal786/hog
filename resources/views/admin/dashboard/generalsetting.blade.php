@@ -18,7 +18,7 @@
             </div>
             <!-- /Breadcrumb -->
         </div>
-        <general-setting></general-setting>
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default card-view">
@@ -27,7 +27,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-wrap">
+                                    <general-setting></general-setting>
+                                    {{-- <div class="form-wrap">
                                         <form action="{{route('updategeneralsetting')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                             @csrf
                                             <div class="form-body">
@@ -141,7 +142,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -155,5 +156,5 @@
 </div>
 @endsection
 @push('script')
-    <script src="/js/general_setting.js" type="text/javascript"></script>
+    <script src="{{ mix('js/admin/admin_generalSetting.js') }}" type="text/javascript"></script>
 @endpush

@@ -16,7 +16,7 @@ Vue.config.productionTip = false;
 //   axios.defaults.baseURL = 'http://localhost:8000/api/';
 // }else{
   axios.defaults.baseURL = 'https://hog.codingcrust.com/api/';
-
+// }
 axios.interceptors.response.use(
   response => response,
   error => {

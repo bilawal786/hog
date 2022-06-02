@@ -1,6 +1,9 @@
 //axios adding
 window.axios = require('axios');
 
+// axios.defaults.baseURL = 'http://localhost:8000/'
+axios.defaults.baseURL = 'https://hog.codingcrust.com/';
+
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 // seting up csrf-token in js 
@@ -14,9 +17,12 @@ if (token) {
 
 // sweet alert imported 
 
-// import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
-// window.Swal = Swal;
+window.Swal = Swal;
+
+
+
 
 
 // vue js instance 

@@ -13,6 +13,13 @@ const mix = require('laravel-mix');
  require('dotenv').config();
  
 mix.js('resources/js/app.js', 'public/js')
-mix.js('resources/js/general_setting.js', 'public/js')
+mix.js('resources/js/admin_generalSetting.js', 'public/js/admin')
+mix.js('resources/js/admin_billingRequest.js', 'public/js/admin')
+mix.js('resources/js/admin_clients.js', 'public/js/admin')
+mix.js('resources/js/admin_drivers.js', 'public/js/admin')
+mix.js('resources/js/admin_others.js', 'public/js/admin')
+mix.js('resources/js/admin_profile.js', 'public/js/admin')
+mix.js('resources/js/admin_requestRide.js', 'public/js/admin')
+mix.js('resources/js/admin_submitFeedBack.js', 'public/js/admin')
     .sass('resources/sass/app.scss', 'public/css');
   //  .sass('resources/sass/admin.scss', 'public/css');
