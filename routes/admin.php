@@ -22,6 +22,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::resource('web/form/others', 'Admin\Form\OtherController');
     Route::resource('web/form/request/ride', 'Admin\Form\RequestRideController');
     Route::resource('web/form/submit/feedback', 'Admin\Form\SubmitFeedBackController');
+    Route::resource('web/show/lead', 'Admin\Lead\LeadController');
+    Route::get('web/driver/all', 'Admin\Users\DriverController@getAllDrivers');
 });
   
     

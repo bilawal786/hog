@@ -42,7 +42,7 @@ class RequestRideController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -53,7 +53,8 @@ class RequestRideController extends Controller
      */
     public function show($id)
     {
-        //
+        $ride = SendMessage::where('type', 'Request Ride')->where('id', $id)->first();
+        return response()->json($ride);
     }
 
     /**

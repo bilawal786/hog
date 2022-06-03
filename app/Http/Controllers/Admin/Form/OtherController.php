@@ -31,7 +31,7 @@ class OtherController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -42,7 +42,7 @@ class OtherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -53,7 +53,8 @@ class OtherController extends Controller
      */
     public function show($id)
     {
-        //
+        $other = SendMessage::where('type', 'Others')->where('id', $id)->first();
+        return response()->json($other);
     }
 
     /**

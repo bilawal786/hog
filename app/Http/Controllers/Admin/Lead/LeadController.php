@@ -1,27 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Form;
+namespace App\Http\Controllers\Admin\Lead;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\SendMessage;
+use App\DriverLeads;
 
-class BillingRequestController extends Controller
+class LeadController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     public function index()
     {
-        $questions = SendMessage::where('type', 'Billing Question')->get();
-        return response()->json($questions);
+        //
     }
 
     /**
@@ -31,7 +30,7 @@ class BillingRequestController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -42,7 +41,22 @@ class BillingRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'driver_id' => 'required',
+            'ride_id' => 'required',
+            'notes' => 'required',
+            'status' => 'required',
+            ]);
+            $driver_lead = new DriverLeads;
+            $driver_lead->driver_id = $request->driver_id;
+            $driver_lead->ride_id = $request->ride_id;
+            $driver_lead->notes = $request->notes;
+            $driver_lead->status = $request->status;
+            $driver_lead->save();
+
+           return response()->json([
+               "driver" => "Successfully Created"
+           ]);
     }
 
     /**
@@ -53,8 +67,7 @@ class BillingRequestController extends Controller
      */
     public function show($id)
     {
-        $question = SendMessage::where('type', 'Billing Question')->where('id', $id)->first();
-        return response()->json($question);
+        //
     }
 
     /**

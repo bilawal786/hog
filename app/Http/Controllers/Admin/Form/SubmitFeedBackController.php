@@ -53,7 +53,8 @@ class SubmitFeedBackController extends Controller
      */
     public function show($id)
     {
-        //
+        $feedBack = SendMessage::where('type', 'Submit Feedback')->where('id', $id)->first();
+        return response()->json($feedBack);
     }
 
     /**

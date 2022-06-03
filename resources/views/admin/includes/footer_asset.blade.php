@@ -53,8 +53,10 @@
 	<!-- Fancy Dropdown JS -->
 	<script src="{{ asset('/dist/js/dropdown-bootstrap-extended.js')}}"></script>
 
-	<!-- Init JavaScript -->
-	<script src="{{ asset('/dist/js/init.js')}}"></script>
+
 	<script src="{{ asset('/dist/js/dashboard-data.js')}}"></script>
 
     @stack('script')
+
+	<!-- Init JavaScript -->
+	<script src="{{ asset('/dist/js/init.js')}}"></script>

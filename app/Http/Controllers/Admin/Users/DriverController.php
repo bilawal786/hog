@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\DriverResource;
 use App\User;
 
 class DriverController extends Controller
@@ -107,5 +108,10 @@ class DriverController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function getAllDrivers(){
+        $drivers = User::where('role', 'driver')->select('id', 'name')->orderBy('id', 'desc')->get();
+        $data = DriverResource::collection($drivers);
+        return response()->json($data);
     }
 }

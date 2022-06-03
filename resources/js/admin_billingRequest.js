@@ -1,5 +1,5 @@
 require('./vue-assets');
-Vue.component('general-setting', require('./components/admin/generalSetting/generalSetting.vue').default);
+Vue.component('billing-request', require('./components/admin/billingRequest/billingRequest.vue').default);
 // Vue.component('view-category', require('./components/admin/category/ViewCategory.vue').default);
 
 
