@@ -4,15 +4,12 @@ namespace App\Http\Controllers\Admin\Lead;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\DriverLeads;
+use App\Http\Resources\DriverLeadsResources;
+use Auth;
 
-class LeadController extends Controller
+class DriverLeadController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +17,9 @@ class LeadController extends Controller
      */
     public function index()
     {
-        //
+        $driverlead = DriverLeads::with('driver', 'leads')->where('driver_id', Auth::user()->id)->get();
+        $data = DriverLeadsResources::collection($driverlead);
+        return response()->json($data);
     }
 
     /**
@@ -30,7 +29,7 @@ class LeadController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -41,22 +40,7 @@ class LeadController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'driver_id' => 'required',
-            'ride_id' => 'required',
-            'notes' => 'required',
-            'status' => 'required',
-            ]);
-            $driver_lead = new DriverLeads;
-            $driver_lead->driver_id = $request->driver_id;
-            $driver_lead->ride_id = $request->ride_id;
-            $driver_lead->notes = $request->notes;
-            $driver_lead->status = $request->status;
-            $driver_lead->save();
-
-           return response()->json([
-               "driver" => "Successfully Created"
-           ]);
+        //
     }
 
     /**
@@ -67,17 +51,7 @@ class LeadController extends Controller
      */
     public function show($id)
     {
-        // $leadallassign = DriverLeads::where('ride_id', $id)->get();
-        $lead = DriverLeads::where('ride_id', $id)->orderBy('id', 'desc')->first();
-
-        if($lead){
-            return response()->json($lead);
-        }else{
-            return response()->json('no');
-        }
-
-       
-        // return response()->json($data, 200, $headers);
+        //
     }
 
     /**
@@ -100,7 +74,12 @@ class LeadController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+        
+        $data = DriverLeads::where('id', $id)->update([
+            "status"=> $request->status
+        ]);
+
+        return response()->json('success');
     }
 
     /**
@@ -113,5 +92,11 @@ class LeadController extends Controller
     {
         //
     }
-    
+    public function allleads(){
+        $assigned = DriverLeads::where('driver_id', Auth::user()->id)->where('status', 'Assigned')->count();
+        $process = DriverLeads::where('driver_id', Auth::user()->id)->where('status', 'Process')->count();
+        $reject = DriverLeads::where('driver_id', Auth::user()->id)->where('status', 'Reject')->count();
+        $success = DriverLeads::where('driver_id', Auth::user()->id)->where('status', 'Complete')->count();
+        return response()->json([$assigned, $process, $reject, $success]);
+    }
 }

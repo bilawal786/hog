@@ -14,8 +14,7 @@
 
 	<script src="{{ asset('vendors/bower_components/bootstrap-validator/dist/validator.min.js')}}"></script>
 
-	<!-- Form Flie Upload Data JavaScript -->
-	<script src="{{ asset('/dist/js/form-file-upload-data.js')}}"></script>
+
 	
 	<!-- simpleWeather JavaScript -->
 	<script src="{{ asset('/vendors/bower_components/moment/min/moment.min.js')}}"></script>
@@ -41,9 +40,7 @@
 	<script src="{{ asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js')}}"></script>
 	<script src="{{ asset('dist/js/dataTables-data.js')}}"></script>
 
-	<!-- Slimscroll JavaScript -->
-	<script src="{{ asset('/dist/js/jquery.slimscroll.js')}}"></script>
-
+	
 	<!-- Owl JavaScript -->
 	<script src="{{ asset('/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js')}}"></script>
 
@@ -57,6 +54,10 @@
 	<script src="{{ asset('/dist/js/dashboard-data.js')}}"></script>
 
     @stack('script')
+	
+	<!-- Slimscroll JavaScript -->
+	<script src="{{ asset('/dist/js/jquery.slimscroll.js')}}"></script>
+
 
 	<!-- Init JavaScript -->
 	<script src="{{ asset('/dist/js/init.js')}}"></script>

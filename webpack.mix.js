@@ -21,5 +21,6 @@ mix.js('resources/js/admin_others.js', 'public/js/admin')
 mix.js('resources/js/admin_profile.js', 'public/js/admin')
 mix.js('resources/js/admin_requestRide.js', 'public/js/admin')
 mix.js('resources/js/admin_submitFeedBack.js', 'public/js/admin')
+mix.js('resources/js/driver_dashboard.js', 'public/js/admin')
     .sass('resources/sass/app.scss', 'public/css');
   //  .sass('resources/sass/admin.scss', 'public/css');

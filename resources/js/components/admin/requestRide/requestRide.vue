@@ -11,6 +11,7 @@
                     </div>
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
+
                             <div class="table-wrap">
                                 <div class="table-responsive">
                                     <table id="" class="table table-hover display pb-30">
@@ -81,10 +82,13 @@
         </div>
         <div class="row" v-show="panel.detail">
             <div class="col-sm-6">
+                <lead-detail :rideDetail="rideDetail"></lead-detail>
+            </div>
+            <div class="col-sm-6" v-show="leedAssign">
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
                         <div class="pull-left">
-                            <h6 class="panel-title txt-dark">Request Ride</h6>
+                            <h6 class="panel-title txt-dark">Lead Detail</h6>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -95,54 +99,16 @@
                                     <table class="table mb-0">
                                         <tbody>
                                             <tr>
-                                                <td class="border-none">Rider Name:</td>
-                                                <td class="border-none">
-                                                    {{ rideDetail.Fname + " " + rideDetail.Lname }}
-                                                </td>
+                                                <td class="border-none">Status</td>
+                                                <td class="border-none">{{leadDetail.status}} </td>
                                             </tr>
                                             <tr>
-                                                <td>Rider E-mail:</td>
-                                                <td>{{ rideDetail.email }}</td>
+                                                <td>Assign Date</td>
+                                                <td> {{leadDetail.created_at}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Rider Phone</td>
-                                                <td>{{ rideDetail.phone }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Rider wheelchair</td>
-                                                <td>{{ rideDetail.wheelchair }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Rider Round Trip</td>
-                                                <td>{{ rideDetail.round_trip }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Rider Trip Date</td>
-                                                <td>{{ rideDetail.trip_date }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Rider Message</td>
-                                                <td>{{ rideDetail.message }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Start Location</td>
-                                                <td>{{ rideDetail.start_address }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>End Location</td>
-                                                <td>{{ rideDetail.end_address }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Distance</td>
-                                                <td>{{ rideDetail.distance }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cost</td>
-                                                <td>{{ rideDetail.cost }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Created Ride Date</td>
-                                                <td>{{ rideDetail.created_at }}</td>
+                                                <td>Note</td>
+                                                <td>{{leadDetail.notes}}} </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -150,9 +116,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">Driver</h6>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                        <driver-detail :selectdriver="selectdriver"></driver-detail>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" v-show="!leedAssign">
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
                         <div class="pull-left">
@@ -179,55 +154,23 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
-                         
-                      
-                            <div class="panel-heading" v-if="selected != 0">
-                                <div class="pull-left">
-                                    <h6 class="panel-title txt-dark">Selected Driver</h6>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="panel-wrapper collapse in" v-if="selected != 0">
-                            <div class="panel-body">
-                                <div class="table-wrap">
-                                    <div class="table-responsive">
-                                        <table class="table mb-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="border-none">Driver Name:</td>
-                                                    <td class="border-none">
-                                                        {{ selectdriver.name }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Driver E-mail:</td>
-                                                    <td>{{ selectdriver.email }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Driver Phone</td>
-                                                    <td>{{ selectdriver.phone }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Driver Address</td>
-                                                    <td>{{ selectdriver.address }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Driver Register Date</td>
-                                                    <td>{{ selectdriver.created_at }}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div class="form-group">
-											<label class="control-label mb-10 text-left">Notes</label>
-											<textarea class="form-control" rows="5" v-model="driverNote"></textarea>
-										</div>
-                                    </div>
-                                </div>
-                                <button class="btn  btn-info" @click="assignLead()">Assign Lead</button>
-                            </div>
-                       
                     </div>
+                    <div class="panel-heading" v-if="selected != 0">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">Selected Driver</h6>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in" v-if="selected != 0">
+                    <div class="panel-body">
+                        <driver-detail :selectdriver="selectdriver"></driver-detail>
+                        <div class="form-group" v-show="!leedAssign">
+                            <label class="control-label mb-10 text-left">Notes</label>
+                            <textarea class="form-control" rows="5" v-model="driverNote"></textarea>
+                        </div>
+                        <button class="btn  btn-info" @click="assignLead()">Assign Lead</button>
+                    </div>
+                       </div>
                 </div>
             </div>
         </div>
@@ -235,6 +178,8 @@
 </template>
 <script>
 import select2 from "../includes/select2";
+import LeadDetail from "../includes/LeadDetail";
+import DriverDetail from "../includes/driverDetail";
 export default {
     data() {
         return {
@@ -242,7 +187,7 @@ export default {
             rides: null,
             // ride detals
             rideDetail: {
-                id:null,
+                id: null,
                 Fname: null,
                 Lname: null,
                 email: null,
@@ -261,14 +206,21 @@ export default {
             options: null,
             // select drivers
             selectdriver: {
-                id:null,
+                id: null,
                 name: null,
                 email: null,
                 phone: null,
                 address: null,
                 created_at: null
             },
-            driverNote:null,
+            driverNote: null,
+            //lead assign
+            leedAssign: false,
+            leadDetail:{
+                status: null,
+                created_at:null,
+                notes:null
+            }
         };
     },
     watch: {
@@ -292,15 +244,23 @@ export default {
             this.panel.allRides = false;
             this.panel.detail = true;
             axios.get("admin/web/form/request/ride/" + id).then((response) => {
-                if(response.status == 200){
-                    console.log(response)
+                if (response.status == 200) {
                     this.rideDetail = response.data;
-                    axios.get('admin/web/show/lead').then((res) => {
-                        console.log(res)
-                    })
-                    this.driversList()
+                    this.getLeadDetail(response.data.id)
+
                 }
             });
+        },
+        getLeadDetail: function(id){
+            axios.get('admin/web/show/lead/' + id).then((res) => {
+                        if (res.data == "no") {
+                            this.driversList()
+                        } else {
+                            this.leedAssign = true;
+                            this.leadDetail = res.data
+                            this.driverById(res.data.driver_id)
+                        }
+                    })
         },
         driversList: function () {
             axios.get('admin/web/driver/all').then((response) => {
@@ -315,6 +275,7 @@ export default {
         backToList: function () {
             this.panel.allRides = true;
             this.panel.detail = false;
+            this.leedAssign = false
         },
         assignLead: function () {
             Swal.fire({
@@ -329,25 +290,29 @@ export default {
             }).then((result) => {
                 if (result.value) {
                     axios.post('admin/web/show/lead', {
-                        driver_id:this.selectdriver.id,
-                        ride_id:this.rideDetail.id,
-                        notes:this.driverNote,
-                        status:'Processing',
+                        driver_id: this.selectdriver.id,
+                        ride_id: this.rideDetail.id,
+                        notes: this.driverNote,
+                        status: 'Assigned',
                     })
-                    .then(response => {
-                        window.scrollTo(0, 0)
-                        if(response.status == 200){
-                            this.$vToastify.success("successfully Updated");
-                        }else{
+                        .then(response => {
+                            window.scrollTo(0, 0)
+                            if (response.status == 200) {
+                                this.leedAssign = true;
+                                 this.getLeadDetail(this.rideDetail.id)
+                                this.$vToastify.success("successfully Updated");
+                            } else {
 
-                        }
-                    })
+                            }
+                        })
                 }
             })
         }
     },
     components: {
-        select2
+        select2,
+        LeadDetail,
+        DriverDetail
     }
 };
 </script>

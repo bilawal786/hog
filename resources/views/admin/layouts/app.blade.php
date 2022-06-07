@@ -12,9 +12,9 @@
 </head>
 <body>
 	<!-- Preloader -->
-	<div class="preloader-it">
+	{{-- <div class="preloader-it">
 		<div class="la-anim-1"></div>
-	</div>
+	</div> --}}
 	<!-- /Preloader -->
     <div class="wrapper theme-4-active pimary-color-red" id="admin">
 		@include('admin.includes.navigation')

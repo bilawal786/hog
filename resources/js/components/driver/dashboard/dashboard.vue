@@ -1,0 +1,322 @@
+<template>
+<div>
+	<div class="preloader-it" v-show="loader">
+		<div class="la-anim-1"></div>
+	</div>
+    <div class="container-fluid pt-25">
+		<count-leads></count-leads>
+		<div class="row" v-if="leadDetail == null">
+			<div class="col-sm-12">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h6 class="panel-title txt-dark">Leads</h6>
+						</div>
+						<div class="pull-right">
+							<a href="#" class="pull-left inline-block full-screen">
+								<i class="zmdi zmdi-fullscreen"></i>
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body row pa-0">
+							<div class="table-wrap">
+								<div class="table-responsive">
+									<table class="table display product-overview border-none" id="support_table">
+										<thead>
+											<tr>
+												<th>Client Name</th>
+												<th>Notes</th>
+												<th>Date</th>
+												<th>Time</th>
+												<th>Status</th>
+												<th>Actions</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr v-for="lead in leads" :key="lead.id">
+												<td>{{lead.name}}</td>
+												<td>{{lead.notes}}</td>
+												<td><date-formate :date="lead.trip_date"></date-formate></td>
+												<td><set-time :date="lead.trip_date"></set-time></td>
+												<td>
+													<span class="label label-primary" v-if="lead.status == 'Assigned'">{{lead.status}}</span>
+													<span class="label label-warning" v-if="lead.status == 'Process'">{{lead.status}}</span>
+													<span class="label label-danger" v-if="lead.status == 'Reject'">{{lead.status}}</span>
+													<span class="label label-success" v-if="lead.status == 'Complete'">{{lead.status}}</span>
+												</td>
+												<td>
+													<button @click="showLeadDetail(lead.ride_id, lead.id, lead.status)"  class="pr-10 btn btn-primary btn-icon-anim btn-circle btn-sm"><i class="zmdi zmdi-eye"></i></button>
+												</td>
+											</tr>
+										</tbody>
+									</table>		
+								</div>
+							</div>	
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		 <div class="row" v-if="leadDetail">
+            <div class="col-sm-12">
+                <div class="panel panel-default card-view">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">Lead details</h6>
+                        </div>
+                        <div class="pull-right">
+                            <button class="btn btn-primary btn-anim btn-sm" @click="backToList()">
+                                <i class="fa fa-arrow-left" style="color: #fff"></i><span class="btn-text">back</span>
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- /Row -->
+		<div class="row" v-if="leadDetail">
+			<div class="col-sm-6">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h6 class="panel-title txt-dark">Leads Detail</h6>
+						</div>
+						<div class="pull-right">
+							<a href="#" class="pull-left inline-block full-screen">
+								<i class="zmdi zmdi-fullscreen"></i>
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body row pa-0">
+							<div class="table-wrap">
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <tbody>
+                        <tr>
+                            <td class="border-none">Name:</td>
+                            <td class="border-none">
+                               {{leadDetail.Fname+' '+leadDetail.Lname}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>E-mail:</td>
+                            <td>{{leadDetail.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td>{{leadDetail.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Message:</td>
+                            <td>{{leadDetail.message}}</td>
+                        </tr>
+						 <tr>
+                            <td>Wheelchair:</td>
+                            <td>{{leadDetail.wheelchair}}</td>
+                        </tr>
+						 <tr>
+                            <td>Round Trip:</td>
+                            <td>{{leadDetail.round_trip}}</td>
+                        </tr>
+						<tr>
+                            <td>Trip Date:</td>
+                            <td>{{leadDetail.trip_date}}</td>
+                        </tr>
+						<tr>
+                            <td>Trip Time:</td>
+                            <td>{{leadDetail.trip_date}}</td>
+                        </tr>
+						<tr>
+                            <td>Start Address:</td>
+                            <td>{{leadDetail.start_address}}</td>
+                        </tr>
+						<tr>
+                            <td>End Address:</td>
+                            <td>{{leadDetail.end_address}}</td>
+                        </tr>
+						<tr>
+                            <td>Distance:</td>
+                            <td>{{leadDetail.distance}}</td>
+                        </tr>
+						<tr>
+                            <td>Cost:</td>
+                            <td>{{leadDetail.cost}}</td>
+                        </tr>
+						<tr>
+                            <td>Created Date:</td>
+                            <td>{{leadDetail.created_at}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+               
+            </div>
+        </div>
+       
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<h6 class="panel-title txt-dark">Status</h6>
+						</div>
+						<div class="pull-right">
+							<a class="pull-left inline-block full-screen">
+								<i class="zmdi zmdi-fullscreen"></i>
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body row">
+							<div class="table-responsive">
+							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'Assigned'">
+								<button class="btn btn-warning btn-rounded btn-block btn-anim" @click="processRide(leadId)"><i class="zmdi zmdi-truck"></i><span class="btn-text">Process</span></button>
+							</div>
+							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'Assigned'">
+								<button class="btn btn-danger btn-rounded btn-block btn-anim" @click="rejectRide(leadId)"><i class="zmdi zmdi-close"></i><span class="btn-text">Reject</span></button>
+							</div>
+							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'Process'">
+								<button class="btn btn-success btn-rounded btn-block btn-anim" @click="completeRide(leadId)"><i class="zmdi zmdi-check"></i><span class="btn-text">Complete</span></button>
+							</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Row -->
+    </div>
+	</div>
+</template>
+<script>
+import DateFormate from '../../dateSet.vue'
+import SetTime from '../../setTime.vue'
+import CountLeads from './driverDashboardContLeads.vue'
+export default{
+    data(){
+        return{
+			loader:true,
+			leads:null,
+			leadDetail:null,
+			status:null,
+			leadId:null
+        }
+    },
+    mounted(){
+		this.getLeads()
+    },
+    methods:{
+		getLeads: function(){
+            axios.get('admin/web/show/driver/leads').then(response => {
+				if(response.status == 200){
+					this.leads = response.data;
+					console.log(response.data)
+					this.loader = false
+				}
+			})
+        },
+		showLeadDetail: function(Rid, Lid, status){
+			axios.get('admin/web/form/request/ride/'+Rid).then(response => {
+				this.leadDetail = response.data
+				this.status = status
+				this.leadId = Lid
+			})
+		},
+		processRide: function(id){
+			Swal.fire({
+                title: 'Are you sure ?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'rgb(34 110 237 / 85%)',
+                cancelButtonColor: '#ff2a00',
+                confirmButtonText: 'Yes, Change it!'
+            }, () => {
+            }).then((result) => {
+                if (result.value) {
+					axios.put('admin/web/show/driver/leads/'+id, {
+						'status' : 'Process'
+					}).then(response => {
+						if(response.status == 200){
+							this.leadDetail=null,
+							this.status=null,
+							this.leadId=null,
+							this.getLeads()
+						}
+					})
+                }
+            })
+		},
+		rejectRide: function(id){
+			Swal.fire({
+                title: 'Are you sure ?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'rgb(34 110 237 / 85%)',
+                cancelButtonColor: '#ff2a00',
+                confirmButtonText: 'Yes, Change it!'
+            }, () => {
+            }).then((result) => {
+                if (result.value) {
+					axios.put('admin/web/show/driver/leads/'+id, {
+						'status' : 'Reject'
+					}).then(response => {
+						if(response.status == 200){
+							this.leadDetail=null,
+							this.status=null,
+							this.leadId=null,
+							this.getLeads()
+						}
+					})
+                }
+            })
+		},
+		completeRide: function(id){
+			Swal.fire({
+                title: 'Are you sure ?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'rgb(34 110 237 / 85%)',
+                cancelButtonColor: '#ff2a00',
+                confirmButtonText: 'Yes, Change it!'
+            }, () => {
+            }).then((result) => {
+                if (result.value) {
+					axios.put('admin/web/show/driver/leads/'+id, {
+						'status' : 'Complete'
+					}).then(response => {
+						if(response.status == 200){
+							this.leadDetail=null,
+							this.status=null,
+							this.leadId=null,
+							this.getLeads()
+						}
+					})
+                }
+            })
+		},
+		backToList: function(){
+			this.leadDetail=null,
+			this.status=null,
+			this.leadId=null,
+			this.loader=false,
+			this.getLeads()
+		}
+    },
+	components: {
+		DateFormate,
+		SetTime,
+		CountLeads
+	}
+}
+</script>

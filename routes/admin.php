@@ -23,7 +23,19 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::resource('web/form/request/ride', 'Admin\Form\RequestRideController');
     Route::resource('web/form/submit/feedback', 'Admin\Form\SubmitFeedBackController');
     Route::resource('web/show/lead', 'Admin\Lead\LeadController');
+    Route::resource('web/show/driver/leads', 'Admin\Lead\DriverLeadController');
+    Route::get('web/list/driver/leads', 'Admin\Lead\DriverLeadController@allleads');
     Route::get('web/driver/all', 'Admin\Users\DriverController@getAllDrivers');
+
+    //admin widgets
+    Route::get('web/amdin/widget/leads', 'Admin\Widgets\WidgetsController@statusCount');
+    Route::get('web/admin/widget/user', 'Admin\Widgets\WidgetsController@userCount');
+    Route::get('web/admin/widget/leads/unassign', 'Admin\Widgets\WidgetsController@unassigLeadCount');
+    Route::get('web/admin/widget/leads/processing', 'Admin\Widgets\WidgetsController@processCount');
+
+
+
+
 });
   
     

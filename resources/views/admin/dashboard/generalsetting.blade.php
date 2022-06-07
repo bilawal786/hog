@@ -157,4 +157,6 @@
 @endsection
 @push('script')
     <script src="{{ mix('js/admin/admin_generalSetting.js') }}" type="text/javascript"></script>
+    <!-- Form Flie Upload Data JavaScript -->
+	<script src="{{ asset('/dist/js/form-file-upload-data.js')}}"></script>
 @endpush
