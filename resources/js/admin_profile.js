@@ -1,6 +1,7 @@
 require('./vue-assets');
 Vue.component('admin-profile', require('./components/admin/profile/profile.vue').default);
-
+Vue.component('set-time', require('./SetTime.vue').default);
+Vue.component('set-date', require('./setDate.vue').default);
 
 import VueToastify from "vue-toastify";
 Vue.use(VueToastify, {

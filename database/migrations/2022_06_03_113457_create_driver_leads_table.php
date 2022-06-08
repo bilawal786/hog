@@ -21,6 +21,10 @@ class CreateDriverLeadsTable extends Migration
             $table->foreign('ride_id')->references('id')->on('send_messages');
             $table->text('notes');
             $table->string('status');
+            $table->enum('assign', ['yes', 'no']);
+            $table->enum('process', ['yes', 'no']);
+            $table->enum('reject', ['yes', 'no']);
+            $table->enum('complete', ['yes', 'no']);
             $table->timestamps();
         });
     }

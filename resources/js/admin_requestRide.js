@@ -1,8 +1,11 @@
 require('./vue-assets');
 Vue.component('request-ride', require('./components/admin/requestRide/requestRide.vue').default);
-// Vue.component('view-category', require('./components/admin/category/ViewCategory.vue').default);
+Vue.component('set-time', require('./SetTime.vue').default);
+Vue.component('set-date', require('./setDate.vue').default);
 
-
+import { Datetime } from 'vue-datetime';
+import 'vue-datetime/dist/vue-datetime.css'
+Vue.component('datetime', Datetime);
 
 import VueToastify from "vue-toastify";
 Vue.use(VueToastify, {

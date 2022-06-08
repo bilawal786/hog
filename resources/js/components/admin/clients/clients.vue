@@ -30,7 +30,7 @@
                                                 <td>{{ client.email }}</td>
                                                 <td>{{ client.phone }}</td>
                                                 <td>{{ client.address }}</td>
-                                                <td>{{ Date(client.created_at).toLocaleString() }}</td>
+                                                <td><set-date :date="client.created_at" :year="'yes'"></set-date></td>
                                                 <td>
 
                                                     <button class="btn btn-success btn-icon-anim btn-circle btn-sm"
@@ -101,7 +101,7 @@
                                         </tr>
                                         <tr>
                                             <td>Client Register Date</td>
-                                            <td>{{ clientDetail.created_at }}</td>
+                                            <td><set-date :date="clientDetail.created_at" :year="'yes'"></set-date></td>
                                         </tr>
                                     </tbody>
                                 </table>

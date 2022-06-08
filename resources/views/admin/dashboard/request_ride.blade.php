@@ -24,6 +24,7 @@
 @endsection
 @push('style')
 <link href="{{ asset('vendors/bower_components/select2/dist/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key={{ env('GOOGLE_MAP_KEY') }}"></script>
 @endpush
 @push('script')
     
@@ -33,6 +34,6 @@
 		<script src="{{ asset('vendors/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 		<!-- Form Advance Init JavaScript -->
 		<script src="{{ asset('dist/js/form-advance-data.js')}}"></script>
-        
-        <script src="{{ mix('js/admin/admin_requestRide.js') }}" type="text/javascript"></script>
+     
+    <script src="{{ mix('js/admin/admin_requestRide.js') }}" type="text/javascript"></script>
 @endpush

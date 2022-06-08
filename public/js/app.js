@@ -4373,6 +4373,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -4399,6 +4400,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         start_address: null,
         end_address: null,
         cost: null,
+        status_assign: 'no',
         user_id: null
       },
       change: true,
@@ -4458,8 +4460,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       if (this.user) {
-        console.log('zohaib');
         this.sendMessage.user_id = this.user.id;
+      } else {
+        this.sendMessage.user_id = null;
       }
 
       if (this.sendMessage.type == "Request Ride") {
@@ -4468,7 +4471,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         for (var key in sendmsg) {
           if (sendmsg[key] == null) {
-            if (key != 'account' && key != 'invoice') {
+            if (key != 'account' && key != 'invoice' && key != 'user_id') {
               tempData[key] = ['The ' + key + ' field is required.'];
             }
           }

@@ -180,7 +180,7 @@
                         <td>
                           <div class="st-ad">{{ driver.address }}</div>
                         </td>
-                        <td>{{ Date(driver.created_at).toLocaleString() }}</td>
+                        <td><set-date :date="driver.created_at" :year="'yes'"></set-date></td>
                         <td>
                           <button
                             class="
@@ -265,7 +265,7 @@
                       </tr>
                       <tr>
                         <td>Driver Register Date</td>
-                        <td>{{ driverDetail.created_at }}</td>
+                        <td><set-date :date="driverDetail.created_at" :year="'yes'"></set-date></td>
                       </tr>
                     </tbody>
                   </table>

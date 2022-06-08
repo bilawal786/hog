@@ -21,6 +21,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::resource('web/form/billing/request', 'Admin\Form\BillingRequestController');
     Route::resource('web/form/others', 'Admin\Form\OtherController');
     Route::resource('web/form/request/ride', 'Admin\Form\RequestRideController');
+    Route::get('web/form/request/unassign/ride', 'Admin\Form\RequestRideController@unassignRide');
     Route::resource('web/form/submit/feedback', 'Admin\Form\SubmitFeedBackController');
     Route::resource('web/show/lead', 'Admin\Lead\LeadController');
     Route::resource('web/show/driver/leads', 'Admin\Lead\DriverLeadController');

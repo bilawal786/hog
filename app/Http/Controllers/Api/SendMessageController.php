@@ -97,6 +97,7 @@ class SendMessageController extends Controller
                         'start_address' => 'required|max:255',
                         'end_address' => 'required|max:255',
                         'cost' => 'required|max:255',
+                        'status_assign' => 'required|max:255',
                         ]);
                     }
                     catch (ValidationException $exception) {
@@ -125,6 +126,7 @@ class SendMessageController extends Controller
                 $send_message->cost = $request->cost;
                 $send_message->message = $request->message;
                 $send_message->user_id = $request->user_id;
+                $send_message->status_assign = $request->status_assign;
                 $send_message->save();
                 return response()->json([
                     'type' => "Request Ride"

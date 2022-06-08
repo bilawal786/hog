@@ -88,6 +88,14 @@ class RequestRideController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = SendMessage::where('id', $id)->delete();
+        return response()->json([
+            'Ride' => 'delete'
+        ]);
+    }
+    public function unassignRide()
+    {
+        $rides = SendMessage::where('type', 'Request Ride')->where('status_assign', 'no')->get();
+        return response()->json($rides);
     }
 }

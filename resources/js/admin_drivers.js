@@ -1,6 +1,7 @@
 require('./vue-assets');
 Vue.component('user-drivers', require('./components/admin/drivers/drivers.vue').default);
-// Vue.component('view-category', require('./components/admin/category/ViewCategory.vue').default);
+Vue.component('set-time', require('./SetTime.vue').default);
+Vue.component('set-date', require('./setDate.vue').default);
 
 
 

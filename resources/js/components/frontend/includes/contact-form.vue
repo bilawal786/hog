@@ -260,6 +260,7 @@ Your Message</textarea
                 classname="form-control"
                 placeholder="Start"
                 v-on:placechanged="getAddressStart"
+             
                 country="pk"
                 :class="{
                   'invalid-input': change
@@ -383,6 +384,7 @@ export default {
                 start_address: null,
                 end_address: null,
                 cost: null,
+                status_assign:'no',
                 user_id: null
             },
             change: true,
@@ -446,15 +448,16 @@ export default {
         },
         sendDatatoDB: function () {
           if(this.user){
-            console.log('zohaib')
           this.sendMessage.user_id = this.user.id
+          }else{
+            this.sendMessage.user_id = null
           }
             if(this.sendMessage.type == "Request Ride"){
             let tempData = {}
               let sendmsg = JSON.parse(JSON.stringify(this.sendMessage))
                  for (const key in sendmsg) {
                      if(sendmsg[key] == null){
-                         if(key != 'account' && key != 'invoice'){
+                         if(key != 'account' && key != 'invoice' && key != 'user_id'){
                          tempData[key] = ['The '+key+' field is required.'];
                          }
                      }

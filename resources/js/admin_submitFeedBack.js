@@ -1,8 +1,7 @@
 require('./vue-assets');
 Vue.component('submit-feedback', require('./components/admin/submitFeedBack/submitFeedBack.vue').default);
-// Vue.component('view-category', require('./components/admin/category/ViewCategory.vue').default);
-
-
+Vue.component('set-time', require('./SetTime.vue').default);
+Vue.component('set-date', require('./setDate.vue').default);
 
 import VueToastify from "vue-toastify";
 Vue.use(VueToastify, {

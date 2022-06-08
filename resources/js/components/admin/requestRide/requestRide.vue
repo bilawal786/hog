@@ -1,6 +1,45 @@
 <template>
     <div>
-        <div class="row" v-show="panel.allRides">
+        <div class="panel panel-default card-view">
+            <div class="panel-wrapper collapse in">
+                <div class="panel-body">
+                    <div class="tab-struct custom-tab-1">
+                        <ul role="tablist" class="nav nav-tabs" id="myTabs_7">
+                            <li class="active" role="presentation"><a aria-expanded="true" data-toggle="tab" role="tab"
+                                    href="#new_ride">New Rides</a></li>
+                            <li role="presentation" class=""><a data-toggle="tab" id="profile_tab_7" role="tab"
+                                    href="#assign" aria-expanded="false">Assign</a></li>
+                            <li role="presentation" class=""><a data-toggle="tab" id="profile_tab_7" role="tab"
+                                    href="#process" aria-expanded="false">Process</a></li>
+                            <li role="presentation" class=""><a data-toggle="tab" id="profile_tab_7" role="tab"
+                                    href="#reject" aria-expanded="false">Reject</a></li>
+                            <li role="presentation" class=""><a data-toggle="tab" id="profile_tab_7" role="tab"
+                                    href="#complete" aria-expanded="false">Complete</a></li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent_7">
+                            <div id="new_ride" class="tab-pane fade active in" role="tabpanel">
+                                <new-ride></new-ride>
+                            </div>
+                            <div id="assign" class="tab-pane fade" role="tabpanel">
+                                <assign-ride></assign-ride>
+                            </div>
+                            <div id="process" class="tab-pane fade" role="tabpanel">
+                                <process-ride></process-ride>
+                            </div>
+                            <div id="reject" class="tab-pane fade" role="tabpanel">
+                                <reject-ride></reject-ride>
+                            </div>
+                            <div id="complete" class="tab-pane fade" role="tabpanel">
+                                <complete-ride></complete-ride>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- all ride -->
+        <div class="row" v-if="panel.allRides == true">
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
@@ -34,22 +73,16 @@
                                                 <td>{{ ride.start_date }}</td>
                                                 <td>{{ ride.cost }}</td>
                                                 <td>
-                                                    <button class="
-                              btn btn-default btn-icon-anim btn-circle btn-sm
-                            ">
+                                                    <button class="btn btn-default btn-icon-anim btn-circle btn-sm"
+                                                        @click="editRideDetail(ride.id)">
                                                         <i class="fa fa-pencil"></i>
                                                     </button>
-                                                    <button class="
-                              btn btn-success btn-icon-anim btn-circle btn-sm
-                            " @click="getRideDetail(ride.id)">
+                                                    <button class="btn btn-success btn-icon-anim btn-circle btn-sm"
+                                                        @click="getRideDetail(ride.id)">
                                                         <i class="fa fa-eye"></i>
                                                     </button>
-                                                    <button class="
-                              btn btn-primary btn-icon-anim btn-circle btn-sm
-                            ">
-                                                        <i class="fa fa-lock"></i>
-                                                    </button>
-                                                    <button class="btn btn-info btn-icon-anim btn-circle btn-sm">
+                                                    <button class="btn btn-info btn-icon-anim btn-circle btn-sm"
+                                                         @click="delRideRequest(ride.id)">
                                                         <i class="icon-trash"></i>
                                                     </button>
                                                 </td>
@@ -63,7 +96,9 @@
                 </div>
             </div>
         </div>
-        <div class="row" v-show="panel.detail">
+        <!-- end all rides -->
+        <!-- back button -->
+        <div class="row" v-if="panel.detail == true || panel.edit == true">
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
@@ -80,7 +115,9 @@
                 </div>
             </div>
         </div>
-        <div class="row" v-show="panel.detail">
+        <!-- end back button -->
+        <!-- ride detail -->
+        <div class="row" v-if="panel.detail == true">
             <div class="col-sm-6">
                 <lead-detail :rideDetail="rideDetail"></lead-detail>
             </div>
@@ -100,15 +137,15 @@
                                         <tbody>
                                             <tr>
                                                 <td class="border-none">Status</td>
-                                                <td class="border-none">{{leadDetail.status}} </td>
+                                                <td class="border-none">{{ leadDetail.status }} </td>
                                             </tr>
                                             <tr>
                                                 <td>Assign Date</td>
-                                                <td> {{leadDetail.created_at}}</td>
+                                                <td> {{ leadDetail.created_at }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Note</td>
-                                                <td>{{leadDetail.notes}}} </td>
+                                                <td>{{ leadDetail.notes }}} </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -143,7 +180,7 @@
                                         <tbody>
                                             <tr>
                                                 <td class="border-none">Drivers List:</td>
-                                                <td class="border-none" v-show="options">
+                                                <td class="border-none" v-if="options != null">
                                                     <select2 :options="options" v-model="selected">
                                                         <option disabled value="0">Select one</option>
                                                     </select2>
@@ -162,24 +199,38 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="panel-wrapper collapse in" v-if="selected != 0">
-                    <div class="panel-body">
-                        <driver-detail :selectdriver="selectdriver"></driver-detail>
-                        <div class="form-group" v-show="!leedAssign">
-                            <label class="control-label mb-10 text-left">Notes</label>
-                            <textarea class="form-control" rows="5" v-model="driverNote"></textarea>
+                        <div class="panel-body">
+                            <driver-detail :selectdriver="selectdriver"></driver-detail>
+                            <div class="form-group" v-show="!leedAssign">
+                                <label class="control-label mb-10 text-left">Notes</label>
+                                <textarea class="form-control" rows="5" v-model="driverNote"></textarea>
+                            </div>
+                            <button class="btn  btn-info" @click="assignLead()">Assign Lead</button>
                         </div>
-                        <button class="btn  btn-info" @click="assignLead()">Assign Lead</button>
                     </div>
-                       </div>
                 </div>
             </div>
         </div>
+        <!-- end ride detail -->
+        <!-- edit detail -->
+        <div class="row" v-if="panel.edit == true">
+            <div class="col-sm-8" >
+                <ride-edit :rideId="rideId"></ride-edit>
+            </div>
+        </div>
+        <!-- end edit detail -->
     </div>
 </template>
 <script>
+import NewRide from "./childs/newRide.vue";
+import AssignRide from "./childs/assign.vue";
+import RejectRide from "./childs/reject.vue";
+import ProcessRide from "./childs/process.vue";
+import CompleteRide from "./childs/complete.vue";
 import select2 from "../includes/select2";
 import LeadDetail from "../includes/LeadDetail";
 import DriverDetail from "../includes/driverDetail";
+import RideEdit from "./childs/detailEdit.vue";
 export default {
     data() {
         return {
@@ -200,6 +251,7 @@ export default {
             panel: {
                 allRides: true,
                 detail: false,
+                edit:false
             },
             //driver options
             selected: 0,
@@ -216,11 +268,12 @@ export default {
             driverNote: null,
             //lead assign
             leedAssign: false,
-            leadDetail:{
+            leadDetail: {
                 status: null,
-                created_at:null,
-                notes:null
-            }
+                created_at: null,
+                notes: null
+            },
+            rideId:null,
         };
     },
     watch: {
@@ -243,6 +296,7 @@ export default {
         getRideDetail: function (id) {
             this.panel.allRides = false;
             this.panel.detail = true;
+            this.panel.edit = false;
             axios.get("admin/web/form/request/ride/" + id).then((response) => {
                 if (response.status == 200) {
                     this.rideDetail = response.data;
@@ -251,16 +305,16 @@ export default {
                 }
             });
         },
-        getLeadDetail: function(id){
+        getLeadDetail: function (id) {
             axios.get('admin/web/show/lead/' + id).then((res) => {
-                        if (res.data == "no") {
-                            this.driversList()
-                        } else {
-                            this.leedAssign = true;
-                            this.leadDetail = res.data
-                            this.driverById(res.data.driver_id)
-                        }
-                    })
+                if (res.data == "no") {
+                    this.driversList()
+                } else {
+                    this.leedAssign = true;
+                    this.leadDetail = res.data
+                    this.driverById(res.data.driver_id)
+                }
+            })
         },
         driversList: function () {
             axios.get('admin/web/driver/all').then((response) => {
@@ -275,6 +329,7 @@ export default {
         backToList: function () {
             this.panel.allRides = true;
             this.panel.detail = false;
+            this.panel.edit = false;
             this.leedAssign = false
         },
         assignLead: function () {
@@ -289,17 +344,12 @@ export default {
             }, () => {
             }).then((result) => {
                 if (result.value) {
-                    axios.post('admin/web/show/lead', {
-                        driver_id: this.selectdriver.id,
-                        ride_id: this.rideDetail.id,
-                        notes: this.driverNote,
-                        status: 'Assigned',
-                    })
+                    axios.post('admin/web/show/lead',)
                         .then(response => {
                             window.scrollTo(0, 0)
                             if (response.status == 200) {
                                 this.leedAssign = true;
-                                 this.getLeadDetail(this.rideDetail.id)
+                                this.getLeadDetail(this.rideDetail.id)
                                 this.$vToastify.success("successfully Updated");
                             } else {
 
@@ -307,12 +357,49 @@ export default {
                         })
                 }
             })
+        },
+        delRideRequest: function (id) {
+            Swal.fire({
+                title: 'Are you sure ?',
+                text: "You want to delete this Ride",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'rgb(34 110 237 / 85%)',
+                cancelButtonColor: '#ff2a00',
+                confirmButtonText: 'Yes, Delect it!'
+            }, () => {
+            }).then((result) => {
+                if (result.value) {
+                    axios.delete('admin/web/form/request/ride/' + id)
+                        .then(response => {
+                            window.scrollTo(0, 0)
+                            if (response.status == 200) {
+                                this.getRides();
+                                this.$vToastify.success("successfully Updated");
+                            } else {
+
+                            }
+                        })
+                }
+            })
+        },
+        editRideDetail: function(id){
+            this.panel.allRides = false
+            this.panel.detail = false
+            this.panel.edit = true
+            this.rideId = id
         }
     },
     components: {
+        NewRide,
+        AssignRide,
+        RejectRide,
+        ProcessRide,
+        CompleteRide,
         select2,
         LeadDetail,
-        DriverDetail
+        DriverDetail,
+        RideEdit
     }
 };
 </script>

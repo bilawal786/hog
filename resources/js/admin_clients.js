@@ -1,5 +1,7 @@
 require('./vue-assets');
 Vue.component('user-clients', require('./components/admin/clients/clients.vue').default);
+Vue.component('set-time', require('./SetTime.vue').default);
+Vue.component('set-date', require('./setDate.vue').default);
 
 
 import VueToastify from "vue-toastify";
