@@ -20,7 +20,7 @@ class LeadController extends Controller
      */
     public function index()
     {
-        //
+ 
     }
 
     /**
@@ -52,6 +52,10 @@ class LeadController extends Controller
             $driver_lead->ride_id = $request->ride_id;
             $driver_lead->notes = $request->notes;
             $driver_lead->status = $request->status;
+            $driver_lead->assign = $request->assign;
+            $driver_lead->process = $request->process;
+            $driver_lead->reject = $request->reject;
+            $driver_lead->complete = $request->complete;
             $driver_lead->save();
 
            return response()->json([
@@ -113,5 +117,52 @@ class LeadController extends Controller
     {
         //
     }
-    
+    public function leadsassign(){
+        $lead = DriverLeads::where('status', 'assign')
+                ->where('assign', 'yes')
+                ->where('process', 'no')
+                ->where('reject', 'no')
+                ->where('complete', 'no')
+                ->with('driver')
+                ->with('leads')
+                ->orderBy('id', 'desc')
+                ->get();
+        return response()->json($lead);
+    }
+    public function leadsprocess(){
+        $lead = DriverLeads::where('status', 'process')
+                ->where('assign', 'yes')
+                ->where('process', 'yes')
+                ->where('reject', 'no')
+                ->where('complete', 'no')
+                ->with('driver')
+                ->with('leads')
+                ->orderBy('id', 'desc')
+                ->get();
+        return response()->json($lead);
+    }
+    public function leadcomplete(){
+        $lead = DriverLeads::where('status', 'complete')
+                ->where('assign', 'yes')
+                ->where('process', 'yes')
+                ->where('reject', 'no')
+                ->where('complete', 'yes')
+                ->with('driver')
+                ->with('leads')
+                ->orderBy('id', 'desc')
+                ->get();
+        return response()->json($lead);
+    }
+    public function leadsreject(){
+        $lead = DriverLeads::where('status', 'reject')
+                ->where('assign', 'yes')
+                ->where('process', 'no')
+                ->where('reject', 'yes')
+                ->where('complete', 'no')
+                ->with('driver')
+                ->with('leads')
+                ->orderBy('id', 'desc')
+                ->get();
+        return response()->json($lead);
+    }
 }

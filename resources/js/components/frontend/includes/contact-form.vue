@@ -3,7 +3,6 @@
     <form>
       <div class="input-content clearfix">
         <h3 class="from-title">Send a message</h3>
-
         <p>What is the reason you need to contact us today?</p>
         <div class="row">
           <div class="col-sm-6">
@@ -260,8 +259,7 @@ Your Message</textarea
                 classname="form-control"
                 placeholder="Start"
                 v-on:placechanged="getAddressStart"
-             
-                country="pk"
+                types="establishment"
                 :class="{
                   'invalid-input': change
                     ? errors.start_address
@@ -282,7 +280,7 @@ Your Message</textarea
                 classname="form-control"
                 placeholder="End"
                 v-on:placechanged="getAddressEnd"
-                country="pk"
+                types="establishment"
                 :class="{
                   'invalid-input': change
                     ? errors.end_address

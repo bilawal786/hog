@@ -5,6 +5,9 @@
                 <h6 class="panel-title txt-dark">Ride Requests</h6>
             </div>
             <div class="pull-right">
+                <a href="#" class="pull-left inline-block refresh mr-15">
+                    <i class="zmdi zmdi-replay"></i>
+                </a>
                 <a href="#" class="pull-left inline-block close-panel" data-effect="fadeOut">
                     <i class="zmdi zmdi-close"></i>
                 </a>
@@ -34,7 +37,10 @@
 export default{
     data(){
         return{
-            list:null
+            list:{
+                user:null,
+                guest:null
+            }
         }
     },
     mounted(){

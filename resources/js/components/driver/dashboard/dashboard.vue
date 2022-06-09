@@ -41,10 +41,10 @@
 												<td><date-formate :date="lead.trip_date"></date-formate></td>
 												<td><set-time :date="lead.trip_date"></set-time></td>
 												<td>
-													<span class="label label-primary" v-if="lead.status == 'Assigned'">{{lead.status}}</span>
-													<span class="label label-warning" v-if="lead.status == 'Process'">{{lead.status}}</span>
-													<span class="label label-danger" v-if="lead.status == 'Reject'">{{lead.status}}</span>
-													<span class="label label-success" v-if="lead.status == 'Complete'">{{lead.status}}</span>
+													<span class="label label-primary" v-if="lead.status == 'assign'">{{lead.status}}</span>
+													<span class="label label-warning" v-if="lead.status == 'process'">{{lead.status}}</span>
+													<span class="label label-danger" v-if="lead.status == 'reject'">{{lead.status}}</span>
+													<span class="label label-success" v-if="lead.status == 'complete'">{{lead.status}}</span>
 												</td>
 												<td>
 													<button @click="showLeadDetail(lead.ride_id, lead.id, lead.status)"  class="pr-10 btn btn-primary btn-icon-anim btn-circle btn-sm"><i class="zmdi zmdi-eye"></i></button>
@@ -177,13 +177,13 @@
 					<div class="panel-wrapper collapse in">
 						<div class="panel-body row">
 							<div class="table-responsive">
-							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'Assigned'">
+							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'assign'">
 								<button class="btn btn-warning btn-rounded btn-block btn-anim" @click="processRide(leadId)"><i class="zmdi zmdi-truck"></i><span class="btn-text">Process</span></button>
 							</div>
-							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'Assigned'">
+							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'assign'">
 								<button class="btn btn-danger btn-rounded btn-block btn-anim" @click="rejectRide(leadId)"><i class="zmdi zmdi-close"></i><span class="btn-text">Reject</span></button>
 							</div>
-							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'Process'">
+							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'process'">
 								<button class="btn btn-success btn-rounded btn-block btn-anim" @click="completeRide(leadId)"><i class="zmdi zmdi-check"></i><span class="btn-text">Complete</span></button>
 							</div>
 							</div>
@@ -243,7 +243,8 @@ export default{
             }).then((result) => {
                 if (result.value) {
 					axios.put('admin/web/show/driver/leads/'+id, {
-						'status' : 'Process'
+						'status' : 'process',
+						'process': 'yes'
 					}).then(response => {
 						if(response.status == 200){
 							this.leadDetail=null,
@@ -268,7 +269,8 @@ export default{
             }).then((result) => {
                 if (result.value) {
 					axios.put('admin/web/show/driver/leads/'+id, {
-						'status' : 'Reject'
+						'status' : 'reject',
+						'reject' : 'yes'
 					}).then(response => {
 						if(response.status == 200){
 							this.leadDetail=null,
@@ -293,7 +295,8 @@ export default{
             }).then((result) => {
                 if (result.value) {
 					axios.put('admin/web/show/driver/leads/'+id, {
-						'status' : 'Complete'
+						'status' : 'complete',
+						'complete': 'yes'
 					}).then(response => {
 						if(response.status == 200){
 							this.leadDetail=null,

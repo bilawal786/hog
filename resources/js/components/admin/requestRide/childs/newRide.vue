@@ -22,7 +22,7 @@
                                     <td>{{ ride.Fname + " " + ride.Lname }}</td>
                                     <td>{{ ride.email }}</td>
                                     <td>{{ ride.phone }}</td>
-                                    <td>{{ ride.start_date }}</td>
+                                    <td>{{ ride.trip_date }}</td>
                                     <td>{{ ride.cost }}</td>
                                     <td>
                                         <button class="btn btn-default btn-icon-anim btn-circle btn-sm"
@@ -190,6 +190,7 @@ export default {
             this.panel.allRides = false;
             this.panel.detail = true;
             this.panel.edit = false;
+            this.rideId = id
             axios.get("admin/web/form/request/ride/" + id).then((response) => {
                 if (response.status == 200) {
                     this.rideDetail = response.data;
@@ -210,11 +211,30 @@ export default {
             }, () => {
             }).then((result) => {
                 if (result.value) {
-                    axios.post('admin/web/show/lead',)
+                    axios.post('admin/web/show/lead', {
+                        'driver_id' : this.selectdriver.id,
+                        'ride_id'   : this.rideId,
+                        'notes'     : this.driverNote,
+                        'status'    : 'assign',
+                        'assign'    : 'yes',
+                        'process'    : 'no',
+                        'reject'    : 'no',
+                        'complete'    : 'no',
+                    })
                         .then(response => {
                             window.scrollTo(0, 0)
                             if (response.status == 200) {
-                                //this.getLeadDetail(this.rideDetail.id)
+                                axios.put('admin/web/form/status/request/ride/'+this.rideId, {
+                                    'status_assign':'yes'
+                                }).then(response => {
+                                    if(response.status == 200){
+                                        console.log(response)
+                                        this.getRides();
+                                        this.panel.allRides = true;
+                                        this.panel.detail = false;
+                                        this.panel.edit = false;
+                                    }
+                                })
                                 this.$vToastify.success("successfully Updated");
                             } else {
 
@@ -262,6 +282,7 @@ export default {
             this.panel.allRides = true;
             this.panel.detail = false;
             this.panel.edit = false;
+            this.getRides();
         },
     },
     components:{

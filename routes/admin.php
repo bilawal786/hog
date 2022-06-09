@@ -22,8 +22,14 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::resource('web/form/others', 'Admin\Form\OtherController');
     Route::resource('web/form/request/ride', 'Admin\Form\RequestRideController');
     Route::get('web/form/request/unassign/ride', 'Admin\Form\RequestRideController@unassignRide');
+    Route::put('web/form/status/request/ride/{id}', 'Admin\Form\RequestRideController@statusUpdate');
     Route::resource('web/form/submit/feedback', 'Admin\Form\SubmitFeedBackController');
     Route::resource('web/show/lead', 'Admin\Lead\LeadController');
+    Route::get('web/assign/leads', 'Admin\Lead\LeadController@leadsassign');
+    Route::get('web/process/leads', 'Admin\Lead\LeadController@leadsprocess');
+    Route::get('web/reject/leads', 'Admin\Lead\LeadController@leadcomplete');
+    Route::get('web/complete/leads', 'Admin\Lead\LeadController@leadsreject');
+
     Route::resource('web/show/driver/leads', 'Admin\Lead\DriverLeadController');
     Route::get('web/list/driver/leads', 'Admin\Lead\DriverLeadController@allleads');
     Route::get('web/driver/all', 'Admin\Users\DriverController@getAllDrivers');
@@ -32,10 +38,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::get('web/amdin/widget/leads', 'Admin\Widgets\WidgetsController@statusCount');
     Route::get('web/admin/widget/user', 'Admin\Widgets\WidgetsController@userCount');
     Route::get('web/admin/widget/leads/unassign', 'Admin\Widgets\WidgetsController@unassigLeadCount');
-    Route::get('web/admin/widget/leads/processing', 'Admin\Widgets\WidgetsController@processCount');
-
-
-
+    Route::get('web/admin/widget/leads/latest/5', 'Admin\Widgets\WidgetsController@latestLeads');
 
 });
   

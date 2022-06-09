@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-sm-12 col-xs-12">
                         <div class="form-wrap">
-                            <form action="#">
+                            <form>
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -40,7 +40,6 @@
                                         </div>
                                         <!--/span-->
                                     </div>
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -118,7 +117,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Start</label>
-                                                <vue-google-autocomplete ref="addressStart" id="mapStart"
+                                                <vue-google-autocomplete v-model="ride.start_address" types="establishment" ref="addressStart" v-on:placechanged="getAddressStart" id="mapStart"
                                                     classname="form-control" placeholder="Start">
                                                 </vue-google-autocomplete>
                                             </div>
@@ -127,7 +126,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label mb-10">End</label>
-                                                <vue-google-autocomplete ref="addressEnd" id="mapEnd"
+                                                <vue-google-autocomplete v-model="ride.end_address" types="establishment" ref="addressEnd" v-on:placechanged="getAddressEnd" id="mapEnd"
                                                     classname="form-control" placeholder="End">
                                                 </vue-google-autocomplete>
                                             </div>
@@ -136,16 +135,16 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <button class="btn btn-success btn-outline btn-icon right-icon">
+                                            <button type="button" class="btn btn-success btn-outline btn-icon right-icon" @click="calculateCost(ride.start_lat, ride.start_lng, ride.end_lat, ride.end_lng)">
                                                 <span>Cost</span>
                                                 <i class="zmdi zmdi-money"></i>
                                             </button>
+                                            <span>{{ride.cost}}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-actions mt-10">
-                                    <button type="submit" class="btn btn-success  mr-10"> Update</button>
-                                    <button type="button" class="btn btn-default">Cancel</button>
+                                    <button type="button" class="btn btn-success  mr-10" @click="updateRideDetailById(rideId)"> Update</button>
                                 </div>
                             </form>
                         </div>
@@ -187,13 +186,14 @@ export default {
         VueGoogleAutocomplete
     },
     mounted() {
+        window.scrollTo(0, 0);
+        this.$refs.addressStart.focus();
+        this.$refs.addressEnd.focus();
         this.getRideDetailById(this.rideId)
     },
     methods: {
         getRideDetailById: function (id) {
             axios.get("admin/web/form/request/ride/" + id).then((response) => {
-                // this.rides = response.data;
-                console.log(response.data)
                     this.ride.type = response.data.type,
                     this.ride.Fname = response.data.Fname,
                     this.ride.Lname = response.data.Lname,
@@ -207,11 +207,73 @@ export default {
                     this.ride.start_lng = response.data.start_lng,
                     this.ride.end_lat = response.data.end_lat,
                     this.ride.end_lng = response.data.end_lng,
+                    this.ride.start_address = response.data.start_address,
+                    this.ride.end_address = response.data.end_address,
                     this.ride.cost = response.data.cost
                     this.ride.status_assign = response.data.status_assign
                     this.ride.user_id = response.data.user_id
             });
-        }
+        },
+        updateRideDetailById: function (id) {
+
+            Swal.fire({
+                title: 'Are you sure ?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'rgb(34 110 237 / 85%)',
+                cancelButtonColor: '#ff2a00',
+                confirmButtonText: 'Yes, Change it!'
+            }, () => {
+            }).then((result) => {
+                if (result.value) {
+                     axios.put("admin/web/form/request/ride/" + id, this.ride).then(response => {
+                            window.scrollTo(0, 0)
+                            if (response.status == 200) {
+                                window.scrollTo(0, 0)
+                                this.$vToastify.success("successfully Updated");
+                            } else {
+
+                            }
+                        })
+                }
+            })
+        },
+        getAddressStart: function (addressData, placeResultData, id) {
+            this.ride.start_lat = addressData.latitude;
+            this.ride.start_lng = addressData.longitude;
+            this.ride.start_address = placeResultData.formatted_address;
+        },
+        getAddressEnd: function (addressData, placeResultData, id) {
+            this.ride.end_lat = addressData.latitude;
+            this.ride.end_lng = addressData.longitude;
+            this.ride.end_address = placeResultData.formatted_address;
+        },
+        calculateCost: function(lat1,lon1,lat2,lon2){
+            if ((lat1 == lat2) && (lon1 == lon2)) {
+            return 0;
+            }
+            else {
+            var theta = lon1 - lon2;
+            var dist = Math.sin(this.deg2rad(lat1)) * Math.sin(this.deg2rad(lat2)) +  Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * Math.cos(this.deg2rad(theta));
+                    dist = Math.acos(dist);
+                    dist = this.rad2deg(dist);
+                var miles = dist * 60 * 1.1515;
+                var km = miles * 1.609344;
+                var roundkm = Math.round(km * 100) / 100;
+                var cost_doller = roundkm * 10
+                this.ride.cost = Math.round(cost_doller * 100) / 100;
+                console.log(roundkm)
+                console.log(cost_doller)
+            }
+        },
+        rad2deg: function (deg){
+        var pi = Math.PI;
+        return deg * (180/pi);
+        },
+        deg2rad: function(deg) {
+            return deg * (Math.PI/180)
+        },
     }
 }
 

@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 /*****Load function start*****/
 $(window).load(function(){
-	$(".preloader-it").delay(500).fadeOut("slow");
+	$(".preloader-it").delay(600).fadeOut("slow");
 	/*Progress Bar Animation*/
 	var progressAnim = $('.progress-anim');
 	if( progressAnim.length > 0 ){

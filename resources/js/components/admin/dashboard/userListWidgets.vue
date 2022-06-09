@@ -1,10 +1,16 @@
 <template>
-    <div class="panel panel-default card-view">
+    <div class="panel panel-default card-view panel-refresh">
+        <div class="refresh-container">
+            <div class="la-anim-1"></div>
+        </div>
         <div class="panel-heading">
             <div class="pull-left">
                 <h6 class="panel-title txt-dark">User List</h6>
             </div>
             <div class="pull-right">
+                <a href="#" class="pull-left inline-block refresh mr-15">
+                    <i class="zmdi zmdi-replay"></i>
+                </a>
                 <a href="#" class="pull-left inline-block close-panel" data-effect="fadeOut">
                     <i class="zmdi zmdi-close"></i>
                 </a>
@@ -50,7 +56,11 @@
 export default{
     data(){
         return{
-            list:null
+            list:{
+                users:null,
+                drivers:null,
+                admins:null
+            }
         }
     },
     mounted(){

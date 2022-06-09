@@ -12,11 +12,11 @@ require('./bootstrap');
 
 Vue.config.productionTip = false;
 
-if(process.env.MIX_VUE_HOST == 'local'){
-  axios.defaults.baseURL = 'http://localhost:8000/api/';
-}else{
+// if(process.env.MIX_VUE_HOST == 'local'){
+//   axios.defaults.baseURL = 'http://localhost:8000/api/';
+// }else{
   axios.defaults.baseURL = 'https://hog.codingcrust.com/api/';
-}
+// }
 axios.interceptors.response.use(
   response => response,
   error => {

@@ -21,7 +21,6 @@ class DriverLeadController extends Controller
         $data = DriverLeadsResources::collection($driverlead);
         return response()->json($data);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -74,11 +73,37 @@ class DriverLeadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $data = DriverLeads::where('id', $id)->update([
-            "status"=> $request->status
-        ]);
-
+        switch ($request->status) {
+            case 'assign':
+                $data = DriverLeads::where('id', $id)->update([
+                    "status"=> $request->status,
+                    'assign' => $request->assign
+                ]);
+                return response()->json('success');
+              break;
+            case 'process':
+                $data = DriverLeads::where('id', $id)->update([
+                    "status"=> $request->status,
+                    'process' => $request->process
+                ]);
+                return response()->json('success');
+              break;
+            case 'reject':
+                $data = DriverLeads::where('id', $id)->update([
+                    "status"=> $request->status,
+                    'reject' => $request->reject
+                ]);
+                return response()->json('success');
+              break;
+            case 'complete':
+                $data = DriverLeads::where('id', $id)->update([
+                    "status"=> $request->status,
+                    'complete' => $request->complete
+                ]);
+                return response()->json('success');
+            default:
+              
+          }
         return response()->json('success');
     }
 
@@ -93,10 +118,34 @@ class DriverLeadController extends Controller
         //
     }
     public function allleads(){
-        $assigned = DriverLeads::where('driver_id', Auth::user()->id)->where('status', 'Assigned')->count();
-        $process = DriverLeads::where('driver_id', Auth::user()->id)->where('status', 'Process')->count();
-        $reject = DriverLeads::where('driver_id', Auth::user()->id)->where('status', 'Reject')->count();
-        $success = DriverLeads::where('driver_id', Auth::user()->id)->where('status', 'Complete')->count();
+        $assigned = DriverLeads::where('driver_id', Auth::user()->id)
+            ->where('status', 'assign')
+            ->where('assign', 'yes')
+            ->where('process', 'no')
+            ->where('reject', 'no')
+            ->where('complete', 'no')
+            ->count();
+        $process = DriverLeads::where('driver_id', Auth::user()->id)
+            ->where('status', 'Process')
+            ->where('assign', 'yes')
+            ->where('process', 'yes')
+            ->where('reject', 'no')
+            ->where('complete', 'no')
+            ->count();
+        $reject = DriverLeads::where('driver_id', Auth::user()->id)
+            ->where('status', 'reject')
+            ->where('assign', 'yes')
+            ->where('process', 'no')
+            ->where('reject', 'yes')
+            ->where('complete', 'no')
+            ->count();
+        $success = DriverLeads::where('driver_id', Auth::user()->id)
+            ->where('status', 'complete')
+            ->where('assign', 'yes')
+            ->where('process', 'yes')
+            ->where('reject', 'no')
+            ->where('complete', 'yes')
+            ->count();
         return response()->json([$assigned, $process, $reject, $success]);
     }
 }

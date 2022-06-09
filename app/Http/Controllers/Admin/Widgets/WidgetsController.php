@@ -29,14 +29,15 @@ class WidgetsController extends Controller
 
         ]);
     }
-    public function processCount(){
-
+    public function latestLeads(){
+        $latest = DriverLeads::with('driver', 'leads')->latest()->take(5)->get();
+        return response()->json($latest);
     }
     public function statusCount(){
-        $assigned = DriverLeads::where('status', 'Assigned')->count();
-        $process = DriverLeads::where('status', 'Process')->count();
-        $reject = DriverLeads::where('status', 'Reject')->count();
-        $success = DriverLeads::where('status', 'Complete')->count();
+        $assigned = DriverLeads::where('status', 'assign')->count();
+        $process = DriverLeads::where('status', 'process')->count();
+        $reject = DriverLeads::where('status', 'reject')->count();
+        $success = DriverLeads::where('status', 'complete')->count();
         return response()->json([$assigned, $process, $reject, $success]);
     }
 }

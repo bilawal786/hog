@@ -1,6 +1,8 @@
 require('./vue-assets');
-Vue.component('driver-dashboard', require('./components/driver/dashboard/dashboard.vue').default);
+// Vue.component('driver-dashboard', require('./components/driver/dashboard/dashboard.vue').default);
 Vue.component('admin-dashboard', require('./components/admin/dashboard/dashboard.vue').default);
+Vue.component('set-time', require('./SetTime.vue').default);
+Vue.component('set-date', require('./setDate.vue').default);
 
 import VueToastify from "vue-toastify";
 Vue.use(VueToastify, {

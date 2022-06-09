@@ -78,8 +78,77 @@ class RequestRideController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
+    try {
+        $validated = $request->validate([
+            'type' => 'required|max:255',
+            'Fname' => 'required|max:255',
+            'Lname' => 'required|max:255',
+            'email' => 'required|max:255',
+            'phone' => 'required|max:255',
+            'wheelchair' => 'required',
+            'round_trip' => 'required',
+            'trip_date' => 'required',
+            'start_lat' => 'required|max:255',
+            'start_lng' => 'required|max:255',
+            'end_lat' => 'required|max:255',
+            'end_lng' => 'required|max:255',
+            'start_address' => 'required|max:255',
+            'end_address' => 'required|max:255',
+            'cost' => 'required|max:255',
+            'status_assign' => 'required|max:255',
+            ]);
+        }
+        catch (ValidationException $exception) {
+            return response()->json([
+                'status' => 'error',
+                'msg'    => 'Error',
+                'errors' => $exception->errors(),
+            ], 422);
+        }
+       SendMessage::where('id', $id)->update([
 
+        'Fname' => $request->Fname,
+        'Lname' => $request->Lname,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'wheelchair' => $request->wheelchair,
+        'round_trip' => $request->round_trip,
+        'trip_date' => $request->trip_date,
+        'start_lat' => $request->start_lat,
+        'start_lng' => $request->start_lng,
+        'end_lat' => $request->end_lat,
+        'end_lng' => $request->end_lng,
+        'distance' => $this->distance($request->start_lat, $request->start_lng, $request->end_lat, $request->end_lng, 'K'),
+        'start_address' => $request->start_address,
+        'end_address' => $request->end_address,
+        'cost' => $request->cost,
+        'message' => $request->message,
+       ]);
+        return response()->json([
+            'update' => 'suceess'
+        ]);
+    }
+    public function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+        if (($lat1 == $lat2) && ($lon1 == $lon2)) {
+          return 0;
+        }
+        else {
+          $theta = $lon1 - $lon2;
+          $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+          $dist = acos($dist);
+          $dist = rad2deg($dist);
+          $miles = $dist * 60 * 1.1515;
+          $unit = strtoupper($unit);
+      
+          if ($unit == "K") {
+            return ($miles * 1.609344);
+          } else if ($unit == "N") {
+            return ($miles * 0.8684);
+          } else {
+            return $miles;
+          }
+        }
+      }
     /**
      * Remove the specified resource from storage.
      *
@@ -97,5 +166,15 @@ class RequestRideController extends Controller
     {
         $rides = SendMessage::where('type', 'Request Ride')->where('status_assign', 'no')->get();
         return response()->json($rides);
+    }
+    public function statusUpdate(Request $request, $id)
+    {
+        //
+       SendMessage::where('id', $id)->update([
+           'status_assign' => $request->status_assign
+       ]);
+        return response()->json([
+            'assign' => $request->status_assign
+        ]);
     }
 }
