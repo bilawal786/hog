@@ -84,7 +84,7 @@
                         </p>
                     </form>
                     <div class="create-account-wrap">
-                        <p>Already member ? <router-link to="/login">Login</router-link></p>
+                        <p>Already member ? <router-link to="/signin">Sign In</router-link></p>
                     </div>
                     <!--create-account-wrap-->
                 </div>

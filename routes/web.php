@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
-// Auth::routes(['register' => false]);
+// Auth::routes();
+Auth::routes(['register' => false]);
 
  Route::get('/admin', 'Admin\Auth\AdminLoginController@login')->name('admin.login');
  Route::get('/admin/reset', 'AdminController@reset')->name('admin.reset');

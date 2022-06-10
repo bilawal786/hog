@@ -19,9 +19,9 @@
                                     </a>
                                 </li>
                                 <li v-show="!user">
-                                    <router-link to="/login" class="mdn">
+                                    <router-link to="/signin" class="mdn">
                                         <i class="fa fa-user"></i>
-                                        <span>LogIn</span>
+                                        <span>SignIn</span>
                                     </router-link>
                                 </li>
                                 <li v-show="user">

@@ -5,18 +5,13 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>Heart of Gold | Admin</title>
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<meta name="author" content="Heart of gold"/>
 		
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico">
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="{{asset('images/favicon-16x16.ico')}}" type="image/x-icon">
 		
 		<!-- vector map CSS -->
 		<link href="vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		
-		
 		
 		<!-- Custom CSS -->
 		<link href="dist/css/style.css" rel="stylesheet" type="text/css">
@@ -63,14 +58,20 @@
 										<div class="form-wrap">
 											<form method="POST" action="{{ route('login') }}">
 												@csrf
-												<div class="form-group">
+												<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
 													<label class="control-label mb-10" for="exampleInputEmail_2">Email address</label>
 													<input type="email" placeholder="Enter email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+													@error('email')
+														<span class="help-block"> {{ $message }}</span>
+													@enderror
 												</div>
-												<div class="form-group">
+												<div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
 													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Password</label>
 													<div class="clearfix"></div>
 													<input type="password" placeholder="Enter Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+													@error('password')
+														<span class="help-block"> {{ $message }}</span>
+													@enderror
 												</div>
 												
 												<div class="form-group">

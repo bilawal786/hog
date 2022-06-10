@@ -126,7 +126,7 @@ const routes = [
 },
 {
     name:'Login',
-    path:'/login',
+    path:'/signin',
     component:login,
     beforeEnter: guest,
     meta: { title: 'Heart of Gold | Login' }
