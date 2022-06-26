@@ -8,19 +8,19 @@
 	@if (Auth::user()->role == 'driver')
 		<driver-dashboard></driver-dashboard>
 	@endif
-		
 
-	
+
+
 	<!-- Footer -->
 	<footer class="footer container-fluid pl-30 pr-30">
 		<div class="row">
 			<div class="col-sm-12">
-				<p>2022 &copy; Coding Crust</p>
+				<p>2022 &copy; HOG</p>
 			</div>
 		</div>
 	</footer>
 	<!-- /Footer -->
-	
+
 </div>
 @endsection
 @push('script')

@@ -1,9 +1,9 @@
 <template>
     <div class="form-wrap">
         <form class="form-horizontal">
-           
+
             <div class="form-body">
-                <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account mr-10"></i>Logo Upload</h6>
+                <h6 class="txt-dark capitalize-font"><i class="fa fa-image mr-10"></i>Logo Upload</h6>
                 <hr class="light-grey-hr" />
                 <div class="row">
                     <div class="col-md-6">
@@ -12,7 +12,7 @@
                             <div class="col-md-9">
 
                                 <div class="clearfix"></div>
-                                <p class="text-muted">Your logo size<code>50 x 50</code></p>
+                                <p class="text-muted">Your logo size <code>50 x 50</code></p>
                                 <div class="mt-40">
                                     <vue-dropify  required data-max-file-size="1M" :src="header_src" @upload="headerLogoUpload($event)" @change="headerLogoChange()"></vue-dropify>
                                     <!-- <input type="file" id="input-file-now-custom-1" class="dropify" name="header_logo"
@@ -28,10 +28,10 @@
                             <div class="col-md-9">
 
                                 <div class="clearfix"></div>
-                                <p class="text-muted">Your logo size<code>50 x 50</code></p>
+                                <p class="text-muted">Your logo size <code>50 x 50</code></p>
                                 <div class="mt-40">
                                     <!-- <vue-dropify  required data-max-file-size="1M" :src="footer_src" @upload="footerLogoUpload($event)" @change="footerLogoChange()"></vue-dropify> -->
-                                    <input type="file" id="input-file-now-custom-1" class="dropify" name="footer_logo" 
+                                    <input type="file" id="input-file-now-custom-1" class="dropify" name="footer_logo"
                                         :data-default-file="foot_logo"  />
                                 </div>
                                 <br>
@@ -40,7 +40,7 @@
 
                     </div>
                 </div>
-                <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account mr-10"></i>About's Info</h6>
+                <h6 class="txt-dark capitalize-font"><i class="fa fa-info-circle mr-10"></i>About's Info</h6>
                 <hr class="light-grey-hr" />
                 <div class="row">
                     <div class="col-md-6">
@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account-box mr-10"></i>Address</h6>
+                <h6 class="txt-dark capitalize-font"><i class="fa fa-map-marker mr-10"></i>Address</h6>
                 <hr class="light-grey-hr" />
                 <!-- /Row -->
                 <div class="row">
@@ -169,13 +169,13 @@ export default{
         //   this.generalSetting.foot_logo = event.target.files[0]
          // console.log(e.file)
             // let file = e.target.files[0];
-            // let reader = new FileReader();  
+            // let reader = new FileReader();
             //     if(file['size'] < 2111775)
             //     {
             //         reader.onloadend = (file) => {
             //         console.log('RESULT', reader.result)
             //          this.form.avatar = reader.result;
-            //         }              
+            //         }
             //          reader.readAsDataURL(file);
             //     }else{
             //         alert('File size can not be bigger than 2 MB')
@@ -208,7 +208,7 @@ export default{
                     }
                 })
             }
-        }) 
+        })
 
 
 
@@ -216,7 +216,7 @@ export default{
 
 
 
-           
+
       }
   }
 }

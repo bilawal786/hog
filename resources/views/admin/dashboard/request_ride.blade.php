@@ -19,6 +19,15 @@
         </div>
         <request-ride></request-ride>
     </div>
+    <!-- Footer -->
+    <footer class="footer container-fluid pl-30 pr-30">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>2022 &copy; HOG</p>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
 </div>
 
 @endsection
@@ -27,13 +36,13 @@
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key={{ env('GOOGLE_MAP_KEY') }}"></script>
 @endpush
 @push('script')
-    
+
     <!-- jQuery -->
 		<script src="{{ asset('vendors/bower_components/jquery/dist/jquery.min.js')}}"></script>
 		<!-- Select2 JavaScript -->
 		<script src="{{ asset('vendors/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 		<!-- Form Advance Init JavaScript -->
 		<script src="{{ asset('dist/js/form-advance-data.js')}}"></script>
-     
+
     <script src="{{ mix('js/admin/admin_requestRide.js') }}" type="text/javascript"></script>
 @endpush

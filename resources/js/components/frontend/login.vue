@@ -5,11 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="login-form-wrap">
-                    <h2><i class="fa fa-user login-icon"></i> Login</h2>
+                    <h2 style="color: #cd9700;"><i class="fa fa-sign-in" style="margin-right: 10px;"></i>Sign In</h2>
                     <form class="login-form">
                         <p>
                             <input
-                               type="email"
+                                type="email"
                                 class="form-control"
                                 :class="{ 'server-input-vilidation': errors.email }"
                                 id="email"
@@ -17,13 +17,13 @@
                                 placeholder="Enter email"
                                 required
                             />
-                            <span class="server-vilidation" v-if="errors.email">
-                                {{ errors.email[0] }}
-                            </span>
-                            <span class="server-vilidation" v-if="!errors.email">
+                        <div class="text-left">
+                            <span class="server-error" v-if="errors.email">{{ errors.email[0] }}</span>
+                            <span class="server-error" v-if="!errors.email">
                             &nbsp
                             </span>
                             <i class="validation"><span></span><span></span></i>
+                        </div>
                         </p>
                         <p>
                             <input
@@ -33,31 +33,33 @@
                                 id="password"
                                 v-model="details.password"
                                 placeholder="Password"/>
-                                <span class="server-vilidation" v-if="errors.password">
-                                {{ errors.password[0] }}
-                                </span>
-                                <span class="server-vilidation" v-if="!errors.password">
-                                &nbsp
-                                </span>
-                                <i class="validation"><span></span><span></span></i>
+                        <div class="text-left">
+                            <span class="server-error" v-if="errors.password">{{ errors.password[0] }}</span>
+                            <span class="server-error" v-if="!errors.password">
+                            &nbsp
+                            </span>
+                            <i class="validation"><span></span><span></span></i>
+                        </div>
                         </p>
                         <p>
-                          <button
-                            type="button"
-                            @click="login"
-                        >
-                            Login
-                        </button>
-                        <span class="server-vilidation" >&nbsp</span>
+                            <button
+                                type="button"
+                                @click="login"
+                            >
+                                Sign In
+                            </button>
+                            <span class="server-vilidation">&nbsp</span>
                         </p>
                     </form>
                     <div class="create-account-wrap">
-                        <p>Not a member? <router-link to="/register">Create Account</router-link></p>
+                        <p>Not a member?
+                            <router-link to="/register">Sign Up</router-link>
+                        </p>
                     </div>
                     <!--create-account-wrap-->
                 </div>
                 <!--login-form-wrap-->
-              
+
             </div>
             <!--create-account-wrap-->
         </div>
@@ -69,7 +71,8 @@
 import TopHeader from "./includes/TopHeader.vue";
 import NavigationBar from "./includes/navigationbar.vue";
 import WebFooter from "./includes/footer.vue";
-import { mapGetters, mapActions } from "vuex";
+import {mapGetters, mapActions} from "vuex";
+
 export default {
     data() {
         return {
@@ -79,7 +82,7 @@ export default {
             },
         };
     },
-    components: { TopHeader, NavigationBar, WebFooter },
+    components: {TopHeader, NavigationBar, WebFooter},
     computed: {
         ...mapGetters("auth", ["errors"]),
     },
@@ -91,7 +94,7 @@ export default {
         ...mapActions("auth", ["sendLoginRequest"]),
         login: function () {
             this.sendLoginRequest(this.details).then(() => {
-                this.$router.push({ name: "dashboard" });
+                this.$router.push({name: "dashboard"});
             });
         },
     },

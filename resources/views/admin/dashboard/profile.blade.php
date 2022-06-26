@@ -19,7 +19,7 @@
         </div>
         <!-- Row -->
         @if(count($errors) > 0 )
-        
+
             <ul class="p-0 m-0" style="list-style: none;">
                 @foreach($errors->all() as $error)
                 <li><p class="alert alert-info">{{$error}}</p></li>
@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-lg-9 col-xs-12">
                 <div class="panel panel-default card-view">
-    
+
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="row">
@@ -48,12 +48,12 @@
                                     </div>
                                 </div>
                             </div>
-                    
+
                         </div>
                     </div>
                 </div>
-                
-                    
+
+
             </div>
         </div>
         <!-- /Row -->
@@ -62,13 +62,11 @@
     <footer class="footer container-fluid pl-30 pr-30">
         <div class="row">
             <div class="col-sm-12">
-                <p>2022 &copy; Hear of Gold</p>
+                <p>2022 &copy; HOG</p>
             </div>
         </div>
     </footer>
     <!-- /Footer -->
-</div>
-    
 </div>
 <!-- /Main Content -->
 @endsection

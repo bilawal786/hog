@@ -3,7 +3,7 @@
 
 <div class="page-wrapper">
     <div class="container-fluid">
-        
+
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -18,11 +18,11 @@
             </div>
             <!-- /Breadcrumb -->
         </div>
-        
+
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default card-view">
-    
+
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="row">
@@ -39,12 +39,12 @@
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Header logo</label>
                                                             <div class="col-md-9">
-                                                        
+
                                                         <div class="clearfix"></div>
                                                         <p class="text-muted" >Your logo size<code>50 x 50</code></p>
                                                         <div class="mt-40">
                                                             <input type="file" id="input-file-now-custom-1" class="dropify" name="header_logo" data-default-file="{{ asset($generaldata->header_logo) }}"/>
-                                                        </div>	
+                                                        </div>
                                                         <br>
                                                     </div>
                                                     </div>
@@ -54,13 +54,13 @@
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Footer logo</label>
                                                             <div class="col-md-9">
-                                                        
+
                                                         <div class="clearfix"></div>
                                                         <p class="text-muted" >Your logo size<code>50 x 50</code></p>
                                                         <div class="mt-40">
                                                             <input type="file" id="input-file-now-custom-1" class="dropify" name="footer_logo" data-default-file="{{ asset($generaldata->footer_logo) }}"/>
-                                                            
-                                                        </div>	
+
+                                                        </div>
                                                         <br>
                                                     </div>
                                                     </div>
@@ -85,7 +85,7 @@
                                                             <label class="control-label col-md-3">Phone No.</label>
                                                             <div class="col-md-9">
                                                                 <input type="text" class="form-control" placeholder="Phone No." name="phone" value="{{$generaldata->phone}}">
-                    
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -102,7 +102,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                             
+
                                                 <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account-box mr-10"></i>Address</h6>
                                                 <hr class="light-grey-hr"/>
                                                 <!-- /Row -->
@@ -124,7 +124,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                              
+
                                                 <!-- /Row -->
                                             </div>
                                             <div class="form-actions mt-10">
@@ -151,8 +151,17 @@
             </div>
         </div>
         <!-- /Row -->
-        
+
     </div>
+    <!-- Footer -->
+    <footer class="footer container-fluid pl-30 pr-30">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>2022 &copy; HOG</p>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
 </div>
 @endsection
 @push('script')

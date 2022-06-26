@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'https://hog.codingcrust.com/';
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-// seting up csrf-token in js 
+// seting up csrf-token in js
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
@@ -15,7 +15,7 @@ if (token) {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
-// sweet alert imported 
+// sweet alert imported
 
 import Swal from 'sweetalert2';
 
@@ -25,7 +25,7 @@ window.Swal = Swal;
 
 
 
-// vue js instance 
+// vue js instance
 window.Vue = require('vue');
 
 export const EventBus = new Vue();

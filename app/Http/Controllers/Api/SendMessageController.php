@@ -12,7 +12,7 @@ use Illuminate\Validation\ValidationException;
 class SendMessageController extends Controller
 {
     public function sendMessage(Request $request){
-        
+
         switch ($request->type) {
             case "Submit Feedback":
                 try {
@@ -41,9 +41,12 @@ class SendMessageController extends Controller
                 $send_message->message = $request->message;
                 $send_message->user_id = $request->user_id;
                 $send_message->save();
-                return response()->json([
-                    'type' => "Submit Feedback"
-                ]);
+                $notification = array(
+                    'messege' => 'Submit Feedback successfully!',
+                    'type' => 'success'
+                );
+                return response()->json($notification);
+
 
               break;
             case "Billing Question":
@@ -74,10 +77,12 @@ class SendMessageController extends Controller
                 $send_message->message = $request->message;
                 $send_message->user_id = $request->user_id;
                 $send_message->save();
-                return response()->json([
-                    'type' => "Billing Question"
-                ]);
-             
+                $notification = array(
+                    'messege' => 'Billing Question successfully!',
+                    'type' => 'success'
+                );
+                return response()->json($notification);
+
               break;
             case "Request Ride":
                 try {
@@ -128,9 +133,11 @@ class SendMessageController extends Controller
                 $send_message->user_id = $request->user_id;
                 $send_message->status_assign = $request->status_assign;
                 $send_message->save();
-                return response()->json([
-                    'type' => "Request Ride"
-                ]);
+                $notification = array(
+                    'messege' => 'Request Ride successfully!',
+                    'type' => 'success'
+                );
+                return response()->json($notification);
               break;
             default:
             try {
@@ -158,9 +165,12 @@ class SendMessageController extends Controller
                 $send_message->message = $request->message;
                 $send_message->user_id = $request->user_id;
                 $send_message->save();
-                return response()->json([
-                    'type' => "Others"
-                ]);
+                $notification = array(
+                    'messege' => 'Others querry successfully!',
+                    'type' => 'success'
+                );
+                return response()->json($notification);
+
           }
     }
     public function distance($lat1, $lon1, $lat2, $lon2, $unit) {
@@ -174,7 +184,7 @@ class SendMessageController extends Controller
           $dist = rad2deg($dist);
           $miles = $dist * 60 * 1.1515;
           $unit = strtoupper($unit);
-      
+
           if ($unit == "K") {
             return ($miles * 1.609344);
           } else if ($unit == "N") {

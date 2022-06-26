@@ -36,7 +36,7 @@
 
                                             <br>
 
-                                            <p>Megan Pagan, RN, Owner 
+                                            <p>Megan Pagan, RN, Owner
                                             <br>
                                             Heart of Gold Medical Transport, Inc.</p>
                                         <h3>COMPASSION</h3>
@@ -58,11 +58,14 @@
                                     </div><!-- /.about-content-left-->
                                 </div><!-- /.col-md-5 -->
                                 <div class="col-md-6">
-                                   
                                             <div class="contact">
                                                 <div class="contact-btn">REQUEST A RIDE TODAY</div>
                                             </div>
+                                    <div class="contact-us-area">
+                                        <div class="contact-us-content-right">
                                             <ContactForm></ContactForm>
+                                        </div>
+                                    </div>
                                     <br>
                                 </div><!-- /.col-md-7 -->
                             </div><!-- /.row -->

@@ -12,12 +12,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
-    // Apis  in admin 
+    // Apis  in admin
     Route::resource('web/general/setting', 'Admin\GeneralSetting\GeneralSettingController');
     Route::resource('web/profile', 'Admin\Profile\ProfileController');
     Route::post('web/profile/change/password', 'Admin\Profile\ChangePasswordController@changePassword');
+    // client
     Route::resource('web/clients', 'Admin\Users\ClientController');
+    Route::put('web/block/client/{id}', 'Admin\Users\ClientController@block');
+    Route::put('web/unblock/client/{id}', 'Admin\Users\ClientController@unblock');
+    // drivers
     Route::resource('web/drivers', 'Admin\Users\DriverController');
+    Route::put('web/block/driver/{id}', 'Admin\Users\DriverController@block');
+    Route::put('web/unblock/driver/{id}', 'Admin\Users\DriverController@unblock');
+
     Route::resource('web/form/billing/request', 'Admin\Form\BillingRequestController');
     Route::resource('web/form/others', 'Admin\Form\OtherController');
     Route::resource('web/form/request/ride', 'Admin\Form\RequestRideController');
@@ -41,6 +48,6 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::get('web/admin/widget/leads/latest/5', 'Admin\Widgets\WidgetsController@latestLeads');
 
 });
-  
-    
+
+
 

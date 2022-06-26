@@ -5,9 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>Admin Dashboard</title>
+	<title>HOG | Dashboard</title>
 	<meta name="author" content="Heart of Gold"/>
 	<!-- Favicon -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="{{asset('images/favicon-16x16.ico')}}" type="image/x-icon">
 	@include('admin.includes.header_asset')
 </head>
 <body>
@@ -23,5 +26,6 @@
     </div>
     <!-- /#wrapper -->
 @include('admin.includes.footer_asset')
+
 </body>
 </html>

@@ -12,11 +12,11 @@ require('./bootstrap');
 
 Vue.config.productionTip = false;
 
-// if(process.env.MIX_VUE_HOST == 'local'){
-//   axios.defaults.baseURL = 'http://localhost:8000/api/';
-// }else{
+
+  // axios.defaults.baseURL = 'http://localhost:8000/api/';
+
   axios.defaults.baseURL = 'https://hog.codingcrust.com/api/';
-// }
+
 axios.interceptors.response.use(
   response => response,
   error => {
@@ -44,7 +44,7 @@ axios.interceptors.request.use(function(config) {
 });
 
 const app = new Vue({
-    el: '#app', 
+    el: '#app',
     router,
     store,
     render: h => h(App),

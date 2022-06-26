@@ -88,6 +88,27 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id', $id)->delete();
+        $notification = array(
+            'messege' => 'Client Delete successfully',
+            'type' => 'success'
+        );
+        return response()->json($notification);
+    }
+    public function block(Request $request, $id){
+        User::Where('id', $id)->update(['status' => $request->status]);
+        $notification = array(
+            'messege' => 'Client Block successfully!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
+    }
+    public function unblock(Request $request, $id){
+        User::Where('id', $id)->update(['status' => $request->status]);
+        $notification = array(
+            'messege' => 'Client Unblock successfully!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
 }

@@ -36,8 +36,8 @@
                                                     <button class="btn btn-success btn-icon-anim btn-circle btn-sm"
                                                         @click="getClientDetail(client.id)"><i
                                                             class="fa fa-eye"></i></button>
-                                                    <button class="btn btn-primary btn-icon-anim btn-circle btn-sm"><i
-                                                            class="fa fa-lock"></i></button>
+                                                    <button class="btn btn-danger btn-icon-anim btn-circle btn-sm" v-if="client.status==1" @click="block(client.id)"><i class="fa fa-lock"></i></button>
+                                                    <button class="btn btn-warning btn-icon-anim btn-circle btn-sm" v-if="client.status==0" @click="unblock(client.id)"><i class="fa fa-unlock"></i></button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -67,7 +67,7 @@
 
                 </div>
             </div>
-           
+
             <div class="col-sm-6">
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
@@ -76,7 +76,7 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-               
+
                 <div class="panel-wrapper collapse in">
                     <div class="panel-body">
                         <div class="table-wrap">
@@ -119,17 +119,17 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-               
+
                 <div class="panel-wrapper collapse in">
                     <div class="panel-body">
                         <div class="table-wrap">
                             <div class="table-responsive">
-                               
+
                             </div>
                         </div>
                     </div>
                 </div>
-               
+
             </div>
             </div>
         </div>
@@ -162,6 +162,77 @@ export default {
                 this.clients = response.data
             })
         },
+        block(id){
+            Swal.fire({
+                title: 'Are you sure ?',
+                text: "You wanted to block this client",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'rgb(34 110 237 / 85%)',
+                cancelButtonColor: '#ff2a00',
+                confirmButtonText: 'Block'
+            }, () => {
+            }).then((result) => {
+                if (result.value) {
+                    axios.put('admin/web/block/client/'+id, {
+                        'status': '0'
+                    }).then(response=>{
+                        this.getClientData()
+                        window.scrollTo(0, 0)
+                        switch (response.data.type) {
+                            case 'info':
+                                toastr.info(response.data.messege);
+                                break;
+                            case 'success':
+                                toastr.success(response.data.messege);
+                                break;
+                            case 'warning':
+                                toastr.warning(response.data.messege);
+                                break;
+                            case 'error':
+                                toastr.error(response.data.messege);
+                                break;
+                        }
+                    })
+                }
+            })
+        },
+        unblock(id){
+            Swal.fire({
+                title: 'Are you sure ?',
+                text: "You wanted to unblock this client",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'rgb(34 110 237 / 85%)',
+                cancelButtonColor: '#ff2a00',
+                confirmButtonText: 'Unblock'
+            }, () => {
+            }).then((result) => {
+                if (result.value) {
+                    axios.put('admin/web/unblock/client/'+id, {
+                        'status':'1'
+                    }).then(response=>{
+                        this.getClientData()
+                        window.scrollTo(0, 0)
+                        switch (response.data.type) {
+                            case 'info':
+                                toastr.info(response.data.messege);
+                                break;
+                            case 'success':
+                                toastr.success(response.data.messege);
+                                break;
+                            case 'warning':
+                                toastr.warning(response.data.messege);
+                                break;
+                            case 'error':
+                                toastr.error(response.data.messege);
+                                break;
+                        }
+                    })
+                }
+            })
+        },
+
         getClientDetail: function (id) {
             this.panel.allClients = false
             this.panel.detail = true
@@ -178,18 +249,8 @@ export default {
             this.clientDetail.phone = null
             this.clientDetail.address = null
             this.clientDetail.created_at = null
-        },
-        dateFormate: function (date) {
-
-            var today = Date(date);
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-            var yyyy = today.getFullYear();
-
-            today = mm + '/' + dd + '/' + yyyy;
-
-            return today
         }
+
     }
 }
 </script>

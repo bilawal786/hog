@@ -21,7 +21,7 @@
                                 <li v-show="!user">
                                     <router-link to="/signin" class="mdn">
                                         <i class="fa fa-user"></i>
-                                        <span>SignIn</span>
+                                        <span style="text-transform: capitalize;">Sign In</span>
                                     </router-link>
                                 </li>
                                 <li v-show="user">
@@ -50,7 +50,7 @@ export default {
         ...mapGetters("auth", ["settings", "user"])
     },
     mounted() {
-        
+
     },
     watch:{
         checkVariable(){
@@ -60,14 +60,14 @@ export default {
                 this.settings.email = null
             }
         }
-        
+
     },
     methods: {
     ...mapActions("auth", ["sendLogoutRequest"]),
 
     logout() {
       this.sendLogoutRequest();
-      
+
     }
   }
 };

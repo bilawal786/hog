@@ -23,9 +23,9 @@
     <link rel="shortcut icon" sizes="16x16" href="{{ asset('assets/images/favicon-16x16.ico') }}">
     <link rel="shortcut icon" sizes="32x32" href="{{ asset('assets/images/favicon-32x32.ico') }}">
     <link rel="shortcut icon" sizes="96x96" href="{{ asset('assets/images/favicon-96x96.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/apple-touch-icon.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/apple-touch-icon-72x72.png') }}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/apple-touch-icon-114x114.png') }}">
+
     <link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet"/>
 
     <!-- Custom Font
@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/icons.min.css') }}">
     <!-- RS5.4 Main Stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/revolution/css/settings.css') }}">
+    <link href="{{ asset('css/toastr.min.css') }}" type="text/css" rel="stylesheet"/>
     <style>
         .header-nav-area {
             background-color: black;
@@ -82,7 +83,7 @@
         .yellow-theme .widget .button {
             background: #cd9700;
         }
-     
+
         @media only screen and (max-width: 600px) {
            .mdn{
                display: none;
@@ -131,5 +132,6 @@
 <script src="{{ asset('assets/revolution/js/extensions/revolution.extension.navigation.min.js') }}"></script>
 <script src="{{ asset('assets/revolution/js/extensions/revolution.extension.migration.min.js') }}"></script>
 <script src="{{ asset('assets/revolution/js/extensions/revolution.extension.parallax.min.js') }}"></script>
+<script src="{{ asset('js/toastr.js') }}"></script>
 </body>
 </html>

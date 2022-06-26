@@ -33,7 +33,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -107,11 +107,32 @@ class DriverController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id', $id)->delete();
+        $notification = array(
+            'messege' => 'Driver Delete successfully',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
     public function getAllDrivers(){
         $drivers = User::where('role', 'driver')->select('id', 'name')->orderBy('id', 'desc')->get();
         $data = DriverResource::collection($drivers);
         return response()->json($data);
+    }
+    public function block($id){
+        User::Where('id', $id)->update(['status' => '0']);
+        $notification = array(
+            'messege' => 'Driver Block successfully!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
+    }
+    public function unblock($id){
+        User::Where('id', $id)->update(['status' => '1']);
+        $notification = array(
+            'messege' => 'Driver Unblock successfully!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
 }

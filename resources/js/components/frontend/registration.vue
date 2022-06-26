@@ -3,13 +3,13 @@
         <top-header></top-header>
         <navigation-bar></navigation-bar>
         <div class="row">
-          <div class="col-md-12">
-            <div class="login-form-wrap">
-                    <h2><i class="fa fa-user login-icon"></i> Registration</h2>
+            <div class="col-md-12">
+                <div class="login-form-wrap">
+                    <h2 style="color: #cd9700;"><i class="fa fa-user-plus"></i> Sign Up</h2>
                     <form class="login-form">
                         <p>
                             <input
-                               type="text"
+                                type="text"
                                 class="form-control"
                                 :class="{ 'server-input-vilidation': errors.name }"
                                 id="name"
@@ -17,13 +17,14 @@
                                 placeholder="Enter name"
                                 required
                             />
-                            <span class="server-vilidation" v-if="errors.name">
-                                {{ errors.name[0] }}
-                            </span>
-                            <span class="server-vilidation" v-if="!errors.name">
+                        <div class="text-left">
+                        <span class="server-error" v-if="errors.name">{{ errors.name[0] }}</span>
+                        <span class="server-error" v-if="!errors.name">
                             &nbsp
                             </span>
-                            <i class="validation"><span></span><span></span></i>
+                        <i class="validation"><span></span><span></span></i>
+                        </div>
+
                         </p>
                         <p>
                             <input
@@ -33,13 +34,14 @@
                                 id="password"
                                 v-model="details.email"
                                 placeholder="Enter email"/>
-                                <span class="server-vilidation" v-if="errors.email">
-                                {{ errors.email[0] }}
-                                </span>
-                                <span class="server-vilidation" v-if="!errors.email">
-                                &nbsp
-                                </span>
-                                <i class="validation"><span></span><span></span></i>
+                        <div class="text-left">
+                            <span class="server-error" v-if="errors.email">{{ errors.email[0] }}</span>
+                            <span class="server-error" v-if="!errors.email">
+                            &nbsp
+                            </span>
+                            <i class="validation"><span></span><span></span></i>
+                        </div>
+
                         </p>
                         <p>
                             <input
@@ -49,51 +51,51 @@
                                 id="password"
                                 v-model="details.password"
                                 placeholder="Password"/>
-                                <span class="server-vilidation" v-if="errors.password">
-                                {{ errors.password[0] }}
-                                </span>
-                                <span class="server-vilidation" v-if="!errors.password">
-                                &nbsp
-                                </span>
-                                <i class="validation"><span></span><span></span></i>
+                        <div class="text-left">
+                            <span class="server-error" v-if="errors.password">{{ errors.password[0] }}</span>
+                            <span class="server-error" v-if="!errors.password">
+                            &nbsp
+                            </span>
+                            <i class="validation"><span></span><span></span></i>
+                        </div>
+
                         </p>
                         <p>
                             <input
                                 type="password"
                                 class="form-control"
                                 :class="{ 'server-input-vilidation': errors.password }"
-                                 id="password_confirmation"
+                                id="password_confirmation"
                                 v-model="details.password_confirmation"
                                 placeholder="Confirm password"/>
-                                <span class="server-vilidation" v-if="errors.password">
-                                {{ errors.password[0] }}
-                                </span>
-                                <span class="server-vilidation" v-if="!errors.password">
-                                &nbsp
-                                </span>
-                                <i class="validation"><span></span><span></span></i>
+                        <div class="text-left">
+                            <span class="server-error" v-if="errors.password">{{ errors.password[0] }}</span>
+                            <span class="server-error" v-if="!errors.password">
+                            &nbsp
+                            </span>
+                            <i class="validation"><span></span><span></span></i>
+                        </div>
                         </p>
                         <p>
-                          <button
-                            type="button"
-                            @click="register"
-                        >
-                            Register
-                        </button>
-                        <span class="server-vilidation" >&nbsp</span>
+                            <button
+                                type="button"
+                                @click="register"
+                            >Sign Up
+                            </button>
+                            <span class="server-vilidation">&nbsp</span>
                         </p>
                     </form>
                     <div class="create-account-wrap">
-                        <p>Already member ? <router-link to="/signin">Sign In</router-link></p>
+                        <p>Already member ?
+                            <router-link to="/signin">Sign In</router-link>
+                        </p>
                     </div>
                     <!--create-account-wrap-->
                 </div>
-          </div>
+            </div>
         </div>
 
 
-
-       
         <web-footer></web-footer>
     </div>
 </template>
@@ -102,7 +104,7 @@
 import TopHeader from "./includes/TopHeader.vue";
 import NavigationBar from "./includes/navigationbar.vue";
 import WebFooter from "./includes/footer.vue";
-import { mapGetters, mapActions } from "vuex";
+import {mapGetters, mapActions} from "vuex";
 
 export default {
     name: "Home",
@@ -117,7 +119,7 @@ export default {
             },
         };
     },
-    components: { TopHeader, NavigationBar, WebFooter },
+    components: {TopHeader, NavigationBar, WebFooter},
     computed: {
         ...mapGetters("auth", ["errors"]),
     },
@@ -131,7 +133,7 @@ export default {
 
         register: function () {
             this.sendRegisterRequest(this.details).then(() => {
-                this.$router.push({ name: "dashboard" });
+                this.$router.push({name: "dashboard"});
             });
         },
     },

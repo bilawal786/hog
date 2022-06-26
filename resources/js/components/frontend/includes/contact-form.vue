@@ -316,7 +316,7 @@ Your Message</textarea
               v-show="sendMessage.cost"
               >{{ sendMessage.cost }} $</span
             >
-            
+
             </div>
             <div class="contact-valid" v-if="errors.cost">
                 {{ errors.cost[0] }}
@@ -349,7 +349,7 @@ Your Message</textarea
           </div>
         </div>
       </div>
-    
+
       <!-- /.input-content -->
     </form>
   </div>
@@ -360,7 +360,7 @@ import { Datetime } from 'vue-datetime'
 import 'vue-datetime/dist/vue-datetime.css'
 import { mapGetters, mapActions } from "vuex";
 export default {
- 
+
     data() {
         return {
             sendMessage: {
@@ -408,7 +408,7 @@ export default {
         }
     },
     methods: {
-    
+
         getAddressStart: function (addressData, placeResultData, id) {
             this.sendMessage.start_lat = addressData.latitude;
             this.sendMessage.start_lng = addressData.longitude;
@@ -487,15 +487,39 @@ export default {
                             this.sendMessage.cost = null,
                             this.$store.commit("auth/setErrors", {}),
                             window.scrollTo(0, 0)
+                        console.log(response)
+                        switch(response.data.type){
+                            case 'info':
+                                toastr.info(response.data.messege);
+                                break;
+                            case 'success':
+
+                                toastr.success(response.data.messege);
+                                break;
+                            case 'warning':
+                                toastr.warning(response.data.messege);
+                                break;
+                            case 'error':
+                                toastr.error(response.data.messege);
+                                break;
+                        }
                     }
                 });
             }
         }
     },
-   
+
     components: {
         DateTime: Datetime,
         VueGoogleAutocomplete
     },
 };
 </script>
+<style>
+.toast {
+    font-size: 1.4rem;
+}
+#toast-container>div {
+    opacity: 1;
+}
+</style>
