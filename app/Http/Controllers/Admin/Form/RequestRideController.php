@@ -42,7 +42,7 @@ class RequestRideController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
@@ -139,7 +139,7 @@ class RequestRideController extends Controller
           $dist = rad2deg($dist);
           $miles = $dist * 60 * 1.1515;
           $unit = strtoupper($unit);
-      
+
           if ($unit == "K") {
             return ($miles * 1.609344);
           } else if ($unit == "N") {
@@ -157,10 +157,12 @@ class RequestRideController extends Controller
      */
     public function destroy($id)
     {
-        $delete = SendMessage::where('id', $id)->delete();
-        return response()->json([
-            'Ride' => 'delete'
-        ]);
+        SendMessage::where('id', $id)->delete();
+        $notification = array(
+            'messege' => 'Request Ride Delete successfully',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
     public function unassignRide()
     {

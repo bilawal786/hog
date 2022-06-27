@@ -46,7 +46,7 @@ class DriverController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'required|max:255|email',
             'password' => 'required|max:255',
             'comfirm_password' => 'required_with:password|same:password',
             ]);
@@ -59,9 +59,11 @@ class DriverController extends Controller
             $save_driver->password = Hash::make($request->password);
             $save_driver->save();
 
-           return response()->json([
-               "driver" => "Successfully Created"
-           ]);
+        $notification = array(
+            'messege' => 'Drive successfully Created!',
+            'type' => 'success'
+        );
+           return response()->json($notification);
     }
 
     /**
@@ -96,7 +98,27 @@ class DriverController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255|email',
+            'password' => 'max:255|confirmed',
+            'comfirm_password' => 'same:password',
+        ]);
+        $data = User::where('id', $id)->first();
+
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->address = $request->address;
+        if ($request->password){
+            $data->password = Hash::make($request->password);
+        }
+        $data->update();
+        $notification = array(
+            'messege' => 'Drive successfully Update!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
 
     /**

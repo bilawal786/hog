@@ -1,4 +1,5 @@
 require('./vue-assets');
+import router from "./components/admin/others/router";
 Vue.component('form-others', require('./components/admin/others/others.vue').default);
 Vue.component('set-time', require('./SetTime.vue').default);
 Vue.component('set-date', require('./setDate.vue').default);
@@ -23,7 +24,7 @@ Vue.use(VueToastify, {
 
 
 // import VueLazyload from 'vue-lazyload';
- 
+
 // Vue.use(VueLazyload,{
 
 //  loading: base_url+'images/loading.gif',
@@ -31,5 +32,6 @@ Vue.use(VueToastify, {
 // });
 
 var app = new Vue({
-    el: '#admin'
+    el: '#admin',
+    router,
 });

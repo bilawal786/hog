@@ -1,4 +1,6 @@
 require('./vue-assets');
+import router from "./components/admin/submitFeedBack/router";
+
 Vue.component('submit-feedback', require('./components/admin/submitFeedBack/submitFeedBack.vue').default);
 Vue.component('set-time', require('./SetTime.vue').default);
 Vue.component('set-date', require('./setDate.vue').default);
@@ -22,14 +24,7 @@ Vue.use(VueToastify, {
   );
 
 
-// import VueLazyload from 'vue-lazyload';
- 
-// Vue.use(VueLazyload,{
-
-//  loading: base_url+'images/loading.gif',
-
-// });
-
 var app = new Vue({
-    el: '#admin'
+    el: '#admin',
+    router,
 });

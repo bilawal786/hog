@@ -37,9 +37,7 @@
                                                     <button class="btn btn-success btn-icon-anim btn-circle btn-sm"
                                                         @click="getOtherDetail(other.id)"><i
                                                             class="fa fa-eye"></i></button>
-                                                    <button class="btn btn-primary btn-icon-anim btn-circle btn-sm"><i
-                                                            class="fa fa-lock"></i></button>
-                                                    <button class="btn btn-info btn-icon-anim btn-circle btn-sm"><i
+                                                    <button class="btn btn-info btn-icon-anim btn-circle btn-sm" @click="deletebyid(other.id)"><i
                                                             class="icon-trash"></i></button>
                                                 </td>
                                             </tr>
@@ -153,6 +151,41 @@ export default {
                 this.otherDetail = response.data
             })
         },
+        deletebyid: function (id) {
+            Swal.fire({
+                title: 'Are you sure ?',
+                text: "You wanted to Delete this Billing Question",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'rgb(34 110 237 / 85%)',
+                cancelButtonColor: '#ff2a00',
+                confirmButtonText: 'Delete'
+            }, () => {
+            }).then((result) => {
+
+                if (result.value) {
+                    axios.delete('admin/web/form/billing/request/' + id).then(response => {
+                        this.getOthers()
+                        window.scrollTo(0, 0)
+                        switch (response.data.type) {
+                            case 'info':
+                                toastr.info(response.data.messege);
+                                break;
+                            case 'success':
+                                toastr.success(response.data.messege);
+                                break;
+                            case 'warning':
+                                toastr.warning(response.data.messege);
+                                break;
+                            case 'error':
+                                toastr.error(response.data.messege);
+                                break;
+                        }
+                    })
+                }
+            })
+        },
+
         backToList: function () {
             this.panel.allOthers = true
             this.panel.detail = false

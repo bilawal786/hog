@@ -21,7 +21,7 @@ Auth::routes(['register' => false]);
  Route::get('/admin/reset', 'AdminController@reset')->name('admin.reset');
 
 Route::group(['middleware' => ['auth', 'role']], function() {
-    
+
     Route::get('/admin/logout', 'Admin\LogOutController@logout')->name('admin.logout');
     Route::post('/admin/profile', 'Admin\ProfileController@updateProfile')->name('updateProfile');
     Route::post('/admin/profile/change/password', 'Admin\ChangePassword@changePassword')->name('adminChangePassword');
@@ -32,12 +32,21 @@ Route::group(['middleware' => ['auth', 'role']], function() {
         Route::get('/admin/general/setting', 'HomeController@generalsetting')->name('generalsetting');
         Route::post('/admin/general/setting', 'HomeController@updategeneralsetting')->name('updategeneralsetting');
         Route::get('/admin/users/clents', 'Admin\ClientsController@clients')->name('clients');
-        Route::get('/admin/user/drivers', 'Admin\DriversController@drivers')->name('drivers');
+//        Route::get('/admin/user/drivers', 'Admin\DriversController@drivers')->name('drivers');
+        Route::get('/admin/user/driver/{any}', 'Admin\DriversController@drivers')->where('any', '.*')->name('drivers');
         Route::post('/admin/user/drivers', 'Admin\DriversController@addDriver')->name('add.drivers');
-        Route::get('/admin/form/submit/feedback', 'Admin\FormSubmitController@submit_feedBack')->name('submit.feedback');
-        Route::get('/admin/form/billing/question', 'Admin\FormSubmitController@billing_question')->name('billing.question');
-        Route::get('/admin/form/request/ride', 'Admin\FormSubmitController@request_ride')->name('request.ride');
-        Route::get('/admin/form/other', 'Admin\FormSubmitController@other')->name('other');
+
+
+//        Route::get('/admin/form/submit/feedback', 'Admin\FormSubmitController@submit_feedBack')->name('submit.feedback');
+//        Route::get('/admin/form/billing/question', 'Admin\FormSubmitController@billing_question')->name('billing.question');
+//        Route::get('/admin/form/request/ride', 'Admin\FormSubmitController@request_ride')->name('request.ride');
+//        Route::get('/admin/form/other', 'Admin\FormSubmitController@other')->name('other');
+
+        Route::get('/admin/form/submit/feedback/{any}', 'Admin\FormSubmitController@submit_feedBack')->where('any', '.*')->name('submit.feedback');
+        Route::get('/admin/form/billing/question/{any}', 'Admin\FormSubmitController@billing_question')->where('any', '.*')->name('billing.question');
+        Route::get('/admin/form/request/ride/{any}', 'Admin\FormSubmitController@request_ride')->where('any', '.*')->name('request.ride');
+        Route::get('/admin/form/other/{any}', 'Admin\FormSubmitController@other')->where('any', '.*')->name('other');
+
     });
  });
 

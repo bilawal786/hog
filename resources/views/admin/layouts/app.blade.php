@@ -11,6 +11,21 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="{{asset('images/favicon-16x16.ico')}}" type="image/x-icon">
+    <style>
+
+        .c-err{
+            margin: 0;
+            padding: 0;
+            font-size: 0.7rem;
+        }
+        .c-err-li{
+            list-style-type: none;
+            color: #df3444;
+        }
+        .border{
+            border: 1px solid #df3444;
+        }
+    </style>
 	@include('admin.includes.header_asset')
 </head>
 <body>

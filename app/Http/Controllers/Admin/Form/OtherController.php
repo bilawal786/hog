@@ -31,7 +31,7 @@ class OtherController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -42,9 +42,8 @@ class OtherController extends Controller
      */
     public function store(Request $request)
     {
-        
-    }
 
+    }
     /**
      * Display the specified resource.
      *
@@ -88,6 +87,11 @@ class OtherController extends Controller
      */
     public function destroy($id)
     {
-        //
+        SendMessage::where('id', $id)->delete();
+        $notification = array(
+            'messege' => 'Other Querry Delete successfully',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
 }

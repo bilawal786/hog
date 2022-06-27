@@ -28,7 +28,7 @@
                     <a  class="{{ Request::url() == url('/admin/users/clents') ? 'active-page' : '' }}"  href="{{ route('clients')}}">Clients</a>
                 </li>
                 <li>
-                    <a class="{{ Request::url() == url('/admin/user/drivers') ? 'active-page' : '' }}"  href="{{ route('drivers')}}">Drivers</a>
+                    <a class="{{ request()->is('/admin/user/driver/*') ? 'active-page' : '' }}"  href="{{ url('/admin/user/driver/list')}}">Drivers</a>
                 </li>
             </ul>
         </li>
@@ -46,16 +46,16 @@
         </a>
             <ul id="forms" class="collapse collapse-level-1">
                 <li>
-                    <a class="{{ Request::url() == url('/admin/form/submit/feedback') ? 'active-page' : '' }}" href="{{ route('submit.feedback')}}">Submit FeedBack</a>
+                    <a class="{{ Request::url() == url('/admin/form/submit/feedback*') ? 'active-page' : '' }}" href="{{ url('/admin/form/submit/feedback/list')}}">Submit FeedBack</a>
                 </li>
                 <li>
-                    <a class="{{ Request::url() == url('/admin/form/billing/question') ? 'active-page' : '' }}"  href="{{ route('billing.question')}}">Billing Question</a>
+                    <a class="{{ Request::url() == url('/admin/form/billing/question*') ? 'active-page' : '' }}"  href="{{ url('/admin/form/billing/question/list')}}">Billing Question</a>
                 </li>
                 <li>
-                    <a class="{{ Request::url() == url('/admin/form/request/ride') ? 'active-page' : '' }}" href="{{ route('request.ride')}}">Request Ride</a>
+                    <a class="{{ Request::url() == url('/admin/form/request/ride*') ? 'active-page' : '' }}" href="{{ url('/admin/form/request/ride/list')}}">Request Ride</a>
                 </li>
                 <li>
-                    <a class="{{ Request::url() == url('/admin/form/other') ? 'active-page' : '' }}" href="{{ route('other')}}">Others</a>
+                    <a class="{{ Request::url() == url('/admin/form/other*') ? 'active-page' : '' }}" href="{{ url('/admin/form/other/list')}}">Others</a>
                 </li>
             </ul>
         </li>

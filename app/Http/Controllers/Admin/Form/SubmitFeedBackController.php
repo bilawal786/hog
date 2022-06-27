@@ -77,7 +77,29 @@ class SubmitFeedBackController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+
+            'Fname' => 'required|max:255',
+            'Lname' => 'required|max:255',
+            'email' => 'required|max:255|email',
+            'phone' => 'required|max:255',
+        ]);
+        $data = SendMessage::where('id', $id)->where('type', 'Submit Feedback')->first();
+
+        $data->Fname = $request->Fname;
+        $data->Lname = $request->Lname;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->account = $request->account;
+        $data->message = $request->message;
+        $data->update();
+        $notification = array(
+            'messege' => 'FeedBack successfully Update!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
+
+
     }
 
     /**
@@ -88,6 +110,11 @@ class SubmitFeedBackController extends Controller
      */
     public function destroy($id)
     {
-        //
+        SendMessage::where('id', $id)->delete();
+        $notification = array(
+            'messege' => 'Feedback Delete successfully',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
 }
