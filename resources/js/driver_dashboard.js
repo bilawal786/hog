@@ -1,5 +1,5 @@
 require('./vue-assets');
-// Vue.component('driver-dashboard', require('./components/driver/dashboard/dashboard.vue').default);
+Vue.component('driver-dashboard', require('./components/driver/dashboard/dashboard.vue').default);
 Vue.component('admin-dashboard', require('./components/admin/dashboard/dashboard.vue').default);
 Vue.component('set-time', require('./SetTime.vue').default);
 Vue.component('set-date', require('./setDate.vue').default);
@@ -24,7 +24,7 @@ Vue.use(VueToastify, {
 
 
 // import VueLazyload from 'vue-lazyload';
- 
+
 // Vue.use(VueLazyload,{
 
 //  loading: base_url+'images/loading.gif',

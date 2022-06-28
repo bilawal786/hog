@@ -6,13 +6,13 @@
                     <div class="col-md-12  hidden-xs hidden-sm">
                         <div class="header-content-right">
                             <ul class="header-top-menu">
-                                <li class="mdn">
+                                <li class="mdn" v-if="settings">
                                     <a v-bind:href="'tel:'+settings.phone" class="top-left-menu">
                                         <i class="fa fa-phone"></i>
                                         <span>{{settings.phone}}</span>
                                     </a>
                                 </li>
-                                <li class="mdn">
+                                <li class="mdn" v-if="settings">
                                     <a v-bind:href="'mailto:'+settings.email" class="top-left-menu">
                                         <i class="fa fa-envelope"></i>
                                         <span>{{settings.email}}</span>
