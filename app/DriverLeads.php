@@ -9,6 +9,7 @@ class DriverLeads extends Model
     protected $fillable = [
         'driver_id',
         'ride_id',
+        'cost',
         'notes',
         'status',
     ];

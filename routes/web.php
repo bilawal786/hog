@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     Route::post('/admin/profile/change/password', 'Admin\ChangePassword@changePassword')->name('adminChangePassword');
     Route::get('/admin/profile', 'Admin\ProfileController@profile')->name('profile');
     Route::get('/admin/dashboard', 'HomeController@index')->name('dashboard');
+    Route::get('/admin/withdraw/{any}', 'WebDriver\Payment\DriverPaymentGetController@payment')->where('any', '.*')->name('driver.withdraw');
 
     route::group(['middleware' => 'admin'], function(){
         Route::get('/admin/general/setting', 'HomeController@generalsetting')->name('generalsetting');
@@ -46,6 +47,9 @@ Route::group(['middleware' => ['auth', 'role']], function() {
         Route::get('/admin/form/billing/question/{any}', 'Admin\FormSubmitController@billing_question')->where('any', '.*')->name('billing.question');
         Route::get('/admin/form/request/ride/{any}', 'Admin\FormSubmitController@request_ride')->where('any', '.*')->name('request.ride');
         Route::get('/admin/form/other/{any}', 'Admin\FormSubmitController@other')->where('any', '.*')->name('other');
+        //payment
+        Route::get('/admin/payment/{any}', 'WebAdmin\Payment\DriverPaymentController@payment')->where('any', '.*')->name('driver.payment');
+
 
     });
  });

@@ -57,12 +57,12 @@
                                             </tr>
                                             <tr>
                                                 <td>Cost</td>
-                                                <td>{{ rideDetail.cost }}</td>
+                                                <td>$ {{ rideDetail.cost }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Created Ride Date</td>
-                                                <td>{{ 
-                                                    new Date(rideDetail.created_at).getDate() + '-' + 
+                                                <td>{{
+                                                    new Date(rideDetail.created_at).getDate() + '-' +
                                                     new Date(rideDetail.created_at).getMonth() + '-' +
                                                     new Date(rideDetail.created_at).getFullYear()
                                                 }}</td>

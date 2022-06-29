@@ -23,7 +23,7 @@
                                     <td>{{ lead.leads.email }}</td>
                                     <td>{{ lead.leads.trip_date }}</td>
                                     <td>{{ lead.driver.name }}</td>
-                                    <td>{{ lead.leads.cost }}</td>
+                                    <td>$ {{ lead.leads.cost }}</td>
                                     <td>
                                         <button class="btn btn-default btn-icon-anim btn-circle btn-sm"
                                             @click="editRideDetail(lead.leads.id)">

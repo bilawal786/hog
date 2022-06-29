@@ -23,7 +23,7 @@
                                     <td>{{ lead.leads.email }}</td>
                                     <td>{{ lead.leads.trip_date }}</td>
                                     <td>{{ lead.driver.name }}</td>
-                                    <td>{{ lead.leads.cost }}</td>
+                                    <td>$ {{ lead.leads.cost }}</td>
                                     <td>
                                         <button class="btn btn-default btn-icon-anim btn-circle btn-sm"
                                             @click="editRideDetail(lead.leads.id)">
@@ -73,6 +73,7 @@
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <driver-detail :selectdriver="selectdriver"></driver-detail>
+                            <lead-info :rideId="rideDetail.id"></lead-info>
                         </div>
                     </div>
                 </div>
@@ -93,6 +94,7 @@ import RideEdit from "./detailEdit.vue";
 import LeadDetail from "./LeadDetail";
 import select2 from "./select2";
 import DriverDetail from "./driverDetail";
+import LeadInfo from "./leadInfo";
 export default {
     data() {
         return {
@@ -223,7 +225,8 @@ export default {
         RideEdit,
         LeadDetail,
         select2,
-        DriverDetail
+        DriverDetail,
+        LeadInfo
     }
 }
 </script>

@@ -23,7 +23,7 @@
                                     <td>{{ ride.email }}</td>
                                     <td>{{ ride.phone }}</td>
                                     <td>{{ ride.trip_date }}</td>
-                                    <td>{{ ride.cost }}</td>
+                                    <td>$ {{ ride.cost }}</td>
                                     <td>
                                         <button class="btn btn-default btn-icon-anim btn-circle btn-sm"
                                             @click="editRideDetail(ride.id)">
@@ -104,6 +104,13 @@
                         <div class="panel-body">
                             <driver-detail :selectdriver="selectdriver"></driver-detail>
                             <div class="form-group">
+                                <label class="control-label mb-10 text-left">Driver Cost</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                                    <input type="number" class="form-control" placeholder="Cost" v-model="driver_cost">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label mb-10 text-left">Notes</label>
                                 <textarea class="form-control" rows="5" v-model="driverNote"></textarea>
                             </div>
@@ -158,6 +165,7 @@ export default {
                 created_at: null
             },
             driverNote:null,
+            driver_cost:null,
             //driver options
             selected: 0,
             options: null,
@@ -215,6 +223,7 @@ export default {
                         'driver_id' : this.selectdriver.id,
                         'ride_id'   : this.rideId,
                         'notes'     : this.driverNote,
+                        'driver_cost': this.driver_cost,
                         'status'    : 'assign',
                         'assign'    : 'yes',
                         'process'    : 'no',

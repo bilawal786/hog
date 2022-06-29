@@ -12,7 +12,6 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="{{asset('images/favicon-16x16.ico')}}" type="image/x-icon">
     <style>
-
         .c-err{
             margin: 0;
             padding: 0;
@@ -25,6 +24,12 @@
         .border{
             border: 1px solid #df3444;
         }
+        .tb-empty{
+            background: #424242;
+            text-align: center;
+            color: #FFF;
+        }
+
     </style>
 	@include('admin.includes.header_asset')
 </head>

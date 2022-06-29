@@ -4,8 +4,6 @@ Vue.component('user-drivers', require('./components/admin/drivers/drivers.vue').
 Vue.component('set-time', require('./SetTime.vue').default);
 Vue.component('set-date', require('./setDate.vue').default);
 
-
-
 import VueToastify from "vue-toastify";
 Vue.use(VueToastify, {
     customNotifications: {
@@ -19,20 +17,9 @@ Vue.use(VueToastify, {
       },
       moreOfTheAbove: {
     },
-
   }
 }
   );
-
-
-// import VueLazyload from 'vue-lazyload';
-
-// Vue.use(VueLazyload,{
-
-//  loading: base_url+'images/loading.gif',
-
-// });
-
 var app = new Vue({
     el: '#admin',
     router,

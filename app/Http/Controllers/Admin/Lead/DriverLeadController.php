@@ -50,7 +50,8 @@ class DriverLeadController extends Controller
      */
     public function show($id)
     {
-        //
+        $driverlead = DriverLeads::with('driver', 'leads')->where('id', $id)->first();
+        return  response()->json($driverlead);
     }
 
     /**
@@ -102,7 +103,7 @@ class DriverLeadController extends Controller
                 ]);
                 return response()->json('success');
             default:
-              
+
           }
         return response()->json('success');
     }
@@ -147,5 +148,9 @@ class DriverLeadController extends Controller
             ->where('complete', 'yes')
             ->count();
         return response()->json([$assigned, $process, $reject, $success]);
+    }
+    public function allDriverLeads(){
+        $data = DriverLeads::where('driver_id', Auth::user()->id)->where('status', '0')->paginate(10);
+        return response()->json($data);
     }
 }

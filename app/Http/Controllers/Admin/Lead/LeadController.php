@@ -20,7 +20,8 @@ class LeadController extends Controller
      */
     public function index()
     {
- 
+        $leads=DriverLeads::all();
+        return response()->json($leads);
     }
 
     /**
@@ -30,7 +31,7 @@ class LeadController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -45,12 +46,14 @@ class LeadController extends Controller
             'driver_id' => 'required',
             'ride_id' => 'required',
             'notes' => 'required',
+            'driver_cost' => 'required',
             'status' => 'required',
             ]);
             $driver_lead = new DriverLeads;
             $driver_lead->driver_id = $request->driver_id;
             $driver_lead->ride_id = $request->ride_id;
             $driver_lead->notes = $request->notes;
+            $driver_lead->driver_cost = $request->driver_cost;
             $driver_lead->status = $request->status;
             $driver_lead->assign = $request->assign;
             $driver_lead->process = $request->process;
@@ -74,13 +77,8 @@ class LeadController extends Controller
         // $leadallassign = DriverLeads::where('ride_id', $id)->get();
         $lead = DriverLeads::where('ride_id', $id)->orderBy('id', 'desc')->first();
 
-        if($lead){
-            return response()->json($lead);
-        }else{
-            return response()->json('no');
-        }
+        return response()->json($lead);
 
-       
         // return response()->json($data, 200, $headers);
     }
 
@@ -104,7 +102,7 @@ class LeadController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+
     }
 
     /**

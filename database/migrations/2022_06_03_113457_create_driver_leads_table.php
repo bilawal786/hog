@@ -20,6 +20,7 @@ class CreateDriverLeadsTable extends Migration
             $table->unsignedBigInteger('ride_id');
             $table->foreign('ride_id')->references('id')->on('send_messages');
             $table->text('notes');
+            $table->double('driver_cost');
             $table->string('status');
             $table->enum('assign', ['no', 'yes']);
             $table->enum('process', ['no', 'yes']);

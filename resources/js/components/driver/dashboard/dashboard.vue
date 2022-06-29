@@ -51,10 +51,10 @@
 												</td>
 											</tr>
 										</tbody>
-									</table>		
+									</table>
 								</div>
-							</div>	
-						</div>	
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -153,11 +153,11 @@
                         </tr>
                     </tbody>
                 </table>
-               
+
             </div>
         </div>
-       
-						</div>	
+
+						</div>
 					</div>
 				</div>
 			</div>
@@ -187,9 +187,42 @@
 								<button class="btn btn-success btn-rounded btn-block btn-anim" @click="completeRide(leadId)"><i class="zmdi zmdi-check"></i><span class="btn-text">Complete</span></button>
 							</div>
 							</div>
-						</div>	
+						</div>
 					</div>
 				</div>
+                <div class="panel panel-default card-view">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">Payment Info</h6>
+                        </div>
+                        <div class="pull-right">
+                            <a href="#" class="pull-left inline-block full-screen">
+                                <i class="zmdi zmdi-fullscreen"></i>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body row pa-0">
+                            <div class="table-wrap">
+                                <div class="table-responsive">
+                                    <table class="table mb-0">
+                                        <tbody>
+                                        <tr>
+                                            <td class="border-none">Price:</td>
+                                            <td class="border-none">
+                                                $ {{driverLeadDetail.driver_cost}}
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
 		<!-- /Row -->
@@ -207,7 +240,9 @@ export default{
 			leads:null,
 			leadDetail:null,
 			status:null,
-			leadId:null
+			leadId:null,
+            leadCost:null,
+            driverLeadDetail:null
         }
     },
     mounted(){
@@ -219,17 +254,26 @@ export default{
 				if(response.status == 200){
 					this.leads = response.data;
 					console.log(response.data)
-					this.loader = false
 				}
 			})
         },
 		showLeadDetail: function(Rid, Lid, status){
 			axios.get('admin/web/form/request/ride/'+Rid).then(response => {
+                console.log(Lid)
+                console.log(Rid)
+                this.driverLead(Lid)
 				this.leadDetail = response.data
+                // this.leadCost = cost
 				this.status = status
 				this.leadId = Lid
 			})
 		},
+        driverLead: function(id){
+            axios.get('admin/web/show/driver/leads/'+id).then(response => {
+                this.driverLeadDetail = response.data
+                console.log(response)
+            })
+        },
 		processRide: function(id){
 			Swal.fire({
                 title: 'Are you sure ?',
@@ -299,6 +343,8 @@ export default{
 						'complete': 'yes'
 					}).then(response => {
 						if(response.status == 200){
+                            this.driverLead(id);
+                            this.addDriverPayment();
 							this.leadDetail=null,
 							this.status=null,
 							this.leadId=null,
@@ -308,6 +354,16 @@ export default{
                 }
             })
 		},
+
+        addDriverPayment: function(){
+            axios.post('admin/web/payment/driver', {
+                'driver_id':this.driverLeadDetail.driver_id,
+                'payment' : this.driverLeadDetail.driver_cost,
+                'status': 0
+            }).then(response => {
+
+            })
+        },
 		backToList: function(){
 			this.leadDetail=null,
 			this.status=null,

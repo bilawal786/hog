@@ -313,8 +313,8 @@ Your Message</textarea
                 </button>
             <span
               style="float: left; font-size: 2rem; padding: 10px"
-              v-show="sendMessage.cost"
-              >{{ sendMessage.cost }} $</span
+              v-show="calculate.totalCost"
+              >{{ calculate.totalCost }} $</span
             >
 
             </div>
@@ -383,7 +383,16 @@ export default {
                 end_address: null,
                 cost: null,
                 status_assign:'no',
-                user_id: null
+                user_id: null,
+            },
+            calculate:{
+                day:null,
+                distance:null,
+                round:null,
+                chair:null,
+                time:null,
+                holiday:null,
+                totalCost:null,
             },
             change: true,
             tempData:{}
@@ -429,13 +438,100 @@ export default {
                     dist = Math.acos(dist);
                     dist = this.rad2deg(dist);
                 var miles = dist * 60 * 1.1515;
-                var km = miles * 1.609344;
-                var roundkm = Math.round(km * 100) / 100;
-                var cost_doller = roundkm * 10
-                this.sendMessage.cost = Math.round(cost_doller * 100) / 100;
-                console.log(roundkm)
+                // var km = miles * 1.609344;
+                var roundmiles = Math.round(miles * 100) / 100;
+                this.getCost(roundmiles, this.sendMessage.trip_date, this.sendMessage.round_trip, this.sendMessage.wheelchair, 0)
+
                 console.log(cost_doller)
             }
+        },
+        getCost(distance, date, round, chair, wait){
+            switch (new Date(date).getDay()) {
+                case 0:
+                    var day = "Sunday";
+                    break;
+                case 1:
+                    var day = "Monday";
+                    break;
+                case 2:
+                    var day = "Tuesday";
+                    break;
+                case 3:
+                    var day = "Wednesday";
+                    break;
+                case 4:
+                    var day = "Thursday";
+                    break;
+                case 5:
+                    var day = "Friday";
+                    break;
+                case 6:
+                    var day = "Saturday";
+            }
+                if(distance <= 5){
+                    console.log('less then 5')
+                    if(round == 'yes'){
+                            this.calculate.day = day
+                            this.calculate.round = 'Yes'
+                            this.calculate.distance = distance
+                            this.calculate.totalCost = 120
+                        }else{
+                            this.calculate.day = day
+                            this.calculate.round = 'No'
+                            this.calculate.distance = distance
+                            this.calculate.totalCost = 70
+                        }
+
+                }else if(distance > 5 && distance <= 10){
+                    console.log('5 to 10')
+                    if(round == 'yes'){
+                        this.calculate.day = day
+                        this.calculate.round = 'Yes'
+                        this.calculate.distance = distance
+                        this.calculate.totalCost = 130
+                    }else{
+                        this.calculate.day = day
+                        this.calculate.round = 'No'
+                        this.calculate.distance = distance
+                        this.calculate.totalCost = 75
+                    }
+                }else{
+                    // console.log('more then 10')
+                    if(round == 'yes'){
+                        this.calculate.day = day
+                        this.calculate.round = 'Yes'
+                        this.calculate.distance = distance
+                        this.calculate.totalCost = Math.round(6*(distance-10)+130)
+                    }else{
+                        this.calculate.day = day
+                        this.calculate.round = 'No'
+                        this.calculate.distance = distance
+                        this.calculate.totalCost = Math.round(3*(distance-10)+75)
+                    }
+                }
+                if(chair == 'yes'){
+                    this.calculate.chair = 'Yes'
+                    this.calculate.totalCost = this.calculate.totalCost+25
+                }else{
+                    this.calculate.chair = 'No'
+                }
+            if(day == 'Saturday' && day == 'Sunday'){
+                if(round == 'yes'){
+                    this.calculate.totalCost = this.calculate.totalCost+20
+                }else{
+                    this.calculate.totalCost = this.calculate.totalCost+10
+                }
+            }
+
+            var currentTime = new Date(date).getHours();
+            console.log(currentTime)
+            if (currentTime >= 8 && currentTime <= 17) {
+
+            } else {
+                this.calculate.totalCost = this.calculate.totalCost+60
+            }
+            this.sendMessage.cost=this.calculate.totalCost
+
         },
         rad2deg: function (deg){
         var pi = Math.PI;
