@@ -3,8 +3,7 @@ import router from "./components/admin/billingRequest/router";
 Vue.component('billing-request', require('./components/admin/billingRequest/billingRequest.vue').default);
 Vue.component('set-time', require('./SetTime.vue').default);
 Vue.component('set-date', require('./setDate.vue').default);
-
-
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 import VueToastify from "vue-toastify";
 Vue.use(VueToastify, {

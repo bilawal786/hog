@@ -20,7 +20,7 @@ class SubmitFeedBackController extends Controller
     }
     public function index()
     {
-        $feedBacks = SendMessage::where('type', 'Submit Feedback')->get();
+        $feedBacks = SendMessage::where('type', 'Submit Feedback')->orderBy('id', 'desc')->paginate(10);
         return response()->json($feedBacks);
     }
 

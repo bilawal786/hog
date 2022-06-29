@@ -20,7 +20,7 @@ class OtherController extends Controller
     }
     public function index()
     {
-        $others = SendMessage::where('type', 'Others')->get();
+        $others = SendMessage::where('type', 'Others')->orderBy('id', 'desc')->paginate(10);
         return response()->json($others);
     }
 

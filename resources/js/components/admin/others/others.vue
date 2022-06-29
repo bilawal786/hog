@@ -26,7 +26,7 @@
 
                                         <tbody>
 
-                                            <tr v-for="other in others" :key="other.id">
+                                            <tr v-for="other in others.data" :key="other.id">
                                                 <td>{{ other.Fname + ' ' + other.Lname }}</td>
                                                 <td>{{ other.email }}</td>
                                                 <td>{{ other.phone }}</td>
@@ -43,6 +43,12 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <div class="dataTables_info float-left" v-if="others">Showing {{others.from}} to {{others.to}} of {{others.total}} entries</div>
+                                <div class="float-right">
+                                    <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="others" :align="'right'" v-on:pagination-change-page="getOthers"></pagination>
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-3 col-sm-10 col-xs-10">
-                        <div class="site-logo">
+                        <div class="site-logo" v-if="settings">
                             <router-link to="/"><img class="mlogo" style="margin-top: -40px"
                                     v-bind:src="settings.header_logo" alt="logo" /></router-link>
                         </div><!-- /.logo -->
@@ -30,7 +30,7 @@
                                             <router-link to="/resources">RESOURCES</router-link>
                                         </li>
                                         <li class="hidden-md hidden-lg">
-                                            <router-link to="/login">login</router-link>
+                                            <router-link to="/signin">login</router-link>
                                         </li>
                                     </ul> <!-- /.menu-list -->
                                 </div> <!-- /.menu-content-->
@@ -66,6 +66,6 @@ export default {
   computed: {
     ...mapGetters("auth", ["settings"])
   },
- 
+
 };
 </script>

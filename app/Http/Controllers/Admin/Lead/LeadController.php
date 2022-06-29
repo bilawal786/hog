@@ -124,7 +124,7 @@ class LeadController extends Controller
                 ->with('driver')
                 ->with('leads')
                 ->orderBy('id', 'desc')
-                ->get();
+                ->paginate(10);
         return response()->json($lead);
     }
     public function leadsprocess(){
@@ -136,7 +136,7 @@ class LeadController extends Controller
                 ->with('driver')
                 ->with('leads')
                 ->orderBy('id', 'desc')
-                ->get();
+                ->paginate(10);
         return response()->json($lead);
     }
     public function leadcomplete(){
@@ -148,7 +148,7 @@ class LeadController extends Controller
                 ->with('driver')
                 ->with('leads')
                 ->orderBy('id', 'desc')
-                ->get();
+                ->paginate(10);
         return response()->json($lead);
     }
     public function leadsreject(){
@@ -160,7 +160,7 @@ class LeadController extends Controller
                 ->with('driver')
                 ->with('leads')
                 ->orderBy('id', 'desc')
-                ->get();
+                ->paginate(10);
         return response()->json($lead);
     }
 }

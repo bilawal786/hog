@@ -18,7 +18,7 @@
                             </thead>
 
                             <tbody>
-                                <tr v-for="ride in rides" :key="ride.id">
+                                <tr v-for="ride in rides.data" :key="ride.id">
                                     <td>{{ ride.Fname + " " + ride.Lname }}</td>
                                     <td>{{ ride.email }}</td>
                                     <td>{{ ride.phone }}</td>
@@ -41,6 +41,12 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <div class="dataTables_info float-left" v-if="rides">Showing {{rides.from}} to {{rides.to}} of {{rides.total}} entries</div>
+                    <div class="float-right">
+                        <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="rides" :align="'right'" v-on:pagination-change-page="getRides"></pagination>
                     </div>
                 </div>
             </div>

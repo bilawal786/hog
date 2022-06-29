@@ -3,6 +3,7 @@ import router from "./components/admin/requestRide/router";
 Vue.component('request-ride', require('./components/admin/requestRide/requestRide.vue').default);
 Vue.component('set-time', require('./SetTime.vue').default);
 Vue.component('set-date', require('./setDate.vue').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 import { Datetime } from 'vue-datetime';
 import 'vue-datetime/dist/vue-datetime.css'

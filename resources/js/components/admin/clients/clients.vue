@@ -25,14 +25,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="client in clients" :key='client.id'>
+                                            <tr v-for="client in clients.data" :key='client.id'>
                                                 <td>{{ client.name }}</td>
                                                 <td>{{ client.email }}</td>
                                                 <td>{{ client.phone }}</td>
                                                 <td>{{ client.address }}</td>
                                                 <td><set-date :date="client.created_at" :year="'yes'"></set-date></td>
                                                 <td>
-
                                                     <button class="btn btn-success btn-icon-anim btn-circle btn-sm"
                                                         @click="getClientDetail(client.id)"><i
                                                             class="fa fa-eye"></i></button>
@@ -42,6 +41,12 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <div class="dataTables_info float-left" v-if="clients">Showing {{clients.from}} to {{clients.to}} of {{clients.total}} entries</div>
+                                <div class="float-right">
+                                    <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="clients" :align="'right'" v-on:pagination-change-page="getClientData"></pagination>
                                 </div>
                             </div>
                         </div>

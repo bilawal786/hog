@@ -40,8 +40,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::resource('web/show/lead', 'Admin\Lead\LeadController');
     Route::get('web/assign/leads', 'Admin\Lead\LeadController@leadsassign');
     Route::get('web/process/leads', 'Admin\Lead\LeadController@leadsprocess');
-    Route::get('web/reject/leads', 'Admin\Lead\LeadController@leadcomplete');
-    Route::get('web/complete/leads', 'Admin\Lead\LeadController@leadsreject');
+    Route::get('web/reject/leads', 'Admin\Lead\LeadController@leadsreject');
+    Route::get('web/complete/leads', 'Admin\Lead\LeadController@leadcomplete');
 
     Route::resource('web/show/driver/leads', 'Admin\Lead\DriverLeadController');
     Route::get('web/list/driver/leads', 'Admin\Lead\DriverLeadController@allleads');

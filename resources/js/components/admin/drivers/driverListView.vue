@@ -33,7 +33,7 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr v-for="driver in drivers" :key="driver.id">
+                                    <tr v-for="driver in drivers.data" :key="driver.id">
                                         <td>{{ driver.name }}</td>
                                         <td>{{ driver.email }}</td>
                                         <td>{{ driver.phone }}</td>
@@ -64,6 +64,12 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <div class="dataTables_info float-left" v-if="drivers">Showing {{drivers.from}} to {{drivers.to}} of {{drivers.total}} entries</div>
+                            <div class="float-right">
+                                <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="drivers" :align="'right'" v-on:pagination-change-page="getDriverData"></pagination>
                             </div>
                         </div>
                     </div>

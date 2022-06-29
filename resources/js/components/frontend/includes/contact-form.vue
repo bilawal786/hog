@@ -265,6 +265,7 @@ Your Message</textarea
                     ? errors.start_address
                     : errors.start_address,
                 }"
+                country="us"
               >
               </vue-google-autocomplete>
               <div class="contact-valid" v-if="errors.start_address">
@@ -286,6 +287,7 @@ Your Message</textarea
                     ? errors.end_address
                     : errors.end_address,
                 }"
+                country="us"
               >
               </vue-google-autocomplete>
               <div class="contact-valid" v-if="errors.end_address">
@@ -406,6 +408,7 @@ export default {
         ...mapGetters("auth", ["user", "errors"]),
     },
     mounted() {
+        this.$store.commit("auth/setErrors", {});
         // if(this.$store.state.auth.data.userData.id){
         //   this.sendMessage.user_id = this.$store.state.auth.data.userData.id
         // }

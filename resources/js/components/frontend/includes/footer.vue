@@ -9,7 +9,7 @@
                                 <h3 class="widget-title">
                                     About us
                                 </h3><!-- /.widget-title -->
-                                <div class="widget-about-content">
+                                <div class="widget-about-content" v-if="settings">
                                     <img v-bind:src="settings.footer_logo" alt="logo" />
                                     <p>{{settings.footer_about}}</p>
                                     <router-link to="/about" class="button">Read More</router-link>
@@ -49,12 +49,12 @@
                                 <h3 class="widget-title">
                                     STAY CONNECTED
                                 </h3><!-- /.widget-title -->
-                                <ul>
+                                <ul v-if="settings">
                                     <li><a v-bind:href="'mailto:'+settings.email"><i class="fa fa-envelope"></i>{{settings.email}}</a></li>
                                     <li><a v-bind:href="'tel:'+settings.phone"><i class="fa fa-phone"></i> {{settings.phone}}</a></li>
                                     <li><a href="#"><i class="fa fa-map-marker"></i><span>Office Address: </span>{{settings.office_address}}</a></li>
                                     <li><a href="#"><i class="fa fa-map-marker"></i><span>Mailing Address: </span>{{settings.mailing_address}}</a></li>
-                                    
+
                                 </ul>
                             </div><!-- /.widget -->
                         </div><!-- /.col-md-3 -->
@@ -93,8 +93,8 @@ export default {
                 this.settings = null
             }
         }
-        
+
     },
- 
+
 };
 </script>

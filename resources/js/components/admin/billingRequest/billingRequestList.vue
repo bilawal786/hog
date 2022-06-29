@@ -27,7 +27,7 @@
 
                                     <tbody>
 
-                                    <tr v-for="question in questions" :key="question.id">
+                                    <tr v-for="question in questions.data" :key="question.id">
                                         <td>{{ question.Fname + ' ' + question.Lname }}</td>
                                         <td>{{ question.email }}</td>
                                         <td>{{ question.phone }}</td>
@@ -45,6 +45,12 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <div class="dataTables_info float-left" v-if="questions">Showing {{questions.from}} to {{questions.to}} of {{questions.total}} entries</div>
+                            <div class="float-right">
+                                <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="questions" :align="'right'" v-on:pagination-change-page="getquestions"></pagination>
                             </div>
                         </div>
                     </div>

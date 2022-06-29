@@ -17,7 +17,7 @@ class DriverLeadController extends Controller
      */
     public function index()
     {
-        $driverlead = DriverLeads::with('driver', 'leads')->where('driver_id', Auth::user()->id)->get();
+        $driverlead = DriverLeads::with('driver', 'leads')->where('driver_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
         $data = DriverLeadsResources::collection($driverlead);
         return response()->json($data);
     }

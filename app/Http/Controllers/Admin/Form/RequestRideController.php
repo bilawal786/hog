@@ -20,7 +20,7 @@ class RequestRideController extends Controller
     }
     public function index()
     {
-        $rides = SendMessage::where('type', 'Request Ride')->get();
+        $rides = SendMessage::where('type', 'Request Ride')->orderBy('id', 'desc')->paginate(10);
         return response()->json($rides);
     }
 
@@ -166,7 +166,7 @@ class RequestRideController extends Controller
     }
     public function unassignRide()
     {
-        $rides = SendMessage::where('type', 'Request Ride')->where('status_assign', 'no')->get();
+        $rides = SendMessage::where('type', 'Request Ride')->where('status_assign', 'no')->orderBy('id', 'desc')->paginate(10);
         return response()->json($rides);
     }
     public function statusUpdate(Request $request, $id)

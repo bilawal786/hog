@@ -18,7 +18,7 @@
                             </thead>
 
                             <tbody>
-                                <tr v-for="lead in leads" :key="lead.id">
+                                <tr v-for="lead in leads.data" :key="lead.id">
                                     <td>{{ lead.leads.Fname + " " + lead.leads.Lname }}</td>
                                     <td>{{ lead.leads.email }}</td>
                                     <td>{{ lead.leads.trip_date }}</td>
@@ -37,6 +37,12 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="mt-5">
+                        <div class="dataTables_info float-left" v-if="leads">Showing {{leads.from}} to {{leads.to}} of {{leads.total}} entries</div>
+                        <div class="float-right">
+                            <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="leads" :align="'right'" v-on:pagination-change-page="getRides"></pagination>
+                        </div>
                     </div>
                 </div>
             </div>

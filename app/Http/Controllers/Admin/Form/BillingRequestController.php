@@ -20,7 +20,7 @@ class BillingRequestController extends Controller
     }
     public function index()
     {
-        $questions = SendMessage::where('type', 'Billing Question')->get();
+        $questions = SendMessage::where('type', 'Billing Question')->orderBy('id', 'desc')->paginate(10);
         return response()->json($questions);
     }
 

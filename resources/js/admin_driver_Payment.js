@@ -3,6 +3,7 @@ import router from "./components/admin/payment/router";
 Vue.component('driver-payment', require('./components/admin/payment/driver_payment.vue').default);
 Vue.component('set-time', require('./SetTime.vue').default);
 Vue.component('set-date', require('./setDate.vue').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 import VueToastify from "vue-toastify";
 Vue.use(VueToastify, {

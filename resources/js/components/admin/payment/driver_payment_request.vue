@@ -44,6 +44,12 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="mt-5">
+                                <div class="dataTables_info float-left" v-if="withdraws">Showing {{withdraws.from}} to {{withdraws.to}} of {{withdraws.total}} entries</div>
+                                <div class="float-right">
+                                    <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="withdraws" :align="'right'" v-on:pagination-change-page="getdata"></pagination>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

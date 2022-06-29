@@ -22,7 +22,7 @@ class DriverController extends Controller
     }
     public function index()
     {
-        $drivers = User::where('role', 'driver')->orderBy('id', 'desc')->get();
+        $drivers = User::where('role', 'driver')->orderBy('id', 'desc')->paginate(10);
         return response()->json($drivers);
     }
 

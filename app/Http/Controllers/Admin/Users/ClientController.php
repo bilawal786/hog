@@ -20,7 +20,7 @@ class ClientController extends Controller
     }
     public function index()
     {
-        $clients = User::where('role', 'user')->orderBy('id', 'desc')->get();
+        $clients = User::where('role', 'user')->orderBy('id', 'desc')->paginate(10);
         return response()->json($clients);
     }
 
