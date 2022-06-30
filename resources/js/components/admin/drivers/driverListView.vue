@@ -33,7 +33,10 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr v-for="driver in drivers.data" :key="driver.id">
+                                    <tr v-if="drivers.data == ''">
+                                        <td colspan="6" class="tb-empty">No Record Found</td>
+                                    </tr>
+                                    <tr v-else v-for="driver in drivers.data" :key="driver.id">
                                         <td>{{ driver.name }}</td>
                                         <td>{{ driver.email }}</td>
                                         <td>{{ driver.phone }}</td>
@@ -66,10 +69,10 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="mt-5">
-                            <div class="dataTables_info float-left" v-if="drivers">Showing {{drivers.from}} to {{drivers.to}} of {{drivers.total}} entries</div>
-                            <div class="float-right">
-                                <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="drivers" :align="'right'" v-on:pagination-change-page="getDriverData"></pagination>
+                        <div class="">
+                            <div class="pull-left" v-if="drivers">Showing {{drivers.from}} to {{drivers.to}} of {{drivers.total}} entries</div>
+                            <div class="pull-right">
+                                <pagination class="" :show-disabled="true" :router="true" :size="'small'" :limit="2" :data="drivers" :align="'right'" v-on:pagination-change-page="getDriverData"></pagination>
                             </div>
                         </div>
                     </div>
@@ -91,8 +94,8 @@ export default {
         this.getDriverData();
     },
     methods:{
-        getDriverData: function () {
-            axios.get("admin/web/drivers").then((response) => {
+        getDriverData: function (page = 1) {
+            axios.get("admin/web/drivers?page="+page).then((response) => {
                 this.drivers = response.data;
             });
         },

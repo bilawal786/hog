@@ -31,4 +31,5 @@ class AuthenticationController extends Controller
     {
         return auth()->user();
     }
+
 }

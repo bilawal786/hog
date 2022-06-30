@@ -31,7 +31,7 @@
                                 type="email"
                                 class="form-control"
                                 :class="{ 'server-input-vilidation': errors.email }"
-                                id="password"
+                                id="email"
                                 v-model="details.email"
                                 placeholder="Enter email"/>
                         <div class="text-left">

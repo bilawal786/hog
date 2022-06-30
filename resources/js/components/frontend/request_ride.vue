@@ -54,8 +54,17 @@
                                 <tr v-show="$route.params.title.trip_date">
                                     <th width="25%">Trip Date</th>
                                     <td width="2%">:</td>
-                                    <td>{{$route.params.title.trip_date}}</td>
+                                    <td>
+                                        <set-date :date="$route.params.title.trip_date" year="yes"></set-date>
+                                    </td>
                                 </tr>
+                                    <tr v-show="$route.params.title.trip_date">
+                                        <th width="25%">Trip Time</th>
+                                        <td width="2%">:</td>
+                                        <td>
+                                            <set-time :date="$route.params.title.trip_date" year="yes"></set-time>
+                                        </td>
+                                    </tr>
                                 <tr v-show="$route.params.title.message">
                                     <th width="25%">Message</th>
                                     <td width="2%">:</td>
@@ -74,7 +83,7 @@
                                 <tr v-show="$route.params.title.cost">
                                     <th width="25%">Cost</th>
                                     <td width="2%">:</td>
-                                    <td>{{$route.params.title.cost}}</td>
+                                    <td>$ {{$route.params.title.cost}}</td>
                                 </tr>
                                 </table>
                                 <button class="btn btn-hog" @click="conformData()" >Confirm</button>

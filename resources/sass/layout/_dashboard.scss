@@ -16,6 +16,10 @@
 .nav-pills .nav-link {
     font-size: 1.8rem;
     color: #363636;
+    &:hover {
+        background-color: #cd9700;
+        color: #FFFFFF;
+    }
 }
 .ds-m-25{
     margin: 25px;
@@ -35,5 +39,14 @@
 .ds-profile-p{
     font-size: 1.5rem;
     margin: 0;
-    
+
+}
+.btn-hog {
+    color: #FFFFFF;
+    padding: 10px 20px;
+    background-color: $color_yellow;
+    &:hover{
+        color: #FFFFFF !important;
+        background-color: $color_yellow_hover;
+    }
 }

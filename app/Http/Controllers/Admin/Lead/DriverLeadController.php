@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Lead;
 
+use App\DriverPayment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\DriverLeads;
@@ -150,7 +151,8 @@ class DriverLeadController extends Controller
         return response()->json([$assigned, $process, $reject, $success]);
     }
     public function allDriverLeads(){
-        $data = DriverLeads::where('driver_id', Auth::user()->id)->where('status', '0')->paginate(10);
+        $data = DriverPayment::with('driver', 'leads')->where('driver_id', Auth::user()->id)->where('status', '0')->paginate(10);
         return response()->json($data);
     }
+
 }

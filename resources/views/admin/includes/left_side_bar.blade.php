@@ -113,10 +113,10 @@
                         <a class="{{ request()->is('/admin/payment/request*') ? 'active-page' : '' }}"
                            href="{{ url('/admin/withdraw/view')}}">Payment With draw</a>
                     </li>
-                    <li>
-                        <a class="{{ request()->is('/admin/payment/list*') ? 'active-page' : '' }}"
-                           href="{{ url('/admin/withdraw/list')}}">Payment history</a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a class="{{ request()->is('/admin/payment/list*') ? 'active-page' : '' }}"--}}
+{{--                           href="{{ url('/admin/withdraw/list')}}">Payment history</a>--}}
+{{--                    </li>--}}
                 </ul>
             </li>
         @endif

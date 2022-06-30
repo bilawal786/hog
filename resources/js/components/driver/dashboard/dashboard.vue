@@ -125,11 +125,15 @@
                         </tr>
 						<tr>
                             <td>Trip Date:</td>
-                            <td>{{leadDetail.trip_date}}</td>
+                            <td>
+                                <date-formate :date="leadDetail.trip_date" year="yes"></date-formate>
+                            </td>
                         </tr>
 						<tr>
                             <td>Trip Time:</td>
-                            <td>{{leadDetail.trip_date}}</td>
+                            <td>
+                                <set-time :date="leadDetail.trip_date"></set-time>
+                            </td>
                         </tr>
 						<tr>
                             <td>Start Address:</td>
@@ -144,12 +148,11 @@
                             <td>{{leadDetail.distance}}</td>
                         </tr>
 						<tr>
-                            <td>Cost:</td>
-                            <td>{{leadDetail.cost}}</td>
-                        </tr>
-						<tr>
                             <td>Created Date:</td>
-                            <td>{{leadDetail.created_at}}</td>
+                            <td>
+                                <date-formate :date="leadDetail.created_at" year="yes"></date-formate>
+
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -358,6 +361,7 @@ export default{
         addDriverPayment: function(){
             axios.post('admin/web/payment/driver', {
                 'driver_id':this.driverLeadDetail.driver_id,
+                'ride_id':this.driverLeadDetail.ride_id,
                 'payment' : this.driverLeadDetail.driver_cost,
                 'status': 0
             }).then(response => {

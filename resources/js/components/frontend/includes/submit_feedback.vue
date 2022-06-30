@@ -1,4 +1,5 @@
 <template>
+    <div class="table-responsive">
     <table class="table table-hover">
         <thead>
             <tr>
@@ -26,6 +27,7 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </template>
 <script>
 export default {
@@ -36,7 +38,7 @@ export default {
 
     },
     computed:{
-        
+
     },
     methods:{
         getUserFeedBack: function(){
@@ -47,6 +49,6 @@ export default {
     },
      mounted(){
          this.getUserFeedBack()
-     } 
+     }
 }
 </script>

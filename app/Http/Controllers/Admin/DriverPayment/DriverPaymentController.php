@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\DriverPayment;
 
 
+use App\AdminAprovePayment;
 use App\DriverPayment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -41,10 +42,12 @@ class DriverPaymentController extends Controller
     {
         $validated = $request->validate([
             'driver_id' => 'required|max:255',
+            'ride_id' => 'required|max:255',
             'payment' => 'required|max:255',
         ]);
         $data = new DriverPayment;
         $data->driver_id = $request->driver_id;
+        $data->ride_id = $request->ride_id;
         $data->payment = $request->payment;
         $data->status = '0';
         $data->save();
@@ -106,5 +109,9 @@ class DriverPaymentController extends Controller
             'total' => $data,
             'driver_id' => Auth::user()->id
         ]);
+    }
+    public function adminPaymentlist(){
+        $data =AdminAprovePayment::with('driver')->orderBy('id', 'desc')->paginate(10);
+        return response()->json($data);
     }
 }

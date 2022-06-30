@@ -26,8 +26,10 @@
                                     </thead>
 
                                     <tbody>
-
-                                    <tr v-for="question in questions.data" :key="question.id">
+                                    <tr v-if="questions.data == ''">
+                                        <td colspan="7" class="tb-empty">No Record Found</td>
+                                    </tr>
+                                    <tr v-else v-for="question in questions.data" :key="question.id">
                                         <td>{{ question.Fname + ' ' + question.Lname }}</td>
                                         <td>{{ question.email }}</td>
                                         <td>{{ question.phone }}</td>
@@ -47,10 +49,10 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="mt-5">
-                            <div class="dataTables_info float-left" v-if="questions">Showing {{questions.from}} to {{questions.to}} of {{questions.total}} entries</div>
-                            <div class="float-right">
-                                <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="questions" :align="'right'" v-on:pagination-change-page="getquestions"></pagination>
+                        <div class="">
+                            <div class="pull-left" v-if="questions">Showing {{questions.from}} to {{questions.to}} of {{questions.total}} entries</div>
+                            <div class="pull-right">
+                                <pagination class="" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="questions" :align="'right'" v-on:pagination-change-page="getquestions"></pagination>
                             </div>
                         </div>
                     </div>
@@ -73,8 +75,8 @@ export default {
         this.getquestions()
     },
     methods:{
-        getquestions: function () {
-            axios.get('admin/web/form/billing/request').then(response => {
+        getquestions: function (page = 1) {
+            axios.get('admin/web/form/billing/request?page='+page).then(response => {
                 this.questions = response.data
             })
         },

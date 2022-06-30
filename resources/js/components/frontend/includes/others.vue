@@ -1,6 +1,7 @@
 <template>
-    <table class="table table-hover">
-        <thead>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
@@ -10,8 +11,8 @@
                 <th scope="col">Message</th>
                 <th scope="col">Action</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <tr v-for="(item, index) in getOthers" :key="index">
                 <th scope="row">{{index+1}}</th>
                 <td>{{item.Fname}}</td>
@@ -24,8 +25,10 @@
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                 </td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
 </template>
 <script>
 export default {
@@ -36,7 +39,7 @@ export default {
 
     },
     computed:{
-        
+
     },
     methods:{
         getUserOthers: function(){
@@ -47,6 +50,6 @@ export default {
     },
      mounted(){
          this.getUserOthers()
-     } 
+     }
 }
 </script>

@@ -18,7 +18,7 @@ class DriverMiddleware
     {
         if(Auth::user())
         {
-            if(Auth::user()->role == 'driver'){
+            if(Auth::user()->role == 'driver' ){
                 return $next($request);
             }
             else{

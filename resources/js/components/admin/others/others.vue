@@ -45,10 +45,10 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="mt-5">
-                                <div class="dataTables_info float-left" v-if="others">Showing {{others.from}} to {{others.to}} of {{others.total}} entries</div>
-                                <div class="float-right">
-                                    <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="others" :align="'right'" v-on:pagination-change-page="getOthers"></pagination>
+                            <div class="">
+                                <div class="pull-left" v-if="others">Showing {{others.from}} to {{others.to}} of {{others.total}} entries</div>
+                                <div class="pull-right">
+                                    <pagination class="" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="others" :align="'right'" v-on:pagination-change-page="getOthers"></pagination>
                                 </div>
                             </div>
                         </div>
@@ -145,8 +145,8 @@ export default {
         this.getOthers()
     },
     methods: {
-        getOthers: function () {
-            axios.get('admin/web/form/others').then(response => {
+        getOthers: function (page = 1) {
+            axios.get('admin/web/form/others?page='+page).then(response => {
                 this.others = response.data
             })
         },

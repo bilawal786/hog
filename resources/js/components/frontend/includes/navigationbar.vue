@@ -29,7 +29,10 @@
                                         <li>
                                             <router-link to="/resources">RESOURCES</router-link>
                                         </li>
-                                        <li class="hidden-md hidden-lg">
+                                        <li class="hidden-md hidden-lg" v-if="user">
+                                            <router-link to="/dashboard">Dashboard</router-link>
+                                        </li>
+                                        <li class="hidden-md hidden-lg" v-else>
                                             <router-link to="/signin">login</router-link>
                                         </li>
                                     </ul> <!-- /.menu-list -->
@@ -60,12 +63,37 @@
         </header><!-- /.header-bottom-area -->
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
-  computed: {
-    ...mapGetters("auth", ["settings"])
-  },
+    data(){
+        return{
+            st:null
+        }
+    },
+    computed: {
+        ...mapGetters("auth", ["settings", "user"])
+    },
+    mounted() {
 
+    },
+    watch:{
+        checkVariable(){
+            if(this.settings){
+            }else{
+                this.settings.phone = null
+                this.settings.email = null
+            }
+        }
+
+    },
+    methods: {
+        ...mapActions("auth", ["sendLogoutRequest"]),
+
+        logout() {
+            this.sendLogoutRequest();
+
+        }
+    }
 };
 </script>

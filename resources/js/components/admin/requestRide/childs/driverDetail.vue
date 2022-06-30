@@ -24,10 +24,9 @@
                     </tr>
                     <tr>
                         <td>Driver Register Date</td>
-                        <td>{{ new Date(selectdriver.created_at).getDate() + '-' + new
-                                Date(selectdriver.created_at).getMonth() + '-' + new
-                                    Date(selectdriver.created_at).getFullYear()
-                        }}</td>
+                        <td>
+                            <set-date :date="selectdriver.created_at" :year="'yes'"></set-date>
+                        </td>
                     </tr>
                 </tbody>
             </table>

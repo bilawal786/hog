@@ -1,7 +1,6 @@
 <template>
 <div>
-    {{lead}}
-    {{rideId}}
+
 </div>
 </template>
 

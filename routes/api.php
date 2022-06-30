@@ -30,7 +30,8 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
 
         Route::get('user', 'AuthenticationController@user')->name('user');
         Route::post('logout', 'LoginController@logout')->name('logout');
-
+        Route::put('update/profile/{id}', 'ProfileController@update');
+        Route::put('update/password/{id}', 'ProfileController@changePassword');
     });
 
 });
@@ -43,7 +44,7 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
 
 
 // Route::group(['middleware' => ['auth:api']], function(){
-    
+
 // });
 
 

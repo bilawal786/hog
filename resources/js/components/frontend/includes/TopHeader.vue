@@ -20,14 +20,14 @@
                                 </li>
                                 <li v-show="!user">
                                     <router-link to="/signin" class="mdn">
-                                        <i class="fa fa-user"></i>
+                                        <i class="fa fa-sign-in"></i>
                                         <span style="text-transform: capitalize;">Sign In</span>
                                     </router-link>
                                 </li>
                                 <li v-show="user">
                                     <router-link to="/dashboard" class="mdn">
                                         <i class="fa fa-user"></i>
-                                        <span v-if="user">{{ user.name }}</span>
+                                        <span style="text-transform: none;" v-if="user">{{ user.name }}</span>
                                     </router-link>
                                 </li>
                         </ul>

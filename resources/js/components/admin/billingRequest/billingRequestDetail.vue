@@ -54,7 +54,9 @@
                                     </tr>
                                     <tr>
                                         <td>Billing Question Register Date</td>
-                                        <td>{{ questionDetail.created_at }}</td>
+                                        <td>
+                                            <set-date :date="questionDetail.created_at" :year="'yes'"></set-date>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>

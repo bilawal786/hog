@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'role' => \App\Http\Middleware\RoleMiddleware::class,
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'driver' => \App\Http\Middleware\DriverMiddleware::class,
+        'status' => \App\Http\Middleware\BlockMiddleware::class,
     ];
 }

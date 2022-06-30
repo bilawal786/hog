@@ -28,7 +28,10 @@
                                         </thead>
 
                                         <tbody>
-                                        <tr v-for="withdraw in withdraws.data" :key="withdraw.id">
+                                        <tr v-if="withdraws.data == ''">
+                                            <td colspan="7" class="tb-empty">No Record Found</td>
+                                        </tr>
+                                        <tr v-else v-for="withdraw in withdraws.data" :key="withdraw.id">
                                             <td><a :href="'/admin/user/driver/detail/'+withdraw.driver_id" >{{ withdraw.driver.name }}</a></td>
                                             <td>{{ withdraw.driver.email }}</td>
                                             <td>{{ withdraw.with_draw }}</td>
@@ -44,10 +47,10 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="mt-5">
-                                <div class="dataTables_info float-left" v-if="withdraws">Showing {{withdraws.from}} to {{withdraws.to}} of {{withdraws.total}} entries</div>
-                                <div class="float-right">
-                                    <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="withdraws" :align="'right'" v-on:pagination-change-page="getdata"></pagination>
+                            <div class="">
+                                <div class="pull-left" v-if="withdraws">Showing {{withdraws.from}} to {{withdraws.to}} of {{withdraws.total}} entries</div>
+                                <div class="pull-right">
+                                    <pagination class="" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="withdraws" :align="'right'" v-on:pagination-change-page="getdata"></pagination>
                                 </div>
                             </div>
                         </div>
@@ -70,8 +73,8 @@ export default {
         this.getdata()
     },
     methods:{
-        getdata: function(){
-            axios.get('admin/web/admin/payment/approve').then(response => {
+        getdata: function(page = 1){
+            axios.get('admin/web/admin/payment/approve?page='+page).then(response => {
                 this.withdraws = response.data
                 console.log(response.data)
             })

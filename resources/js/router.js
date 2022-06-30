@@ -20,45 +20,17 @@ const guest = (to, from, next) => {
   if (!localStorage.getItem("authToken")) {
     return next();
   } else {
-    return next("/");
+    return next("/dashboard");
   }
 };
 const auth = (to, from, next) => {
   if (localStorage.getItem("authToken")) {
     return next();
   } else {
-  //  return next("/login");
+   return next("/signin");
   }
 };
-
 const routes = [
-//   {
-//     path: "/",
-//     name: "Home",
-//     component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
-//   },
-//   {
-//     path: "/login",
-//     name: "Login",
-//     beforeEnter: guest,
-//     component: () =>
-//       import(/* webpackChunkName: "login" */ "../views/Auth/Login.vue")
-//   },
-//   {
-//     path: "/register",
-//     name: "Register",
-//     beforeEnter: guest,
-//     component: () =>
-//       import(/* webpackChunkName: "register" */ "../views/Auth/Register.vue")
-//   },
-//   {
-//     path: "/verify/:hash",
-//     name: "Verify",
-//     beforeEnter: auth,
-//     props: true, props: true,
-//     component: () =>
-//       import(/* webpackChunkName: "verify" */ "../views/Auth/Verify.vue")
-//   },
   {
     name: 'index',
     path: '/',
@@ -142,7 +114,7 @@ const routes = [
     path: '/404',
     component: NotFound,
     meta: { title: 'Heart of Gold | 404' }
-},  
+},
 {
     path: '*',
      component: NotFound,
@@ -157,6 +129,7 @@ const router = new VueRouter({
 });
 router.beforeEach((to, form, next)=>{
   document.title = `${to.meta.title}`;
+
   next();
 })
 

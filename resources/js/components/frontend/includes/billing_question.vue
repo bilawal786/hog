@@ -1,9 +1,7 @@
 <template>
 <div>
-    <!-- <div>
-        <div id="loader"></div>
-    </div> -->
-    <div>
+
+    <div class="table-responsive">
         <table class="table table-hover">
         <thead>
             <tr>
@@ -43,7 +41,7 @@ export default {
 
     },
     computed:{
-        
+
     },
     methods:{
         getUserBillingQuestion: function(){
@@ -54,6 +52,6 @@ export default {
     },
      mounted(){
          this.getUserBillingQuestion()
-     } 
+     }
 }
 </script>

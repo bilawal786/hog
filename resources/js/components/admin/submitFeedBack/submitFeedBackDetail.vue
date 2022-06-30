@@ -54,7 +54,9 @@
                                     </tr>
                                     <tr>
                                         <td>Feebback Register Date</td>
-                                        <td>{{ feedbackDetail.created_at }}</td>
+                                        <td>
+                                            <set-date :date="feedbackDetail.created_at" :year="'yes'"></set-date>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>

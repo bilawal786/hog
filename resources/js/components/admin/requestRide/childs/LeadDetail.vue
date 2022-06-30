@@ -37,7 +37,15 @@
                                             </tr>
                                             <tr>
                                                 <td>Rider Trip Date</td>
-                                                <td>{{ rideDetail.trip_date }}</td>
+                                                <td>
+                                                    <set-date :date="rideDetail.trip_date" :year="'yes'"></set-date>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rider Trip Time</td>
+                                                <td>
+                                                    <set-time :date="rideDetail.trip_date" :year="'yes'"></set-time>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Rider Message</td>
@@ -61,11 +69,9 @@
                                             </tr>
                                             <tr>
                                                 <td>Created Ride Date</td>
-                                                <td>{{
-                                                    new Date(rideDetail.created_at).getDate() + '-' +
-                                                    new Date(rideDetail.created_at).getMonth() + '-' +
-                                                    new Date(rideDetail.created_at).getFullYear()
-                                                }}</td>
+                                                <td>
+                                                    <set-date :date="rideDetail.created_at" :year="'yes'"></set-date>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

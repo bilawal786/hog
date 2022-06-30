@@ -25,8 +25,10 @@
                                     </thead>
 
                                     <tbody>
-
-                                    <tr v-for="feedback in feedbacks.data" :key="feedback.id">
+                                    <tr v-if="feedbacks.data == ''">
+                                        <td colspan="6" class="tb-empty">No Record Found</td>
+                                    </tr>
+                                    <tr v-else v-for="feedback in feedbacks.data" :key="feedback.id">
                                         <td>{{ feedback.Fname + ' ' + feedback.Lname }}</td>
                                         <td>{{ feedback.email }}</td>
                                         <td>{{ feedback.phone }}</td>
@@ -46,10 +48,10 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="mt-5">
-                            <div class="dataTables_info float-left" v-if="feedbacks">Showing {{feedbacks.from}} to {{feedbacks.to}} of {{feedbacks.total}} entries</div>
-                            <div class="float-right">
-                                <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="feedbacks" :align="'right'" v-on:pagination-change-page="getFeedbacks"></pagination>
+                        <div class="">
+                            <div class="pull-left" v-if="feedbacks">Showing {{feedbacks.from}} to {{feedbacks.to}} of {{feedbacks.total}} entries</div>
+                            <div class="pull-right">
+                                <pagination class="" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="feedbacks" :align="'right'" v-on:pagination-change-page="getFeedbacks"></pagination>
                             </div>
                         </div>
                     </div>
@@ -71,8 +73,8 @@ export default {
         this.getFeedbacks()
     },
     methods:{
-        getFeedbacks: function () {
-            axios.get('admin/web/form/submit/feedback').then(response => {
+        getFeedbacks: function (page = 1) {
+            axios.get('admin/web/form/submit/feedback?page='+page).then(response => {
                 this.feedbacks = response.data
                 console.log(response.data)
             })

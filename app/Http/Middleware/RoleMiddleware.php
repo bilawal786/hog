@@ -17,7 +17,7 @@ class RoleMiddleware
     {
         if(Auth::user())
         {
-            if(Auth::user()->role == 'user'){
+            if(Auth::user()->status == 0){
                 return redirect()->back();
             }
             else{
@@ -26,8 +26,5 @@ class RoleMiddleware
         }else{
             abort(403);
         }
-       
-
-        
     }
 }

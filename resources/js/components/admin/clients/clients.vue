@@ -25,7 +25,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="client in clients.data" :key='client.id'>
+                                            <tr v-if="clients.data == ''">
+                                                <td colspan="7" class="tb-empty">No Record Found</td>
+                                            </tr>
+                                            <tr v-else v-for="client in clients.data" :key='client.id'>
                                                 <td>{{ client.name }}</td>
                                                 <td>{{ client.email }}</td>
                                                 <td>{{ client.phone }}</td>
@@ -43,10 +46,10 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="mt-5">
-                                <div class="dataTables_info float-left" v-if="clients">Showing {{clients.from}} to {{clients.to}} of {{clients.total}} entries</div>
-                                <div class="float-right">
-                                    <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="clients" :align="'right'" v-on:pagination-change-page="getClientData"></pagination>
+                            <div class="">
+                                <div class="pull-left" v-if="clients">Showing {{clients.from}} to {{clients.to}} of {{clients.total}} entries</div>
+                                <div class="pull-right">
+                                    <pagination class="" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="clients" :align="'right'" v-on:pagination-change-page="getClientData"></pagination>
                                 </div>
                             </div>
                         </div>
@@ -162,8 +165,8 @@ export default {
         this.getClientData()
     },
     methods: {
-        getClientData: function () {
-            axios.get('admin/web/clients').then(response => {
+        getClientData: function (page = 1) {
+            axios.get('admin/web/clients?page='+page).then(response => {
                 this.clients = response.data
             })
         },

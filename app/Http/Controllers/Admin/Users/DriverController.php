@@ -46,7 +46,7 @@ class DriverController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|max:255',
-            'email' => 'required|max:255|email',
+            'email' => 'required|max:255|email|unique:users',
             'password' => 'required|max:255',
             'comfirm_password' => 'required_with:password|same:password',
             ]);

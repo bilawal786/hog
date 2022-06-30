@@ -18,11 +18,16 @@
                             </thead>
 
                             <tbody>
-                                <tr v-for="ride in rides.data" :key="ride.id">
+                            <tr v-if="rides.data == ''">
+                                <td colspan="7" class="tb-empty">No Record Found</td>
+                            </tr>
+                                <tr v-else v-for="ride in rides.data" :key="ride.id">
                                     <td>{{ ride.Fname + " " + ride.Lname }}</td>
                                     <td>{{ ride.email }}</td>
                                     <td>{{ ride.phone }}</td>
-                                    <td>{{ ride.trip_date }}</td>
+                                    <td>
+                                        <set-date :date="ride.trip_date" :year="'yes'"></set-date>
+                                    </td>
                                     <td>$ {{ ride.cost }}</td>
                                     <td>
                                         <button class="btn btn-default btn-icon-anim btn-circle btn-sm"
@@ -43,10 +48,10 @@
                         </table>
                     </div>
                 </div>
-                <div class="mt-5">
-                    <div class="dataTables_info float-left" v-if="rides">Showing {{rides.from}} to {{rides.to}} of {{rides.total}} entries</div>
-                    <div class="float-right">
-                        <pagination class="pg-c" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="rides" :align="'right'" v-on:pagination-change-page="getRides"></pagination>
+                <div class="">
+                    <div class="pull-left" v-if="rides">Showing {{rides.from}} to {{rides.to}} of {{rides.total}} entries</div>
+                    <div class="pull-right">
+                        <pagination class="" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="rides" :align="'right'" v-on:pagination-change-page="getRides"></pagination>
                     </div>
                 </div>
             </div>
@@ -189,8 +194,8 @@ export default {
         this.getRides();
     },
     methods: {
-        getRides: function () {
-            axios.get("admin/web/form/request/unassign/ride").then((response) => {
+        getRides: function (page = 1) {
+            axios.get("admin/web/form/request/unassign/ride?page="+page).then((response) => {
                 this.rides = response.data;
             });
         },

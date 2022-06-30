@@ -42,7 +42,8 @@ axios.interceptors.request.use(function(config) {
 
   return config;
 });
-
+Vue.component('set-time', require('./SetTime.vue').default);
+Vue.component('set-date', require('./setDate.vue').default);
 const app = new Vue({
     el: '#app',
     router,
