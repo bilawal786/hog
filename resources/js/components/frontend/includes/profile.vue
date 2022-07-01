@@ -6,17 +6,32 @@
         <div class="card-body">
             <table class="table table-bordered table-hover input-content" v-if="user && passwordEdit == false">
                 <tr>
-                    <th width="25%">Name</th>
+                    <th width="25%">First Name</th>
                     <td width="2%">:</td>
                     <td>
                         <span v-if="profileEdit==true">
-                            <input type="text" placeholder="Name*" class="form-control" v-model="user.name">
-                             <div class="contact-valid" v-if="errors.name">
-                                {{ errors.name[0] }}
+                            <input type="text" placeholder="Name*" class="form-control" v-model="user.first_name">
+                             <div class="contact-valid" v-if="errors.first_name">
+                                {{ errors.first_name[0] }}
                             </div>
                         </span>
                         <span v-if="profileEdit==false">
-                            {{ user.name }}
+                            {{ user.first_name }}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="25%">Last Name</th>
+                    <td width="2%">:</td>
+                    <td>
+                        <span v-if="profileEdit==true">
+                            <input type="text" placeholder="Name*" class="form-control" v-model="user.last_name">
+                             <div class="contact-valid" v-if="errors.last_name">
+                                {{ errors.last_name[0] }}
+                            </div>
+                        </span>
+                        <span v-if="profileEdit==false">
+                            {{ user.last_name }}
                         </span>
                     </td>
                 </tr>
@@ -56,6 +71,18 @@
                         </span>
                         <span v-if="profileEdit==false">
                             {{ user.address }}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="25%">City</th>
+                    <td width="2%">:</td>
+                    <td>
+                        <span v-if="profileEdit==true">
+                            <input type="text" placeholder="Address" class="form-control" v-model="user.city">
+                        </span>
+                        <span v-if="profileEdit==false">
+                            {{ user.city }}
                         </span>
                     </td>
                 </tr>

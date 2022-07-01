@@ -10,7 +10,7 @@
                                 <h3 class="mb-0"><i class="fa fa-clone pr-1"></i>{{$route.params.title.type}}</h3>
                             </div>
                             <div class="card-body">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered table-striped">
                                 <tr v-show="$route.params.title.Fname">
                                     <th width="25%">First Name</th>
                                     <td width="2%">:</td>
@@ -31,6 +31,26 @@
                                     <td width="2%">:</td>
                                     <td>{{$route.params.title.phone}}</td>
                                 </tr>
+                                    <tr v-show="$route.params.title.card_on_file">
+                                        <th width="25%">Card On Flile Y/N</th>
+                                        <td width="2%">:</td>
+                                        <td>{{$route.params.title.card_on_file}}</td>
+                                    </tr>
+                                    <tr v-show="$route.params.title.relative">
+                                        <th width="25%">Relative</th>
+                                        <td width="2%">:</td>
+                                        <td>{{$route.params.title.relative}}</td>
+                                    </tr>
+                                    <tr v-show="$route.params.title.relative_no">
+                                        <th width="25%">Relative #</th>
+                                        <td width="2%">:</td>
+                                        <td>{{$route.params.title.relative_no}}</td>
+                                    </tr>
+                                    <tr v-show="$route.params.title.facility">
+                                        <th width="25%">Facility</th>
+                                        <td width="2%">:</td>
+                                        <td>{{$route.params.title.facility}}</td>
+                                    </tr>
                                 <tr v-show="$route.params.title.account">
                                     <th width="25%">Account</th>
                                     <td width="2%">:</td>

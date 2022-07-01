@@ -3,27 +3,32 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Phone #</th>
-                <th scope="col">Account</th>
-                <th scope="col">Message</th>
-                <th scope="col">Action</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">W/c Or Amb</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Cart On File Y/N</th>
+                <th scope="col">Relative</th>
+                <th scope="col">Relative's #</th>
+                <th scope="col">Facility</th>
+                <th scope="col">Notes</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="(item, index) in getRequestRide" :key="index">
-                <th scope="row">{{index+1}}</th>
+                <td>{{item.Lname}}</td>
                 <td>{{item.Fname}}</td>
-                <td>{{item.email}}</td>
+                <td>{{item.user.address}}</td>
+                <td>{{item.user.city}}</td>
+                <td>{{item.wheelchair}}</td>
                 <td>{{item.phone}}</td>
-                <td>{{item.account}}</td>
+                <td>{{item.card_on_file}}</td>
+                <td>{{item.relative}}</td>
+                <td>{{item.relative_no}}</td>
+                <td>{{item.facility}}</td>
                 <td>{{item.message}}</td>
-                <td>
-                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                </td>
             </tr>
         </tbody>
     </table>

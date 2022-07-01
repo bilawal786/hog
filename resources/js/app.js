@@ -13,9 +13,9 @@ require('./bootstrap');
 Vue.config.productionTip = false;
 
 
-  // axios.defaults.baseURL = 'http://localhost:8000/api/';
+  axios.defaults.baseURL = 'http://localhost:8000/api/';
 
-  axios.defaults.baseURL = 'https://hog.codingcrust.com/api/';
+  // axios.defaults.baseURL = 'https://hog.codingcrust.com/api/';
 
 axios.interceptors.response.use(
   response => response,

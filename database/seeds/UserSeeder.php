@@ -13,6 +13,8 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'first_name' => 'Admin',
+                'last_name' => 'Admin',
                 'name' => 'Admin 01',
                 'email' => 'admin01@heartofgold.com',
                 'password' => Hash::make('12345678'),
@@ -21,6 +23,8 @@ class UserSeeder extends Seeder
                 'updated_at'=>'2022-05-17 05:48:18'
             ],
             [
+                'first_name' => 'user',
+                'last_name' => 'user',
                 'name' => 'User 01',
                 'email' => 'user01@heartofgold.com',
                 'password' => Hash::make("12345678"),

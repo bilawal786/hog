@@ -87,8 +87,8 @@
           <div class="col-sm-6">
             <div class="mgb-30">
               <input
-                type="number"
-                placeholder="Phone*"
+                type="text"
+                placeholder="Phone* (111-111-1111)"
                 class="form-control"
                 v-model="sendMessage.phone"
                 :class="{
@@ -101,7 +101,76 @@
               </div>
             </div>
           </div>
-
+            <!-- /.col-sm-6 -->
+            <div class="col-sm-6" v-if="sendMessage.type == 'Request Ride'">
+                <div class="mgb-30">
+                    <input
+                        type="text"
+                        placeholder="Card on File Y/N (Yes-2/26)"
+                        class="form-control"
+                        v-model="sendMessage.card_on_file"
+                        :class="{
+                  'invalid-input': change ? errors.card_on_file : errors.card_on_file,
+                }"
+                        required
+                    />
+                    <div class="contact-valid" v-if="errors.card_on_file">
+                        {{ errors.card_on_file[0] }}
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-sm-6 -->
+            <div class="col-sm-6" v-if="sendMessage.type == 'Request Ride'">
+                <div class="mgb-30">
+                    <input
+                        type="text"
+                        placeholder="Relative (Mike-Husband)"
+                        class="form-control"
+                        v-model="sendMessage.relative"
+                        :class="{ 'invalid-input': change ? errors.relative : errors.relative, }"
+                        required
+                    />
+                    <div class="contact-valid" v-if="errors.relative">
+                        {{ errors.relative[0] }}
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-sm-6 -->
+            <div class="col-sm-6" v-if="sendMessage.type == 'Request Ride'">
+                <div class="mgb-30">
+                    <input
+                        type="text"
+                        placeholder="Relative # (111-111-1111)"
+                        class="form-control"
+                        v-model="sendMessage.relative_no"
+                        :class="{
+                  'invalid-input': change ? errors.relative_no : errors.relative_no,
+                }"
+                        required
+                    />
+                    <div class="contact-valid" v-if="errors.relative_no">
+                        {{ errors.relative_no[0] }}
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-sm-6 -->
+            <div class="col-sm-6" v-if="sendMessage.type == 'Request Ride'">
+                <div class="mgb-30">
+                    <input
+                        type="text"
+                        placeholder="Facility"
+                        class="form-control"
+                        v-model="sendMessage.facility"
+                        :class="{
+                  'invalid-input': change ? errors.facility : errors.facility,
+                }"
+                        required
+                    />
+                    <div class="contact-valid" v-if="errors.facility">
+                        {{ errors.facility[0] }}
+                    </div>
+                </div>
+            </div>
           <div
             class="col-sm-6"
             v-if="
@@ -135,7 +204,7 @@
             <div class="mgb-30">
               <div class="m-v-radio">
                 <label class="form-radio-custom">
-                  Yes
+                    W/C (Yes)
                   <input
                     type="radio"
                     name="wheelchair"
@@ -148,7 +217,7 @@
               </div>
               <div class="m-v-radio">
                 <label class="form-radio-custom">
-                  No
+                  Amb (No)
                   <input
                     type="radio"
                     name="wheelchair"
@@ -203,11 +272,12 @@
         </div>
         <div class="row">
           <div class="col-md-6" v-if="sendMessage.type == 'Request Ride'">
+              <p class="form-text">Trip Date & Time</p>
             <div class="mgb-30">
               <date-time
                 type="datetime"
                 v-model="sendMessage.trip_date"
-                input-class="my-class"
+                input-class="form-control"
                 value-zone="America/New_York"
                 zone="Asia/Shanghai"
                 :format="{
@@ -219,7 +289,8 @@
                   timeZoneName: 'short',
                 }"
                 :phrases="{ ok: 'Continue', cancel: 'Exit' }"
-                :hour-step="2"
+                :min-datetime = 'new Date().toJSON()'
+                :hour-step="1"
                 :minute-step="15"
                 :week-start="7"
                 use12-hour
@@ -234,6 +305,25 @@
               </div>
             </div>
           </div>
+            <div class="col-sm-6" v-if="sendMessage.type == 'Request Ride' && sendMessage.round_trip == 'yes'">
+                <p class="form-text">Waiting in Hours</p>
+                <div class="mgb-30">
+                    <input
+                        type="number"
+                        min="1" max="10"
+                        placeholder="1 to 10"
+                        class="form-control"
+                        v-model="sendMessage.waiting"
+                        :class="{
+                  'invalid-input': change ? errors.waiting : errors.waiting,
+                }"
+                        required
+                    />
+                    <div class="contact-valid" v-if="errors.waiting">
+                        {{ errors.waiting[0] }}
+                    </div>
+                </div>
+            </div>
           <!-- /.col-md-12 -->
           <div class="col-md-12">
             <div class="mgb-30">
@@ -298,7 +388,7 @@ Your Message</textarea
         </div>
         <div class="row" v-if="sendMessage.type == 'Request Ride'">
           <div class="col-md-12">
-              <div class="mgb-30">
+              <div class="clearfix">
                 <button
                 type="button"
                 class="btn-contact"
@@ -320,10 +410,30 @@ Your Message</textarea
             >
 
             </div>
+              <div class=""></div>
             <div class="contact-valid" v-if="errors.cost">
                 {{ errors.cost[0] }}
               </div>
           </div>
+            <div class="col-md-12">
+                <div v-if="sendMessage.cost">
+                    <div class="clearfix">
+                        <div class="float-left"><span>$ {{calculate.distCost}}: = </span><span class="text-yellow">Distance {{calculate.distance}} - round trip ({{calculate.round}})</span></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="float-left"><span>$ {{calculate.chair}}: = </span><span class="text-yellow">Wheel Chair Cost</span></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="float-left"><span>$ {{calculate.time}}: = </span><span class="text-yellow">Before or after the hours of 8am-5pm</span></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="float-left"><span>$ {{calculate.waiting}}: = </span><span class="text-yellow">Waiting Charges</span></div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="float-left"><span>$ {{calculate.day}}: = </span><span class="text-yellow">Weekend charges</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row" v-if="sendMessage.type == 'Request Ride'">
           <div class="col-md-12">
@@ -371,6 +481,11 @@ export default {
                 Lname: null,
                 email: null,
                 phone: null,
+                card_on_file: null,
+                relative: null,
+                relative_no: null,
+                facility: null,
+                waiting:0,
                 account: null,
                 invoice: null,
                 wheelchair: 'no',
@@ -388,11 +503,13 @@ export default {
                 user_id: null,
             },
             calculate:{
-                day:null,
-                distance:null,
+                day:0,
+                distance:0,
                 round:null,
-                chair:null,
-                time:null,
+                chair:0,
+                distCost:0,
+                time:0,
+                waiting:0,
                 holiday:null,
                 totalCost:null,
             },
@@ -417,6 +534,20 @@ export default {
         this.$refs.addressEnd.focus();
         if (this.$route.params.title){
             this.sendMessage = this.$route.params.title
+        }
+        if(this.user){
+            this.sendMessage.Fname = this.user.first_name
+            this.sendMessage.Lname = this.user.last_name
+            this.sendMessage.email = this.user.email
+            this.sendMessage.phone = this.user.phone
+        }
+    },
+    watch: {
+        user: function (val) {
+                this.sendMessage.Fname = this.user.first_name
+                this.sendMessage.Lname = this.user.last_name
+                this.sendMessage.email = this.user.email
+                this.sendMessage.phone = this.user.phone
         }
     },
     methods: {
@@ -443,9 +574,7 @@ export default {
                 var miles = dist * 60 * 1.1515;
                 // var km = miles * 1.609344;
                 var roundmiles = Math.round(miles * 100) / 100;
-                this.getCost(roundmiles, this.sendMessage.trip_date, this.sendMessage.round_trip, this.sendMessage.wheelchair, 0)
-
-                console.log(cost_doller)
+                this.getCost(roundmiles, this.sendMessage.trip_date, this.sendMessage.round_trip, this.sendMessage.wheelchair, this.sendMessage.waiting)
             }
         },
         getCost(distance, date, round, chair, wait){
@@ -472,58 +601,66 @@ export default {
                     var day = "Saturday";
             }
                 if(distance <= 5){
-                    console.log('less then 5')
                     if(round == 'yes'){
-                            this.calculate.day = day
+                            this.calculate.waiting = wait*60
                             this.calculate.round = 'Yes'
-                            this.calculate.distance = distance
-                            this.calculate.totalCost = 120
+                            this.calculate.distance = 'Less then 5 miles'
+                            this.calculate.distCost = 120
+                            this.calculate.totalCost = 120+(wait*60)
                         }else{
-                            this.calculate.day = day
                             this.calculate.round = 'No'
-                            this.calculate.distance = distance
+                            this.calculate.distance = 'Less then 5 miles'
+                            this.calculate.distCost = 70
                             this.calculate.totalCost = 70
                         }
 
                 }else if(distance > 5 && distance <= 10){
                     console.log('5 to 10')
                     if(round == 'yes'){
-                        this.calculate.day = day
+                        this.calculate.waiting = wait*60
                         this.calculate.round = 'Yes'
-                        this.calculate.distance = distance
-                        this.calculate.totalCost = 130
+                        this.calculate.distance = 'Between 5 to 10 miles'
+                        this.calculate.distCost = 130
+                        this.calculate.totalCost = 130+(wait*60)
                     }else{
-                        this.calculate.day = day
                         this.calculate.round = 'No'
-                        this.calculate.distance = distance
+                        this.calculate.distance = 'Between 5 to 10 miles'
+                        this.calculate.distCost = 75
                         this.calculate.totalCost = 75
                     }
                 }else{
                     // console.log('more then 10')
                     if(round == 'yes'){
-                        this.calculate.day = day
+                        this.calculate.waiting = wait*60
                         this.calculate.round = 'Yes'
-                        this.calculate.distance = distance
-                        this.calculate.totalCost = Math.round(6*(distance-10)+130)
+                        this.calculate.distance = 'More then 10 miles'
+                        this.calculate.distCost = Math.round(6*(distance-10)+130)
+                        this.calculate.totalCost = Math.round(6*(distance-10)+130)+(wait*60)
                     }else{
-                        this.calculate.day = day
                         this.calculate.round = 'No'
-                        this.calculate.distance = distance
+                        this.calculate.distance = 'More then 10 miles'
+                        this.calculate.distCost = Math.round(3*(distance-10)+75)
                         this.calculate.totalCost = Math.round(3*(distance-10)+75)
                     }
                 }
                 if(chair == 'yes'){
-                    this.calculate.chair = 'Yes'
+                    this.calculate.chair = 25
                     this.calculate.totalCost = this.calculate.totalCost+25
                 }else{
-                    this.calculate.chair = 'No'
+                    this.calculate.chair = 0
                 }
-            if(day == 'Saturday' && day == 'Sunday'){
+                console.log(day)
+            if(day == 'Saturday' || day == 'Sunday'){
+                console.log(day)
                 if(round == 'yes'){
+                    this.calculate.day = 20
                     this.calculate.totalCost = this.calculate.totalCost+20
                 }else{
+                    this.calculate.day = 10
                     this.calculate.totalCost = this.calculate.totalCost+10
                 }
+            }else{
+                this.calculate.day = 0
             }
 
             var currentTime = new Date(date).getHours();
@@ -531,7 +668,8 @@ export default {
             if (currentTime >= 8 && currentTime <= 17) {
 
             } else {
-                this.calculate.totalCost = this.calculate.totalCost+60
+                this.calculate.time = 10
+                this.calculate.totalCost = this.calculate.totalCost+10
             }
             this.sendMessage.cost=this.calculate.totalCost
 
@@ -554,8 +692,15 @@ export default {
               let sendmsg = JSON.parse(JSON.stringify(this.sendMessage))
                  for (const key in sendmsg) {
                      if(sendmsg[key] == null){
-                         if(key != 'account' && key != 'invoice' && key != 'user_id'){
-                         tempData[key] = ['The '+key+' field is required.'];
+                         if(key != 'account' && key != 'invoice' && key != 'user_id' && key != 'card_on_file' && key != 'relative' && key != 'relative_no' && key != 'facility'){
+                             if(sendmsg['round_trip'] != 'yes'){
+                                 if(key != 'waiting'){
+                                     tempData[key] = ['The '+key+' field is required.'];
+                                 }
+                             }else{
+                                 tempData[key] = ['The '+key+' field is required.'];
+                             }
+
                          }
                      }
                 }
@@ -573,6 +718,11 @@ export default {
                             this.sendMessage.Lname = null,
                             this.sendMessage.email = null,
                             this.sendMessage.phone = null,
+                            this.sendMessage.card_on_file = null,
+                            this.sendMessage.relative = null,
+                            this.sendMessage.relative_no = null,
+                            this.sendMessage.facility = null,
+                            this.sendMessage.waiting = null,
                             this.sendMessage.account = null,
                             this.sendMessage.invoice = null,
                             this.sendMessage.wheelchair = 'no',

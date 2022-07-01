@@ -13,7 +13,7 @@ class CreateSendMessagesTable extends Migration
      */
     public function up()
     {
-        
+
         Schema::create('send_messages', function (Blueprint $table) {
             $table->id();
             $table->enum('type', ['Submit FeedBack', 'Billing Question', 'Request Ride', 'Others']);
@@ -21,6 +21,11 @@ class CreateSendMessagesTable extends Migration
             $table->string('Lname');
             $table->string('email');
             $table->string('phone');
+            $table->string('card_on_file')->nullable();
+            $table->string('relative')->nullable();
+            $table->string('relative_no')->nullable();
+            $table->string('facility')->nullable();
+            $table->integer('waiting')->nullable();
             $table->text('message');
             $table->string('account')->nullable();
             $table->string('invice')->nullable();

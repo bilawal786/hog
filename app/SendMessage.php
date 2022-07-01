@@ -11,6 +11,11 @@ class SendMessage extends Model
         'Lname',
         'email',
         'phone',
+        'card_on_file',
+        'relative',
+        'relative_no',
+        'facility',
+        'waiting',
         'message',
         'account',
         'invice',
@@ -27,4 +32,7 @@ class SendMessage extends Model
         'cost',
         'user_id',
     ];
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
 }

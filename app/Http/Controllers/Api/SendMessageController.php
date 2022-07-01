@@ -92,6 +92,11 @@ class SendMessageController extends Controller
                         'Lname' => 'required|max:255',
                         'email' => 'required|max:255',
                         'phone' => 'required|max:255',
+                        'card_on_file' => 'max:255',
+                        'relative' => 'max:255',
+                        'relative_no' => 'max:255',
+                        'facility' => 'max:255',
+                        'waiting' => 'max:255',
                         'wheelchair' => 'required',
                         'round_trip' => 'required',
                         'trip_date' => 'required',
@@ -104,6 +109,11 @@ class SendMessageController extends Controller
                         'cost' => 'required|max:255',
                         'status_assign' => 'required|max:255',
                         ]);
+                        if($request->round_trip == 'yes'){
+                            $validated = $request->validate([
+                                'waiting'=> 'required',
+                            ]);
+                        }
                     }
                     catch (ValidationException $exception) {
                         return response()->json([
@@ -118,6 +128,11 @@ class SendMessageController extends Controller
                 $send_message->Lname = $request->Lname;
                 $send_message->email = $request->email;
                 $send_message->phone = $request->phone;
+                $send_message->card_on_file = $request->card_on_file;
+                $send_message->relative = $request->relative;
+                $send_message->relative_no = $request->relative_no;
+                $send_message->facility = $request->facility;
+                $send_message->waiting = $request->waiting;
                 $send_message->wheelchair = $request->wheelchair;
                 $send_message->round_trip = $request->round_trip;
                 $send_message->trip_date = $request->trip_date;
