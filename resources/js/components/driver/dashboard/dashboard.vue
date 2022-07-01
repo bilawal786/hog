@@ -10,7 +10,7 @@
 				<div class="panel panel-default card-view">
 					<div class="panel-heading">
 						<div class="pull-left">
-							<h6 class="panel-title txt-dark">Leads</h6>
+							<h6 class="panel-title txt-dark">Rides</h6>
 						</div>
 						<div class="pull-right">
 							<a href="#" class="pull-left inline-block full-screen">
@@ -64,7 +64,7 @@
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
                         <div class="pull-left">
-                            <h6 class="panel-title txt-dark">Lead details</h6>
+                            <h6 class="panel-title txt-dark">Ride details</h6>
                         </div>
                         <div class="pull-right">
                             <button class="btn btn-primary btn-anim btn-sm" @click="backToList()">
@@ -82,7 +82,7 @@
 				<div class="panel panel-default card-view">
 					<div class="panel-heading">
 						<div class="pull-left">
-							<h6 class="panel-title txt-dark">Leads Detail</h6>
+							<h6 class="panel-title txt-dark">Ride Details</h6>
 						</div>
 						<div class="pull-right">
 							<a href="#" class="pull-left inline-block full-screen">
@@ -145,7 +145,7 @@
                         </tr>
 						<tr>
                             <td>Distance:</td>
-                            <td>{{leadDetail.distance}}</td>
+                            <td>{{Math.round(leadDetail.distance)}} Mi</td>
                         </tr>
 						<tr>
                             <td>Created Date:</td>

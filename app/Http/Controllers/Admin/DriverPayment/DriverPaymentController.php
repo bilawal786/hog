@@ -87,7 +87,7 @@ class DriverPaymentController extends Controller
     {
         DriverPayment::where('driver_id', $id)->where('status', '0')->update(['status' => '1']);
         $notification = array(
-            'messege' => 'With Draw successfully!',
+            'messege' => 'Withdraw request created successfully!',
             'type' => 'success'
         );
         return response()->json($notification);
