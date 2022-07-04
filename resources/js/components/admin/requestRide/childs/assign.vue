@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="table-wrap">
                     <div class="table-responsive">
-                        <table id="" class="table table-hover display pb-30">
+                        <table id="" class="table table-hover display pb-30" v-if="leads">
                             <thead>
                                 <tr>
                                     <th>Client Name</th>
@@ -43,7 +43,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="">
+                    <div class="" v-if="leads">
                         <div class="pull-left" v-if="leads">Showing {{leads.from}} to {{leads.to}} of {{leads.total}} entries</div>
                         <div class="pull-right">
                             <pagination class="" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="leads" :align="'right'" v-on:pagination-change-page="getRides"></pagination>

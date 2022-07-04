@@ -447,9 +447,10 @@ textarea {
 }
 .input-content {
 	border: 1px solid#DDDDDD;
-	padding:50px;
+	padding:20px;
 	border-radius: 10px;
 	background-color: #FAFAFA;
+    min-height: 400px;
     @media only screen and (max-width: 767px) {
         padding:10px;
     }

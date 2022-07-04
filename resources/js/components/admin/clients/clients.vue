@@ -39,7 +39,7 @@
                                                         @click="getClientDetail(client.id)"><i
                                                             class="fa fa-eye"></i></button>
                                                     <button class="btn btn-danger btn-icon-anim btn-circle btn-sm" v-if="client.status==1" @click="block(client.id)"><i class="fa fa-lock"></i></button>
-                                                    <button class="btn btn-warning btn-icon-anim btn-circle btn-sm" v-if="client.status==0" @click="unblock(client.id)"><i class="fa fa-unlock"></i></button>
+<!--                                                    <button class="btn btn-warning btn-icon-anim btn-circle btn-sm" v-if="client.status==0" @click="unblock(client.id)"><i class="fa fa-unlock"></i></button>-->
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -7,7 +7,7 @@
                         <h6 class="panel-title txt-dark">Feedback UPdate</h6>
                     </div>
                     <div class="pull-right">
-                        <router-link class="btn btn-primary btn-anim btn-sm" to="/admin/form/submit/feedback/list"><i
+                        <router-link class="btn btn-primary btn-anim btn-sm" to="/feedback/list"><i
                             class="fa fa-arrow-left" style="color: #FFF;"></i><span class="btn-text">back</span>
                         </router-link>
                     </div>

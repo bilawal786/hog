@@ -46,6 +46,8 @@ class LeadController extends Controller
             'driver_id' => 'required',
             'ride_id' => 'required',
             'notes' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
             'driver_cost' => 'required',
             'status' => 'required',
             ]);
@@ -53,6 +55,8 @@ class LeadController extends Controller
             $driver_lead->driver_id = $request->driver_id;
             $driver_lead->ride_id = $request->ride_id;
             $driver_lead->notes = $request->notes;
+            $driver_lead->start_date = $request->start_date;
+            $driver_lead->end_date = $request->end_date;
             $driver_lead->driver_cost = $request->driver_cost;
             $driver_lead->status = $request->status;
             $driver_lead->assign = $request->assign;

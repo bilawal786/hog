@@ -7,7 +7,7 @@
                         <h6 class="panel-title txt-dark">Driver detail</h6>
                     </div>
                     <div class="pull-right">
-                        <router-link class="btn btn-primary btn-anim btn-sm" to="/admin/user/driver/list"><i
+                        <router-link class="btn btn-primary btn-anim btn-sm" to="/driver/list"><i
                             class="fa fa-arrow-left" style="color: #FFF;"></i><span
                             class="btn-text">back</span></router-link>
                     </div>

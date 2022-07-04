@@ -44,7 +44,7 @@
                                             <tr>
                                                 <td>Rider Trip Time</td>
                                                 <td>
-                                                    <set-time :date="rideDetail.trip_date" :year="'yes'"></set-time>
+                                                    <set-time :date="rideDetail.trip_date"></set-time>
                                                 </td>
                                             </tr>
                                             <tr>

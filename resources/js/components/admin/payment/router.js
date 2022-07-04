@@ -11,13 +11,13 @@ import driverPaymentList from "./driver_payment_list";
 const routes = [
     {
         name:'driverPaymentRequest',
-        path:'/admin/payment/request',
+        path:'/payment/request',
         component:driverPaymentRequest,
         meta: { title: 'HOG | Driver Payment Request' }
     },
     {
         name:'driverPaymentList',
-        path:'/admin/payment/list',
+        path:'/payment/list',
         component:driverPaymentList,
         meta: { title: 'HOG | Driver Payment List' }
     },

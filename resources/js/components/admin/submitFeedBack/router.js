@@ -11,25 +11,25 @@ import submitFeedBackList from "./submitFeedBackList";
 const routes = [
     {
         name:'submitFeedBackCreate',
-        path:'/admin/form/submit/feedback/create',
+        path:'/feedback/create',
         component:submitFeedBackCreate,
         meta: { title: 'HOG | FeedBack Create' }
     },
     {
         name:'submitFeedBackDetail',
-        path:'/admin/form/submit/feedback/detail/:id?',
+        path:'/feedback/detail/:id?',
         component:submitFeedBackDetail,
         meta: { title: 'HOG | FeedBack Detail' }
     },
     {
         name:'submitFeedBackList',
-        path:'/admin/form/submit/feedback/list',
+        path:'/feedback/list',
         component:submitFeedBackList,
         meta: { title: 'HOG | FeedBack List' }
     },
     {
         name:'submitFeedBackUpdate',
-        path:'/admin/form/submit/feedback/edit/:id?',
+        path:'/feedback/edit/:id?',
         component:submitFeedBackCreate,
         meta: { title: 'HOG | FeedBack Update' }
     },

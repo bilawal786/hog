@@ -11,25 +11,25 @@ import otherList from "./otherList";
 const routes = [
     {
         name:'otherCreate',
-        path:'/admin/user/driver/list',
+        path:'/form/other/list',
         component:otherCreate,
         meta: { title: 'HOG | Other Create' }
     },
     {
         name:'otherdetail',
-        path:'/admin/user/driver/detail/:id?',
+        path:'/form/other/detail/:id?',
         component:otherdetail,
         meta: { title: 'HOG | Others Detail' }
     },
     {
         name:'otherList',
-        path:'/admin/user/driver/create',
+        path:'/form/driver/create',
         component:otherList,
         meta: { title: 'HOG | Others List' }
     },
     {
         name:'otherUpdate',
-        path:'/admin/user/driver/edit/:id?',
+        path:'/form/driver/edit/:id?',
         component:otherCreate,
         meta: { title: 'HOG | Others Update' }
     },

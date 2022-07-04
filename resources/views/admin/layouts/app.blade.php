@@ -41,7 +41,9 @@
 	<!-- /Preloader -->
     <div class="wrapper theme-4-active pimary-color-red" id="admin">
 		@include('admin.includes.navigation')
-		@include('admin.includes.left_side_bar')
+        @if(Auth::user()->status == 1)
+            @include('admin.includes.left_side_bar')
+        @endif
         @yield('content')
     </div>
     <!-- /#wrapper -->

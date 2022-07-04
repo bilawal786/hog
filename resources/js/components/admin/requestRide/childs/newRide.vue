@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="table-wrap">
                     <div class="table-responsive">
-                        <table id="" class="table table-hover display pb-30">
+                        <table id="" class="table table-hover display pb-30" v-if="rides">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -48,7 +48,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="">
+                <div class="" v-if="rides">
                     <div class="pull-left" v-if="rides">Showing {{rides.from}} to {{rides.to}} of {{rides.total}} entries</div>
                     <div class="pull-right">
                         <pagination class="" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="rides" :align="'right'" v-on:pagination-change-page="getRides"></pagination>
@@ -78,57 +78,7 @@
                 <lead-detail :rideDetail="rideDetail"></lead-detail>
             </div>
             <div class="col-sm-6">
-                <div class="panel panel-default card-view">
-                    <div class="panel-heading">
-                        <div class="pull-left">
-                            <h6 class="panel-title txt-dark">Drivers</h6>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="panel-wrapper collapse in">
-                        <div class="panel-body">
-                            <div class="table-wrap">
-                                <div class="table-responsive">
-                                    <table class="table mb-0">
-                                        <tbody>
-                                            <tr>
-                                                <td class="border-none">Drivers List:</td>
-                                                <td class="border-none" v-if="options != null">
-                                                    <select2 :options="options" v-model="selected">
-                                                        <option disabled value="0">Select one</option>
-                                                    </select2>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-heading" v-if="selected != 0">
-                        <div class="pull-left">
-                            <h6 class="panel-title txt-dark">Selected Driver</h6>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="panel-wrapper collapse in" v-if="selected != 0">
-                        <div class="panel-body">
-                            <driver-detail :selectdriver="selectdriver"></driver-detail>
-                            <div class="form-group">
-                                <label class="control-label mb-10 text-left">Driver Cost</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                                    <input type="number" class="form-control" placeholder="Cost" v-model="driver_cost">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label mb-10 text-left">Notes</label>
-                                <textarea class="form-control" rows="5" v-model="driverNote"></textarea>
-                            </div>
-                            <button class="btn  btn-info" @click="assignLead()">Assign Lead</button>
-                        </div>
-                    </div>
-                </div>
+                <select-driver :rideId="rideId"></select-driver>
             </div>
         </div>
         <!-- end ride detail -->
@@ -144,8 +94,7 @@
 <script>
 import RideEdit from "./detailEdit.vue";
 import LeadDetail from "./LeadDetail";
-import select2 from "./select2";
-import DriverDetail from "./driverDetail";
+import SelectDriver from "./selectDriver";
 export default {
     data() {
         return {
@@ -180,6 +129,9 @@ export default {
             //driver options
             selected: 0,
             options: null,
+
+            //error
+            errorshow:null
         }
     },
      watch: {
@@ -213,56 +165,11 @@ export default {
             axios.get("admin/web/form/request/ride/" + id).then((response) => {
                 if (response.status == 200) {
                     this.rideDetail = response.data;
-                    this.driversList()
                     // this.getLeadDetail(response.data.id)
                 }
             });
         },
-        assignLead: function () {
-            Swal.fire({
-                title: 'Are you sure ?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: 'rgb(34 110 237 / 85%)',
-                cancelButtonColor: '#ff2a00',
-                confirmButtonText: 'Yes, Change it!'
-            }, () => {
-            }).then((result) => {
-                if (result.value) {
-                    axios.post('admin/web/show/lead', {
-                        'driver_id' : this.selectdriver.id,
-                        'ride_id'   : this.rideId,
-                        'notes'     : this.driverNote,
-                        'driver_cost': this.driver_cost,
-                        'status'    : 'assign',
-                        'assign'    : 'yes',
-                        'process'    : 'no',
-                        'reject'    : 'no',
-                        'complete'    : 'no',
-                    })
-                        .then(response => {
-                            window.scrollTo(0, 0)
-                            if (response.status == 200) {
-                                axios.put('admin/web/form/status/request/ride/'+this.rideId, {
-                                    'status_assign':'yes'
-                                }).then(response => {
-                                    if(response.status == 200){
-                                        console.log(response)
-                                        this.getRides();
-                                        this.panel.allRides = true;
-                                        this.panel.detail = false;
-                                        this.panel.edit = false;
-                                    }
-                                })
-                                this.$vToastify.success("successfully Updated");
-                            } else {
 
-                            }
-                        })
-                }
-            })
-        },
         delRideRequest: function (id) {
             Swal.fire({
                 title: 'Are you sure ?',
@@ -288,16 +195,7 @@ export default {
                 }
             })
         },
-        driversList: function () {
-            axios.get('admin/web/driver/all').then((response) => {
-                this.options = response.data
-            })
-        },
-        driverById: function (id) {
-            axios.get('admin/web/drivers/' + id).then((response) => {
-                this.selectdriver = response.data
-            })
-        },
+
         backToList: function () {
             this.panel.allRides = true;
             this.panel.detail = false;
@@ -308,8 +206,7 @@ export default {
     components:{
         RideEdit,
         LeadDetail,
-        select2,
-        DriverDetail
+        SelectDriver
     }
 }
 </script>

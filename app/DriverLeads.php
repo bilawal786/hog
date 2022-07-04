@@ -10,6 +10,8 @@ class DriverLeads extends Model
         'driver_id',
         'ride_id',
         'cost',
+        'start_date',
+        'end_date',
         'notes',
         'status',
     ];

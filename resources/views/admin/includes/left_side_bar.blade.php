@@ -2,7 +2,7 @@
 <div class="fixed-sidebar-left">
     <ul class="nav navbar-nav side-nav nicescroll-bar">
         <li>
-            <a class="{{ Request::url() == url('/admin/dashboard') ? 'active' : '' }}" href="{{ route('dashboard')}}">
+            <a class="{{ request()->is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard')}}">
                 <div class="pull-left">
                     <i class="zmdi zmdi-landscape mr-20"></i>
                     <span class="right-nav-text">Dashboard</span>
@@ -14,7 +14,7 @@
 
         @if (Auth::user()->role == 'admin')
             <li>
-                <a class="{{ Request::url() == url('/admin/users/clents') || Request::url() == url('/admin/user/drivers') ? 'active' : '' }}"
+                <a class="{{ request()->is('clients') || request()->is('drivers*') ? 'active' : '' }}"
                    data-toggle="collapse" data-target="#dashboard_dr">
                     <div class="pull-left">
                         <i class="zmdi zmdi-account mr-20"></i>
@@ -27,19 +27,19 @@
                 </a>
                 <ul id="dashboard_dr" class="collapse collapse-level-1">
                     <li>
-                        <a class="{{ Request::url() == url('/admin/users/clents') ? 'active-page' : '' }}"
+                        <a class="{{ request()->is('clients') ? 'active-page' : '' }}"
                            href="{{ route('clients')}}">Clients</a>
                     </li>
                     <li>
-                        <a class="{{ request()->is('/admin/user/driver/*') ? 'active-page' : '' }}"
-                           href="{{ url('/admin/user/driver/list')}}">Drivers</a>
+                        <a class="{{ request()->is('drivers') ? 'active-page' : '' }}"
+                           href="{{ url('/driver/list') }}">Drivers</a>
                     </li>
                 </ul>
             </li>
         @endif
         @if (Auth::user()->role == 'admin')
             <li>
-                <a class="{{ Request::url() == url('/admin/form/submit/feedback') || Request::url() == url('/admin/form/billing/question') || Request::url() == url('/admin/form/request/ride') || Request::url() == url('/admin/form/other') ? 'active' : '' }}"
+                <a class="{{ request()->is('submit.feedback') || request()->is('billing.question') || request()->is('request.ride') || request()->is('other') ? 'active' : '' }}"
                    data-toggle="collapse" data-target="#forms">
                     <div class="pull-left">
                         <i class="zmdi zmdi-file-text mr-20"></i>
@@ -52,27 +52,27 @@
                 </a>
                 <ul id="forms" class="collapse collapse-level-1">
                     <li>
-                        <a class="{{ Request::url() == url('/admin/form/submit/feedback*') ? 'active-page' : '' }}"
-                           href="{{ url('/admin/form/submit/feedback/list')}}">Submit FeedBack</a>
+                        <a class="{{ request()->is('submit.feedback*') ? 'active-page' : '' }}"
+                           href="{{ url('/feedback/list') }}">Submit FeedBack</a>
                     </li>
                     <li>
-                        <a class="{{ Request::url() == url('/admin/form/billing/question*') ? 'active-page' : '' }}"
-                           href="{{ url('/admin/form/billing/question/list')}}">Billing Question</a>
+                        <a class="{{ request()->is('billing.question*') ? 'active-page' : '' }}"
+                           href="{{ url('/question/list')}}">Billing Question</a>
                     </li>
                     <li>
-                        <a class="{{ Request::url() == url('/admin/form/request/ride*') ? 'active-page' : '' }}"
-                           href="{{ url('/admin/form/request/ride/list')}}">Request Ride</a>
+                        <a class="{{ request()->is('request.ride*') ? 'active-page' : '' }}"
+                           href="{{ url('/request/ride/list')}}">Request Ride</a>
                     </li>
                     <li>
-                        <a class="{{ Request::url() == url('/admin/form/other*') ? 'active-page' : '' }}"
-                           href="{{ url('/admin/form/other/list')}}">Others</a>
+                        <a class="{{ request()->is('others*') ? 'active-page' : '' }}"
+                           href="{{ url('/form/other/list')}}">Others</a>
                     </li>
                 </ul>
             </li>
         @endif
         @if (Auth::user()->role == 'admin')
             <li>
-                <a class="{{ request()->is('driver.payment*') ? 'active' : '' }}"
+                <a class="{{ request()->is('driver.payment') ? 'active' : '' }}"
                    data-toggle="collapse" data-target="#Payment">
                     <div class="pull-left">
                         <i class="zmdi zmdi-money mr-20"></i>
@@ -85,12 +85,12 @@
                 </a>
                 <ul id="Payment" class="collapse collapse-level-1">
                     <li>
-                        <a class="{{ request()->is('/admin/payment/request*') ? 'active-page' : '' }}"
-                           href="{{ url('/admin/payment/request')}}">Driver Payment Request</a>
+                        <a class="{{ request()->is('driver.payment') ? 'active-page' : '' }}"
+                           href="{{ url('/payment/request')}}">Driver Payment Request</a>
                     </li>
                     <li>
-                        <a class="{{ request()->is('/admin/payment/list*') ? 'active-page' : '' }}"
-                           href="{{ url('/admin/payment/list')}}">Driver Payment List</a>
+                        <a class="{{ request()->is('driver.payment') ? 'active-page' : '' }}"
+                           href="{{ url('/payment/list')}}">Driver Payment List</a>
                     </li>
                 </ul>
             </li>
@@ -110,19 +110,15 @@
                 </a>
                 <ul id="Payment" class="collapse collapse-level-1">
                     <li>
-                        <a class="{{ request()->is('/admin/payment/request*') ? 'active-page' : '' }}"
-                           href="{{ url('/admin/withdraw/view')}}">Payment With draw</a>
+                        <a class="{{ request()->is('/payment/request*') ? 'active-page' : '' }}"
+                           href="{{ url('/withdraw/view')}}">Payment With draw</a>
                     </li>
-{{--                    <li>--}}
-{{--                        <a class="{{ request()->is('/admin/payment/list*') ? 'active-page' : '' }}"--}}
-{{--                           href="{{ url('/admin/withdraw/list')}}">Payment history</a>--}}
-{{--                    </li>--}}
                 </ul>
             </li>
         @endif
         @if (Auth::user()->role == 'admin')
             <li>
-                <a class="{{ Request::url() == url('/admin/general/setting') ? 'active' : '' }}"
+                <a class="{{ request()->is('generalsetting') ? 'active' : '' }}"
                    href="{{ route('generalsetting')}}">
                     <div class="pull-left">
                         <i class="zmdi zmdi-settings mr-20"></i>
@@ -132,7 +128,6 @@
                 </a>
             </li>
         @endif
-
     </ul>
 </div>
 <!-- /Left Sidebar Menu -->

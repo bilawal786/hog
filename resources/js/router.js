@@ -76,11 +76,11 @@ const routes = [
 
 },
 {
-    name: 'dashboard',
-    path: '/dashboard',
+    name: 'home',
+    path: '/home',
     component: dashboard,
     beforeEnter: auth,
-    meta: { title: 'Heart of Gold | Dashboard' }
+    meta: { title: 'Heart of Gold | Home' }
 },
 {
     name: 'fqa',

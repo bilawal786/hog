@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="table-wrap">
                     <div class="table-responsive">
-                        <table id="" class="table table-hover display pb-30">
+                        <table id="" class="table table-hover display pb-30" v-if="leads">
                             <thead>
                                 <tr>
                                     <th>Client Name</th>
@@ -43,7 +43,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="">
+                    <div class="" v-if="leads">
                         <div class="pull-left" v-if="leads">Showing {{leads.from}} to {{leads.to}} of {{leads.total}} entries</div>
                         <div class="pull-right">
                             <pagination class="" :show-disabled="true" :router="false" :size="'small'" :limit="2" :data="leads" :align="'right'" v-on:pagination-change-page="getRides"></pagination>
@@ -85,6 +85,56 @@
                         <div class="panel-body">
                             <driver-detail :selectdriver="selectdriver"></driver-detail>
                         </div>
+                    </div>
+                </div>
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <div class="table-wrap">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <tbody>
+                                    <tr>
+                                        <td class="border-none">Drivers List:</td>
+                                        <td class="border-none" v-if="options != null">
+                                            <select2 :options="options" v-model="selected">
+                                                <option disabled value="0">Select one</option>
+                                            </select2>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-heading" v-if="selected != 0">
+                    <div class="pull-left">
+                        <h6 class="panel-title txt-dark">Selected Driver</h6>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-wrapper collapse in" v-if="selected != 0">
+                    <div class="panel-body">
+                        <driver-detail :selectdriver="selectdriver"></driver-detail>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Driver Cost</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                                <input type="number" class="form-control" placeholder="Cost" v-model="driver_cost">
+                            </div>
+                            <ul class="c-err" v-if="errorshow">
+                                <li class="c-err-li" v-for="error in errorshow.driver_cost" :key="error">{{error}}</li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label mb-10 text-left">Notes</label>
+                            <textarea class="form-control" rows="5" v-model="driverNote"></textarea>
+                            <ul class="c-err" v-if="errorshow">
+                                <li class="c-err-li" v-for="error in errorshow.notes" :key="error">{{error}}</li>
+                            </ul>
+                        </div>
+
+                        <button class="btn  btn-info" @click="assignLead()">Assign Lead</button>
                     </div>
                 </div>
             </div>

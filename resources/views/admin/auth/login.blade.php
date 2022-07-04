@@ -11,10 +11,10 @@
 		<link rel="icon" href="{{asset('images/favicon-16x16.ico')}}" type="image/x-icon">
 
 		<!-- vector map CSS -->
-		<link href="vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="{{asset('vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
 
 		<!-- Custom CSS -->
-		<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+		<link href="{{asset('dist/css/style.css')}}" rel="stylesheet" type="text/css">
 		<style>
 			.page-wrapper.auth-page {
 				background: #000000;
@@ -32,8 +32,8 @@
 		<div class="wrapper pa-0">
 			<header class="sp-header">
 				<div class="sp-logo-wrap pull-left">
-					<a href="index.html">
-						<img class="brand-img mr-10" src="images/heart-of-gold.png" alt="brand"/>
+					<a href="">
+						<img class="brand-img mr-10" src="{{asset('images/heart-of-gold.png')}}" alt="brand"/>
 					</a>
 				</div>
 				<div class="form-group mb-0 pull-right">
@@ -103,16 +103,16 @@
 		<!-- JavaScript -->
 
 		<!-- jQuery -->
-		<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="{{asset('vendors/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
 		<!-- Bootstrap Core JavaScript -->
-		<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+		<script src="{{asset('vendors/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+		<script src="{{asset('vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')}}"></script>
 
 		<!-- Slimscroll JavaScript -->
-		<script src="dist/js/jquery.slimscroll.js"></script>
+		<script src="{{asset('dist/js/jquery.slimscroll.js')}}"></script>
 
 		<!-- Init JavaScript -->
-		<script src="dist/js/init.js"></script>
+		<script src="{{asset('dist/js/init.js')}}"></script>
 	</body>
 </html>

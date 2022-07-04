@@ -30,7 +30,7 @@
                                             <router-link to="/resources">RESOURCES</router-link>
                                         </li>
                                         <li class="hidden-md hidden-lg" v-if="user">
-                                            <router-link to="/dashboard">Dashboard</router-link>
+                                            <router-link to="/home">Dashboard</router-link>
                                         </li>
                                         <li class="hidden-md hidden-lg" v-else>
                                             <router-link to="/signin">login</router-link>

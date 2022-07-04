@@ -1,38 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Setting;
 
-use Illuminate\Http\Request;
 use App\GeneralSetting;
-use Auth;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class GeneralSettingController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('admin.dashboard.dashboard');
-    }
     public function generalsetting()
     {
 
         $generaldata = GeneralSetting::find(1);
         // return response()->json($generaldata);
-        return view('admin.dashboard.generalsetting');
+        return view('admin.dashboard.generalsetting', compact('generaldata'));
     }
     public function updategeneralsetting(Request $request)
     {

@@ -9,7 +9,7 @@
                     <div class="pull-right">
                         <router-link
                             class="btn btn-primary"
-                            to="/admin/user/driver/create"
+                            to="/driver/create"
                         >
                             New Driver
                         </router-link>

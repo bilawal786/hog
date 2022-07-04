@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class BlockMiddleware
 {
@@ -15,6 +16,16 @@ class BlockMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(Auth::user())
+        {
+            if(Auth::user()->status == 1 ){
+                return $next($request);
+            }
+            else{
+                return redirect()->route('admin.block');
+            }
+        }else{
+            abort(403);
+        }
     }
 }

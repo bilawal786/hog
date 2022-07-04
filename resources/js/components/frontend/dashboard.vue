@@ -31,7 +31,7 @@
             <div class="ds-mg-90">
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="contact">
                             <div class="contact-btn">
                                 <h3 class="m-0" ><i class="fa fa-tachometer" ></i> Dashboard</h3>
@@ -49,7 +49,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         <div class="input-content">
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade active show in" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -78,6 +78,7 @@
 </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 import TopHeader from "./includes/TopHeader.vue";
 import NavigationBar from "./includes/navigationbar.vue";
 import ViewProfile from "./includes/profile.vue";
@@ -86,7 +87,6 @@ import ViewOthers from "./includes/others.vue";
 import BillingQuestion from "./includes/billing_question.vue";
 import RequestRide from "./includes/request_ride.vue";
 import SubmitFeedback from "./includes/submit_feedback.vue";
-import { mapActions } from "vuex";
 
 export default {
     components: { TopHeader, NavigationBar, ViewProfile, WebFooter, ViewOthers, BillingQuestion, RequestRide, SubmitFeedback },
@@ -98,9 +98,9 @@ export default {
         ...mapActions("auth", ["sendLogoutRequest"]),
 
     logout() {
-      this.sendLogoutRequest();
-      console.log('logout')
-        this.$router.push({ name: "Login" });
+        this.sendLogoutRequest().then(() => {
+            // this.$router.push({name: "login"});
+        });
     }
 
     }

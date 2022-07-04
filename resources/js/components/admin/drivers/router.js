@@ -12,25 +12,25 @@ import driverDetail from "./driverDetail";
 const routes = [
     {
         name:'driverlistViewall',
-        path:'/admin/user/driver/list',
+        path:'/driver/list',
         component:driverlistView,
         meta: { title: 'HOG | List Drivers' }
     },
     {
         name:'driverDetail',
-        path:'/admin/user/driver/detail/:id?',
+        path:'/driver/detail/:id?',
         component:driverDetail,
         meta: { title: 'HOG | Driver Detail' }
     },
     {
         name:'driverCreate',
-        path:'/admin/user/driver/create',
+        path:'/driver/create',
         component:driverCreate,
         meta: { title: 'HOG | Create Driver' }
     },
     {
         name:'driverEidt',
-        path:'/admin/user/driver/edit/:id?',
+        path:'/driver/edit/:id?',
         component:driverCreate,
         meta: { title: 'HOG | Eit Driver' }
     },

@@ -1,10 +1,10 @@
 <template>
     <div class="">
         <div class="card-header bg-transparent border-0">
-            <h3 class="mb-0"><i class="fa fa-clone pr-1"></i>General Information</h3>
+            <h3 class="m-0"><i class="fa fa-clone pr-1"></i> General Information</h3>
         </div>
         <div class="card-body">
-            <table class="table table-bordered table-hover input-content" v-if="user && passwordEdit == false">
+            <table class="table table-bordered table-hover" v-if="user && passwordEdit == false">
                 <tr>
                     <th width="25%">First Name</th>
                     <td width="2%">:</td>
@@ -120,10 +120,10 @@
                 </tr>
             </table>
 
-            <button type="button" class="btn btn-hog" @click="profileEdit = true" v-if="profileEdit==false">Edit Profile</button>
-            <button type="button" class="btn btn-hog" @click="profileUpdate()" v-if="profileEdit==true">Update Profile</button>
-            <button class="btn btn-hog" @click="passwordEdit = true" v-if="passwordEdit==false">Change Password</button>
-            <button class="btn btn-hog" @click="passwordUpdate()" v-if="passwordEdit==true">Update Password</button>
+            <button type="button" class="btn btn-hog" :disabled="passwordEdit" @click="profileEdit = true" v-if="profileEdit==false">Edit Profile</button>
+            <button type="button" class="btn btn-hog" :disabled="passwordEdit" @click="profileUpdate()" v-if="profileEdit==true">Update Profile</button>
+            <button type="button" class="btn btn-hog" :disabled="profileEdit" @click="passwordEdit = true" v-if="passwordEdit==false">Change Password</button>
+            <button type="button" class="btn btn-hog" :disabled="profileEdit" @click="passwordUpdate()" v-if="passwordEdit==true">Update Password</button>
         </div>
 
     </div>

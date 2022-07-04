@@ -1,4 +1,4 @@
-// 
+//
 
 import axios from "axios";
 
@@ -58,8 +58,12 @@ export default {
         .post("/login", data)
         .then(response => {
           console.log(response)
-         commit("setUserData", response.data.user);
-          localStorage.setItem("authToken", response.data.token);
+            if(response.data.user.role == 'user'){
+                commit("setUserData", response.data.user);
+                localStorage.setItem("authToken", response.data.token);
+            }else{
+
+            }
         });
     },
     sendRegisterRequest({ commit }, data) {
@@ -75,7 +79,6 @@ export default {
       axios.post("/logout").then(() => {
         commit("setUserData", null);
         localStorage.removeItem("authToken");
-        this.$router.push("Login");
       });
     },
     // sendVerifyResendRequest() {

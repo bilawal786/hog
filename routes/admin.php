@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => ['status']], function(){
 Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
-
 
     // Apis  in admin
     Route::resource('web/general/setting', 'Admin\GeneralSetting\GeneralSettingController');
@@ -60,6 +60,5 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::get('web/admin/widget/leads/latest/5', 'Admin\Widgets\WidgetsController@latestLeads');
 
 });
-
-
+});
 

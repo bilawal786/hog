@@ -36,9 +36,9 @@
                                         <td>{{ feedback.message }}</td>
                                         <td>
                                             <router-link class="btn btn-default btn-icon-anim btn-circle btn-sm"
-                                                         :to="'/admin/form/submit/feedback/edit/'+feedback.id"><i class="fa fa-pencil"></i></router-link>
+                                                         :to="'/feedback/edit/'+feedback.id"><i class="fa fa-pencil"></i></router-link>
                                             <router-link class="btn btn-success btn-icon-anim btn-circle btn-sm"
-                                                         :to="'/admin/form/submit/feedback/detail/'+feedback.id"><i
+                                                         :to="'/feedback/detail/'+feedback.id"><i
                                                 class="fa fa-eye"></i></router-link>
                                             <button class="btn btn-info btn-icon-anim btn-circle btn-sm" @click="deletebyid(feedback.id)"><i
                                                 class="icon-trash"></i></button>
