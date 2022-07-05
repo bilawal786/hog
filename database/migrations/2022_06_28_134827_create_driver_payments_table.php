@@ -20,7 +20,8 @@ class CreateDriverPaymentsTable extends Migration
             $table->unsignedBigInteger('ride_id');
             $table->foreign('ride_id')->references('id')->on('send_messages');
             $table->string('payment');
-            $table->enum('status', ['0', '1']);
+            $table->enum('status', ['0', '1', '2']);
+            // 1 = pending 2 = process 3 = complete
             $table->timestamps();
         });
     }

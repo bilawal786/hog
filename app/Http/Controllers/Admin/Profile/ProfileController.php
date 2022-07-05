@@ -74,13 +74,24 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>'required',
+        ]);
         $user =Auth::user();
-        $user->name = $request['name'];
+        $user->first_name = $request['first_name'];
+        $user->last_name = $request['last_name'];
+        $user->phone = $request['phone'];
+        $user->address = $request['address'];
+        $user->city = $request['city'];
         $user->email = $request['email'];
         $user->save();
-        return response()->json([
-            'result' => "success"
-        ]);
+        $notification = array(
+            'messege' => 'Profile successfully update!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
 
     /**

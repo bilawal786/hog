@@ -151,7 +151,7 @@ class DriverLeadController extends Controller
         return response()->json([$assigned, $process, $reject, $success]);
     }
     public function allDriverLeads(){
-        $data = DriverPayment::with('driver', 'leads')->where('driver_id', Auth::user()->id)->where('status', '0')->paginate(10);
+        $data = DriverPayment::with('driver', 'leads')->where('driver_id', Auth::user()->id)->paginate(10);
         return response()->json($data);
     }
 

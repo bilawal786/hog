@@ -497,7 +497,11 @@ export default {
                 end_lat: null,
                 end_lng: null,
                 start_address: null,
+                start_city:null,
+                start_country:null,
                 end_address: null,
+                end_city: null,
+                end_country: null,
                 cost: null,
                 status_assign:'no',
                 user_id: null,
@@ -555,12 +559,17 @@ export default {
         getAddressStart: function (addressData, placeResultData, id) {
             this.sendMessage.start_lat = addressData.latitude;
             this.sendMessage.start_lng = addressData.longitude;
-            this.sendMessage.start_address = placeResultData.formatted_address;
+            this.sendMessage.start_address = addressData.street_number+', '+addressData.route;
+            this.sendMessage.start_city = addressData.locality;
+            this.sendMessage.start_country = addressData.country;
         },
         getAddressEnd: function (addressData, placeResultData, id) {
             this.sendMessage.end_lat = addressData.latitude;
             this.sendMessage.end_lng = addressData.longitude;
             this.sendMessage.end_address = placeResultData.formatted_address;
+            this.sendMessage.end_address = addressData.street_number+', '+addressData.route;
+            this.sendMessage.end_city = addressData.locality;
+            this.sendMessage.end_country = addressData.country;
         },
         calculateCost: function(lat1,lon1,lat2,lon2){
             if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -731,8 +740,14 @@ export default {
                             this.sendMessage.message = 'message',
                             this.sendMessage.start_lat = null,
                             this.sendMessage.start_lng = null,
+                            this.sendMessage.start_address = null,
+                            this.sendMessage.start_city = null,
+                            this.sendMessage.start_country = null,
                             this.sendMessage.end_lat = null,
                             this.sendMessage.end_lng = null,
+                            this.sendMessage.end_address = null,
+                            this.sendMessage.end_city = null,
+                            this.sendMessage.end_country = null,
                             this.sendMessage.cost = null,
                             this.$store.commit("auth/setErrors", {}),
                             window.scrollTo(0, 0)

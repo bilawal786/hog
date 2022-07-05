@@ -14,9 +14,15 @@
                                     <table class="table mb-0">
                                         <tbody>
                                             <tr>
-                                                <td class="border-none">Rider Name:</td>
+                                                <td class="border-none">Last Name:</td>
                                                 <td class="border-none">
-                                                    {{ rideDetail.Fname + " " + rideDetail.Lname }}
+                                                    {{ rideDetail.Lname }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border-none">First Name:</td>
+                                                <td class="border-none">
+                                                    {{ rideDetail.Fname }}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -28,12 +34,32 @@
                                                 <td>{{ rideDetail.phone }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Rider wheelchair</td>
+                                                <td>Card on file</td>
+                                                <td>{{ rideDetail.card_on_file }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rider Relative</td>
+                                                <td>{{ rideDetail.relative }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rider Relative No.</td>
+                                                <td>{{ rideDetail.relative_no }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rider Facility</td>
+                                                <td>{{ rideDetail.facility }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>W/C or Amb</td>
                                                 <td>{{ rideDetail.wheelchair }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Rider Round Trip</td>
+                                                <td>Round Trip</td>
                                                 <td>{{ rideDetail.round_trip }}</td>
+                                            </tr>
+                                            <tr v-if="rideDetail.round_trip=='yes'">
+                                                <td>Waiting</td>
+                                                <td>{{ rideDetail.waiting }} Hour</td>
                                             </tr>
                                             <tr>
                                                 <td>Rider Trip Date</td>
@@ -48,20 +74,20 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Rider Message</td>
+                                                <td>Rider Notes</td>
                                                 <td>{{ rideDetail.message }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Start Location</td>
-                                                <td>{{ rideDetail.start_address }}</td>
+                                                <td>{{ rideDetail.start_address+', '+rideDetail.start_city+', '+rideDetail.start_country }}</td>
                                             </tr>
                                             <tr>
                                                 <td>End Location</td>
-                                                <td>{{ rideDetail.end_address }}</td>
+                                                <td>{{ rideDetail.end_address+', '+rideDetail.end_city+', '+rideDetail.end_country}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Distance</td>
-                                                <td>{{ rideDetail.distance }}</td>
+                                                <td>{{ Math.round(rideDetail.distance) }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Cost</td>

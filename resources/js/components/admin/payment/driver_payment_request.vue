@@ -39,7 +39,7 @@
                                                 <set-date :date="withdraw.created_at" :year="'yes'"></set-date>
                                             </td>
                                             <td>
-                                                <button class="btn btn-sm btn-primary" v-if="withdraw.status == '0'" @click="acceptRequest(withdraw.id)">Pending</button>
+                                                <button class="btn btn-sm btn-warning" v-if="withdraw.status == '0'" @click="acceptRequest(withdraw.id, withdraw.driver_id)">Process</button>
                                                 <button class="btn btn-sm btn-success" v-if="withdraw.status == '1'" disable>Approved</button>
                                             </td>
                                         </tr>
@@ -79,7 +79,7 @@ export default {
                 console.log(response.data)
             })
         },
-        acceptRequest: function (id){
+        acceptRequest: function (id, driverId){
 
             Swal.fire({
                 title: 'Are you sure ?',
@@ -96,7 +96,12 @@ export default {
                     axios.put('admin/web/admin/payment/approve/'+id, {
                         'status': 1
                     }).then(response => {
-                        this.getdata()
+                        axios.put('admin/web/payment/driver/'+driverId, {
+                            'status' : '2'
+                        }).then(res => {
+                            this.getdata()
+
+                        })
                         switch(response.data.type){
                             case 'info':
                                 toastr.info(response.data.messege);

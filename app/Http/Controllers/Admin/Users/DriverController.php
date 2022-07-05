@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\DriverResource;
 use App\User;
+use Auth;
 
 class DriverController extends Controller
 {
@@ -45,17 +45,20 @@ class DriverController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|max:255',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
             'email' => 'required|max:255|email|unique:users',
             'password' => 'required|max:255',
             'comfirm_password' => 'required_with:password|same:password',
             ]);
             $save_driver = new User;
-            $save_driver->name = $request->name;
+            $save_driver->first_name = $request->first_name;
+            $save_driver->last_name = $request->last_name;
             $save_driver->email = $request->email;
             $save_driver->phone = $request->phone;
             $save_driver->role = 'driver';
             $save_driver->address = $request->address;
+            $save_driver->city = $request->city;
             $save_driver->password = Hash::make($request->password);
             $save_driver->save();
 
@@ -99,17 +102,18 @@ class DriverController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|max:255|email',
-            'password' => 'max:255|confirmed',
-            'comfirm_password' => 'same:password',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'password' => 'required|max:255',
+            'comfirm_password' => 'required_with:password|same:password',
         ]);
         $data = User::where('id', $id)->first();
 
-        $data->name = $request->name;
-        $data->email = $request->email;
+        $data->first_name = $request->first_name;
+        $data->last_name = $request->last_name;
         $data->phone = $request->phone;
         $data->address = $request->address;
+        $data->city = $request->city;
         if ($request->password){
             $data->password = Hash::make($request->password);
         }

@@ -106,7 +106,9 @@ class LeadController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        DriverLeads::where('id', $id)->update([
+            'status'=>$request->status
+        ]);
     }
 
     /**

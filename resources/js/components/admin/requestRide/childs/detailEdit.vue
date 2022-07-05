@@ -43,19 +43,51 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <label class="control-label mb-10">Card on File Y/N</label>
+                                                <input type="text" class="form-control" placeholder="Card on File Y/N (Yes-2/26)" v-model="ride.card_on_file">
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label mb-10">Relative</label>
+                                                <input type="text" class="form-control" placeholder="Relative" v-model="ride.relative">
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label mb-10">Relative No.</label>
+                                                <input type="text" class="form-control" placeholder="Relative Phone No." v-model="ride.card_on_file">
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label mb-10">Facility</label>
+                                                <input type="text" class="form-control" placeholder="Facility" v-model="ride.facility">
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
                                                 <label class="control-label mb-10">Do you need wheelchair
                                                     accessibility?</label>
                                                 <div class="radio-list">
                                                     <div class="radio-inline pl-0">
                                                         <span class="radio radio-info">
                                                             <input type="radio" value="yes" v-model="ride.wheelchair">
-                                                            <label>Yes</label>
+                                                            <label>W/c(Yes)</label>
                                                         </span>
                                                     </div>
                                                     <div class="radio-inline">
                                                         <span class="radio radio-info">
                                                             <input type="radio" value="no" v-model="ride.wheelchair">
-                                                            <label>No</label>
+                                                            <label>Amb(No)</label>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -100,6 +132,12 @@
                                                         timeZoneName: 'short',
                                                     }" :phrases="{ ok: 'Continue', cancel: 'Exit' }" :hour-step="2"
                                                     :minute-step="15" :week-start="7" use12-hour auto></datetime>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 " v-if="ride.round_trip == 'yes'">
+                                            <div class="form-group">
+                                                <label class="control-label mb-10">Waiting</label>
+                                                <input type="text" class="form-control" placeholder="Waiting in hours" v-model="ride.waiting">
                                             </div>
                                         </div>
                                     </div>
@@ -166,6 +204,11 @@ export default {
                 Lname: null,
                 email: null,
                 phone: null,
+                card_on_file:null,
+                relative:null,
+                relative_no:null,
+                facility:null,
+                waiting:null,
                 wheelchair: null,
                 round_trip: null,
                 trip_date: null,
@@ -207,7 +250,12 @@ export default {
                     this.ride.Fname = response.data.Fname,
                     this.ride.Lname = response.data.Lname,
                     this.ride.email = response.data.email,
-                    this.ride.phone = response.data.phone,
+                        this.ride.phone = response.data.phone,
+                        this.ride.card_on_file = response.data.card_on_file,
+                        this.ride.relative = response.data.relative,
+                        this.ride.relative_no = response.data.relative_no,
+                        this.ride.facility = response.data.facility,
+                        this.ride.waiting = response.data.waiting,
                     this.ride.wheelchair = response.data.wheelchair,
                     this.ride.round_trip = response.data.round_trip,
                     this.ride.trip_date = response.data.trip_date,
@@ -240,7 +288,20 @@ export default {
                             window.scrollTo(0, 0)
                             if (response.status == 200) {
                                 window.scrollTo(0, 0)
-                                this.$vToastify.success("successfully Updated");
+                                switch(response.data.type){
+                                    case 'info':
+                                        toastr.info(response.data.messege);
+                                        break;
+                                    case 'success':
+                                        toastr.success(response.data.messege);
+                                        break;
+                                    case 'warning':
+                                        toastr.warning(response.data.messege);
+                                        break;
+                                    case 'error':
+                                        toastr.error(response.data.messege);
+                                        break;
+                                }
                             } else {
 
                             }

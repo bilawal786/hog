@@ -35,7 +35,7 @@
                                             <i class="fa fa-pencil"></i>
                                         </button>
                                         <button class="btn btn-success btn-icon-anim btn-circle btn-sm"
-                                            @click="getLeadDetail(lead.leads.id, lead.driver_id )">
+                                            @click="getLeadDetail(lead.leads.id, lead.driver_id, lead.id)">
                                             <i class="fa fa-eye"></i>
                                         </button>
                                     </td>
@@ -87,56 +87,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-wrapper collapse in">
-                    <div class="panel-body">
-                        <div class="table-wrap">
-                            <div class="table-responsive">
-                                <table class="table mb-0">
-                                    <tbody>
-                                    <tr>
-                                        <td class="border-none">Drivers List:</td>
-                                        <td class="border-none" v-if="options != null">
-                                            <select2 :options="options" v-model="selected">
-                                                <option disabled value="0">Select one</option>
-                                            </select2>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-heading" v-if="selected != 0">
-                    <div class="pull-left">
-                        <h6 class="panel-title txt-dark">Selected Driver</h6>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="panel-wrapper collapse in" v-if="selected != 0">
-                    <div class="panel-body">
-                        <driver-detail :selectdriver="selectdriver"></driver-detail>
-                        <div class="form-group">
-                            <label class="control-label mb-10 text-left">Driver Cost</label>
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                                <input type="number" class="form-control" placeholder="Cost" v-model="driver_cost">
-                            </div>
-                            <ul class="c-err" v-if="errorshow">
-                                <li class="c-err-li" v-for="error in errorshow.driver_cost" :key="error">{{error}}</li>
-                            </ul>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label mb-10 text-left">Notes</label>
-                            <textarea class="form-control" rows="5" v-model="driverNote"></textarea>
-                            <ul class="c-err" v-if="errorshow">
-                                <li class="c-err-li" v-for="error in errorshow.notes" :key="error">{{error}}</li>
-                            </ul>
-                        </div>
-
-                        <button class="btn  btn-info" @click="assignLead()">Assign Lead</button>
-                    </div>
-                </div>
+                <select-driver :rideId="rideId" :reject="'yes'" :leadId="leadId"></select-driver>
             </div>
         </div>
         <!-- end ride detail -->
@@ -154,6 +105,7 @@ import RideEdit from "./detailEdit.vue";
 import LeadDetail from "./LeadDetail";
 import select2 from "./select2";
 import DriverDetail from "./driverDetail";
+import SelectDriver from "./selectDriver";
 export default {
     data() {
         return {
@@ -164,6 +116,7 @@ export default {
             },
             leads: null,
             rideId: null,
+            leadId:null,
             rideDetail: {
                 id: null,
                 Fname: null,
@@ -213,11 +166,13 @@ export default {
             this.panel.edit = true
             this.rideId = id
         },
-        getLeadDetail: function (id, dr_id) {
+        getLeadDetail: function (id, dr_id, lead_id) {
             this.panel.allRides = false;
             this.panel.detail = true;
             this.panel.edit = false;
             this.rideId = id
+            this.leadId = lead_id
+            console.log(this.leadId)
             axios.get("admin/web/form/request/ride/" + id).then((response) => {
                 if (response.status == 200) {
                     this.rideDetail = response.data;
@@ -284,7 +239,8 @@ export default {
         RideEdit,
         LeadDetail,
         select2,
-        DriverDetail
+        DriverDetail,
+        SelectDriver
     }
 }
 </script>

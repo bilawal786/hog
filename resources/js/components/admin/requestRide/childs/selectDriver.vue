@@ -102,7 +102,7 @@ import select2 from "./select2";
 import DriverDetail from "./driverDetail";
 
 export default {
-    props: ["rideId"],
+    props: ['rideId', 'reject', 'leadId'],
     name: "selectDriver",
     data() {
         return {
@@ -149,6 +149,11 @@ export default {
                 confirmButtonText: 'Yes, Change it!'
             }, () => {
             }).then((result) => {
+                if(this.reject == 'yes'){
+                    axios.put('admin/web/show/lead/'+this.leadId, {
+                        'status': 'end'
+                    })
+                }
                 if (result.value) {
                     axios.post('admin/web/show/lead', {
                         'driver_id': this.selectdriver.id,
@@ -164,18 +169,14 @@ export default {
                         'complete': 'no',
                     })
                         .then(response => {
-                            window.scrollTo(0, 0)
                             if (response.status == 200) {
                                 axios.put('admin/web/form/status/request/ride/' + this.rideId, {
                                     'status_assign': 'yes'
                                 }).then(response => {
                                     if (response.status == 200) {
+                                        window.scrollTo(0, 0)
                                         this.$vToastify.success("successfully Updated");
-                                        console.log(response)
-                                        this.getRides();
-                                        this.panel.allRides = true;
-                                        this.panel.detail = false;
-                                        this.panel.edit = false;
+                                        this.$router.push({ name: 'RequestRideAssign' })
                                     }
                                 })
 

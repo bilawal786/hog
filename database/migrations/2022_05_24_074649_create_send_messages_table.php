@@ -38,7 +38,11 @@ class CreateSendMessagesTable extends Migration
             $table->double('end_lng')->nullable();
             $table->double('distance')->nullable();
             $table->string('start_address')->nullable();
+            $table->string('start_city')->nullable();
+            $table->string('start_country')->nullable();
             $table->string('end_address')->nullable();
+            $table->string('end_city')->nullable();
+            $table->string('end_country')->nullable();
             $table->string('cost')->nullable();
             $table->enum('status_assign', ['yes', 'no'])->nullable();
             $table->unsignedBigInteger('user_id')->nullable();

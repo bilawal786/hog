@@ -8,27 +8,37 @@
                         <table id="" class="table table-hover display pb-30" v-if="rides">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>E-mail</th>
-                                    <th>Phone #</th>
-                                    <th>Start Date</th>
-                                    <th>Cost</th>
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>W/C or Amb</th>
+                                    <th>Phone Number</th>
+                                    <th>Card on File Y/N</th>
+                                    <th>Relative</th>
+                                    <th>Relative's #</th>
+                                    <th>Facility</th>
+                                    <th>Notes</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                             <tr v-if="rides.data == ''">
-                                <td colspan="7" class="tb-empty">No Record Found</td>
+                                <td colspan="12" class="tb-empty">No Record Found</td>
                             </tr>
                                 <tr v-else v-for="ride in rides.data" :key="ride.id">
-                                    <td>{{ ride.Fname + " " + ride.Lname }}</td>
-                                    <td>{{ ride.email }}</td>
+                                    <td>{{ride.Lname}}</td>
+                                    <td>{{ ride.Fname}}</td>
+                                    <td>{{ ride.start_address}}</td>
+                                    <td>{{ ride.start_city}}</td>
+                                    <td>{{ ride.wheelchair }}</td>
                                     <td>{{ ride.phone }}</td>
-                                    <td>
-                                        <set-date :date="ride.trip_date" :year="'yes'"></set-date>
-                                    </td>
-                                    <td>$ {{ ride.cost }}</td>
+                                    <td>{{ ride.card_on_file }}</td>
+                                    <td>{{ ride.relative }}</td>
+                                    <td>{{ ride.relative_no }}</td>
+                                    <td>{{ ride.facility }}</td>
+                                    <td>{{ ride.message }}</td>
                                     <td>
                                         <button class="btn btn-default btn-icon-anim btn-circle btn-sm"
                                             @click="editRideDetail(ride.id)">

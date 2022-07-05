@@ -2,27 +2,82 @@
     <div class="form-wrap">
         <form>
             <div class="form-body overflow-hide">
-                <div class="form-group">
-                    <label class="control-label mb-10" for="exampleInputuname_01">Name:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="icon-user"></i></div>
-                        <input type="text" class="form-control" placeholder="Name" v-model="profile.name">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label mb-10">First Name:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="icon-user"></i></div>
+                                <input type="text" class="form-control" placeholder="First Name" v-model="profile.first_name">
+                            </div>
+                        </div>
+                        <ul class="c-err" v-if="errorshow">
+                            <li class="c-err-li" v-for="error in errorshow.first_name" :key="error">{{error}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label mb-10">Last Name:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="icon-user"></i></div>
+                                <input type="text" class="form-control" placeholder="Last Name" v-model="profile.last_name">
+                            </div>
+                            <ul class="c-err" v-if="errorshow">
+                                <li class="c-err-li" v-for="error in errorshow.last_name" :key="error">{{error}}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label mb-10" for="exampleInputEmail_01">Email address:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-                        <input type="email" class="form-control" placeholder="Email" v-model="profile.email">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label mb-10" for="exampleInputEmail_01">Email:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
+                                <input type="email" class="form-control" placeholder="Email" v-model="profile.email">
+                            </div>
+                            <ul class="c-err" v-if="errorshow">
+                                <li class="c-err-li" v-for="error in errorshow.email" :key="error">{{error}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label mb-10">Phone:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                <input type="email" class="form-control" placeholder="Phone" v-model="profile.phone">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- <div class="form-group">
-                                                                    <label class="control-label mb-10" for="exampleInputpwd_01">Password</label>
-                                                                    <div class="input-group">
-                                                                        <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                                        <input type="password" class="form-control" id="exampleInputpwd_01" placeholder="Enter pwd" value="password">
-                                                                    </div>
-                                                                </div> -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label mb-10" for="exampleInputEmail_01">Address:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-building"></i></div>
+                                <input type="email" class="form-control" placeholder="Address" v-model="profile.address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label mb-10">City:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+                                <input type="email" class="form-control" placeholder="City" v-model="profile.city">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
             </div>
             <div class="form-actions mt-10">
                 <button type="button" class="btn btn-success mr-10 mb-30" @click="updateUserData()">Update profile</button>
@@ -109,14 +164,19 @@ export default {
     data() {
         return {
             profile: {
-                name: null,
-                email: null
+                first_name: null,
+                last_name: null,
+                email: null,
+                phone:null,
+                address:null,
+                city:null,
             },
             password:{
                 oldPassword:null,
                 newPassword:null,
                 conformPassword:null
-            }
+            },
+            errorshow:null
         }
     },
     mounted() {
@@ -126,7 +186,6 @@ export default {
         getUserData: function () {
             axios.get('admin/web/profile').then(response => {
                 this.profile = response.data
-                console.log(response.data.id)
             })
         },
         updateUserData: function () {
@@ -144,10 +203,27 @@ export default {
                     axios.put('admin/web/profile/'+this.profile.id, this.profile).then(response => {
                         window.scrollTo(0, 0)
                         if (response.status == 200) {
-                            this.$vToastify.success("successfully Updated");
+                            switch(response.data.type){
+                                case 'info':
+                                    toastr.info(response.data.messege);
+                                    break;
+                                case 'success':
+                                    toastr.success(response.data.messege);
+                                    break;
+                                case 'warning':
+                                    toastr.warning(response.data.messege);
+                                    break;
+                                case 'error':
+                                    toastr.error(response.data.messege);
+                                    break;
+                            }
                         } else {
 
                         }
+                    }).catch(err=>
+                    {
+                        this.errorshow = err.response.data.errors
+                        console.log(err.response.data.errors)
                     })
                 }
             })

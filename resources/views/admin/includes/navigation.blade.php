@@ -23,7 +23,7 @@
                 <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="{{ asset('dist/img/user1.jpg')}}" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
                 <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                     <li>
-                        <a href="{{ url('admin/profile')}}"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+                        <a href="{{ url('profile')}}"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
                     </li>
                     <li class="divider"></li>
                     <li>

@@ -31,8 +31,12 @@
                                 <table class="table mb-0">
                                     <tbody>
                                     <tr>
-                                        <td class="border-none">Driver Name:</td>
-                                        <td class="border-none">{{ driverDetail.name }}</td>
+                                        <td class="border-none">First Name:</td>
+                                        <td class="border-none">{{ driverDetail.first_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name:</td>
+                                        <td>{{ driverDetail.last_name }}</td>
                                     </tr>
                                     <tr>
                                         <td>Driver E-mail:</td>
@@ -45,6 +49,10 @@
                                     <tr>
                                         <td>Driver Address</td>
                                         <td>{{ driverDetail.address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Driver City</td>
+                                        <td>{{ driverDetail.city }}</td>
                                     </tr>
                                     <tr>
                                         <td>Driver Register Date</td>

@@ -38,7 +38,8 @@
                                             <td>$ {{payment.payment}}</td>
                                             <td>
                                                 <span class="text-primary" v-if="payment.status==0">Pending</span>
-                                                <span class="text-success" v-if="payment.status==1">Approved</span>
+                                                <span class="text-warning" v-if="payment.status==1">Process</span>
+                                                <span class="text-warning" v-if="payment.status==2">Approved</span>
                                             </td>
                                             <td>
                                                 <set-date :date="payment.created_at" :year="'yes'"></set-date>

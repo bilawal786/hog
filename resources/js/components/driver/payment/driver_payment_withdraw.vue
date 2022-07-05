@@ -36,7 +36,8 @@
                                             <td>$ {{ data.payment }}</td>
                                             <td>
                                                 <span v-if="data.status==0" class="text-primary">Pending</span>
-                                                <span v-if="data.status==1" class="text-success">Aproved</span>
+                                                <span v-if="data.status==1" class="text-warning">Process</span>
+                                                <span v-if="data.status==2" class="text-success">Aproved</span>
                                             </td>
                                             <td><set-date :date="data.created_at" year="yes"></set-date></td>
                                         </tr>

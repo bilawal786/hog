@@ -110,7 +110,12 @@ class RequestRideController extends Controller
         'Fname' => $request->Fname,
         'Lname' => $request->Lname,
         'email' => $request->email,
-        'phone' => $request->phone,
+           'phone' => $request->phone,
+           'card_on_file' => $request->card_on_file,
+           'relative' => $request->relative,
+           'relative_no' => $request->relative_no,
+           'facility' => $request->facility,
+           'waiting' => $request->waiting,
         'wheelchair' => $request->wheelchair,
         'round_trip' => $request->round_trip,
         'trip_date' => $request->trip_date,
@@ -124,9 +129,11 @@ class RequestRideController extends Controller
         'cost' => $request->cost,
         'message' => $request->message,
        ]);
-        return response()->json([
-            'update' => 'suceess'
-        ]);
+        $notification = array(
+            'messege' => 'Request Ride successfully Updated!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
     public function distance($lat1, $lon1, $lat2, $lon2, $unit) {
         if (($lat1 == $lat2) && ($lon1 == $lon2)) {
@@ -138,15 +145,8 @@ class RequestRideController extends Controller
           $dist = acos($dist);
           $dist = rad2deg($dist);
           $miles = $dist * 60 * 1.1515;
-          $unit = strtoupper($unit);
-
-          if ($unit == "K") {
-            return ($miles * 1.609344);
-          } else if ($unit == "N") {
-            return ($miles * 0.8684);
-          } else {
             return $miles;
-          }
+
         }
       }
     /**

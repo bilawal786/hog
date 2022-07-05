@@ -19,10 +19,14 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
+        'phone' => $faker->numerify('##########'),
+        'address' => $faker->address,
+        'city' => $faker->city,
         'password' => Hash::make('12345678'),
-        'role' => 'user',
+        'role' => 'driver',
         'created_at'=>'2022-05-17 05:48:18',
         'updated_at'=>'2022-05-17 05:48:18'
     ];

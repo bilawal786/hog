@@ -23,10 +23,12 @@
                                 <table id="" class="table table-hover display pb-30">
                                     <thead>
                                     <tr>
-                                        <th>Driver Name</th>
+                                        <th>Fist Name</th>
+                                        <th>Last Name</th>
                                         <th>E-mail</th>
                                         <th>Phone #</th>
                                         <th>Address</th>
+                                        <th>city</th>
                                         <th>Created at</th>
                                         <th>Action</th>
                                     </tr>
@@ -37,22 +39,28 @@
                                         <td colspan="6" class="tb-empty">No Record Found</td>
                                     </tr>
                                     <tr v-else v-for="driver in drivers.data" :key="driver.id">
-                                        <td>{{ driver.name }}</td>
+                                        <td>{{ driver.first_name }}</td>
+                                        <td>{{ driver.last_name }}</td>
                                         <td>{{ driver.email }}</td>
                                         <td>{{ driver.phone }}</td>
                                         <td>
                                             <div class="st-ad">{{ driver.address }}</div>
                                         </td>
                                         <td>
-                                            <set-date :date="driver.created_at" :year="'yes'"></set-date>
+                                            <div class="st-ad">{{ driver.city }}</div>
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">
+                                                <set-date :date="driver.created_at" :year="'yes'"></set-date>
+                                            </span>
                                         </td>
                                         <td>
                                             <router-link class="btn btn-default btn-icon-anim btn-circle btn-sm"
-                                                         :to="'/admin/user/driver/edit/'+driver.id">
+                                                         :to="'/driver/edit/'+driver.id">
                                                 <i class="fa fa-pencil"></i>
                                             </router-link>
                                             <router-link class="btn btn-success btn-icon-anim btn-circle btn-sm"
-                                                    :to="'/admin/user/driver/detail/'+driver.id">
+                                                    :to="'/driver/detail/'+driver.id">
                                                 <i class="fa fa-eye"></i>
                                             </router-link>
                                             <button v-if="driver.status==1"

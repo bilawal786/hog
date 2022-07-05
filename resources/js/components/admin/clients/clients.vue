@@ -16,10 +16,12 @@
                                     <table id="" class="table table-hover display  pb-30">
                                         <thead>
                                             <tr>
-                                                <th>Client Name</th>
+                                                <th>First Name</th>
+                                                <th>last Name</th>
                                                 <th>E-mail</th>
                                                 <th>Phone #</th>
                                                 <th>Address</th>
+                                                <th>City</th>
                                                 <th>Created at</th>
                                                 <th>Action</th>
                                             </tr>
@@ -29,17 +31,29 @@
                                                 <td colspan="7" class="tb-empty">No Record Found</td>
                                             </tr>
                                             <tr v-else v-for="client in clients.data" :key='client.id'>
-                                                <td>{{ client.name }}</td>
+                                                <td>{{ client.first_name }}</td>
+                                                <td>{{ client.last_name }}</td>
                                                 <td>{{ client.email }}</td>
                                                 <td>{{ client.phone }}</td>
-                                                <td>{{ client.address }}</td>
-                                                <td><set-date :date="client.created_at" :year="'yes'"></set-date></td>
+                                                <td>
+
+                                                    {{ client.address }}
+
+                                                </td>
+                                                <td>
+
+                                                        {{ client.city }}
+
+                                                </td>
+                                                <td>
+                                                    <span class="text-primary">
+                                                        <set-date :date="client.created_at" :year="'yes'"></set-date>
+                                                    </span>
+                                                </td>
                                                 <td>
                                                     <button class="btn btn-success btn-icon-anim btn-circle btn-sm"
                                                         @click="getClientDetail(client.id)"><i
                                                             class="fa fa-eye"></i></button>
-                                                    <button class="btn btn-danger btn-icon-anim btn-circle btn-sm" v-if="client.status==1" @click="block(client.id)"><i class="fa fa-lock"></i></button>
-<!--                                                    <button class="btn btn-warning btn-icon-anim btn-circle btn-sm" v-if="client.status==0" @click="unblock(client.id)"><i class="fa fa-unlock"></i></button>-->
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -92,8 +106,12 @@
                                 <table class="table  mb-0">
                                     <tbody>
                                         <tr>
-                                            <td class="border-none">Client Name:</td>
-                                            <td class="border-none">{{ clientDetail.name }}</td>
+                                            <td class="border-none">First Name:</td>
+                                            <td class="border-none">{{ clientDetail.first_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border-none">Last Name:</td>
+                                            <td class="border-none">{{ clientDetail.last_name }}</td>
                                         </tr>
                                         <tr>
                                             <td>Client E-mail:</td>
@@ -106,6 +124,10 @@
                                         <tr>
                                             <td>Client Address</td>
                                             <td>{{ clientDetail.address }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Client city</td>
+                                            <td>{{ clientDetail.city }}</td>
                                         </tr>
                                         <tr>
                                             <td>Client Register Date</td>

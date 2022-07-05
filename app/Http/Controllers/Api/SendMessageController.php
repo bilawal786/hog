@@ -105,7 +105,11 @@ class SendMessageController extends Controller
                         'end_lat' => 'required|max:255',
                         'end_lng' => 'required|max:255',
                         'start_address' => 'required|max:255',
+                        'start_city' => 'required|max:255',
+                        'start_country' => 'required|max:255',
                         'end_address' => 'required|max:255',
+                        'end_city' => 'required|max:255',
+                        'end_country' => 'required|max:255',
                         'cost' => 'required|max:255',
                         'status_assign' => 'required|max:255',
                         ]);
@@ -142,7 +146,11 @@ class SendMessageController extends Controller
                 $send_message->end_lng = $request->end_lng;
                 $send_message->distance = $this->distance($request->start_lat, $request->start_lng, $request->end_lat, $request->end_lng, 'K');
                 $send_message->start_address = $request->start_address;
+                $send_message->start_city = $request->start_city;
+                $send_message->start_country = $request->start_country;
                 $send_message->end_address = $request->end_address;
+                $send_message->end_city = $request->end_city;
+                $send_message->end_country = $request->end_country;
                 $send_message->cost = $request->cost;
                 $send_message->message = $request->message;
                 $send_message->user_id = $request->user_id;

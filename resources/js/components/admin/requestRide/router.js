@@ -14,49 +14,49 @@ import RequestRideComplete from "./RequestRideComplete";
 const routes = [
     {
         name:'RequestRideCreate',
-        path:'/admin/user/driver/list',
+        path:'/request/ride/create',
         component:RequestRideCreate,
         meta: { title: 'HOG | Request Ride Create' }
     },
     {
         name:'RequestRideDetail',
-        path:'/admin/user/driver/detail/:id?',
+        path:'/request/detail/:id?',
         component:RequestRideDetail,
         meta: { title: 'HOG | Request Ride Detail' }
     },
     {
         name:'RequestRideList',
-        path:'/admin/user/driver/create',
+        path:'/request/ride/list',
         component:RequestRideList,
         meta: { title: 'HOG | Request Ride List' }
     },
     {
         name:'RequestRideUpdate',
-        path:'/admin/user/driver/edit/:id?',
+        path:'/request/ride/edit/:id?',
         component:RequestRideCreate,
         meta: { title: 'HOG | Request Ride Update' }
     },
     {
         name:'RequestRideAssign',
-        path:'/admin/user/driver/assign',
+        path:'/request/ride/assign',
         component:RequestRideAssign,
         meta: { title: 'HOG | Request Ride Assign' }
     },
     {
         name:'RequestRideProcess',
-        path:'/admin/user/driver/process',
+        path:'/request/ride/process',
         component:RequestRideProcess,
         meta: { title: 'HOG | Request Ride Process' }
     },
     {
         name:'RequestRideReject',
-        path:'/admin/user/driver/reject',
+        path:'/request/ride/reject',
         component:RequestRideReject,
         meta: { title: 'HOG | Request Ride Reject' }
     },
     {
         name:'RequestRideComplete',
-        path:'/admin/user/driver/complete',
+        path:'/request/ride/complete',
         component:RequestRideComplete,
         meta: { title: 'HOG | Request Ride Complete' }
     },
