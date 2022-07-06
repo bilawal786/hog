@@ -3,44 +3,42 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-import RequestRideCreate from "./RequestRideCreate";
-import RequestRideDetail from "./RequestRideDetail";
 import RequestRideList from "./RequestRideList";
 import RequestRideAssign from "./RequestRideAssign";
 import RequestRideProcess from "./RequestRideProcess";
 import RequestRideReject from "./RequestRideReject";
 import RequestRideComplete from "./RequestRideComplete";
+import newRideList from "./childs/newRideList";
+import newRideDetail from "./childs/newRideDetail";
+import newRideEdit from "./childs/newRideEdit";
 
 const routes = [
     {
-        name:'RequestRideCreate',
-        path:'/request/ride/create',
-        component:RequestRideCreate,
-        meta: { title: 'HOG | Request Ride Create' }
-    },
-    {
-        name:'RequestRideDetail',
-        path:'/request/detail/:id?',
-        component:RequestRideDetail,
-        meta: { title: 'HOG | Request Ride Detail' }
-    },
-    {
-        name:'RequestRideList',
+        // name:'RequestRideList',
         path:'/request/ride/list',
         component:RequestRideList,
-        meta: { title: 'HOG | Request Ride List' }
-    },
-    {
-        name:'RequestRideUpdate',
-        path:'/request/ride/edit/:id?',
-        component:RequestRideCreate,
-        meta: { title: 'HOG | Request Ride Update' }
+        // meta: { title: 'HOG | Request Ride List' },
+        children: [
+            {
+                path: '/',
+                component: newRideList,
+            },
+            {
+                path: '/view',
+                component: newRideDetail,
+            },
+            {
+                path: '/edit/:id',
+                component: newRideEdit,
+            },
+        ],
     },
     {
         name:'RequestRideAssign',
         path:'/request/ride/assign',
         component:RequestRideAssign,
         meta: { title: 'HOG | Request Ride Assign' }
+
     },
     {
         name:'RequestRideProcess',

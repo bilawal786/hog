@@ -20,7 +20,7 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
     Route::post('login', 'LoginController@login')->name('login');
     Route::post('register', 'RegisterController@register')->name('register');
 
-    Route::group(['middleware' => ['auth:api', 'user:api']], function () {
+    Route::group(['middleware' => ['auth:api']], function () {
         // Route::get('email/verify/{hash}', 'VerificationController@verify')->name('verification.verify');
         // Route::get('email/resend', 'VerificationController@resend')->name('verification.resend');
         Route::get('user/billing/questions', 'GetMessageController@getBillingQuestionsById')->name('getBillingQuestionsById');

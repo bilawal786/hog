@@ -1,6 +1,8 @@
 <template>
     <div>
-        <!-- all ride -->
+
+<!--        <router-view></router-view>-->
+
         <div class="row" v-if="panel.allRides == true">
             <div class="col-sm-12">
                 <div class="table-wrap">
@@ -66,7 +68,7 @@
                 </div>
             </div>
         </div>
-        <!-- back button -->
+
         <div class="row" v-if="panel.detail == true || panel.edit == true">
             <div class="col-sm-12">
                 <div class="pull-left">
@@ -81,8 +83,7 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-        <!-- end back button -->
-        <!-- ride detail -->
+
         <div class="row" v-if="panel.detail == true">
             <div class="col-sm-6">
                 <lead-detail :rideDetail="rideDetail"></lead-detail>
@@ -91,14 +92,13 @@
                 <select-driver :rideId="rideId"></select-driver>
             </div>
         </div>
-        <!-- end ride detail -->
-         <!-- edit detail -->
+
         <div class="row" v-if="panel.edit == true">
             <div class="col-sm-8" >
                 <ride-edit :rideId="rideId"></ride-edit>
             </div>
         </div>
-        <!-- end edit detail -->
+
     </div>
 </template>
 <script>

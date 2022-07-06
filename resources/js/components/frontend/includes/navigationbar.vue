@@ -13,9 +13,9 @@
                         <nav class="site-navigation top-navigation nav-style-one">
                             <div class="menu-wrapper">
                                 <div class="menu-content">
-                                    <ul class="menu-list">
+                                    <ul class="menu-list" id="loginadd">
                                         <li>
-                                            <router-link to="/" exact>HOME</router-link>
+                                            <router-link to="/">HOME</router-link>
                                         </li>
                                         <li>
                                             <router-link to="/about">ABOUT</router-link>
@@ -28,12 +28,6 @@
                                         </li>
                                         <li>
                                             <router-link to="/resources">RESOURCES</router-link>
-                                        </li>
-                                        <li class="hidden-md hidden-lg" v-if="user">
-                                            <router-link to="/home">Dashboard</router-link>
-                                        </li>
-                                        <li class="hidden-md hidden-lg" v-else>
-                                            <router-link to="/signin">login</router-link>
                                         </li>
                                     </ul> <!-- /.menu-list -->
                                 </div> <!-- /.menu-content-->

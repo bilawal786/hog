@@ -1,13 +1,5 @@
 <template>
     <div>
-        <!-- <div class="hog-toast"  v-bind:class = "!toggle ?'toast-hide':'toast-show'" >
-            <div class="hog-mg-20">
-                <div><strong>Success: </strong>Ride Request Sent<button class="toast-button" @click="toggle = !toggle"><span>&times;</span></button></div>
-               
-            </div>
-        </div> -->
-        <top-header></top-header>
-        <navigation-bar></navigation-bar>
     <!-- ====== Page Header ====== -->
     <div class="page-header nevy-bg">
         <div class="container">
@@ -52,14 +44,9 @@
         </div><!-- /.container -->
     </div><!-- /.contact-us -->
     <!-- ====== Map Block ====== -->
-    <!-- ======footer area======= -->
-    <web-footer></web-footer>
     </div>
 </template>
 <script>
-import TopHeader from './includes/TopHeader.vue';
-import NavigationBar from './includes/navigationbar.vue';
-import WebFooter from './includes/footer.vue'
 import ContactForm from './includes/contact-form';
 export default {
     data(){
@@ -77,7 +64,7 @@ export default {
             console.log(e)
       },
     },
-    components: { TopHeader, NavigationBar, WebFooter, ContactForm },
+    components: { ContactForm },
     mounted () {
         window.scrollTo(0, 0)
     }

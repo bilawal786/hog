@@ -1,7 +1,5 @@
 <template>
     <div>
-        <top-header></top-header>
-        <navigation-bar></navigation-bar>
         <div class="row">
             <div class="col-md-12">
                 <div class="login-form-wrap">
@@ -64,15 +62,10 @@
             <!--create-account-wrap-->
         </div>
         <!--login-form-wrap-->
-        <web-footer></web-footer>
     </div>
 </template>
 <script>
-import TopHeader from "./includes/TopHeader.vue";
-import NavigationBar from "./includes/navigationbar.vue";
-import WebFooter from "./includes/footer.vue";
 import {mapGetters, mapActions} from "vuex";
-
 export default {
     data() {
         return {
@@ -82,7 +75,6 @@ export default {
             },
         };
     },
-    components: {TopHeader, NavigationBar, WebFooter},
     computed: {
         ...mapGetters("auth", ["errors"]),
     },
@@ -94,7 +86,7 @@ export default {
         ...mapActions("auth", ["sendLoginRequest"]),
         login: function () {
             this.sendLoginRequest(this.details).then(() => {
-                this.$router.push({name: "dashboard"});
+                this.$router.push({name: "home"});
             });
         },
     },

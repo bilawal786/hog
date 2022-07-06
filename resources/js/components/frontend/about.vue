@@ -1,7 +1,5 @@
 <template>
     <div>
-        <top-header></top-header>
-        <navigation-bar></navigation-bar>
         <!-- ====== Page Header ====== -->
         <div class="page-header nevy-bg">
             <div class="container">
@@ -12,7 +10,6 @@
                 </div><!-- /.row-->
             </div><!-- /.container-fluid -->
         </div>
-
         <!-- ====== About Main Content ====== -->
         <div class="about-main-content mr-top-90">
             <div class="container">
@@ -74,13 +71,9 @@
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </div><!-- /.about-main-content -->
-        <web-footer></web-footer>
     </div>
 </template>
 <script>
-import TopHeader from './includes/TopHeader.vue';
-import NavigationBar from './includes/navigationbar.vue';
-import WebFooter from './includes/footer.vue'
 import ContactForm from './includes/contact-form';
 export default {
     date(){
@@ -89,7 +82,7 @@ export default {
             about:true
         }
     },
-    components: { TopHeader, NavigationBar, WebFooter, ContactForm },
+    components: { ContactForm },
     mounted () {
         window.scrollTo(0, 0)
     }

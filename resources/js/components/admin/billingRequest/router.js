@@ -10,26 +10,20 @@ import billingRequestList from "./billingRequestList";
 
 const routes = [
     {
-        name:'billingRequestCreate',
-        path:'/admin/form/billing/question/create',
-        component:billingRequestCreate,
-        meta: { title: 'HOG | Billing Request Create' }
-    },
-    {
         name:'billingRequestDetail',
-        path:'/admin/form/billing/question/detail/:id?',
+        path:'/question/detail/:id?',
         component:billingRequestDetail,
         meta: { title: 'HOG | Billing Request Detail' }
     },
     {
         name:'billingRequestList',
-        path:'/admin/form/billing/question/list',
+        path:'/question/list',
         component:billingRequestList,
         meta: { title: 'HOG | Billing Request List' }
     },
     {
         name:'billingRequestUpdate',
-        path:'/admin/form/billing/question/edit/:id?',
+        path:'/question/edit/:id?',
         component:billingRequestCreate,
         meta: { title: 'HOG | Update' }
     },

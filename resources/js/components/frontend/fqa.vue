@@ -1,7 +1,5 @@
 <template>
     <div>
-        <top-header></top-header>
-        <navigation-bar></navigation-bar>
         <div class="page-header nevy-bg">
             <div class="container">
                 <div class="row">
@@ -38,15 +36,12 @@
                 </div>
             </div>
         </div>
-       <web-footer></web-footer>
+
     </div>
 </template>
 <script>
-import TopHeader from './includes/TopHeader.vue';
-import NavigationBar from './includes/navigationbar.vue';
-import WebFooter from './includes/footer.vue'
+
 export default {
- components: { TopHeader, NavigationBar, WebFooter },
    mounted () {
         window.scrollTo(0, 0)
     }

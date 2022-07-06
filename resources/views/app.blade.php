@@ -90,6 +90,7 @@
            }
             .mlogo{
                 margin-top: 0px !important;
+                width: 115px;
             }
             .animated-arrow span, .animated-arrow span:before, .animated-arrow span:after {
                 background: #cd9700;

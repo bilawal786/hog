@@ -1,7 +1,5 @@
 <template>
     <div>
-        <top-header></top-header>
-        <navigation-bar></navigation-bar>
         <div class="row">
             <div class="col-md-12">
                 <div class="login-form-wrap">
@@ -165,18 +163,11 @@
                 </div>
             </div>
         </div>
-
-
-        <web-footer></web-footer>
     </div>
 </template>
 
 <script>
-import TopHeader from "./includes/TopHeader.vue";
-import NavigationBar from "./includes/navigationbar.vue";
-import WebFooter from "./includes/footer.vue";
 import {mapGetters, mapActions} from "vuex";
-
 export default {
     name: "Home",
 
@@ -194,7 +185,6 @@ export default {
             },
         };
     },
-    components: {TopHeader, NavigationBar, WebFooter},
     computed: {
         ...mapGetters("auth", ["errors"]),
     },

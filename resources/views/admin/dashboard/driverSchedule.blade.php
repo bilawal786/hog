@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-    <div class="page-wrapper" >
+    <div class="page-wrapper" style="min-height: 385px;">
         <div class="container-fluid">
             <!-- Title -->
             <div class="row heading-bg">
@@ -18,8 +18,20 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div id='calendar-container'>
-                        <div id='calendar'></div>
+                    <div class="panel panel-default card-view">
+
+                        <div class="panel-wrapper collapse in">
+                            <div class="panel-body">
+                                <div class="row">
+{{$today[0]->driver->first_name}}
+                                    <div class="col-md-12" style="height: 700px">
+                                        <div id='calendar-container'>
+                                            <div id='calendar'></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,11 +58,8 @@
 
 
         #calendar-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            position: relative;
+            height: 100%;
         }
 
         .fc-header-toolbar {
@@ -74,75 +83,28 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 height: '100%',
                 expandRows: true,
-                slotMinTime: '08:00',
-                slotMaxTime: '20:00',
+                slotMinTime: '00:00',
+                slotMaxTime: '24:00',
                 headerToolbar: {
-                    left: 'prev,next today',
+                    left: 'prev,next',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                 },
-                initialView: 'dayGridMonth',
-                initialDate: '2020-09-12',
+                initialView: 'timeGridDay',
+                initialDate: '{{Carbon\Carbon::now()}}',
                 navLinks: true, // can click day/week names to navigate views
-                editable: true,
+                editable: false,
                 selectable: true,
                 nowIndicator: true,
                 dayMaxEvents: true, // allow "more" link when too many events
                 events: [
-                    {
-                        title: 'All Day Event',
-                        start: '2020-09-01',
-                    },
-                    {
-                        title: 'Long Event',
-                        start: '2020-09-07',
-                        end: '2020-09-10'
-                    },
-                    {
-                        groupId: 999,
-                        title: 'Repeating Event',
-                        start: '2020-09-09T16:00:00'
-                    },
-                    {
-                        groupId: 999,
-                        title: 'Repeating Event',
-                        start: '2020-09-16T16:00:00'
-                    },
-                    {
-                        title: 'Conference',
-                        start: '2020-09-11',
-                        end: '2020-09-13'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: '2020-09-12T10:30:00',
-                        end: '2020-09-12T12:30:00'
-                    },
-                    {
-                        title: 'Lunch',
-                        start: '2020-09-12T12:00:00'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: '2020-09-12T14:30:00'
-                    },
-                    {
-                        title: 'Happy Hour',
-                        start: '2020-09-12T17:30:00'
-                    },
-                    {
-                        title: 'Dinner',
-                        start: '2020-09-12T20:00:00'
-                    },
-                    {
-                        title: 'Birthday Party',
-                        start: '2020-09-13T07:00:00'
-                    },
-                    {
-                        title: 'Click for Google',
-                        url: 'http://google.com/',
-                        start: '2020-09-28'
-                    }
+                        @foreach($today as $data)
+                            {
+                                title: '{{$data->driver->first_name.' '.$data->driver->last_name}}',
+                                start: '{{$data->start_date->format("Y-m-d").'T'.$data->start_date->format("H:i:s")}}',
+                                end: '{{$data->end_date->format("Y-m-d").'T'.$data->end_date->format("H:i:s")}}',
+                            },
+                        @endforeach
                 ]
             });
 

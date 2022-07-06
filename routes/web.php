@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth']], function() {
 //        Route::post('drivers', 'Admin\DriversController@addDriver')->name('add.drivers');
 
         Route::get('/feedback/{any}', 'Admin\FormSubmitController@submit_feedBack')->where('any', '.*')->name('submit.feedback');
-        Route::get('/billing/question/{any}', 'Admin\FormSubmitController@billing_question')->where('any', '.*')->name('billing.question');
+        Route::get('/question/{any}', 'Admin\FormSubmitController@billing_question')->where('any', '.*')->name('billing.question');
         Route::get('/request/ride/{any}', 'Admin\FormSubmitController@request_ride')->where('any', '.*')->name('request.ride');
         Route::get('/form/other/{any}', 'Admin\FormSubmitController@other')->where('any', '.*')->name('other');
         //payment

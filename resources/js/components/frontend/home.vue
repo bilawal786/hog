@@ -1,7 +1,6 @@
 <template>
     <div>
-        <top-header></top-header>
-        <navigation-bar></navigation-bar>
+
         <!-- ======= Header Modal Area =======-->
         <!-- ======= Main Slider Area =======-->
         <div class="slider-block">
@@ -150,7 +149,7 @@
                                  </div>
                             </div>
                         </li><!-- /.slide 4 -->
-                      
+
                     </ul>
                 </div><!-- /.revolution slider -->
             </div><!-- /.slider wrapper -->
@@ -196,7 +195,7 @@
                 </div>
             </div>
         </div>
-         <web-footer></web-footer>
+
     </div>
 </template>
 <script>

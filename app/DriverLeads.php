@@ -15,6 +15,7 @@ class DriverLeads extends Model
         'notes',
         'status',
     ];
+    protected $dates = ['start_date', 'end_date'];
     public function driver(){
         return $this->belongsTo('App\User', 'driver_id', 'id');
     }

@@ -57,7 +57,6 @@ export default {
       return axios
         .post("/login", data)
         .then(response => {
-          console.log(response)
             if(response.data.user.role == 'user'){
                 commit("setUserData", response.data.user);
                 localStorage.setItem("authToken", response.data.token);
@@ -79,6 +78,7 @@ export default {
       axios.post("/logout").then(() => {
         commit("setUserData", null);
         localStorage.removeItem("authToken");
+        this.router.push('/signin')
       });
     },
     // sendVerifyResendRequest() {

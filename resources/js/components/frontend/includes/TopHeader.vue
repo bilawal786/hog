@@ -25,7 +25,7 @@
                                     </router-link>
                                 </li>
                                 <li v-show="user">
-                                    <router-link to="/dashboard" class="mdn">
+                                    <router-link to="/home" class="mdn">
                                         <i class="fa fa-user"></i>
                                         <span style="text-transform: none;" v-if="user">{{ user.first_name }}</span>
                                     </router-link>

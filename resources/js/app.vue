@@ -1,31 +1,49 @@
 <template>
     <div>
-        <!-- <div class="pg-full" v-if="this.setting">
-            <div id="loader"></div>
-        </div> -->
+        <top-header></top-header>
+        <navigation-bar></navigation-bar>
         <router-view> </router-view>
+        <web-footer></web-footer>
     </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+import TopHeader from './components/frontend/includes/TopHeader.vue';
+import NavigationBar from './components/frontend/includes/navigationbar.vue';
+import WebFooter from './components/frontend/includes/footer.vue';
+import { mapGetters, mapActions } from "vuex";
 export default {
     data(){
         return{
             isLoder:true
         }
     },
+    components: { TopHeader, NavigationBar, WebFooter },
     computed: {
+        ...mapGetters("auth", ["settings", "user"])
     },
     methods: {
         ...mapActions("auth", ["getSettingData", "getUserData"]),
+        checkAuth () {
+            if(this.user){
+                $(".menu-list").append("<li class='hidden-md hidden-lg'><a href='/home'>"+this.user.first_name+"</a></li>");
+            }else{
+                $(".menu-list").append("<li class='hidden-md hidden-lg'><a href='/signin'>SignIn</a></li>");
+            }
+
+        },
     },
     created(){
-       
+
         this.getSettingData()
        this.getUserData()
     },
+    watch:{
+            user:function(val) {
+                this.checkAuth()
+            }
+    },
      mounted () {
-        
+
         var modelApp = {
             /* ---------------------------------------------
              Menu
