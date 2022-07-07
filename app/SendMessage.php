@@ -31,6 +31,7 @@ class SendMessage extends Model
         'end_address',
         'cost',
         'user_id',
+        'payment'
     ];
     public function user(){
         return $this->belongsTo('App\User', 'user_id', 'id');

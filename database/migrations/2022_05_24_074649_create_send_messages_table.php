@@ -45,6 +45,7 @@ class CreateSendMessagesTable extends Migration
             $table->string('end_country')->nullable();
             $table->string('cost')->nullable();
             $table->enum('status_assign', ['yes', 'no'])->nullable();
+            $table->enum('payment', ['no', 'yes'])->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

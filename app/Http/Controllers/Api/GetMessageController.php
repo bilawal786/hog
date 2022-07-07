@@ -24,7 +24,7 @@ class GetMessageController extends Controller
         ]);
     }
     public function getRequestRidesByid(){
-        $getQuestion = SendMessage::with('user')->where('type', 'Request Ride')->where('user_id', Auth::user()->id)->get();
+        $getQuestion = SendMessage::with('user')->where('type', 'Request Ride')->where('payment', 'yes')->where('user_id', Auth::user()->id)->get();
         return response()->json([
             'type' => "Request Ride",
             'data' => $getQuestion,

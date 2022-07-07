@@ -20,7 +20,7 @@ class RequestRideController extends Controller
     }
     public function index()
     {
-        $rides = SendMessage::where('type', 'Request Ride')->orderBy('id', 'desc')->paginate(10);
+        $rides = SendMessage::where('type', 'Request Ride')->where('payment', 'yes')->orderBy('id', 'desc')->paginate(10);
         return response()->json($rides);
     }
 

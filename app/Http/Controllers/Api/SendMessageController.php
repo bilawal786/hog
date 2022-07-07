@@ -155,10 +155,13 @@ class SendMessageController extends Controller
                 $send_message->message = $request->message;
                 $send_message->user_id = $request->user_id;
                 $send_message->status_assign = $request->status_assign;
+                $send_message->payment = 'no';
                 $send_message->save();
+                $idnew = $send_message->id;
                 $notification = array(
                     'messege' => 'Request Ride successfully!',
-                    'type' => 'success'
+                    'type' => 'success',
+                    'id' => $idnew
                 );
                 return response()->json($notification);
               break;

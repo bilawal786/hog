@@ -3,58 +3,81 @@
 namespace App\Http\Controllers\WebUser\Payment;
 
 use App\Http\Controllers\Controller;
+use App\SendMessage;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
-    public function payment()
+    public function payment($id)
     {
-        $data = '{"customer":{"emailAddresses":{"elements":[{"id":"id","emailAddress":"emailAddress"}]},"id":"1","firstName":"firstName","lastName":"lastName"},"redirectUrls":{"success":"https://hog.codingcrust.com/","failure":"https://hog.codingcrust.com/","cancel":"https://hog.codingcrust.com/"},"shoppingCart":{"lineItems":[{"note":"note","price":900,"name":"name","unitQty":1}],"total":900}}';
-//        $dataString = json_encode($data);
+        $requestride = SendMessage::where('id', $id)->first();
+        $client = new Client();
 
+        $response = $client->request('POST', 'https://sandbox.dev.clover.com/invoicingcheckoutservice/v1/checkouts', [
+            'body' => '{
+                "customer":{
+                    "emailAddresses":{
+                        "elements":[{
+                            "id":"id",
+                            "emailAddress":"'.$requestride->email.'"
+                        }]
+                    },
+                    "id":'.$requestride->id.',
+                    "firstName":"'.$requestride->Fname.'",
+                    "lastName": "'.$requestride->Lname.'"
+                },
+                "redirectUrls":{
+                    "success": "https://hog.codingcrust.com/success/'.$requestride->id.'",
+                    "failure":"https://hog.codingcrust.com/",
+                    "cancel":"https://hog.codingcrust.com/"
+                },
+            "shoppingCart":{
+                "lineItems":[{
+                    "note":'.$requestride->id.',
+                    "price":'.(int)($requestride->cost * 100).',
+                    "name":"Request a Ride",
+                    "unitQty":1
+                }],
+                "total":'.(int)($requestride->cost * 100).'
+            }
+            }',
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer 180e0e88-88a9-e8a4-8fb2-dc23f8feb2fa',
+                'Content-Type' => 'application/json',
+                'X-Clover-Merchant-Id' => 'KGDG6RFBZVP61',
+            ],
+        ]);
 
-        $headers = [
-            'Accept : application/json',
-            'Authorization : Bearer 180e0e88-88a9-e8a4-8fb2-dc23f8feb2fa',
-            'Content-Type : application/json',
-            'X-Clover-Merchant-Id : KGDG6RFBZVP61',
-        ];
-
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, 'https://sandbox.dev.clover.com/invoicingcheckoutservice/v1/checkouts');
-
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-
-        $response1 = curl_exec($ch);
-        $response = json_decode($response1);
-
-        dd($response);
-
-//        return redirect($response->url);
+        $response = (string) $response->getBody();
+        $response =json_decode($response); // Using this you can access any key like below
+        $key_value = $response->href;
+        return redirect($key_value);
 
 //view('front.payment.payment');
 
     }
 
-    public function success()
+    public function success($id)
     {
-        view('front.payment.success');
+        SendMessage::where('id', $id)->update(['payment', 'yes']);
+        $data = SendMessage::where('id', $id)->first();
+        view('front.payment.success', compact('data'));
     }
 
-    public function failure()
+    public function failure($id)
     {
-        view('front.payment.failure');
+        SendMessage::where('id', $id)->update(['payment', 'no']);
+        $data = SendMessage::where('id', $id)->first();
+        view('front.payment.failure', compact('data'));
     }
 
-    public function cancel()
+    public function cancel($id)
     {
-        view('front.payment.cancel');
+        SendMessage::where('id', $id)->update(['payment', 'no']);
+        $data = SendMessage::where('id', $id)->first();
+        view('front.payment.cancel', compact('data'));
     }
 }

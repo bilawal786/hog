@@ -52,8 +52,8 @@ Route::group(['middleware' => ['auth']], function() {
     });
  });
 
-Route::get('checkout', 'WebUser\Payment\PaymentController@payment')->name('payment.payment');
-Route::get('success', 'WebUser\Payment\PaymentController@success')->name('payment.success');
+Route::get('checkout/{id}', 'WebUser\Payment\PaymentController@payment')->name('payment.payment');
+Route::get('success/{id}', 'WebUser\Payment\PaymentController@success')->name('payment.success');
 Route::get('failure', 'WebUser\Payment\PaymentController@failure')->name('payment.failure');
 Route::get('cancel', 'WebUser\Payment\PaymentController@cancel')->name('payment.cancel');
 Route::get('{any}', function () {return view('app');})->where('any', '.*');

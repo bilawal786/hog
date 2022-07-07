@@ -134,9 +134,11 @@ export default {
         conformData: function () {
             axios.post("send/message", this.$route.params.title)
                 .then(response => {
+                    console.log(response)
                     if (response) {
-                        this.$store.commit("setErrors", {}),
-                            this.$router.push({name: 'contact'})
+                        this.$store.commit("setErrors", {})
+                            window.location = "checkout/"+response.data.id;
+                            // this.$router.push({name: 'contact'})
                     }
                 });
         }
