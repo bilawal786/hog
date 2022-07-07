@@ -37,7 +37,8 @@ class WidgetsController extends Controller
         $assigned = DriverLeads::where('status', 'assign')->count();
         $process = DriverLeads::where('status', 'process')->count();
         $reject = DriverLeads::where('status', 'reject')->count();
+        $rejectend = DriverLeads::where('status', 'end')->count();
         $success = DriverLeads::where('status', 'complete')->count();
-        return response()->json([$assigned, $process, $reject, $success]);
+        return response()->json([$assigned, $process, $reject+$rejectend, $success]);
     }
 }

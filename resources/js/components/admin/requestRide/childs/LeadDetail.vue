@@ -87,7 +87,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Distance</td>
-                                                <td>{{ Math.round(rideDetail.distance) }}</td>
+                                                <td>{{ Math.round(rideDetail.distance) }} Mi</td>
                                             </tr>
                                             <tr>
                                                 <td>Cost</td>

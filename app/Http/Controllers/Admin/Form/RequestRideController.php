@@ -166,7 +166,7 @@ class RequestRideController extends Controller
     }
     public function unassignRide()
     {
-        $rides = SendMessage::where('type', 'Request Ride')->where('status_assign', 'no')->orderBy('id', 'desc')->paginate(10);
+        $rides = SendMessage::where('type', 'Request Ride')->where('status_assign', 'no')->where('payment', 'yes')->orderBy('id', 'desc')->paginate(10);
         return response()->json($rides);
     }
     public function statusUpdate(Request $request, $id)
