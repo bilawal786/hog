@@ -62,21 +62,21 @@ class PaymentController extends Controller
 
     public function success($id)
     {
-        SendMessage::where('id', $id)->update(['payment', 'yes']);
+        SendMessage::where('id', $id)->update(['payment' => 'yes']);
         $data = SendMessage::where('id', $id)->first();
         view('front.payment.success', compact('data'));
     }
 
     public function failure($id)
     {
-        SendMessage::where('id', $id)->update(['payment', 'no']);
+        SendMessage::where('id', $id)->update(['payment' => 'no']);
         $data = SendMessage::where('id', $id)->first();
         view('front.payment.failure', compact('data'));
     }
 
     public function cancel($id)
     {
-        SendMessage::where('id', $id)->update(['payment', 'no']);
+        SendMessage::where('id', $id)->update(['payment' => 'no']);
         $data = SendMessage::where('id', $id)->first();
         view('front.payment.cancel', compact('data'));
     }
