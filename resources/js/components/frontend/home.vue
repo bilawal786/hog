@@ -39,7 +39,8 @@
                                      <p class="slider-text-p">Providing ambulatory and wheelchair transportation
                                          <br>for the greater Sacramento area and beyond.
                                     </p>
-                                    <p class="slider-text-p">BBB Accredited: A rating!</p>
+                                    <p class="slider-text-p">BBB Accredited: A+
+                                        rating!</p>
                                  </div>
                             </div>
                         </li><!-- /.slide 1 -->
@@ -75,7 +76,7 @@
                                      <p class="slider-text-p"> We will always treat your loved
                                     <br> ones like they are part of our family.
                                     </p>
-                                    <p class="slider-text-p">BBB Accredited: A rating!</p>
+                                    <p class="slider-text-p">BBB Accredited: A+ rating!</p>
                                  </div>
                             </div>
                         </li><!-- /.slide 2 -->
@@ -110,7 +111,7 @@
                                      <h3 class="slider-text-h3">WITH A HEART OF GOLD!</h3>
                                      <p class="slider-text-p">Contact us today to set up a ride!
                                     </p>
-                                    <p class="slider-text-p">BBB Accredited: A rating!</p>
+                                    <p class="slider-text-p">BBB Accredited: A+ rating!</p>
                                  </div>
                             </div>
                         </li><!-- /.slide 3 -->
@@ -145,7 +146,7 @@
                                      <h3 class="slider-text-h3"> WE TRANSPORT YOUR LOVED ONES…</h3>
                                      <p class="slider-text-p">  Ambulatory and wheelchair NEMT transportation.
                                     </p>
-                                    <p class="slider-text-p">BBB Accredited: A rating!</p>
+                                    <p class="slider-text-p">BBB Accredited: A+ rating!</p>
                                  </div>
                             </div>
                         </li><!-- /.slide 4 -->

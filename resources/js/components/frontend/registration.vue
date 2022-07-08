@@ -10,7 +10,7 @@
                                 type="text"
                                 class="form-control"
                                 :class="{ 'server-input-vilidation': errors.first_name }"
-                                id="name"
+                                id="first_name"
                                 v-model="details.first_name"
                                 placeholder="Enter First Name"
                                 required
@@ -28,7 +28,7 @@
                                 type="text"
                                 class="form-control"
                                 :class="{ 'server-input-vilidation': errors.last_name }"
-                                id="name"
+                                id="last_name"
                                 v-model="details.last_name"
                                 placeholder="Enter Last Name"
                                 required
@@ -46,7 +46,7 @@
                                 type="text"
                                 class="form-control"
                                 :class="{ 'server-input-vilidation': errors.phone }"
-                                id="name"
+                                id="phone"
                                 v-model="details.phone"
                                 placeholder="Enter Phone Number"
                                 required
@@ -64,7 +64,7 @@
                                 type="text"
                                 class="form-control"
                                 :class="{ 'server-input-vilidation': errors.address }"
-                                id="name"
+                                id="address"
                                 v-model="details.address"
                                 placeholder="Enter Address"
                                 required
@@ -82,7 +82,7 @@
                                 type="text"
                                 class="form-control"
                                 :class="{ 'server-input-vilidation': errors.city }"
-                                id="name"
+                                id="city"
                                 v-model="details.city"
                                 placeholder="Enter City"
                                 required
@@ -198,7 +198,7 @@ export default {
 
         register: function () {
             this.sendRegisterRequest(this.details).then(() => {
-                this.$router.push({name: "dashboard"});
+                this.$router.push({name: "home"});
             });
         },
     },

@@ -60,8 +60,6 @@ class LoginController extends Controller
     {
         $request->user()->token()->revoke();
 
-        return $request->wantsJson()
-            ? new Response('', 204)
-            : redirect('/');
+        return response()->json(['success' => "logout"], 200);
     }
 }

@@ -1,9 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
 import VueAxios from 'vue-axios';
 import axios from "axios";
+import store from "./store";
 Vue.use(VueAxios, axios);
 
 require('./bootstrap');
@@ -13,9 +13,9 @@ require('./bootstrap');
 Vue.config.productionTip = false;
 
 
-  // axios.defaults.baseURL = 'http://localhost:8000/api/';
+  axios.defaults.baseURL = 'http://localhost:8000/api/';
 
-  axios.defaults.baseURL = 'https://hog.codingcrust.com/api/';
+  // axios.defaults.baseURL = 'https://hog.codingcrust.com/api/';
 
 axios.interceptors.response.use(
   response => response,

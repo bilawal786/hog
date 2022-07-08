@@ -21,8 +21,12 @@
                 <div class="col-md-6">
                     <h3>AMBULATORY TRANSPORTATION</h3>
                     <p>This service is provided for individuals who are able to ambulate and who are able to get in and out of a vehicle with minimal assistance. An ambulatory client does not require a wheelchair at any time during transport. Your driver will assist you in getting in and out of the building of your pickup location and destination, whether it is a doctor’s office or your home, and will bring in any belongings you may have with you.</p>
-                    <p>One-Way Ambulatory Transport (during regular bus. hours): $70.00 pickup (+$3/mi after 1st 10 miles)</p>
-                    <p>Round-Trip Ambulatory Transport (during regular bus. hours): $120.00 pickup (+$3/mi after 1st 10 miles each way)</p>
+                    <p>One-Way Ambulatory Transport (during regular bus. hours): $70.00 pickup (1st 5 miles)</p>
+                    <p>Round-Trip Ambulatory Transport (during regular bus. hours): $120.00 pickup (1st 5 miles each way)</p>
+                    <p>One-Way Ambulatory Transport (during regular bus. hours): $75.00 pickup (+$3/mi after 5.1 to 10 miles)</p>
+                    <p>Round-Trip Ambulatory Transport (during regular bus. hours): $130.00 pickup (+$3/mi after 5.1 to 10 miles each way)</p>
+                    <p>Before or after the hours of 8am-5pm add $10</p>
+                    <p>Wait time: $60 per hour </p>
                     <p>*A family member or caregiver may accompany client at no extra charge. Please inform us at time of scheduling.</p>
                      <p>*Weekend and Holiday prices vary</p>
                 </div>
@@ -37,8 +41,13 @@
                 <div class="col-md-6">
                     <h3>WHEELCHAIR BOUND TRANSPORTATION</h3>
                     <p>This service is provided for individuals who need or prefer to travel via wheelchair. You and your wheelchair will be securely fastened using ADA-compliant seatbelts and wheelchair securements. Your driver will assist you in getting in and out of the building of your pickup location and destination, whether it is a doctor’s office or your home, and will bring in any belongings you may have with you.</p>
-                    <p>One-Way Wheelchair Transport (during regular bus. hours): $70.00 pickup (+$3/mi after 1st 10 miles)</p>
-                    <p>Round-Trip Wheelchair Transport (during regular bus. hours): $120.00 pickup (+$3/mi after 1st 10 miles each way)</p>
+                    <p>One-Way Ambulatory Transport (during regular bus. hours): $70.00 pickup (1st 5 miles)</p>
+                    <p>Round-Trip Ambulatory Transport (during regular bus. hours): $120.00 pickup (1st 5 miles each way)</p>
+                    <p>One-Way Ambulatory Transport (during regular bus. hours): $75.00 pickup (+$3/mi after 5.1 to 10 miles)</p>
+                    <p>Round-Trip Ambulatory Transport (during regular bus. hours): $130.00 pickup (+$3/mi after 5.1 to 10 miles each way)</p>
+                    <p>Before or after the hours of 8am-5pm add $10</p>
+                    <p>Wheelchair rental-$25</p>
+                    <p>Wait time: $60 per hour </p>
                     <p>*A family member or caregiver may accompany client at no extra charge. Please inform us at time of scheduling.</p>
                     <p>*Weekend and Holiday prices vary</p>
                 </div>

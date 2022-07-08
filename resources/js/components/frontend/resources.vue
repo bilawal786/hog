@@ -15,6 +15,16 @@
                     <ul class="resources-ul-cs">
                         <li class="resources-li-cs">
                             <div class="">
+                                <span class="resources-h">CANCER SUPPORT</span>
+                                <div class="resources-list">
+                                    <p>W.A.Y.S. (We Are Your Support)</p>
+                                    <p>www.weareyoursupport.com</p>
+                                    <p>(916)306-5477</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="resources-li-cs">
+                            <div class="">
                                 <span class="resources-h">HOSPICE</span>
                                     <div class="resources-list">
                                         <p>Snowline Hospice</p>
@@ -37,7 +47,7 @@
                         </li>
                         <li class="resources-li-cs">
                             <div class="">
-                                <span class="resources-h">All For You Home Care</span>
+                                <span class="">All For You Home Care</span>
 
                                     <div class="resources-list">
                                         <p>www.allforyouhomecare.com</p>

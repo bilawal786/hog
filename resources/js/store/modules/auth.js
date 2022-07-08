@@ -2,6 +2,7 @@
 
 import axios from "axios";
 
+
 export default {
   namespaced: true,
 
@@ -78,7 +79,6 @@ export default {
       axios.post("/logout").then(() => {
         commit("setUserData", null);
         localStorage.removeItem("authToken");
-        this.router.push('/signin')
       });
     },
     // sendVerifyResendRequest() {

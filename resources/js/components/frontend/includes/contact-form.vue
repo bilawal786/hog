@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="mgb-30">
-              <select class="form-section" v-model="sendMessage.type">
+              <select class="form-section" v-model="sendMessage.type" style="width: 144px">
                 <option
                   class="form-option"
                   value="Submit Feedback"
@@ -21,7 +21,7 @@
                 <option class="form-option" value="Request Ride">
                   Request Ride
                 </option>
-                <option class="form-option" value="Others">Others</option>
+                <option class="form-option" value="Others">Other</option>
               </select>
             </div>
             <div class="contact-valid" v-if="errors.type">
@@ -181,7 +181,7 @@
             <div class="mgb-30">
               <input
                 type="text"
-                placeholder="Account(Option)*"
+                placeholder="Organization/Facility (Optional)"
                 class="form-control"
                 v-model="sendMessage.account"
               />
@@ -191,7 +191,7 @@
             <div class="mgb-30">
               <input
                 type="text"
-                placeholder="Invoice(Option)*"
+                placeholder="Invoice # (Optional)"
                 class="form-control"
                 v-model="sendMessage.invoice"
               />
