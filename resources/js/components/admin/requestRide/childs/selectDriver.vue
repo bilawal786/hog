@@ -53,13 +53,13 @@
                                                         day: 'numeric',
                                                         hour: 'numeric',
                                                         minute: '2-digit',
-                                                        timeZoneName: 'short',
+
                                                     }"
                               :min-datetime = 'new Date().toJSON()'
-                              :hour-step="1" :minute-step="15"
+                              :hour-step="1" :minute-step="1"
                               :phrases="{ ok: 'Continue', cancel: 'Exit' }"
                               :week-start="7" auto input-class="form-control"
-                              type="datetime" use12-hour value-zone="America/New_York" zone="Asia/Shanghai"></datetime>
+                              type="datetime" use12-hour  zone="local"></datetime>
                     <ul v-if="errorshow" class="c-err">
                         <li v-for="error in errorshow.start_date" :key="error" class="c-err-li">{{ error }}</li>
                     </ul>
@@ -72,13 +72,13 @@
                                                         day: 'numeric',
                                                         hour: 'numeric',
                                                         minute: '2-digit',
-                                                        timeZoneName: 'short',
+
                                                     }"
                               :min-datetime = 'start_date'
                               :hour-step="1" :minute-step="15"
                               :phrases="{ ok: 'Continue', cancel: 'Exit' }"
                               :week-start="7" auto input-class="form-control"
-                              type="datetime" use12-hour value-zone="America/New_York" zone="Asia/Shanghai"></datetime>
+                              type="datetime" use12-hour zone="local"></datetime>
                     <ul v-if="errorshow" class="c-err">
                         <li v-for="error in errorshow.end_date" :key="error" class="c-err-li">{{ error }}</li>
                     </ul>
@@ -193,6 +193,7 @@ export default {
         driversList: function () {
             axios.get('admin/web/driver/all').then((response) => {
                 this.options = response.data
+                console.log(response.data)
             })
         },
         driverById: function (id) {

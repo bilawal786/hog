@@ -114,4 +114,13 @@ class DriverPaymentController extends Controller
         $data =AdminAprovePayment::with('driver')->orderBy('id', 'desc')->paginate(10);
         return response()->json($data);
     }
+    public function updateStatus(Request $request, $id)
+    {
+        DriverPayment::where('driver_id', $id)->where('status', '1')->update(['status' => '2']);
+        $notification = array(
+            'messege' => 'Withdraw request created successfully!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
+    }
 }

@@ -141,7 +141,7 @@ class DriverController extends Controller
         return response()->json($notification);
     }
     public function getAllDrivers(){
-        $drivers = User::where('role', 'driver')->select('id', 'name')->orderBy('id', 'desc')->get();
+        $drivers = User::where('role', 'driver')->select('id', 'first_name', 'last_name')->orderBy('id', 'desc')->get();
         $data = DriverResource::collection($drivers);
         return response()->json($data);
     }

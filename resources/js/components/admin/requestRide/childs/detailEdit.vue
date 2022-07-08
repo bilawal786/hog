@@ -121,7 +121,7 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Ride Date Time</label>
                                                 <datetime type="datetime" input-class="form-control"
-                                                    value-zone="America/New_York" zone="Asia/Shanghai"
+                                                          zone="local"
                                                     v-model="ride.trip_date"
                                                     :format="{
                                                         year: 'numeric',
@@ -129,9 +129,9 @@
                                                         day: 'numeric',
                                                         hour: 'numeric',
                                                         minute: '2-digit',
-                                                        timeZoneName: 'short',
-                                                    }" :phrases="{ ok: 'Continue', cancel: 'Exit' }" :hour-step="2"
-                                                    :minute-step="15" :week-start="7" use12-hour auto></datetime>
+
+                                                    }" :phrases="{ ok: 'Continue', cancel: 'Exit' }" :hour-step="1"
+                                                    :minute-step="1" :week-start="7" use12-hour auto></datetime>
                                             </div>
                                         </div>
                                         <div class="col-md-6 " v-if="ride.round_trip == 'yes'">

@@ -28,6 +28,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::put('web/unblock/driver/{id}', 'Admin\Users\DriverController@unblock');
     // driver payment
     Route::resource('web/payment/driver', 'Admin\DriverPayment\DriverPaymentController');
+    Route::post('web/payment/payment/change/{id}', 'Admin\DriverPayment\DriverPaymentController@updateStatus');
     Route::get('web/all/payment/driver', 'Admin\DriverPayment\DriverPaymentController@adminPaymentlist');
     Route::get('web/payment/withdraw', 'Admin\DriverPayment\DriverPaymentController@driverpayment');
     //admin approved payment

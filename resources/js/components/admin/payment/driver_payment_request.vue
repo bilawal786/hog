@@ -96,11 +96,11 @@ export default {
                     axios.put('admin/web/admin/payment/approve/'+id, {
                         'status': 1
                     }).then(response => {
-                        axios.put('admin/web/payment/driver/'+driverId, {
+
+                        axios.post('admin/web/payment/payment/change/'+driverId, {
                             'status' : '2'
                         }).then(res => {
                             this.getdata()
-
                         })
                         switch(response.data.type){
                             case 'info':
