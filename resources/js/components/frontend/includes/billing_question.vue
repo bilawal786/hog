@@ -18,7 +18,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(item, index) in getBilling" :key="index">
+                    <tr v-if="getBilling == ''">
+                        <td colspan="7" class="text-center">No Record</td>
+                    </tr>
+                    <tr v-else v-for="(item, index) in getBilling" :key="index">
                         <th scope="row">{{ index + 1 }}</th>
                         <td>{{ item.Lname }}</td>
                         <td>{{ item.Fname }}</td>

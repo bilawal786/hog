@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Mail\BillingQuestion;
+use App\Mail\Feedback;
+use App\Mail\Others;
+use App\Mail\RequestRide;
 use App\SendMessage;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 
 class SendMessageController extends Controller
@@ -41,6 +46,9 @@ class SendMessageController extends Controller
                 $send_message->message = $request->message;
                 $send_message->user_id = $request->user_id;
                 $send_message->save();
+                Mail::to($send_message->email)
+                    ->cc('hzohaib73@gmail.com')
+                    ->send(new Feedback($send_message));
                 $notification = array(
                     'messege' => 'Submit Feedback successfully!',
                     'type' => 'success'
@@ -77,6 +85,9 @@ class SendMessageController extends Controller
                 $send_message->message = $request->message;
                 $send_message->user_id = $request->user_id;
                 $send_message->save();
+                Mail::to($send_message->email)
+                    ->cc('hzohaib73@gmail.com')
+                    ->send(new BillingQuestion($send_message));
                 $notification = array(
                     'messege' => 'Billing Question successfully!',
                     'type' => 'success'
@@ -191,6 +202,9 @@ class SendMessageController extends Controller
                 $send_message->message = $request->message;
                 $send_message->user_id = $request->user_id;
                 $send_message->save();
+                Mail::to($send_message->email)
+                    ->cc('hzohaib73@gmail.com')
+                    ->send(new Others($send_message));
                 $notification = array(
                     'messege' => 'Others querry successfully!',
                     'type' => 'success'

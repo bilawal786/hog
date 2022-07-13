@@ -173,10 +173,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <button v-if="this.$route.params.id" class="btn btn-success" type="button"
-                                        @click="updateDriverData()">Update
+                                <button v-if="this.$route.params.id" class="btn btn-success" type="button" @click="updateDriverData()" :disabled="createLoading">
+                                    <span v-if="createLoading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                                    <span v-else>Update</span>
                                 </button>
-                                <button v-else class="btn btn-success" type="button" @click="saveDriverData()">Create
+                                <button v-else class="btn btn-success" type="button" @click="saveDriverData()" :disabled="createLoading">
+                                    <span v-if="createLoading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                                    <span v-else>Create</span>
                                 </button>
                             </div>
                         </div>
@@ -185,8 +188,6 @@
             </div>
         </div>
     </div>
-
-
 </template>
 
 <script>
@@ -205,6 +206,7 @@ export default {
                 comfirm_password: null,
             },
             errorshow: null,
+            createLoading:false
         }
     },
     mounted() {
@@ -214,6 +216,7 @@ export default {
     },
     methods: {
         saveDriverData: function () {
+            this.createLoading = true;
             axios.post("admin/web/drivers", this.create).then((response) => {
                 this.create.first_name = null
                 this.create.last_name = null
@@ -224,6 +227,7 @@ export default {
                 this.create.password = null
                 this.create.comfirm_password = null
                 this.errorshow = null
+                this.createLoading = false;
                 switch (response.data.type) {
                     case 'info':
                         toastr.info(response.data.messege);
@@ -240,10 +244,11 @@ export default {
                 }
             }).catch(err => {
                 this.errorshow = err.response.data.errors
-                // console.log(err.response.data.errors)
+                this.createLoading = false
             })
         },
         updateDriverData: function () {
+            this.createLoading = true
             axios.put("admin/web/drivers/" + this.$route.params.id, this.create).then((response) => {
                 this.create.first_name = null
                 this.create.last_name = null
@@ -255,6 +260,7 @@ export default {
                 this.create.comfirm_password = null
                 this.databyid(this.$route.params.id)
                 this.errorshow = null
+                this.createLoading = false
                 switch (response.data.type) {
                     case 'info':
                         toastr.info(response.data.messege);
@@ -271,7 +277,7 @@ export default {
                 }
             }).catch(err => {
                 this.errorshow = err.response.data.errors
-                // console.log(err.response.data.errors)
+                this.createLoading = false
             })
         },
         databyid(id) {

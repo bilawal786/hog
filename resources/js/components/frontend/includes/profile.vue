@@ -55,7 +55,7 @@
                     <td width="2%">:</td>
                     <td >
                         <span v-if="profileEdit==true">
-                            <input type="number" placeholder="Phone" class="form-control" v-model="user.phone">
+                            <input type="text" placeholder="Phone" class="form-control" v-model="user.phone">
                         </span>
                         <span v-if="profileEdit==false">
                             {{ user.phone }}

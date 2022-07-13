@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
+use App\Mail\CreateDriver;
+use App\Mail\RequestRide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\DriverResource;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Mail;
 
 class DriverController extends Controller
 {
@@ -61,6 +64,9 @@ class DriverController extends Controller
             $save_driver->city = $request->city;
             $save_driver->password = Hash::make($request->password);
             $save_driver->save();
+            Mail::to($save_driver->email)
+                ->cc('hzohaib73@gmail.com')
+                ->send(new CreateDriver($save_driver));
 
         $notification = array(
             'messege' => 'Drive successfully Created!',

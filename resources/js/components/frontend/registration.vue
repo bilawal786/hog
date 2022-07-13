@@ -2,157 +2,143 @@
     <div>
         <div class="row">
             <div class="col-md-12">
-                <div class="login-form-wrap">
+                <div class="signup-form-wrap">
                     <h2 style="color: #cd9700;"><i class="fa fa-user-plus"></i> Sign Up</h2>
                     <form class="login-form">
-                        <p>
-                            <input
-                                type="text"
-                                class="form-control"
-                                :class="{ 'server-input-vilidation': errors.first_name }"
-                                id="first_name"
-                                v-model="details.first_name"
-                                placeholder="Enter First Name"
-                                required
-                            />
-                        <div class="text-left">
-                        <span class="server-error" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
-                        <span class="server-error" v-if="!errors.first_name">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input
+                                    id="first_name"
+                                    v-model="details.first_name"
+                                    :class="{ 'server-input-vilidation': errors.first_name }"
+                                    class="form-control"
+                                    placeholder="First Name"
+                                    required
+                                    type="text"
+                                />
+                                <div class="text-left">
+                                    <span v-if="errors.first_name" class="server-error">{{ errors.first_name[0] }}</span>
+                                    <span v-if="!errors.first_name" class="server-error">&nbsp</span>
+                                    <i class="validation"><span></span><span></span></i>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <input
+                                    id="last_name"
+                                    v-model="details.last_name"
+                                    :class="{ 'server-input-vilidation': errors.last_name }"
+                                    class="form-control"
+                                    placeholder="Last Name"
+                                    required
+                                    type="text"
+                                />
+                                <div class="text-left">
+                                    <span v-if="errors.last_name" class="server-error">{{ errors.last_name[0] }}</span>
+                                    <span v-if="!errors.last_name" class="server-error">&nbsp</span>
+                                    <i class="validation"><span></span><span></span></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input
+                                    id="address"
+                                    v-model="details.address"
+                                    :class="{ 'server-input-vilidation': errors.address }"
+                                    class="form-control"
+                                    placeholder="Address"
+                                    required
+                                    type="text"
+                                />
+                                <div class="text-left">
+                                    <span v-if="errors.address" class="server-error">{{ errors.address[0] }}</span>
+                                    <span v-if="!errors.address" class="server-error">&nbsp</span>
+                                    <i class="validation"><span></span><span></span></i>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <input
+                                    id="city"
+                                    v-model="details.city"
+                                    :class="{ 'server-input-vilidation': errors.city }"
+                                    class="form-control"
+                                    placeholder="City"
+                                    required
+                                    type="text"
+                                />
+                                <div class="text-left">
+                                    <span v-if="errors.city" class="server-error">{{ errors.city[0] }}</span>
+                                    <span v-if="!errors.city" class="server-error">&nbsp</span>
+                                    <i class="validation"><span></span><span></span></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input
+                                    id="phone"
+                                    v-model="details.phone"
+                                    :class="{ 'server-input-vilidation': errors.phone }"
+                                    class="form-control"
+                                    placeholder="Phone Number"
+                                    required
+                                    type="text"
+                                />
+                                <div class="text-left">
+                                    <span v-if="errors.phone" class="server-error">{{ errors.phone[0] }}</span>
+                                    <span v-if="!errors.phone" class="server-error">&nbsp</span>
+                                    <i class="validation"><span></span><span></span></i>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <input
+                                    id="email"
+                                    v-model="details.email"
+                                    :class="{ 'server-input-vilidation': errors.email }"
+                                    class="form-control"
+                                    placeholder="E-mail"
+                                    type="email"/>
+                                <div class="text-left">
+                                    <span v-if="errors.email" class="server-error">{{ errors.email[0] }}</span>
+                                    <span v-if="!errors.email" class="server-error">
                             &nbsp
                             </span>
-                        <i class="validation"><span></span><span></span></i>
+                                    <i class="validation"><span></span><span></span></i>
+                                </div>
+                            </div>
                         </div>
-                        </p>
-                        <p>
-                            <input
-                                type="text"
-                                class="form-control"
-                                :class="{ 'server-input-vilidation': errors.last_name }"
-                                id="last_name"
-                                v-model="details.last_name"
-                                placeholder="Enter Last Name"
-                                required
-                            />
-                        <div class="text-left">
-                            <span class="server-error" v-if="errors.last_name">{{ errors.last_name[0] }}</span>
-                            <span class="server-error" v-if="!errors.last_name">
-                            &nbsp
-                            </span>
-                            <i class="validation"><span></span><span></span></i>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input
+                                    id="password"
+                                    v-model="details.password"
+                                    :class="{ 'server-input-vilidation': errors.password }"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    type="password"/>
+                                <div class="text-left">
+                                    <span v-if="errors.password" class="server-error">{{ errors.password[0] }}</span>
+                                    <span v-if="!errors.password" class="server-error">&nbsp</span>
+                                    <i class="validation"><span></span><span></span></i>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <input
+                                    id="password_confirmation"
+                                    v-model="details.password_confirmation"
+                                    :class="{ 'server-input-vilidation': errors.password }"
+                                    class="form-control"
+                                    placeholder="Confirm password"
+                                    type="password"/>
+                                <div class="text-left">
+                                    <span v-if="errors.password" class="server-error">{{ errors.password[0] }}</span>
+                                    <span v-if="!errors.password" class="server-error">&nbsp</span>
+                                    <i class="validation"><span></span><span></span></i>
+                                </div>
+                            </div>
                         </div>
-                        </p>
-                        <p>
-                            <input
-                                type="text"
-                                class="form-control"
-                                :class="{ 'server-input-vilidation': errors.phone }"
-                                id="phone"
-                                v-model="details.phone"
-                                placeholder="Enter Phone Number"
-                                required
-                            />
-                        <div class="text-left">
-                            <span class="server-error" v-if="errors.phone">{{ errors.phone[0] }}</span>
-                            <span class="server-error" v-if="!errors.phone">
-                            &nbsp
-                            </span>
-                            <i class="validation"><span></span><span></span></i>
-                        </div>
-                        </p>
-                        <p>
-                            <input
-                                type="text"
-                                class="form-control"
-                                :class="{ 'server-input-vilidation': errors.address }"
-                                id="address"
-                                v-model="details.address"
-                                placeholder="Enter Address"
-                                required
-                            />
-                        <div class="text-left">
-                            <span class="server-error" v-if="errors.address">{{ errors.address[0] }}</span>
-                            <span class="server-error" v-if="!errors.address">
-                            &nbsp
-                            </span>
-                            <i class="validation"><span></span><span></span></i>
-                        </div>
-                        </p>
-                        <p>
-                            <input
-                                type="text"
-                                class="form-control"
-                                :class="{ 'server-input-vilidation': errors.city }"
-                                id="city"
-                                v-model="details.city"
-                                placeholder="Enter City"
-                                required
-                            />
-                        <div class="text-left">
-                            <span class="server-error" v-if="errors.city">{{ errors.city[0] }}</span>
-                            <span class="server-error" v-if="!errors.city">
-                            &nbsp
-                            </span>
-                            <i class="validation"><span></span><span></span></i>
-                        </div>
-                        </p>
-                        <p>
-                            <input
-                                type="email"
-                                class="form-control"
-                                :class="{ 'server-input-vilidation': errors.email }"
-                                id="email"
-                                v-model="details.email"
-                                placeholder="Enter email"/>
-                        <div class="text-left">
-                            <span class="server-error" v-if="errors.email">{{ errors.email[0] }}</span>
-                            <span class="server-error" v-if="!errors.email">
-                            &nbsp
-                            </span>
-                            <i class="validation"><span></span><span></span></i>
-                        </div>
-
-                        </p>
-                        <p>
-                            <input
-                                type="password"
-                                class="form-control"
-                                :class="{ 'server-input-vilidation': errors.password }"
-                                id="password"
-                                v-model="details.password"
-                                placeholder="Password"/>
-                        <div class="text-left">
-                            <span class="server-error" v-if="errors.password">{{ errors.password[0] }}</span>
-                            <span class="server-error" v-if="!errors.password">
-                            &nbsp
-                            </span>
-                            <i class="validation"><span></span><span></span></i>
-                        </div>
-
-                        </p>
-                        <p>
-                            <input
-                                type="password"
-                                class="form-control"
-                                :class="{ 'server-input-vilidation': errors.password }"
-                                id="password_confirmation"
-                                v-model="details.password_confirmation"
-                                placeholder="Confirm password"/>
-                        <div class="text-left">
-                            <span class="server-error" v-if="errors.password">{{ errors.password[0] }}</span>
-                            <span class="server-error" v-if="!errors.password">
-                            &nbsp
-                            </span>
-                            <i class="validation"><span></span><span></span></i>
-                        </div>
-                        </p>
-                        <p>
-                            <button
-                                type="button"
-                                @click="register"
-                            >Sign Up
-                            </button>
+                            <button type="button" @click="register">Sign Up</button>
                             <span class="server-vilidation">&nbsp</span>
-                        </p>
                     </form>
                     <div class="create-account-wrap">
                         <p>Already member ?
@@ -168,6 +154,7 @@
 
 <script>
 import {mapGetters, mapActions} from "vuex";
+
 export default {
     name: "Home",
 

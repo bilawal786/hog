@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Lead;
 
+use App\User;
 use App\Http\Controllers\Controller;
+use App\Mail\AssignDriver;
+use App\Mail\Others;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\DriverLeads;
+use Illuminate\Support\Facades\Mail;
 
 class LeadController extends Controller
 {
@@ -51,6 +55,8 @@ class LeadController extends Controller
             'driver_cost' => 'required',
             'status' => 'required',
             ]);
+
+
             $driver_lead = new DriverLeads;
             $driver_lead->driver_id = $request->driver_id;
             $driver_lead->ride_id = $request->ride_id;
@@ -64,7 +70,10 @@ class LeadController extends Controller
             $driver_lead->reject = $request->reject;
             $driver_lead->complete = $request->complete;
             $driver_lead->save();
-
+            $driver=DriverLeads::with('driver', 'leads')->where('id', $driver_lead->id)->first();
+            Mail::to($driver->driver->email)
+                ->cc('hzohaib73@gmail.com')
+                ->send(new AssignDriver($driver_lead));
            return response()->json([
                "driver" => "Successfully Created"
            ]);

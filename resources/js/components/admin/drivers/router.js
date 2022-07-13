@@ -5,9 +5,7 @@ Vue.use(VueRouter);
 
 import driverlistView from "./driverlistView";
 import driverCreate from "./driverCreate";
-import driverEidt from "./driverEdit";
 import driverDetail from "./driverDetail";
-
 
 const routes = [
     {

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\WebUser\Payment;
 
 use App\Http\Controllers\Controller;
+use App\Mail\RequestRide;
 use App\SendMessage;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
@@ -64,6 +66,9 @@ class PaymentController extends Controller
     {
         SendMessage::where('id', $id)->update(['payment' => 'yes']);
         $data = SendMessage::where('id', $id)->first();
+        Mail::to($data->email)
+            ->cc('hzohaib73@gmail.com')
+            ->send(new RequestRide($data));
         return view('front.payment.successa', compact('data'));
     }
 

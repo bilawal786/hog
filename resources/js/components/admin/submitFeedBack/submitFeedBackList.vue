@@ -29,9 +29,11 @@
                                         <td colspan="6" class="tb-empty">No Record Found</td>
                                     </tr>
                                     <tr v-else v-for="feedback in feedbacks.data" :key="feedback.id">
-                                        <td>{{ feedback.Fname + ' ' + feedback.Lname }}</td>
-                                        <td>{{ feedback.email }}</td>
-                                        <td>{{ feedback.phone }}</td>
+
+                                        <td v-if="feedback.user_id == null">{{ feedback.Fname + ' ' + feedback.Lname }}</td>
+                                        <td v-else><a v-bind:href="'/client/detail/'+feedback.user_id">{{ feedback.Fname + ' ' + feedback.Lname }}</a></td>
+                                        <td><a v-bind:href="'mailto:'+feedback.email">{{ feedback.email }}</a></td>
+                                        <td><a v-bind:href="'tel:'+feedback.phone">{{ feedback.phone }}</a></td>
                                         <td>{{ feedback.account }}</td>
                                         <td>{{ feedback.message }}</td>
                                         <td>

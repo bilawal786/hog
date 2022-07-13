@@ -14,7 +14,7 @@
 
         @if (Auth::user()->role == 'admin')
             <li>
-                <a class="{{ request()->is('clints*') || request()->is('driver*') ? 'active' : '' }}"
+                <a class="{{ request()->is('client*') || request()->is('driver*') ? 'active' : '' }}"
                    data-toggle="collapse" data-target="#dashboard_dr">
                     <div class="pull-left">
                         <i class="zmdi zmdi-account mr-20"></i>
@@ -27,11 +27,11 @@
                 </a>
                 <ul id="dashboard_dr" class="collapse collapse-level-1">
                     <li>
-                        <a class="{{ request()->is('clints') ? 'active-page' : '' }}"
-                           href="{{ route('clients')}}">Clients</a>
+                        <a class="{{ request()->is('client*') ? 'active-page' : '' }}"
+                           href="{{ url('/client/list')}}">Clients</a>
                     </li>
                     <li>
-                        <a class="{{ request()->is('driver') ? 'active-page' : '' }}"
+                        <a class="{{ request()->is('driver*') ? 'active-page' : '' }}"
                            href="{{ url('/driver/list') }}">Drivers</a>
                     </li>
                 </ul>

@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::group(['middleware' => 'admin'], function(){
         Route::get('general/setting', 'Admin\Setting\GeneralSettingController@generalsetting')->name('generalsetting');
         Route::post('general/setting', 'Admin\Setting\GeneralSettingController@updategeneralsetting')->name('updategeneralsetting');
-        Route::get('clints', 'Admin\ClientsController@clients')->name('clients');
+        Route::get('client/{any}', 'Admin\ClientsController@clients')->where('any', '.*')->name('clients');
         Route::get('driver/{any}', 'Admin\DriversController@drivers')->where('any', '.*')->name('drivers');
 //        Route::post('drivers', 'Admin\DriversController@addDriver')->name('add.drivers');
 

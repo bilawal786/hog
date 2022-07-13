@@ -23,13 +23,16 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
                                         <tbody>
-
+                                        <tr v-if="others.data == ''">
+                                            <td colspan="5" class="tb-empty">No Record Found</td>
+                                        </tr>
                                             <tr v-for="other in others.data" :key="other.id">
                                                 <td>{{ other.Fname + ' ' + other.Lname }}</td>
                                                 <td>{{ other.email }}</td>
                                                 <td>{{ other.phone }}</td>
+                                                <td><a v-bind:href="'mailto:'+other.email">{{ other.email }}</a></td>
+                                                <td><a v-bind:href="'tel:'+other.phone">{{ other.phone }}</a></td>
                                                 <td>{{ other.message }}</td>
                                                 <td>
                                                     <button class="btn btn-default btn-icon-anim btn-circle btn-sm"><i

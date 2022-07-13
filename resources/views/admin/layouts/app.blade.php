@@ -12,6 +12,10 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="{{asset('images/favicon-16x16.ico')}}" type="image/x-icon">
     <style>
+        .fam{
+            margin-left: -12px;
+            margin-right: 8px;
+        }
         .c-err{
             margin: 0;
             padding: 0;

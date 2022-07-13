@@ -16,7 +16,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(item, index) in getOthers" :key="index">
+                    <tr v-if="getOthers == ''">
+                        <td colspan="5" class="text-center">No Record</td>
+                    </tr>
+                    <tr v-else v-for="(item, index) in getOthers" :key="index">
                         <th scope="row">{{ index + 1 }}</th>
                         <td>{{ item.Lname }}</td>
                         <td>{{ item.Fname }}</td>

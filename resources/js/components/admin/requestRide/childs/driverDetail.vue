@@ -7,7 +7,7 @@
                     <tr>
                         <td class="border-none">Driver Name:</td>
                         <td class="border-none">
-                            {{ selectdriver.name }}
+                            {{ selectdriver.first_name+' '+selectdriver.last_name }}
                         </td>
                     </tr>
                     <tr>

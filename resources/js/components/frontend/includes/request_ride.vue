@@ -22,7 +22,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(item, index) in getRequestRide" :key="index">
+                    <tr v-if="getRequestRide == ''">
+                        <td colspan="11" class="text-center">No Record</td>
+                    </tr>
+                    <tr v-else v-for="(item, index) in getRequestRide" :key="index">
                         <td>{{ item.Lname }}</td>
                         <td>{{ item.Fname }}</td>
                         <td>{{ item.user.address }}</td>

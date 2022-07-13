@@ -17,7 +17,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="(item, index) in getFeedbacks" :key="index">
+                    <tr v-if="getFeedbacks == ''">
+                        <td colspan="6" class="text-center">No Record</td>
+                    </tr>
+                    <tr v-else v-for="(item, index) in getFeedbacks" :key="index">
                         <td>{{ item.Lname }}</td>
                         <td>{{ item.Fname }}</td>
                         <td>{{ item.email }}</td>

@@ -30,9 +30,10 @@
                                         <td colspan="7" class="tb-empty">No Record Found</td>
                                     </tr>
                                     <tr v-else v-for="question in questions.data" :key="question.id">
-                                        <td>{{ question.Fname + ' ' + question.Lname }}</td>
-                                        <td>{{ question.email }}</td>
-                                        <td>{{ question.phone }}</td>
+                                        <td v-if="question.user_id == null">{{ question.Fname + ' ' + question.Lname }}</td>
+                                        <td v-else><a v-bind:href="'/client/detail/'+question.user_id">{{ question.Fname + ' ' + question.Lname }}</a></td>
+                                        <td><a v-bind:href="'mailto:'+question.email">{{ question.email }}</a></td>
+                                        <td><a v-bind:href="'tel:'+question.phone">{{ question.phone }}</a></td>
                                         <td>{{ question.account }}</td>
                                         <td>{{ question.invoice }}</td>
                                         <td>{{ question.message }}</td>
