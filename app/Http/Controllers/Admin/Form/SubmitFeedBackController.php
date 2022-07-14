@@ -20,7 +20,17 @@ class SubmitFeedBackController extends Controller
     }
     public function index()
     {
-        $feedBacks = SendMessage::where('type', 'Submit Feedback')->orderBy('id', 'desc')->paginate(10);
+        $search = request()->search;
+        $limit = request()->limit;
+        $feedBacks = SendMessage::where('type', 'Submit Feedback')
+//            ->where('Fname','like','%'.$search.'%')
+//            ->orwhere('Lname','like','%'.$search.'%')
+//            ->orwhere('email','like','%'.$search.'%')
+//            ->orwhere('phone','like','%'.$search.'%')
+//            ->orwhere('message','like','%'.$search.'%')
+            ->orderBy('id', 'desc')
+            ->paginate($limit);
+
         return response()->json($feedBacks);
     }
 

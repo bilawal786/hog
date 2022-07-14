@@ -24,6 +24,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::put('web/unblock/client/{id}', 'Admin\Users\ClientController@unblock');
     // drivers
     Route::resource('web/drivers', 'Admin\Users\DriverController');
+    Route::get('web/all/driver', 'Admin\Users\DriverController@getDriver');
     Route::put('web/block/driver/{id}', 'Admin\Users\DriverController@block');
     Route::put('web/unblock/driver/{id}', 'Admin\Users\DriverController@unblock');
     // driver payment

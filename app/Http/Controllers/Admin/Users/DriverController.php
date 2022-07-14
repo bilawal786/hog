@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Users;
 
+use App\GeneralSetting;
 use App\Http\Controllers\Controller;
 use App\Mail\CreateDriver;
 use App\Mail\RequestRide;
 use Illuminate\Http\Request;
+//use Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\DriverResource;
 use App\User;
@@ -25,10 +27,18 @@ class DriverController extends Controller
     }
     public function index()
     {
-        $drivers = User::where('role', 'driver')->orderBy('id', 'desc')->paginate(10);
+        $search = request()->search;
+        $limit = request()->limit;
+        $drivers = User::where('role', 'driver')
+//            ->where('first_name','like','%'.$search.'%')
+//            ->orwhere('last_name','like','%'.$search.'%')
+//            ->orwhere('email','like','%'.$search.'%')
+//            ->orwhere('phone','like','%'.$search.'%')
+//            ->orwhere('address','like','%'.$search.'%')
+            ->orderBy('id', 'desc')
+            ->paginate($limit);
         return response()->json($drivers);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -47,6 +57,7 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
+        $adminmail = GeneralSetting::find(1)->email;
         $validated = $request->validate([
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
@@ -65,7 +76,7 @@ class DriverController extends Controller
             $save_driver->password = Hash::make($request->password);
             $save_driver->save();
             Mail::to($save_driver->email)
-                ->cc('hzohaib73@gmail.com')
+                ->cc($adminmail)
                 ->send(new CreateDriver($save_driver));
 
         $notification = array(

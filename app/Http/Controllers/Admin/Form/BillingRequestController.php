@@ -20,7 +20,17 @@ class BillingRequestController extends Controller
     }
     public function index()
     {
-        $questions = SendMessage::where('type', 'Billing Question')->orderBy('id', 'desc')->paginate(10);
+        $search = request()->search;
+        $limit = request()->limit;
+        $questions = SendMessage::where('type', '=','Billing Question')
+//            ->orwhere('Fname','like','%'.$search.'%')
+//            ->orwhere('Lname','like','%'.$search.'%')
+//            ->orwhere('email','like','%'.$search.'%')
+//            ->orwhere('phone','like','%'.$search.'%')
+//            ->orwhere('message','like','%'.$search.'%')
+//            ->orwhere('invice','like','%'.$search.'%')
+            ->orderBy('id', 'desc')
+            ->paginate($limit);
         return response()->json($questions);
     }
 
@@ -54,6 +64,7 @@ class BillingRequestController extends Controller
     public function show($id)
     {
         $question = SendMessage::where('type', 'Billing Question')->where('id', $id)->first();
+
         return response()->json($question);
     }
 

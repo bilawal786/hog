@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\GeneralSetting;
 use App\Mail\BillingQuestion;
 use App\Mail\Feedback;
 use App\Mail\Others;
@@ -17,6 +18,7 @@ use Illuminate\Validation\ValidationException;
 class SendMessageController extends Controller
 {
     public function sendMessage(Request $request){
+        $adminmail = GeneralSetting::find(1)->email;
 
         switch ($request->type) {
             case "Submit Feedback":
@@ -47,7 +49,7 @@ class SendMessageController extends Controller
                 $send_message->user_id = $request->user_id;
                 $send_message->save();
                 Mail::to($send_message->email)
-                    ->cc('hzohaib73@gmail.com')
+                    ->cc($adminmail)
                     ->send(new Feedback($send_message));
                 $notification = array(
                     'messege' => 'Submit Feedback successfully!',
@@ -86,7 +88,7 @@ class SendMessageController extends Controller
                 $send_message->user_id = $request->user_id;
                 $send_message->save();
                 Mail::to($send_message->email)
-                    ->cc('hzohaib73@gmail.com')
+                    ->cc($adminmail)
                     ->send(new BillingQuestion($send_message));
                 $notification = array(
                     'messege' => 'Billing Question successfully!',
@@ -203,7 +205,7 @@ class SendMessageController extends Controller
                 $send_message->user_id = $request->user_id;
                 $send_message->save();
                 Mail::to($send_message->email)
-                    ->cc('hzohaib73@gmail.com')
+                    ->cc($adminmail)
                     ->send(new Others($send_message));
                 $notification = array(
                     'messege' => 'Others querry successfully!',

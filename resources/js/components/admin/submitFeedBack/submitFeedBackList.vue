@@ -12,42 +12,59 @@
                     <div class="panel-body">
                         <div class="table-wrap">
                             <div class="table-responsive">
-                                <table id="" class="table table-hover display  pb-30">
-                                    <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>E-mail</th>
-                                        <th>Phone #</th>
-                                        <th>Account</th>
-                                        <th>Message</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
+                                <div class="dataTables_wrapper">
+                                    <div class="dataTables_length">
+                                        <label>Show
+                                            <select class="" v-model="limit" v-on:change="getFeedbacks()">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> entries
+                                        </label>
+                                    </div>
+                                    <div class="dataTables_filter">
+                                        <label>Search:
+                                            <input type="search" class="" v-model="search" v-on:input="getFeedbacks()" placeholder="Search Driver">
+                                        </label>
+                                    </div>
+                                    <table id="" class="table table-hover display  pb-30">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>E-mail</th>
+                                            <th>Phone #</th>
+                                            <th>Account</th>
+                                            <th>Message</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
 
-                                    <tbody>
-                                    <tr v-if="feedbacks.data == ''">
-                                        <td colspan="6" class="tb-empty">No Record Found</td>
-                                    </tr>
-                                    <tr v-else v-for="feedback in feedbacks.data" :key="feedback.id">
+                                        <tbody>
+                                        <tr v-if="feedbacks.data == ''">
+                                            <td colspan="6" class="tb-empty">No Record Found</td>
+                                        </tr>
+                                        <tr v-else v-for="feedback in feedbacks.data" :key="feedback.id">
 
-                                        <td v-if="feedback.user_id == null">{{ feedback.Fname + ' ' + feedback.Lname }}</td>
-                                        <td v-else><a v-bind:href="'/client/detail/'+feedback.user_id">{{ feedback.Fname + ' ' + feedback.Lname }}</a></td>
-                                        <td><a v-bind:href="'mailto:'+feedback.email">{{ feedback.email }}</a></td>
-                                        <td><a v-bind:href="'tel:'+feedback.phone">{{ feedback.phone }}</a></td>
-                                        <td>{{ feedback.account }}</td>
-                                        <td>{{ feedback.message }}</td>
-                                        <td>
-                                            <router-link class="btn btn-default btn-icon-anim btn-circle btn-sm"
-                                                         :to="'/feedback/edit/'+feedback.id"><i class="fa fa-pencil"></i></router-link>
-                                            <router-link class="btn btn-success btn-icon-anim btn-circle btn-sm"
-                                                         :to="'/feedback/detail/'+feedback.id"><i
-                                                class="fa fa-eye"></i></router-link>
-                                            <button class="btn btn-info btn-icon-anim btn-circle btn-sm" @click="deletebyid(feedback.id)"><i
-                                                class="icon-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                            <td v-if="feedback.user_id == null">{{ feedback.Fname + ' ' + feedback.Lname }}</td>
+                                            <td v-else><a v-bind:href="'/client/detail/'+feedback.user_id">{{ feedback.Fname + ' ' + feedback.Lname }}</a></td>
+                                            <td><a v-bind:href="'mailto:'+feedback.email">{{ feedback.email }}</a></td>
+                                            <td><a v-bind:href="'tel:'+feedback.phone">{{ feedback.phone }}</a></td>
+                                            <td>{{ feedback.account }}</td>
+                                            <td>{{ feedback.message }}</td>
+                                            <td>
+                                                <router-link class="btn btn-default btn-icon-anim btn-circle btn-sm"
+                                                             :to="'/feedback/edit/'+feedback.id"><i class="fa fa-pencil"></i></router-link>
+                                                <router-link class="btn btn-success btn-icon-anim btn-circle btn-sm"
+                                                             :to="'/feedback/detail/'+feedback.id"><i
+                                                    class="fa fa-eye"></i></router-link>
+                                                <button class="btn btn-info btn-icon-anim btn-circle btn-sm" @click="deletebyid(feedback.id)"><i
+                                                    class="icon-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <div class="">
@@ -69,6 +86,8 @@ export default {
     data(){
         return{
             feedbacks: null,
+            search:'',
+            limit:10
         }
     },
     mounted(){
@@ -76,7 +95,7 @@ export default {
     },
     methods:{
         getFeedbacks: function (page = 1) {
-            axios.get('admin/web/form/submit/feedback?page='+page).then(response => {
+            axios.get('admin/web/form/submit/feedback?page='+page+"&search="+this.search+"&limit="+this.limit).then(response => {
                 this.feedbacks = response.data
                 console.log(response.data)
             })

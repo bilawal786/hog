@@ -8,7 +8,7 @@
                         <h6 class="panel-title txt-dark">Billing details</h6>
                     </div>
                     <div class="pull-right">
-                        <router-link class="btn btn-primary btn-anim btn-sm" to="/admin/form/billing/question/list"><i class="fa fa-arrow-left" style="color: #FFF;"></i><span class="btn-text">back</span></router-link>
+                        <router-link class="btn btn-primary btn-anim btn-sm" to="/question/list"><i class="fa fa-arrow-left" style="color: #FFF;"></i><span class="btn-text">back</span></router-link>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -91,6 +91,7 @@ export default {
         getQuestionDetail: function (id) {
             axios.get('admin/web/form/billing/request/' + id).then(response => {
                 this.questionDetail = response.data
+                console.log('zohaib')
             })
         },
     }

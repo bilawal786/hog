@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\WebUser\Payment;
 
+use App\GeneralSetting;
 use App\Http\Controllers\Controller;
 use App\Mail\RequestRide;
 use App\SendMessage;
@@ -64,10 +65,11 @@ class PaymentController extends Controller
 
     public function success($id)
     {
+        $adminmail = GeneralSetting::find(1)->email;
         SendMessage::where('id', $id)->update(['payment' => 'yes']);
         $data = SendMessage::where('id', $id)->first();
         Mail::to($data->email)
-            ->cc('hzohaib73@gmail.com')
+            ->cc($adminmail)
             ->send(new RequestRide($data));
         return view('front.payment.successa', compact('data'));
     }

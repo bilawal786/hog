@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Lead;
 
+use App\GeneralSetting;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Mail\AssignDriver;
@@ -46,6 +47,7 @@ class LeadController extends Controller
      */
     public function store(Request $request)
     {
+        $adminmail = GeneralSetting::find(1)->email;
         $validated = $request->validate([
             'driver_id' => 'required',
             'ride_id' => 'required',
@@ -72,7 +74,7 @@ class LeadController extends Controller
             $driver_lead->save();
             $driver=DriverLeads::with('driver', 'leads')->where('id', $driver_lead->id)->first();
             Mail::to($driver->driver->email)
-                ->cc('hzohaib73@gmail.com')
+                ->cc($adminmail)
                 ->send(new AssignDriver($driver_lead));
            return response()->json([
                "driver" => "Successfully Created"

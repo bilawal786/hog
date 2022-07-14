@@ -7,7 +7,7 @@
                         <h6 class="panel-title txt-dark">Billing Update</h6>
                     </div>
                     <div class="pull-right">
-                        <router-link class="btn btn-primary btn-anim btn-sm" to="/admin/form/submit/feedback/list"><i
+                        <router-link class="btn btn-primary btn-anim btn-sm" to="/question/list"><i
                             class="fa fa-arrow-left" style="color: #FFF;"></i><span class="btn-text">back</span>
                         </router-link>
                     </div>
@@ -134,7 +134,7 @@ export default {
         getQuestionDetail: function (id) {
             axios.get('admin/web/form/billing/request/' + id).then(response => {
                 this.question = response.data
-                console.log(response.data)
+                console.log('zohaib')
             })
         },
         updatebyid: function(){

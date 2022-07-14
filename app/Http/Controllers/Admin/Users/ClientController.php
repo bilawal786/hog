@@ -20,7 +20,16 @@ class ClientController extends Controller
     }
     public function index()
     {
-        $clients = User::where('role', 'user')->orderBy('id', 'desc')->paginate(10);
+        $search = request()->search;
+        $limit = request()->limit;
+        $clients = User::where('role', 'user')
+//            ->where('first_name','like','%'.$search.'%')
+//            ->orwhere('last_name','like','%'.$search.'%')
+//            ->orwhere('email','like','%'.$search.'%')
+//            ->orwhere('phone','like','%'.$search.'%')
+//            ->orwhere('address','like','%'.$search.'%')
+            ->orderBy('id', 'desc')
+            ->paginate($limit);
         return response()->json($clients);
     }
 
