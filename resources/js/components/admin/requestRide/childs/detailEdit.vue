@@ -12,6 +12,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10">First Name</label>
                                                 <input type="text" class="form-control" placeholder="First Name" v-model="ride.Fname">
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.Fname" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -19,7 +22,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Last Name</label>
                                                 <input type="text" class="form-control" placeholder="Last Name" v-model="ride.Lname">
-
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.Lname" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -29,6 +34,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10">E-Mail</label>
                                                 <input type="email" class="form-control" placeholder="E-mail" v-model="ride.email">
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.email" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -36,6 +44,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Phone</label>
                                                 <input type="text" class="form-control" placeholder="Last Name" v-model="ride.phone">
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.phone" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -45,6 +56,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Card on File Y/N</label>
                                                 <input type="text" class="form-control" placeholder="Card on File Y/N (Yes-2/26)" v-model="ride.card_on_file">
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.card_on_file" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -52,6 +66,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Relative</label>
                                                 <input type="text" class="form-control" placeholder="Relative" v-model="ride.relative">
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.relative" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -60,7 +77,10 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Relative No.</label>
-                                                <input type="text" class="form-control" placeholder="Relative Phone No." v-model="ride.card_on_file">
+                                                <input type="text" class="form-control" placeholder="Relative Phone No." v-model="ride.relative_no">
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.relative_no" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -68,6 +88,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Facility</label>
                                                 <input type="text" class="form-control" placeholder="Facility" v-model="ride.facility">
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.facility" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -133,11 +156,17 @@
                                                     }" :phrases="{ ok: 'Continue', cancel: 'Exit' }" :hour-step="1"
                                                     :minute-step="1" :week-start="7" use12-hour auto></datetime>
                                             </div>
+                                            <ul class="c-err" v-if="errorshow">
+                                                <li class="c-err-li" v-for="error in errorshow.trip_date" :key="error">{{error}}</li>
+                                            </ul>
                                         </div>
                                         <div class="col-md-6 " v-if="ride.round_trip == 'yes'">
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Waiting</label>
                                                 <input type="text" class="form-control" placeholder="Waiting in hours" v-model="ride.waiting">
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.waiting" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -146,6 +175,9 @@
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Message</label>
                                                 <textarea class="form-control" rows="5" v-model="ride.message"></textarea>
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.message" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
 
@@ -158,6 +190,9 @@
                                                 <vue-google-autocomplete v-model="ride.start_address" types="establishment" ref="addressStart" v-on:placechanged="getAddressStart" id="mapStart"
                                                     classname="form-control" placeholder="Start" country="us">
                                                 </vue-google-autocomplete>
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.start_address" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -167,6 +202,9 @@
                                                 <vue-google-autocomplete v-model="ride.end_address" types="establishment" ref="addressEnd" v-on:placechanged="getAddressEnd" id="mapEnd"
                                                     classname="form-control" placeholder="End" country="us">
                                                 </vue-google-autocomplete>
+                                                <ul class="c-err" v-if="errorshow">
+                                                    <li class="c-err-li" v-for="error in errorshow.end_address" :key="error">{{error}}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -177,12 +215,19 @@
                                                 <span>Cost</span>
                                                 <i class="zmdi zmdi-money"></i>
                                             </button>
-                                            <span>{{ride.cost}}</span>
+                                            <span> $ {{ride.cost}}</span>
+                                            <br>
+                                            <ul class="c-err" v-if="errorshow">
+                                                <li class="c-err-li" v-for="error in errorshow.cost" :key="error">{{error}}</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-actions mt-10">
-                                    <button type="button" class="btn btn-success  mr-10" @click="updateRideDetailById(rideId)"> Update</button>
+                                    <button type="button" class="btn btn-success  mr-10" @click="updateRideDetailById(rideId)" :disabled="isloading">
+                                        <span v-if="isloading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                                        <span v-else>Update</span>
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -198,6 +243,7 @@ export default {
     props: ['rideId'],
     data() {
         return {
+            isloading:false,
             ride: {
                 type: null,
                 Fname: null,
@@ -232,6 +278,7 @@ export default {
                 holiday:null,
                 totalCost:null,
             },
+            errorshow:null,
         }
     },
     components: {
@@ -284,8 +331,10 @@ export default {
             }, () => {
             }).then((result) => {
                 if (result.value) {
+                    this.isloading=true,
                      axios.put("admin/web/form/request/ride/" + id, this.ride).then(response => {
-                            window.scrollTo(0, 0)
+                         window.scrollTo(0, 0)
+                         this.isloading=false
                             if (response.status == 200) {
                                 window.scrollTo(0, 0)
                                 switch(response.data.type){
@@ -305,8 +354,14 @@ export default {
                             } else {
 
                             }
-                        })
+                        }).catch(err=>
+                     {
+                         this.isloading=false
+                         this.errorshow = err.response.data.errors
+                     })
                 }
+            }).catch(()=>{
+                // this.isloading=false
             })
         },
         getAddressStart: function (addressData, placeResultData, id) {

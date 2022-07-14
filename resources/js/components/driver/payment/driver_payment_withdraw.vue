@@ -8,7 +8,10 @@
                             <h6 class="panel-title txt-dark">Payment WithDraw</h6>
                         </div>
                         <div class="pull-right" v-if="payment">
-                            <button class="btn btn-primary" @click="requestWithdraw()" :disabled="payment.total == 0">$ {{payment.total}} withDraw</button>
+                            <button class="btn btn-primary" @click="requestWithdraw()" :disabled="payment.total == 0 || isloading">
+                                <span v-if="isloading"><i class="fam fa fa-spinner fa-spin" style="color:#FFFFFF;"></i>Loading</span>
+                                <span v-else>$ {{payment.total}} withDraw</span>
+                            </button>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -64,6 +67,7 @@ export default {
     name: "driver_payment_withdraw",
     data(){
         return{
+            isloading:false,
             payment:null,
             tabledata:null,
         }
@@ -96,6 +100,7 @@ export default {
             },() => {
             }).then((result) => {
                 if (result.value) {
+                    this.isloading=true
                     axios.put('admin/web/payment/driver/'+this.payment.driver_id, {
                         'status' : '1'
                     })
@@ -108,7 +113,7 @@ export default {
                                 'status' : '0',
                                 'with_draw' : this.payment.total
                             }).then(response=>{
-
+                                this.isloading=false
                             });
                             switch(response.data.type){
                                 case 'info':

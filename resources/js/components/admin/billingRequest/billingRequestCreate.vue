@@ -96,7 +96,10 @@
                                 </div>
                             </div>
                             <div class="form-actions mt-10">
-                                <button type="button" class="btn btn-success  mr-10" @click="updatebyid()"> Update</button>
+                                <button type="button" class="btn btn-success  mr-10" @click="updatebyid()" :disabled="isloading">
+                                    <span v-if="isloading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                                    <span v-else>Update</span>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -111,6 +114,7 @@ export default {
     name: "billingRequestCreate",
     data(){
         return{
+            isloading:false,
             question:{
                 Fname: null,
                 Lname: null,
@@ -134,8 +138,10 @@ export default {
             })
         },
         updatebyid: function(){
+            this.isloading=true
             axios.put('admin/web/form/billing/request/'+this.$route.params.id, this.question).then(response => {
                 window.scrollTo(0, 0)
+                this.isloading=false
                 this.question.Fname=null
                 this.question.Lname=null
                 this.question.email=null
@@ -160,6 +166,7 @@ export default {
                 }
             }).catch(err=>
             {
+                this.isloading=false
                 this.errorshow = err.response.data.errors
             })
         }

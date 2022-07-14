@@ -87,7 +87,7 @@
                     </td>
                 </tr>
             </table>
-            <table class="table table-bordered table-hover input-content" v-if="passwordEdit == true">
+            <table class="table table-bordered table-hover" v-if="passwordEdit == true">
                 <tr>
                     <th width="25%">Old Password*</th>
                     <td width="2%">:</td>
@@ -121,9 +121,15 @@
             </table>
 
             <button type="button" class="btn btn-hog" :disabled="passwordEdit" @click="profileEdit = true" v-if="profileEdit==false">Edit Profile</button>
-            <button type="button" class="btn btn-hog" :disabled="passwordEdit" @click="profileUpdate()" v-if="profileEdit==true">Update Profile</button>
+            <button type="button" class="btn btn-hog" :disabled="passwordEdit || profileLoading" @click="profileUpdate()" v-if="profileEdit==true">
+                <span v-if="profileLoading"><span class="fam fa fa-spinner fa-spin"></span>Loading</span>
+                <span v-else>Update Profile</span>
+            </button>
             <button type="button" class="btn btn-hog" :disabled="profileEdit" @click="passwordEdit = true" v-if="passwordEdit==false">Change Password</button>
-            <button type="button" class="btn btn-hog" :disabled="profileEdit" @click="passwordUpdate()" v-if="passwordEdit==true">Update Password</button>
+            <button type="button" class="btn btn-hog" :disabled="profileEdit || passwordLoading" @click="passwordUpdate()" v-if="passwordEdit==true">
+                <span v-if="passwordLoading"><span class="fam fa fa-spinner fa-spin"></span>Loading</span>
+                <span v-else>Update Password</span>
+            </button>
         </div>
 
     </div>
@@ -135,6 +141,8 @@ import { mapGetters } from "vuex";
 export default {
     data(){
         return{
+            profileLoading:false,
+            passwordLoading:false,
             profileEdit : false,
             passwordEdit: false,
             password:{
@@ -157,8 +165,10 @@ export default {
         // some code to filter users
         },
         profileUpdate(){
+            this.profileLoading=true
             axios.put('update/profile/'+this.user.id, this.user).then(response => {
                 if(response.status == 200){
+                    this.profileLoading=false
                     this.profileEdit = false
                     this.passwordEdit = false
                     this.$store.commit("auth/setErrors", {});
@@ -179,11 +189,15 @@ export default {
                     }
                 }
 
+            }).catch(()=>{
+                this.profileLoading=false
             })
         },
         passwordUpdate(){
+            this.passwordLoading=true
             axios.put('update/password/'+this.user.id, this.password).then(response => {
                 if(response.status == 200){
+                    this.passwordLoading=false
                     this.profileEdit = false
                     this.passwordEdit = false
                     this.$store.commit("auth/setErrors", {});
@@ -204,6 +218,8 @@ export default {
                     }
                 }
 
+            }).catch(()=>{
+                this.passwordLoading=false
             })
         }
     }

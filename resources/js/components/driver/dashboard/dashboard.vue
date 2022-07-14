@@ -182,13 +182,22 @@
 						<div class="panel-body row">
 							<div class="table-responsive">
 							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'assign'">
-								<button class="btn btn-warning btn-rounded btn-block btn-anim" @click="processRide(leadId)"><i class="zmdi zmdi-truck"></i><span class="btn-text">Process</span></button>
+								<button class="btn btn-warning btn-rounded btn-block btn-anim" @click="processRide(leadId)" :disabled="processLoading">
+                                    <span v-if="processLoading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                                    <span v-else><i class="zmdi zmdi-truck"></i><span class="btn-text">Process</span></span>
+                                </button>
 							</div>
 							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'assign'">
-								<button class="btn btn-danger btn-rounded btn-block btn-anim" @click="rejectRide(leadId)"><i class="zmdi zmdi-close"></i><span class="btn-text">Reject</span></button>
+								<button class="btn btn-danger btn-rounded btn-block btn-anim" @click="rejectRide(leadId)" :disabled="rejectLoading">
+                                    <span v-if="rejectLoading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                                    <span v-else><i class="zmdi zmdi-close"></i><span class="btn-text">Reject</span></span>
+                                </button>
 							</div>
 							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'process'">
-								<button class="btn btn-success btn-rounded btn-block btn-anim" @click="completeRide(leadId)"><i class="zmdi zmdi-check"></i><span class="btn-text">Complete</span></button>
+								<button class="btn btn-success btn-rounded btn-block btn-anim" @click="completeRide(leadId)" :disabled="completeLoading">
+                                    <span v-if="completeLoading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                                    <span v-else><i class="zmdi zmdi-check"></i><span class="btn-text">Complete</span></span>
+                                </button>
 							</div>
 							</div>
 						</div>
@@ -240,6 +249,9 @@ import CountLeads from './driverDashboardContLeads.vue'
 export default{
     data(){
         return{
+            processLoading:false,
+            rejectLoading:false,
+            completeLoading:false,
 			loader:true,
 			leads:null,
 			leadDetail:null,
@@ -290,11 +302,13 @@ export default{
             }, () => {
             }).then((result) => {
                 if (result.value) {
+                    this.processLoading = true
 					axios.put('admin/web/show/driver/leads/'+id, {
 						'status' : 'process',
 						'process': 'yes'
 					}).then(response => {
 						if(response.status == 200){
+                            this.processLoading = true
 							this.leadDetail=null,
 							this.status=null,
 							this.leadId=null,
@@ -316,11 +330,13 @@ export default{
             }, () => {
             }).then((result) => {
                 if (result.value) {
+                    this.rejectLoading=true
 					axios.put('admin/web/show/driver/leads/'+id, {
 						'status' : 'reject',
 						'reject' : 'yes'
 					}).then(response => {
 						if(response.status == 200){
+                            this.rejectLoading=false
 							this.leadDetail=null,
 							this.status=null,
 							this.leadId=null,
@@ -342,11 +358,13 @@ export default{
             }, () => {
             }).then((result) => {
                 if (result.value) {
+                    this.completeLoading=true
 					axios.put('admin/web/show/driver/leads/'+id, {
 						'status' : 'complete',
 						'complete': 'yes'
 					}).then(response => {
 						if(response.status == 200){
+                            this.completeLoading=false
                             this.driverLead(id);
                             this.addDriverPayment();
 							this.leadDetail=null,

@@ -90,7 +90,10 @@
                                 </div>
                             </div>
                             <div class="form-actions mt-10">
-                                <button type="button" class="btn btn-success  mr-10" @click="updatebyid()"> Update</button>
+                                <button type="button" class="btn btn-success  mr-10" @click="updatebyid()" :disabled="isloading">
+                                    <span v-if="isloading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                                    <span v-else>Update</span>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -105,6 +108,7 @@ export default {
     name: "submitFeedBackCreate",
     data(){
         return{
+            isloading:false,
             feedback:{
                 Fname: null,
                 Lname: null,
@@ -126,8 +130,10 @@ export default {
             })
         },
         updatebyid: function(){
+            this.isloading= true
             axios.put('admin/web/form/submit/feedback/'+this.$route.params.id, this.feedback).then(response => {
                 window.scrollTo(0, 0)
+                this.isloading=false
                 this.feedback.Fname=null
                 this.feedback.Lname=null
                 this.feedback.email=null
@@ -151,6 +157,7 @@ export default {
                 }
             }).catch(err=>
             {
+                this.isloading= false
                 this.errorshow = err.response.data.errors
                 console.log(err.response.data.errors)
             })

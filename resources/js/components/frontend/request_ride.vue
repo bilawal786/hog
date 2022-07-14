@@ -104,8 +104,11 @@
                                     <td>$ {{ $route.params.title.cost }}</td>
                                 </tr>
                             </table>
-                            <button class="btn btn-hog" @click="conformData()">Confirm</button>
-                            <button class="btn btn-hog" @click="backRoute()">Back to Edit</button>
+                            <button class="btn btn-hog" @click="conformData()" :disabled="isloading">
+                                <span v-if="isloading"><span class="fam fa fa-spinner fa-spin"></span>Loading</span>
+                                <span v-else>Confirm</span>
+                            </button>
+                            <button class="btn btn-hog" @click="backRoute()" :disabled="isloading">Back to Edit</button>
                         </div>
                     </div>
                 </div>
@@ -127,20 +130,28 @@
 <script>
 
 export default {
+    data(){
+        return{
+            isloading:false
+        }
+    },
     methods: {
         backRoute: function () {
             this.$router.push({name: 'contact', params: {title: this.$route.params.title}})
         },
         conformData: function () {
+            this.isloading=true
             axios.post("send/message", this.$route.params.title)
                 .then(response => {
-                    console.log(response)
+                    this.isloading=false
                     if (response) {
+
                         this.$store.commit("setErrors", {})
                             window.location = "checkout/"+response.data.id;
-                            // this.$router.push({name: 'contact'})
                     }
-                });
+                }).catch(()=>{
+                this.isloading=false
+            });
         }
     },
     mounted() {

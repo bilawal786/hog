@@ -10,12 +10,6 @@ import otherList from "./otherList";
 
 const routes = [
     {
-        name:'otherCreate',
-        path:'/form/other/list',
-        component:otherCreate,
-        meta: { title: 'HOG | Other Create' }
-    },
-    {
         name:'otherdetail',
         path:'/form/other/detail/:id?',
         component:otherdetail,
@@ -23,13 +17,13 @@ const routes = [
     },
     {
         name:'otherList',
-        path:'/form/driver/create',
+        path:'/form/other/list',
         component:otherList,
         meta: { title: 'HOG | Others List' }
     },
     {
         name:'otherUpdate',
-        path:'/form/driver/edit/:id?',
+        path:'/form/other/edit/:id?',
         component:otherCreate,
         meta: { title: 'HOG | Others Update' }
     },

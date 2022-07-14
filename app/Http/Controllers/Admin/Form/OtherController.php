@@ -76,7 +76,25 @@ class OtherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'Fname' => 'required|max:255',
+            'Lname' => 'required|max:255',
+            'email' => 'required|max:255|email',
+            'phone' => 'required|max:255',
+        ]);
+        $data = SendMessage::where('id', $id)->where('type', 'Others')->first();
+
+        $data->Fname = $request->Fname;
+        $data->Lname = $request->Lname;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->message = $request->message;
+        $data->update();
+        $notification = array(
+            'messege' => 'Other successfully Update!',
+            'type' => 'success'
+        );
+        return response()->json($notification);
     }
 
     /**

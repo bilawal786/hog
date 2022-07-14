@@ -40,11 +40,9 @@
                         </div>
                         </p>
                         <p>
-                            <button
-                                type="button"
-                                @click="login"
-                            >
-                                Sign In
+                            <button type="button" @click="login" :disabled="isloading">
+                                <span v-if="isloading"><span class="fam fa fa-spinner fa-spin"></span>Loading</span>
+                                <span v-else>Sign In</span>
                             </button>
                             <span class="server-vilidation">&nbsp</span>
                         </p>
@@ -69,6 +67,7 @@ import {mapGetters, mapActions} from "vuex";
 export default {
     data() {
         return {
+            isloading:false,
             details: {
                 email: "",
                 password: "",
@@ -85,8 +84,12 @@ export default {
     methods: {
         ...mapActions("auth", ["sendLoginRequest"]),
         login: function () {
+            this.isloading = true
             this.sendLoginRequest(this.details).then(response => {
+                this.isloading = false
                 this.$router.push({name: "home"});
+            }).catch(()=>{
+                this.isloading = false
             });
         },
     },

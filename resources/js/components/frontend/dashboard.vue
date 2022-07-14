@@ -1,31 +1,5 @@
 <template>
     <div>
-
-
-<!--        <div class="available-block vehicle-padding bg-gray-color">-->
-<!--            <div class="container">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-md-3">-->
-<!--                        <div class="vehicle-sidebar">-->
-<!--                         <div>-->
-<!--                             <h3>Dashboard</h3>-->
-<!--                         </div>-->
-<!--                        </div>&lt;!&ndash; /.vehicle-sidebar &ndash;&gt;-->
-<!--                    </div>&lt;!&ndash; /.col-md-3 &ndash;&gt;-->
-<!--                    <div class="col-md-9">-->
-
-<!--                    </div>&lt;!&ndash; /.col-md-9 &ndash;&gt;-->
-
-
-<!--                </div>&lt;!&ndash; /.row &ndash;&gt;-->
-<!--            </div>&lt;!&ndash; /.container  &ndash;&gt;-->
-<!--        </div>-->
-
-
-
-
-
-
         <div class="container-fluid">
             <div class="ds-mg-90">
 

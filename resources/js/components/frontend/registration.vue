@@ -137,7 +137,10 @@
                                 </div>
                             </div>
                         </div>
-                            <button type="button" @click="register">Sign Up</button>
+                            <button type="button" @click="register" :disabled="isloading">
+                                <span v-if="isloading"><span class="fam fa fa-spinner fa-spin"></span>Loading</span>
+                                <span v-else>Sign Up</span>
+                            </button>
                             <span class="server-vilidation">&nbsp</span>
                     </form>
                     <div class="create-account-wrap">
@@ -160,6 +163,7 @@ export default {
 
     data: function () {
         return {
+            isloading:false,
             details: {
                 first_name: null,
                 last_name: null,
@@ -184,8 +188,12 @@ export default {
         ...mapActions("auth", ["sendRegisterRequest"]),
 
         register: function () {
+            this.isloading=true
             this.sendRegisterRequest(this.details).then(() => {
+                this.isloading=false
                 this.$router.push({name: "home"});
+            }).catch(()=>{
+                this.isloading = false
             });
         },
     },

@@ -33,25 +33,17 @@
                                             <td colspan="6" class="tb-empty">No Record Found</td>
                                         </tr>
                                         <tr v-else v-for="payment in allPayments.data" :key="payment.id">
-                                            <td><a :href="'/admin/user/driver/detail/'+payment.driver_id" >{{payment.driver.name  }}</a></td>
+                                            <td><a :href="'/driver/detail/'+payment.driver_id" >{{payment.driver.first_name+' '+payment.driver.last_name  }}</a></td>
                                             <td>{{ payment.driver.email }}</td>
                                             <td>$ {{payment.payment}}</td>
                                             <td>
                                                 <span class="text-primary" v-if="payment.status==0">Pending</span>
                                                 <span class="text-warning" v-if="payment.status==1">Process</span>
-                                                <span class="text-warning" v-if="payment.status==2">Approved</span>
+                                                <span class="text-success" v-if="payment.status==2">Approved</span>
                                             </td>
                                             <td>
                                                 <set-date :date="payment.created_at" :year="'yes'"></set-date>
                                             </td>
-<!--                                            <td>-->
-<!--                                                <router-link class="btn btn-default btn-icon-anim btn-circle btn-sm">-->
-<!--                                                    <i class="fa fa-pencil"></i>-->
-<!--                                                </router-link>-->
-<!--                                                <router-link class="btn btn-success btn-icon-anim btn-circle btn-sm">-->
-<!--                                                    <i class="fa fa-eye"></i>-->
-<!--                                                </router-link>-->
-<!--                                            </td>-->
                                         </tr>
                                         </tbody>
                                     </table>

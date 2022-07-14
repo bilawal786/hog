@@ -32,14 +32,17 @@
                                             <td colspan="7" class="tb-empty">No Record Found</td>
                                         </tr>
                                         <tr v-else v-for="withdraw in withdraws.data" :key="withdraw.id">
-                                            <td><a :href="'/admin/user/driver/detail/'+withdraw.driver_id" >{{ withdraw.driver.name }}</a></td>
+                                            <td><a :href="'/driver/detail/'+withdraw.driver_id" >{{ withdraw.driver.first_name+' '+withdraw.driver.last_name }}</a></td>
                                             <td>{{ withdraw.driver.email }}</td>
-                                            <td>{{ withdraw.with_draw }}</td>
+                                            <td>$ {{ withdraw.with_draw }}</td>
                                             <td>
                                                 <set-date :date="withdraw.created_at" :year="'yes'"></set-date>
                                             </td>
                                             <td>
-                                                <button class="btn btn-sm btn-warning" v-if="withdraw.status == '0'" @click="acceptRequest(withdraw.id, withdraw.driver_id)">Process</button>
+                                                <button class="btn btn-sm btn-warning" v-if="withdraw.status == '0'" @click="acceptRequest(withdraw.id, withdraw.driver_id)" :disabled="isloading">
+                                                    <span v-if="isloading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                                                    <span v-else>Process</span>
+                                                </button>
                                                 <button class="btn btn-sm btn-success" v-if="withdraw.status == '1'" disable>Approved</button>
                                             </td>
                                         </tr>
@@ -66,7 +69,8 @@ export default {
     name: "driver_payment_request",
     data(){
         return{
-            withdraws:null
+            withdraws:null,
+            isloading:false
         }
     },
     mounted(){
@@ -92,7 +96,7 @@ export default {
             },() => {
             }).then((result) => {
                 if (result.value) {
-
+                    this.isloading=true
                     axios.put('admin/web/admin/payment/approve/'+id, {
                         'status': 1
                     }).then(response => {
@@ -100,6 +104,7 @@ export default {
                         axios.post('admin/web/payment/payment/change/'+driverId, {
                             'status' : '2'
                         }).then(res => {
+                            this.isloading=false
                             this.getdata()
                         })
                         switch(response.data.type){

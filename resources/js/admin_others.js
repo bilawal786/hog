@@ -23,15 +23,6 @@ Vue.use(VueToastify, {
 }
   );
 
-
-// import VueLazyload from 'vue-lazyload';
-
-// Vue.use(VueLazyload,{
-
-//  loading: base_url+'images/loading.gif',
-
-// });
-
 var app = new Vue({
     el: '#admin',
     router,

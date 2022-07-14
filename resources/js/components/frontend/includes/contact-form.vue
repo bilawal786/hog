@@ -387,18 +387,8 @@ Your Message</textarea
                 <div v-if="sendMessage.type == 'Request Ride'" class="row">
                     <div class="col-md-12">
                         <div class="clearfix">
-                            <button
-                                class="btn-contact"
-                                type="button"
-                                @click="
-                    calculateCost(
-                    sendMessage.start_lat,
-                    sendMessage.start_lng,
-                    sendMessage.end_lat,
-                    sendMessage.end_lng
-                    )
-                "
-                            >
+                            <button class="btn-contact" type="button"
+                                @click="calculateCost(sendMessage.start_lat, sendMessage.start_lng, sendMessage.end_lat, sendMessage.end_lng)">
                                 Calculate Cost
                             </button>
                             <span
@@ -454,12 +444,10 @@ Your Message</textarea
                 <div class="row">
                     <div class="col-md-12">
                         <div class="subimt-button-contact clearfix">
-                            <input
-                                class="submit yellow-button"
-                                type="button"
-                                value="Submit"
-                                @click="sendDatatoDB"
-                            />
+                            <button class="btn btn-lg submit yellow-button" type="button" @click="sendDatatoDB" :disabled="isloading">
+                                <span v-if="isloading"><span class="fam fa fa-spinner fa-spin"></span>Loading</span>
+                                <span v-else>Submit</span>
+                            </button>
                         </div>
                         <!-- /.subimt -->
                     </div>
@@ -480,6 +468,7 @@ export default {
 
     data() {
         return {
+            isloading:false,
             sendMessage: {
                 type: 'Request Ride',
                 Fname: null,
@@ -571,7 +560,7 @@ export default {
             this.calculate.holiday= null
             this.calculate.totalCost= null
 
-            window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
         this.$refs.addressStart.focus();
         this.$refs.addressEnd.focus();
         if (this.$route.params.title) {
@@ -760,9 +749,11 @@ export default {
                     this.$router.push({name: 'request1_ride', params: {title: this.sendMessage}})
                 }
             } else {
+                this.isloading = true
                 axios.post("send/message", this.sendMessage)
                     .then(response => {
                         window.scrollTo(0, 0)
+                        this.isloading = false
                         if (response) {
                             this.sendMessage.type = "Request Ride",
                                 this.sendMessage.Fname = null,
@@ -803,7 +794,6 @@ export default {
 
                                 this.$store.commit("auth/setErrors", {}),
                                 window.scrollTo(0, 0)
-                            console.log(response)
                             switch (response.data.type) {
                                 case 'info':
                                     toastr.info(response.data.messege);
@@ -820,7 +810,9 @@ export default {
                                     break;
                             }
                         }
-                    });
+                    }).catch(()=>{
+
+                });
             }
         }
     },

@@ -39,9 +39,9 @@
                                         <td>{{ question.message }}</td>
                                         <td>
                                             <router-link class="btn btn-default btn-icon-anim btn-circle btn-sm"
-                                                :to="'/admin/form/billing/question/edit/'+question.id"><i class="fa fa-pencil"></i></router-link>
+                                                :to="'/question/edit/'+question.id"><i class="fa fa-pencil"></i></router-link>
                                             <router-link class="btn btn-success btn-icon-anim btn-circle btn-sm"
-                                                    :to="'/admin/form/billing/question/detail/'+question.id"><i class="fa fa-eye"></i></router-link>
+                                                    :to="'/question/detail/'+question.id"><i class="fa fa-eye"></i></router-link>
                                             <button class="btn btn-info btn-icon-anim btn-circle btn-sm" @click="deletebyid(question.id)"><i
                                                 class="icon-trash"></i></button>
                                         </td>
