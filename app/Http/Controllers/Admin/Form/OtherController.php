@@ -20,7 +20,20 @@ class OtherController extends Controller
     }
     public function index()
     {
-        $others = SendMessage::where('type', 'Others')->orderBy('id', 'desc')->paginate(10);
+        $search = request()->search;
+        $limit = request()->limit;
+        $others = SendMessage::where('type', 'Others')
+            ->where(
+                function($query) use ($search) {
+                    $query
+                        ->where('Fname','like','%'.$search.'%')
+                        ->orwhere('Lname','like','%'.$search.'%')
+                        ->orwhere('email','like','%'.$search.'%')
+                        ->orwhere('phone','like','%'.$search.'%')
+                        ->orwhere('message','like','%'.$search.'%');
+                })
+            ->orderBy('id', 'desc')
+            ->paginate($limit);
         return response()->json($others);
     }
 

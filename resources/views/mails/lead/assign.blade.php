@@ -332,23 +332,23 @@
                                         </tr>
                                         <tr>
                                             <td>Start Location</td>
-                                            <td>{{$driver->leads->start_address}}</td>
+                                            <td>{{$driver->leads->start_address.', '.$driver->leads->start_city.', '.$driver->leads->start_country}}</td>
                                         </tr>
                                         <tr>
                                             <td>End Location</td>
-                                            <td>{{$driver->leads->end_address}}</td>
+                                            <td>{{$driver->leads->end_address.', '.$driver->leads->end_city.', '.$driver->leads->end_country}}</td>
                                         </tr>
                                         <tr>
                                             <td>Cost</td>
-                                            <td>{{$driver->driver_cost}}</td>
+                                            <td>$ {{$driver->driver_cost}}</td>
                                         </tr>
                                         <tr>
                                             <td>Start Timing</td>
-                                            <td>{{ date_format($driver->start_date,"d  M Y").' '.date_format($driver->start_date,"H:i A") }}</td>
+                                            <td>{{ date_format(new DateTime($driver->start_date),"d  M Y").' '.date_format(new DateTime($driver->start_date),"H:i A") }}</td>
                                         </tr>
                                         <tr>
                                             <td>End Timing</td>
-                                            <td>{{ date_format($driver->end_date,"d  M Y").' '.date_format($driver->end_date,"H:i A") }}</td>
+                                            <td>{{ date_format(new DateTime($driver->end_date),"d  M Y").' '.date_format(new DateTime($driver->end_date),"H:i A") }}</td>
                                         </tr>
                                     </table>
 

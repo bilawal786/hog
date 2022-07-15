@@ -20,8 +20,8 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="border-none">First Name:</td>
-                                                <td class="border-none">
+                                                <td>First Name:</td>
+                                                <td>
                                                     {{ rideDetail.Fname }}
                                                 </td>
                                             </tr>

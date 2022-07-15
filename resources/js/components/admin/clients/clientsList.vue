@@ -43,7 +43,7 @@
                                         </thead>
                                         <tbody>
                                         <tr v-if="clients.data == ''">
-                                            <td colspan="7" class="tb-empty">No Record Found</td>
+                                            <td colspan="8" class="tb-empty">No Record Found</td>
                                         </tr>
                                         <tr v-else v-for="client in clients.data" :key='client.id'>
                                             <td>{{ client.first_name }}</td>

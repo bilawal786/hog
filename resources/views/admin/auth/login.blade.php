@@ -5,22 +5,22 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>Heart of Gold | Login</title>
-
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="icon" href="{{asset('images/favicon-16x16.ico')}}" type="image/x-icon">
-
 		<!-- vector map CSS -->
 		<link href="{{asset('vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
-
 		<!-- Custom CSS -->
 		<link href="{{asset('dist/css/style.css')}}" rel="stylesheet" type="text/css">
 		<style>
 			.page-wrapper.auth-page {
 				background: #000000;
 			}
+            .fam{
+                margin-left: -12px;
+                margin-right: 8px;
+            }
 		</style>
-
 	</head>
 	<body>
 		<!--Preloader-->
@@ -82,7 +82,9 @@
 													<div class="clearfix"></div>
 												</div>
 												<div class="form-group text-center">
-													<button type="submit" class="btn btn-info btn-rounded">sign in</button>
+													<button type="submit" class="btn btn-info btn-rounded">
+                                                        sign in
+                                                    </button>
 												</div>
 											</form>
 										</div>

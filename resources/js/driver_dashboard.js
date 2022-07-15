@@ -3,6 +3,7 @@ Vue.component('driver-dashboard', require('./components/driver/dashboard/dashboa
 Vue.component('admin-dashboard', require('./components/admin/dashboard/dashboard.vue').default);
 Vue.component('set-time', require('./SetTime.vue').default);
 Vue.component('set-date', require('./setDate.vue').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 import VueToastify from "vue-toastify";
 Vue.use(VueToastify, {

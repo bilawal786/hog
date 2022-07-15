@@ -53,7 +53,7 @@
             </div>
         </div>
         <!-- back button -->
-        <div class="row" v-if="panel.detail == true || panel.edit == true">
+        <div class="row mt-10 mb-10" v-if="panel.detail == true || panel.edit == true">
             <div class="col-sm-12">
                 <div class="pull-left">
                     <h6 class="panel-title txt-dark" v-if="panel.detail == true">Ride detail</h6>

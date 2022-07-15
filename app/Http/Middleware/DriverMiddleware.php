@@ -18,11 +18,12 @@ class DriverMiddleware
     {
         if(Auth::user())
         {
-            if(Auth::user()->role == 'driver' ){
+            if(Auth::user()->role == 'driver' || Auth::user()->role == 'admin'){
                 return $next($request);
             }
             else{
-                return redirect()->back();
+                Auth::logout();
+                return redirect('/driver/login');
             }
         }else{
             abort(403);

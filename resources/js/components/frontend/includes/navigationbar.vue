@@ -29,6 +29,9 @@
                                         <li>
                                             <router-link to="/resources">RESOURCES</router-link>
                                         </li>
+                                        <li class='hidden-md hidden-lg signinlink'>
+                                            <router-link to='/signin'>SignIn</router-link>
+                                        </li>
                                     </ul> <!-- /.menu-list -->
                                 </div> <!-- /.menu-content-->
                             </div> <!-- /.menu-wrapper -->

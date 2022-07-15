@@ -91,7 +91,10 @@
                     </ul>
                 </div>
 
-                <button class="btn  btn-info" @click="assignLead()">Assign Lead</button>
+                <button class="btn  btn-info" @click="assignLead()" :disabled="isloading">
+                    <span v-if="isloading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
+                    <span v-else>Assign Lead</span>
+                </button>
             </div>
         </div>
     </div>
@@ -106,6 +109,7 @@ export default {
     name: "selectDriver",
     data() {
         return {
+            isloading:false,
             // select drivers
             selectdriver: {
                 id: null,
@@ -150,11 +154,13 @@ export default {
             }, () => {
             }).then((result) => {
                 if(this.reject == 'yes'){
+                    this.isloading=true
                     axios.put('admin/web/show/lead/'+this.leadId, {
                         'status': 'end'
                     })
                 }
                 if (result.value) {
+                    this.isloading=true
                     axios.post('admin/web/show/lead', {
                         'driver_id': this.selectdriver.id,
                         'ride_id': this.rideId,
@@ -167,13 +173,13 @@ export default {
                         'process': 'no',
                         'reject': 'no',
                         'complete': 'no',
-                    })
-                        .then(response => {
+                    }).then(response => {
                             if (response.status == 200) {
                                 axios.put('admin/web/form/status/request/ride/' + this.rideId, {
                                     'status_assign': 'yes'
                                 }).then(response => {
                                     if (response.status == 200) {
+                                        this.isloading=false
                                         window.scrollTo(0, 0)
                                         this.$vToastify.success("successfully Updated");
                                         this.$router.push({ name: 'RequestRideAssign' })
@@ -184,8 +190,8 @@ export default {
 
                             }
                         }).catch(err => {
+                        this.isloading=false
                         this.errorshow = err.response.data.errors
-                        console.log(err.response.data.errors)
                     })
                 }
             })

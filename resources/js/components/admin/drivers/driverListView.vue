@@ -7,10 +7,7 @@
                         <h6 class="panel-title txt-dark">Drivers List</h6>
                     </div>
                     <div class="pull-right">
-                        <router-link
-                            class="btn btn-primary"
-                            to="/driver/create"
-                        >
+                        <router-link class="btn btn-sm btn-primary" to="/driver/create">
                             New Driver
                         </router-link>
                     </div>

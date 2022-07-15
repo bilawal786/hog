@@ -23,11 +23,15 @@ class ClientController extends Controller
         $search = request()->search;
         $limit = request()->limit;
         $clients = User::where('role', 'user')
-//            ->where('first_name','like','%'.$search.'%')
-//            ->orwhere('last_name','like','%'.$search.'%')
-//            ->orwhere('email','like','%'.$search.'%')
-//            ->orwhere('phone','like','%'.$search.'%')
-//            ->orwhere('address','like','%'.$search.'%')
+            ->where(
+                function($query) use ($search) {
+                    $query
+                        ->where('first_name','like','%'.$search.'%')
+                        ->orwhere('last_name','like','%'.$search.'%')
+                        ->orwhere('email','like','%'.$search.'%')
+                        ->orwhere('phone','like','%'.$search.'%')
+                        ->orwhere('address','like','%'.$search.'%');
+                })
             ->orderBy('id', 'desc')
             ->paginate($limit);
         return response()->json($clients);

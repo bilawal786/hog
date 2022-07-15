@@ -12,7 +12,23 @@
                     <div class="panel-body">
                         <div class="table-wrap">
                             <div class="table-responsive">
-                                <table id="" class="table table-hover display  pb-30">
+                                <div class="dataTables_wrapper">
+                                    <div class="dataTables_length">
+                                        <label>Show
+                                            <select class="" v-model="limit" v-on:change="getOthers()">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> entries
+                                        </label>
+                                    </div>
+                                    <div class="dataTables_filter">
+                                        <label>Search:
+                                            <input type="search" class="" v-model="search" v-on:input="getOthers()" placeholder="Search Driver">
+                                        </label>
+                                    </div>
+                                    <table id="" class="table table-hover display  pb-30">
                                     <thead>
                                     <tr>
                                         <th>Name</th>
@@ -44,6 +60,7 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                         <div class="">
@@ -65,6 +82,8 @@ export default {
     data(){
         return{
             others: null,
+            search:'',
+            limit:10
         }
     },
     mounted() {
@@ -72,7 +91,7 @@ export default {
     },
     methods:{
         getOthers: function (page = 1) {
-            axios.get('admin/web/form/others?page='+page).then(response => {
+            axios.get('admin/web/form/others?page='+page+"&search="+this.search+"&limit="+this.limit).then(response => {
                 this.others = response.data
             })
         },

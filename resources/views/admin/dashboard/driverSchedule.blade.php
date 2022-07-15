@@ -23,11 +23,8 @@
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
                                 <div class="row">
-{{$today[0]->driver->first_name}}
                                     <div class="col-md-12" style="height: 700px">
-                                        <div id='calendar-container'>
-                                            <div id='calendar'></div>
-                                        </div>
+                                        <div id='calendar'></div>
                                     </div>
                                 </div>
                             </div>
@@ -35,8 +32,6 @@
                     </div>
                 </div>
             </div>
-
-
             <!-- Footer -->
             <footer class="footer container-fluid pl-30 pr-30">
                 <div class="row">
@@ -46,22 +41,16 @@
                 </div>
             </footer>
             <!-- /Footer -->
-
         </div>
     </div>
-
 @endsection
 @push('style')
     <link href="{{asset('./css/main.min.css')}}" rel='stylesheet' />
     <style>
-
-
-
         #calendar-container {
             position: relative;
             height: 100%;
         }
-
         .fc-header-toolbar {
             /*
             the calendar will be butting up against the edges,
@@ -71,7 +60,6 @@
             padding-left: 1em;
             padding-right: 1em;
         }
-
     </style>
 @endpush
 @push('script')
@@ -79,9 +67,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
-
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                height: '100%',
                 expandRows: true,
                 slotMinTime: '00:00',
                 slotMaxTime: '24:00',
@@ -107,7 +93,6 @@
                         @endforeach
                 ]
             });
-
             calendar.render();
         });
     </script>

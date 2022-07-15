@@ -24,12 +24,10 @@ export default {
     methods: {
         ...mapActions("auth", ["getSettingData", "getUserData"]),
         checkAuth () {
-            if(this.user){
+            if(this.user != null){
                 $(".menu-list").append("<li class='hidden-md hidden-lg'><a href='/home'>"+this.user.first_name+"</a></li>");
-            }else{
-                $(".menu-list").append("<li class='hidden-md hidden-lg'><a href='/signin'>SignIn</a></li>");
+                $(".signinlink").remove();
             }
-
         },
     },
     created(){
@@ -38,9 +36,10 @@ export default {
        this.getUserData()
     },
     watch:{
-            user:function(val) {
+            user:function(val, oldVal) {
                 this.checkAuth()
             }
+
     },
      mounted () {
 

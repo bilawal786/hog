@@ -24,25 +24,25 @@ Route::get('/block', 'Admin\block\BlockController@block')->name('admin.block');
 Route::get('/admin/logout', 'Admin\LogOutController@logout')->name('admin.logout');
 
 
-Route::group(['middleware' => ['auth']], function() {
-
-    Route::post('/profile/update', 'Admin\ProfileController@updateProfile')->name('updateProfile');
-    Route::post('/profile/change/password', 'Admin\ChangePassword@changePassword')->name('adminChangePassword');
-    Route::get('/profile', 'Admin\ProfileController@profile')->name('profile');
-    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-
-    Route::group(['middleware' => ['status', 'driver']], function(){
-
+Route::group(['middleware' => ['auth', 'status']], function() {
+    Route::group(['middleware' => ['driver']], function(){
+        //profile
+        Route::post('/profile/update', 'Admin\ProfileController@updateProfile')->name('updateProfile');
+        Route::post('/profile/change/password', 'Admin\ChangePassword@changePassword')->name('adminChangePassword');
+        Route::get('/profile', 'Admin\ProfileController@profile')->name('profile');
+        //dashboard
+        Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+        //payment
         Route::get('/withdraw/{any}', 'WebDriver\Payment\DriverPaymentGetController@payment')->where('any', '.*')->name('driver.withdraw');
     });
-
-    Route::group(['middleware' => 'admin'], function(){
+    Route::group(['middleware' => ['admin']], function(){
+        //setting
         Route::get('general/setting', 'Admin\Setting\GeneralSettingController@generalsetting')->name('generalsetting');
         Route::post('general/setting', 'Admin\Setting\GeneralSettingController@updategeneralsetting')->name('updategeneralsetting');
+        //user
         Route::get('client/{any}', 'Admin\ClientsController@clients')->where('any', '.*')->name('clients');
         Route::get('driver/{any}', 'Admin\DriversController@drivers')->where('any', '.*')->name('drivers');
-//        Route::post('drivers', 'Admin\DriversController@addDriver')->name('add.drivers');
-
+        //leads
         Route::get('/feedback/{any}', 'Admin\FormSubmitController@submit_feedBack')->where('any', '.*')->name('submit.feedback');
         Route::get('/question/{any}', 'Admin\FormSubmitController@billing_question')->where('any', '.*')->name('billing.question');
         Route::get('/request/ride/{any}', 'Admin\FormSubmitController@request_ride')->where('any', '.*')->name('request.ride');
@@ -52,7 +52,6 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/schedule/driver', 'WebAdmin\Schedule\ScheduleController@viewCalender')->where('any', '.*')->name('schedule.driver');
     });
  });
-
 Route::get('checkout/{id}', 'WebUser\Payment\PaymentController@payment')->name('payment.payment');
 Route::get('success/{id}', 'WebUser\Payment\PaymentController@success')->name('payment.success');
 Route::get('failure', 'WebUser\Payment\PaymentController@failure')->name('payment.failure');

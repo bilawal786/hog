@@ -1,7 +1,7 @@
 <template>
 <div>
     <!-- back button -->
-    <div class="row">
+    <div class="row mt-10 mb-10">
         <div class="col-sm-12">
             <div class="pull-left">
                 <h6 class="panel-title txt-dark">Ride detail</h6>
