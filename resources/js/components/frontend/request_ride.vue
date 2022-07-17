@@ -143,11 +143,10 @@ export default {
             this.isloading=true
             axios.post("send/message", this.$route.params.title)
                 .then(response => {
-                    this.isloading=false
                     if (response) {
-
                         this.$store.commit("setErrors", {})
-                            window.location = "checkout/"+response.data.id;
+                        window.location = "checkout/"+response.data.id;
+                        this.isloading=false
                     }
                 }).catch(()=>{
                 this.isloading=false

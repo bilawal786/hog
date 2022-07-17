@@ -239,13 +239,13 @@
                                                 <div class="v-text-align"
                                                      style="color: #ecf0f1; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                     <p style="font-size: 14px; line-height: 140%;"><span
-                                                            style="font-size: 18px; line-height: 25.2px;">{{ date_format($sendmessage->trip_date,"d  M Y") }}</span>
+                                                            style="font-size: 18px; line-height: 25.2px;">{{ date_format(new DateTime($sendmessage->trip_date),"d  M Y") }}</span>
                                                     </p>
                                                 </div>
                                                 <div class="v-text-align"
                                                      style="color: #ecf0f1; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                     <p style="font-size: 14px; line-height: 140%;"><span
-                                                            style="font-size: 18px; line-height: 25.2px;">{{ date_format($sendmessage->trip_date,"H:i A") }}</span>
+                                                            style="font-size: 18px; line-height: 25.2px;">{{ date_format(new DateTime($sendmessage->trip_date),"H:i A") }}</span>
                                                     </p>
                                                 </div>
 
@@ -318,6 +318,32 @@
                                                      style="line-height: 170%; text-align: left; word-wrap: break-word;">
                                                     <p style="font-size: 14px; line-height: 170%;">Your ride is
                                                         successfully created.&nbsp;</p>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-container-padding-padding"
+                                                style="overflow-wrap:break-word;word-break:break-word;padding:0px 30px 20px;font-family:'Rubik',sans-serif;"
+                                                align="left">
+                                                <div class="v-text-align" style="line-height: 170%; text-align: left; word-wrap: break-word;">
+                                                    <p style="font-size: 14px; line-height: 170%; font-weight: bold">Ride Date&nbsp;</p>
+                                                </div>
+                                                <div class="v-text-align" style="line-height: 170%; text-align: left; word-wrap: break-word;">
+                                                    <p style="font-size: 14px; line-height: 170%;">{{date_format(new DateTime($sendmessage->trip_date),"d  M Y")}}</p>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="v-container-padding-padding"
+                                                style="overflow-wrap:break-word;word-break:break-word;padding:0px 30px 20px;font-family:'Rubik',sans-serif;"
+                                                align="left">
+                                                <div class="v-text-align" style="line-height: 170%; text-align: left; word-wrap: break-word;">
+                                                    <p style="font-size: 14px; line-height: 170%; font-weight: bold">Ride Time&nbsp;</p>
+                                                </div>
+                                                <div class="v-text-align" style="line-height: 170%; text-align: left; word-wrap: break-word;">
+                                                    <p style="font-size: 14px; line-height: 170%;">{{date_format(new DateTime($sendmessage->trip_date),"H:i A")}}</p>
                                                 </div>
 
                                             </td>

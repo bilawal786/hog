@@ -237,7 +237,7 @@
                                                 align="left">
 
                                                 <div class="v-text-align" style="color: #ecf0f1; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                                    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px;">{{ date_format(new DateTime($driver->leads->trip_date),"d M Y") }}</span></p>
+                                                    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px;">{{  date_format( new DateTime($driver->leads->trip_date),"d M Y") }}</span></p>
                                                 </div>
                                                 <div class="v-text-align" style="color: #ecf0f1; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                     <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px;">{{ date_format(new DateTime($driver->leads->trip_date),"H:i A") }}</span></p>
