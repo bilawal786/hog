@@ -203,7 +203,7 @@
                         <p class="form-text">Do you need wheelchair accessibility?</p>
                         <div class="mgb-30">
                             <div class="m-v-radio">
-                                <label class="form-radio-custom">
+                                <label class="form-radio-custom" style="overflow: hidden;">
                                     W/C (Yes)
                                     <input
                                         v-model="sendMessage.wheelchair"
@@ -216,7 +216,7 @@
                                 </label>
                             </div>
                             <div class="m-v-radio">
-                                <label class="form-radio-custom">
+                                <label class="form-radio-custom" style="overflow: hidden;">
                                     Amb (No)
                                     <input
                                         v-model="sendMessage.wheelchair"
@@ -238,7 +238,7 @@
                         <p class="form-text">Is this a round trip request?</p>
                         <div class="mgb-30">
                             <div class="m-v-radio">
-                                <label class="form-radio-custom">
+                                <label class="form-radio-custom" style="overflow: hidden;">
                                     Yes
                                     <input
                                         v-model="sendMessage.round_trip"
@@ -251,7 +251,7 @@
                                 </label>
                             </div>
                             <div class="m-v-radio">
-                                <label class="form-radio-custom">
+                                <label class="form-radio-custom" style="overflow: hidden;">
                                     No
                                     <input
                                         v-model="sendMessage.round_trip"
@@ -326,13 +326,12 @@
                     <div class="col-md-12">
                         <div class="mgb-30">
               <textarea
+                  placeholder="Type Message"
                   v-model="sendMessage.message"
                   cols="80"
                   required
                   rows="5"
-              >
-Your Message</textarea
-              >
+              ></textarea>
                         </div>
                     </div>
                     <!-- /.col-md-12 -->
@@ -487,7 +486,7 @@ export default {
                 wheelchair: 'no',
                 round_trip: 'no',
                 trip_date: new Date().toJSON(),
-                message: 'Message',
+                message: null,
                 start_lat: null,
                 start_lng: null,
                 end_lat: null,
@@ -540,7 +539,7 @@ export default {
             this.sendMessage.wheelchair = 'no'
             this.sendMessage.round_trip = 'no'
             this.sendMessage.trip_date = new Date().toJSON()
-            this.sendMessage.message = 'message'
+            this.sendMessage.message = null
             this.sendMessage.start_lat = null
             this.sendMessage.start_lng = null
             this.sendMessage.start_address = null
@@ -816,7 +815,7 @@ export default {
                                 this.sendMessage.wheelchair = 'no',
                                 this.sendMessage.round_trip = 'no',
                                 this.sendMessage.trip_date = new Date().toJSON(),
-                                this.sendMessage.message = 'message',
+                                this.sendMessage.message = null,
                                 this.sendMessage.start_lat = null,
                                 this.sendMessage.start_lng = null,
                                 this.sendMessage.start_address = null,
