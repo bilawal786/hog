@@ -1,0 +1,33 @@
+.hog-toast{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    background: $green;
+    color: #FFF;
+    border-radius: 5px;
+    animation-name: example;
+    animation-duration: 2s;
+    opacity: 1;
+    .hog-mg-20{
+        margin: 20px 40px;
+    }
+}
+@keyframes example {
+    0%   {right:1rem; top:10rem;}
+    100% {right:1rem; top:1rem;}
+  }
+.toast-button{
+    border: none;
+    background-color: transparent;
+    font-size: 3rem;
+    line-height: 3rem;
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+.toast-hide{
+    display: none;
+}
+.toast-show{
+    display: inline;
+}

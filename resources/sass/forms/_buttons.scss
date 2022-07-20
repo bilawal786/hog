@@ -29,7 +29,7 @@ input[type="submit"] {
 	-webkit-appearance: button;
 	&:focus {
 		outline: none;
-	}	
+	}
 }
 button::-moz-focus-inner,
 input::-moz-focus-inner {
@@ -41,13 +41,13 @@ button {
 		color: $color__white;
 	}
 }
-.search-form, 
+.search-form,
 .searchform {
 	.btn {
 		@include prefixed(border-radius, 0);
 		&:hover {
 			color: $color__white;
-			text-decoration: none;		
+			text-decoration: none;
 		}
 		&:focus {
 			background: transparent;
@@ -132,7 +132,7 @@ a.more-content {
 			&:hover {
 				color: $color__white;
 			}
-		}	
+		}
 	}
 }
 .go-button {
@@ -197,7 +197,7 @@ a.more-content {
 	.button {
 		border-radius: 5px;
 		top:10px;
-		float: left;	
+		float: left;
 	}
 }
 .night-rider {
@@ -212,7 +212,6 @@ a.more-content {
     border-bottom: 1px solid #DDDDDD;
     border-radius: 0;
     float: left;
-    margin-bottom: 30px;
     margin-right: 50px;
     color: #8c8c8c;
     font-size: 15px;
@@ -225,5 +224,11 @@ a.more-content {
 		color: #FFF;
 		border-radius: 5px;
 		padding: 15px 25px;
+		font-size: 15px;
+
 	}
+}
+.fam{
+    //margin-left: -12px;
+    margin-right: 8px;
 }

@@ -126,11 +126,13 @@
 	img {
 		width:auto;
 		display: block;
-		margin-bottom: 30px;
+		margin-bottom: 10px;
 	}
 	p {
 		font-size: 16px;
 		color:#cbcaca;
+		line-height: 1.5em;
+		text-align: justify;
 	}
 	.button {
 		margin-left: 0;
@@ -215,4 +217,7 @@
 			color: $color_yellow; 
 		}
 	}
+}
+.widget > ul > li > a > span{
+	font-weight: 600;
 }

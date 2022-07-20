@@ -16,14 +16,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="contact-us-content-right">
-                        <form action="#">
-                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                            <div class="input-content clearfix">
-                                <h3 class="from-title">Send a message</h3>
-                                <p>What is the reason you need to contact us today?</p>
-                                <ContactForm></ContactForm>
-                            </div><!-- /.input-content -->
-                        </form>
+                        <contact-form></contact-form>
                     </div><!-- /.contactus-content-right -->
                 </div><!-- /.col-md-8 -->
                 <div class="col-md-4">
@@ -51,16 +44,28 @@
         </div><!-- /.container -->
     </div><!-- /.contact-us -->
     <!-- ====== Map Block ====== -->
-    <!-- ======footer area======= -->
     </div>
 </template>
 <script>
 import ContactForm from './includes/contact-form';
 export default {
- components: {
-    ContactForm
-  },
-   mounted () {
+    data(){
+        return{
+            toggle:true
+        }
+    },
+    watch: {
+        changevalue(){
+            setInterval(this.toggle=false, 5000)
+        }
+    },
+    methods:{
+        updateCart(e) {
+            console.log(e)
+      },
+    },
+    components: { ContactForm },
+    mounted () {
         window.scrollTo(0, 0)
     }
  };

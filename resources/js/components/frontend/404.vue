@@ -1,20 +1,13 @@
 <template>
-    <div class="page-header bg-gray-color pd-404">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="main-content">
-                        <h3>404: Page Not Found</h3>
-                    </div>
-                    <!-- /.main-content -->
-                </div>
-                <!-- /.col-md-6 -->
-            </div>
-            <!-- /.row-->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /.page-header -->
+<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>Oops!</h1>
+				<h2>404 - The Page can't be found</h2>
+			</div>
+            <router-link to="/">Go TO Homepage</router-link>
+		</div>
+	</div>
 </template>
 <script>
 export default {

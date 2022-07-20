@@ -10,7 +10,6 @@
                 </div><!-- /.row-->
             </div><!-- /.container-fluid -->
         </div>
-
         <!-- ====== About Main Content ====== -->
         <div class="about-main-content mr-top-90">
             <div class="container">
@@ -23,14 +22,20 @@
                                         <h3>Non-Emergency Medical Transportation (NEMT)</h3>
                                         <p>Heart of Gold Medical Transport is a family-owned non-emergency medical
                                             transportation company serving the greater Sacramento area since 2016. Its
-                                            owners are Megan and Cecilia.</p>
+                                            owners are Megan and Caleb.</p>
                                         <p>Megan has worked as a nurse since 2009, becoming a Registered Nurse in 2010.
                                             She has worked as a nurse in various settings including skilled nursing,
                                             drug rehabilitation, and cosmetic surgery. Most recently she was Director of
                                             Nursing at a Sacramento-based skilled nursing facility.</p>
-                                        <p>Cecilia was a Medical Assistant for 13 years, and she has almost 10 years of
-                                            experience as a business owner. She has a passion for taking care of others
-                                            and for always providing the best possible customer service.</p>
+                                        <p>Caleb began working in a hospital at just 16 years old, transporting patients to medical appointments within the hospital grounds. After 40 years of managing some of the biggest companies in various fields, Caleb returns to work with patients once again.</p>
+
+                                        <p>He brings with him his love and compassion for people, as well as his desire to provide the best experience possible.</p>
+
+                                            <br>
+
+                                            <p>Megan Pagan, RN, Owner
+                                            <br>
+                                            Heart of Gold Medical Transport, Inc.</p>
                                         <h3>COMPASSION</h3>
                                         <p>Heart of Gold Medical Transport serves everyone with great compassion and
                                             care. We know that every client is different and may have unique situations.
@@ -50,15 +55,14 @@
                                     </div><!-- /.about-content-left-->
                                 </div><!-- /.col-md-5 -->
                                 <div class="col-md-6">
-                                    <form action="#">
-                                         
-                                        <div class="input-content">
                                             <div class="contact">
                                                 <div class="contact-btn">REQUEST A RIDE TODAY</div>
                                             </div>
+                                    <div class="contact-us-area">
+                                        <div class="contact-us-content-right">
                                             <ContactForm></ContactForm>
                                         </div>
-                                    </form>
+                                    </div>
                                     <br>
                                 </div><!-- /.col-md-7 -->
                             </div><!-- /.row -->
@@ -71,11 +75,14 @@
 </template>
 <script>
 import ContactForm from './includes/contact-form';
-
 export default {
-    components: {
-        ContactForm
+    date(){
+        return{
+            option:2,
+            about:true
+        }
     },
+    components: { ContactForm },
     mounted () {
         window.scrollTo(0, 0)
     }

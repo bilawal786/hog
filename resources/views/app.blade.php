@@ -10,9 +10,9 @@
     <!-- Specific Meta
     ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Texicab is a modern presentation HTML5 Car Rent template.">
-    <meta name="keywords" content="HTML5, Template, Design, Development, Car Rent"/>
-    <meta name="author" content="">
+    <meta name="description" content="ADA compliant vehicles, providing ambulatory and wheelchair transportation for the greater Sacramento area and beyond.">
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Heart of Gold">
 
     <!-- Titles
     ================================================== -->
@@ -23,9 +23,9 @@
     <link rel="shortcut icon" sizes="16x16" href="{{ asset('assets/images/favicon-16x16.ico') }}">
     <link rel="shortcut icon" sizes="32x32" href="{{ asset('assets/images/favicon-32x32.ico') }}">
     <link rel="shortcut icon" sizes="96x96" href="{{ asset('assets/images/favicon-96x96.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/apple-touch-icon.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/apple-touch-icon-72x72.png') }}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/apple-touch-icon-114x114.png') }}">
+
     <link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet"/>
 
     <!-- Custom Font
@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/icons.min.css') }}">
     <!-- RS5.4 Main Stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/revolution/css/settings.css') }}">
+    <link href="{{ asset('css/toastr.min.css') }}" type="text/css" rel="stylesheet"/>
     <style>
         .header-nav-area {
             background-color: black;
@@ -82,13 +83,14 @@
         .yellow-theme .widget .button {
             background: #cd9700;
         }
-     
+
         @media only screen and (max-width: 600px) {
            .mdn{
                display: none;
            }
             .mlogo{
                 margin-top: 0px !important;
+                width: 115px;
             }
             .animated-arrow span, .animated-arrow span:before, .animated-arrow span:after {
                 background: #cd9700;
@@ -99,6 +101,7 @@
             }
         }
     </style>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key={{ env('GOOGLE_MAP_KEY') }}"></script>
 </head>
 
 <body>
@@ -111,6 +114,7 @@
 ================================================== -->
 <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
 <!--<script src="{{ asset('assets/js/carrent.min.js') }}"></script> --><!-- main-js -->
+
 
 <!-- RS5.4 Core JS Files -->
 <script src="{{ asset('assets/revolution/js/jquery.themepunch.tools.min.js') }}"></script>
@@ -129,5 +133,6 @@
 <script src="{{ asset('assets/revolution/js/extensions/revolution.extension.navigation.min.js') }}"></script>
 <script src="{{ asset('assets/revolution/js/extensions/revolution.extension.migration.min.js') }}"></script>
 <script src="{{ asset('assets/revolution/js/extensions/revolution.extension.parallax.min.js') }}"></script>
+<script src="{{ asset('js/toastr.js') }}"></script>
 </body>
 </html>

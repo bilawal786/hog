@@ -1177,6 +1177,7 @@
                 </div>
             </div>
         </div>
+        <web-footer></web-footer>
     </div>
 </template>
 <script>
