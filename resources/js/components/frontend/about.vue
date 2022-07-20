@@ -33,9 +33,9 @@
 
                                             <br>
 
-                                            <p>Megan Pagan, RN, Owner
-                                            <br>
-                                            Heart of Gold Medical Transport, Inc.</p>
+<!--                                            <p>Megan Pagan, RN, Owner-->
+<!--                                            <br>-->
+<!--                                            Heart of Gold Medical Transport, Inc.</p>-->
                                         <h3>COMPASSION</h3>
                                         <p>Heart of Gold Medical Transport serves everyone with great compassion and
                                             care. We know that every client is different and may have unique situations.

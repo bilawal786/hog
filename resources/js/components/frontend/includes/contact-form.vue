@@ -342,13 +342,14 @@ Your Message</textarea
                     <div class="col-md-6">
                         <div class="mgb-30">
                             <vue-google-autocomplete
+                                v-model="sendMessage.start_address"
                                 id="mapStart"
                                 ref="addressStart"
                                 :class="{
-                  'invalid-input': change
-                    ? errors.start_address
-                    : errors.start_address,
-                }"
+                                      'invalid-input': change
+                                        ? errors.start_address
+                                        : errors.start_address,
+                                    }"
                                 classname="form-control"
                                 country="us"
                                 placeholder="Start"
@@ -357,20 +358,21 @@ Your Message</textarea
                             >
                             </vue-google-autocomplete>
                             <div v-if="errors.start_address" class="contact-valid">
-                                {{ errors.start_address[0] }}
+                                The start address field is required.
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mgb-30">
                             <vue-google-autocomplete
+
                                 id="mapEnd"
-                                ref="addressEnd"
+                                ref="sendMessage.end_address"
                                 :class="{
-                  'invalid-input': change
-                    ? errors.end_address
-                    : errors.end_address,
-                }"
+                                      'invalid-input': change
+                                        ? errors.end_address
+                                        : errors.end_address,
+                                    }"
                                 classname="form-control"
                                 country="us"
                                 placeholder="End"
@@ -379,7 +381,7 @@ Your Message</textarea
                             >
                             </vue-google-autocomplete>
                             <div v-if="errors.end_address" class="contact-valid">
-                                {{ errors.end_address[0] }}
+                                The end address field is required.
                             </div>
                         </div>
                     </div>
@@ -580,10 +582,46 @@ export default {
             this.sendMessage.email = this.user.email
             this.sendMessage.phone = this.user.phone
         },
-        sendMessage: function (val){
-            console.log('a')
-            if(this.sendMessage.Fname != null){
-                delete this.errors['Fname'];
+        'sendMessage.Fname': function (val){
+            if(this.sendMessage.Fname != null ){
+                if(this.sendMessage.Fname != ""){
+                    delete this.errors['Fname'];
+                }
+            }
+        },
+        'sendMessage.Lname': function (val){
+            if(this.sendMessage.Lname != null ){
+                if(this.sendMessage.Lname != ""){
+                    delete this.errors['Lname'];
+                }
+            }
+        },
+        'sendMessage.email': function (val){
+            if(this.sendMessage.email != null ){
+                if(this.sendMessage.email != ""){
+                    delete this.errors['email'];
+                }
+            }
+        },
+        'sendMessage.phone': function (val){
+            if(this.sendMessage.phone != null ){
+                if(this.sendMessage.phone != ""){
+                    delete this.errors['phone'];
+                }
+            }
+        },
+        'sendMessage.start_address': function (val){
+            if(this.sendMessage.start_address != null ){
+                if(this.sendMessage.start_address != ""){
+                    delete this.errors['start_address'];
+                }
+            }
+        },
+        'sendMessage.end_address': function (val){
+            if(this.sendMessage.end_address != null ){
+                if(this.sendMessage.end_address != ""){
+                    delete this.errors['end_address'];
+                }
             }
         }
     },
@@ -595,14 +633,16 @@ export default {
             this.sendMessage.start_address = addressData.street_number + ', ' + addressData.route;
             this.sendMessage.start_city = addressData.locality;
             this.sendMessage.start_country = addressData.country;
+
         },
         getAddressEnd: function (addressData, placeResultData, id) {
             this.sendMessage.end_lat = addressData.latitude;
             this.sendMessage.end_lng = addressData.longitude;
-            this.sendMessage.end_address = placeResultData.formatted_address;
+            // this.sendMessage.end_address = placeResultData.formatted_address;
             this.sendMessage.end_address = addressData.street_number + ', ' + addressData.route;
             this.sendMessage.end_city = addressData.locality;
             this.sendMessage.end_country = addressData.country;
+            // this.$refs.sendMessage.end_address.clear();
         },
         calculateCost: function (lat1, lon1, lat2, lon2) {
             if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -737,7 +777,7 @@ export default {
                 let tempData = {}
                 let sendmsg = JSON.parse(JSON.stringify(this.sendMessage))
                 for (const key in sendmsg) {
-                    if (sendmsg[key] == null) {
+                    if (sendmsg[key] == null || sendmsg[key] == "") {
                         if (key != 'account' && key != 'invoice' && key != 'user_id' && key != 'card_on_file' && key != 'relative' && key != 'relative_no' && key != 'facility') {
                             if (sendmsg['round_trip'] != 'yes') {
                                 if (key != 'waiting') {
@@ -820,7 +860,8 @@ export default {
 
                 });
             }
-        }
+        },
+
     },
 
     components: {
