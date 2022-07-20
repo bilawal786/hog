@@ -43,7 +43,7 @@
                                 type="text"
                             />
                             <div v-if="errors.Fname" class="contact-valid">
-                                {{ errors.Fname[0] }}
+                                The first name field is required
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                 type="text"
                             />
                             <div v-if="errors.Lname" class="contact-valid">
-                                {{ errors.Lname[0] }}
+                                The last name field is required
                             </div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                                 type="email"
                             />
                             <div v-if="errors.email" class="contact-valid">
-                                {{ errors.email[0] }}
+                                The email field is required
                             </div>
                         </div>
                     </div>
@@ -92,12 +92,12 @@
                   'invalid-input': change ? errors.phone : errors.phone,
                 }"
                                 class="form-control"
-                                placeholder="Phone* (111-111-1111)"
+                                placeholder="Phone*"
                                 required
                                 type="text"
                             />
                             <div v-if="errors.phone" class="contact-valid">
-                                {{ errors.phone[0] }}
+                                The phone field is required
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                   'invalid-input': change ? errors.card_on_file : errors.card_on_file,
                 }"
                                 class="form-control"
-                                placeholder="Card on File Y/N (Yes-2/26)"
+                                placeholder="Card on File"
                                 required
                                 type="text"
                             />
@@ -126,7 +126,7 @@
                                 v-model="sendMessage.relative"
                                 :class="{ 'invalid-input': change ? errors.relative : errors.relative, }"
                                 class="form-control"
-                                placeholder="Relative (Mike-Husband)"
+                                placeholder="Relative"
                                 required
                                 type="text"
                             />
@@ -144,7 +144,7 @@
                   'invalid-input': change ? errors.relative_no : errors.relative_no,
                 }"
                                 class="form-control"
-                                placeholder="Relative # (111-111-1111)"
+                                placeholder="Relative Phone #"
                                 required
                                 type="text"
                             />
@@ -579,6 +579,12 @@ export default {
             this.sendMessage.Lname = this.user.last_name
             this.sendMessage.email = this.user.email
             this.sendMessage.phone = this.user.phone
+        },
+        sendMessage: function (val){
+            console.log('a')
+            if(this.sendMessage.Fname != null){
+                delete this.errors['Fname'];
+            }
         }
     },
     methods: {
