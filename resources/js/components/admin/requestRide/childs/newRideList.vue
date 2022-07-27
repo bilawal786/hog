@@ -90,7 +90,7 @@ export default {
                 showCancelButton: true,
                 confirmButtonColor: 'rgb(34 110 237 / 85%)',
                 cancelButtonColor: '#ff2a00',
-                confirmButtonText: 'Yes, Delect it!'
+                confirmButtonText: 'Yes, Delete it!'
             }, () => {
             }).then((result) => {
                 if (result.value) {
