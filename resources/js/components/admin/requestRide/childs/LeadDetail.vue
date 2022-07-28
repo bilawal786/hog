@@ -21,9 +21,7 @@
                                             </tr>
                                             <tr>
                                                 <td>First Name:</td>
-                                                <td>
-                                                    {{ rideDetail.Fname }}
-                                                </td>
+                                                <td>{{ rideDetail.Fname }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Rider E-mail:</td>

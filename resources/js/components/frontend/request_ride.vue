@@ -104,11 +104,15 @@
                                     <td>$ {{ $route.params.title.cost }}</td>
                                 </tr>
                             </table>
+                            <button class="btn btn-hog" @click="laterpayment()" :disabled="isloadinglater">
+                                <span v-if="isloadinglater"><span class="fam fa fa-spinner fa-spin"></span>Loading</span>
+                                <span v-else>Payment Later</span>
+                            </button>
                             <button class="btn btn-hog" @click="conformData()" :disabled="isloading">
                                 <span v-if="isloading"><span class="fam fa fa-spinner fa-spin"></span>Loading</span>
-                                <span v-else>Confirm</span>
+                                <span v-else>Advance Payment</span>
                             </button>
-                            <button class="btn btn-hog" @click="backRoute()" :disabled="isloading">Back to Edit</button>
+                            <button class="btn btn-hog" @click="backRoute()" :disabled="isloading || isloadinglater">Back to Edit</button>
                         </div>
                     </div>
                 </div>
@@ -132,12 +136,39 @@
 export default {
     data(){
         return{
-            isloading:false
+            isloading:false,
+            isloadinglater:false
         }
     },
     methods: {
         backRoute: function () {
             this.$router.push({name: 'contact', params: {title: this.$route.params.title}})
+        },
+        laterpayment: function () {
+            this.isloadinglater=true
+            axios.post("send/message", this.$route.params.title)
+                .then(response => {
+                    console.log(response.data)
+                    this.isloadinglater=false
+                    window.scrollTo(0, 0)
+                    switch (response.data.type) {
+                        case 'info':
+                            toastr.info(response.data.messege);
+                            break;
+                        case 'success':
+                            toastr.success(response.data.messege);
+                            break;
+                        case 'warning':
+                            toastr.warning(response.data.messege);
+                            break;
+                        case 'error':
+                            toastr.error(response.data.messege);
+                            break;
+                    }
+                    this.$router.push({name: 'contact'})
+                }).catch(()=>{
+                this.isloadinglater=false
+            });
         },
         conformData: function () {
             this.isloading=true

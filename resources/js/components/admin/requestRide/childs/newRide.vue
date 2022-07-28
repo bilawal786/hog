@@ -1,8 +1,5 @@
 <template>
     <div>
-
-<!--        <router-view></router-view>-->
-
         <div class="row" v-if="panel.allRides == true">
             <div class="col-sm-12">
                 <div class="table-wrap">
@@ -21,6 +18,7 @@
                                     <th>Relative's #</th>
                                     <th>Facility</th>
                                     <th>Notes</th>
+                                    <th>Payment</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -40,7 +38,13 @@
                                     <td>{{ ride.relative }}</td>
                                     <td>{{ ride.relative_no }}</td>
                                     <td>{{ ride.facility }}</td>
-                                    <td>{{ ride.message }}</td>
+                                    <td>
+                                        <span class="limit-text">{{ ride.message }}</span>
+                                    </td>
+                                    <td>
+                                        <span v-if="ride.payment == 'yes'" class="label label-success">Paid</span>
+                                        <span v-if="ride.payment == 'no'" class="label label-danger">Unpaid</span>
+                                    </td>
                                     <td>
                                         <button class="btn btn-default btn-icon-anim btn-circle btn-sm"
                                             @click="editRideDetail(ride.id)">

@@ -8,30 +8,14 @@ import RequestRideAssign from "./RequestRideAssign";
 import RequestRideProcess from "./RequestRideProcess";
 import RequestRideReject from "./RequestRideReject";
 import RequestRideComplete from "./RequestRideComplete";
-import newRideList from "./childs/newRideList";
-import newRideDetail from "./childs/newRideDetail";
-import newRideEdit from "./childs/newRideEdit";
+import RideDetail from "./childs/rideDetail/RideDetail";
 
 const routes = [
     {
         // name:'RequestRideList',
         path:'/request/ride/list',
         component:RequestRideList,
-        // meta: { title: 'HOG | Request Ride List' },
-        children: [
-            {
-                path: '/',
-                component: newRideList,
-            },
-            {
-                path: '/view',
-                component: newRideDetail,
-            },
-            {
-                path: '/edit/:id',
-                component: newRideEdit,
-            },
-        ],
+        meta: { title: 'HOG | Request Ride List' },
     },
     {
         name:'RequestRideAssign',
@@ -57,6 +41,12 @@ const routes = [
         path:'/request/ride/complete',
         component:RequestRideComplete,
         meta: { title: 'HOG | Request Ride Complete' }
+    },
+    {
+        name:'RideDetail',
+        path:'/request/ride/detail/:id',
+        component:RideDetail,
+        meta: { title: 'HOG | Request Ride detal' }
     },
 ];
 

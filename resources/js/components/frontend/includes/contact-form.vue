@@ -323,15 +323,24 @@
                         </div>
                     </div>
                     <!-- /.col-md-12 -->
+                </div>
+                <div class="row">
                     <div class="col-md-12">
                         <div class="mgb-30">
               <textarea
+                  :class="{
+                  'invalid-input': change ? errors.message : errors.message,
+                }"
                   placeholder="Type Message"
                   v-model="sendMessage.message"
                   cols="80"
                   required
                   rows="5"
               ></textarea>
+                            <div v-if="errors.message" class="contact-valid">
+                                {{ errors.message[0] }}
+                            </div>
+                            <div>&nbsp</div>
                         </div>
                     </div>
                     <!-- /.col-md-12 -->
@@ -352,7 +361,7 @@
                                 classname="form-control"
                                 country="us"
                                 placeholder="Start"
-                                types="establishment"
+                                types="address"
                                 v-on:placechanged="getAddressStart"
                             >
                             </vue-google-autocomplete>
@@ -375,7 +384,7 @@
                                 classname="form-control"
                                 country="us"
                                 placeholder="End"
-                                types="establishment"
+                                types="address"
                                 v-on:placechanged="getAddressEnd"
                             >
                             </vue-google-autocomplete>

@@ -703,10 +703,8 @@ textarea {
             border: none;
             border-bottom: 1px solid #dddddd;
             color: #8c8c8c;
-            margin-top: 50px;
             float: left;
             width: 100%;
-            margin-bottom: 40px;
             font-size: 15px;
             background-color: #FAFAFA;
         }
@@ -746,5 +744,12 @@ textarea {
     color: #f00;
     text-align: left;
     font-size: 1.1rem;
+}
+.limit-text{
+    display: inline-block;
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
 }
 

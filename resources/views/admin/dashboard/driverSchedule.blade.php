@@ -19,11 +19,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default card-view">
-
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-md-12" style="height: 700px">
+                                    <div class="col-md-12" style="height: 1000px">
                                         <div id='calendar'></div>
                                     </div>
                                 </div>
@@ -89,6 +88,7 @@
                                 title: '{{$data->driver->first_name.' '.$data->driver->last_name}}',
                                 start: '{{$data->start_date->format("Y-m-d").'T'.$data->start_date->format("H:i:s")}}',
                                 end: '{{$data->end_date->format("Y-m-d").'T'.$data->end_date->format("H:i:s")}}',
+                                url: '{{url('request/ride/detail/'.$data->ride_id)}}'
                             },
                         @endforeach
                 ]

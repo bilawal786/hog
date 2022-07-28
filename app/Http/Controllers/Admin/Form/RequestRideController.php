@@ -22,7 +22,7 @@ class RequestRideController extends Controller
     {
         $rides = SendMessage::where('type', 'Request Ride')
             ->where('payment', 'yes')
-            
+
             ->orderBy('id', 'desc')
             ->paginate(10);
         return response()->json($rides);
@@ -131,7 +131,8 @@ class RequestRideController extends Controller
         'start_address' => $request->start_address,
         'end_address' => $request->end_address,
         'cost' => $request->cost,
-        'message' => $request->message,
+           'message' => $request->message,
+           'payment' => $request->payment,
        ]);
         $notification = array(
             'messege' => 'Request Ride successfully Updated!',
@@ -170,7 +171,7 @@ class RequestRideController extends Controller
     }
     public function unassignRide()
     {
-        $rides = SendMessage::where('type', 'Request Ride')->where('status_assign', 'no')->where('payment', 'yes')->orderBy('id', 'desc')->paginate(10);
+        $rides = SendMessage::where('type', 'Request Ride')->where('status_assign', 'no')->orderBy('id', 'desc')->paginate(10);
         return response()->json($rides);
     }
     public function statusUpdate(Request $request, $id)

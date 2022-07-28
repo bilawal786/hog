@@ -187,7 +187,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label mb-10">Start</label>
-                                                <vue-google-autocomplete v-model="ride.start_address" types="establishment" ref="addressStart" v-on:placechanged="getAddressStart" id="mapStart"
+                                                <vue-google-autocomplete v-model="ride.start_address" types="address" ref="addressStart" v-on:placechanged="getAddressStart" id="mapStart"
                                                     classname="form-control" placeholder="Start" country="us">
                                                 </vue-google-autocomplete>
                                                 <ul class="c-err" v-if="errorshow">
@@ -199,7 +199,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label mb-10">End</label>
-                                                <vue-google-autocomplete v-model="ride.end_address" types="establishment" ref="addressEnd" v-on:placechanged="getAddressEnd" id="mapEnd"
+                                                <vue-google-autocomplete v-model="ride.end_address" types="address" ref="addressEnd" v-on:placechanged="getAddressEnd" id="mapEnd"
                                                     classname="form-control" placeholder="End" country="us">
                                                 </vue-google-autocomplete>
                                                 <ul class="c-err" v-if="errorshow">
@@ -208,6 +208,27 @@
                                             </div>
                                         </div>
                                         <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label mb-10">Payment Status</label>
+                                                <div class="radio-list">
+                                                    <div class="radio-inline pl-0">
+                                                        <span class="radio radio-info">
+                                                            <input type="radio" value="yes" v-model="ride.payment">
+                                                            <label>Yes</label>
+                                                        </span>
+                                                    </div>
+                                                    <div class="radio-inline">
+                                                        <span class="radio radio-info">
+                                                            <input type="radio" value="no" v-model="ride.payment">
+                                                            <label>No</label>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -259,6 +280,7 @@ export default {
                 round_trip: null,
                 trip_date: null,
                 message: null,
+                payment:null,
                 start_lat: null,
                 start_lng: null,
                 end_lat: null,
@@ -306,7 +328,8 @@ export default {
                     this.ride.wheelchair = response.data.wheelchair,
                     this.ride.round_trip = response.data.round_trip,
                     this.ride.trip_date = response.data.trip_date,
-                    this.ride.message = response.data.message,
+                        this.ride.message = response.data.message,
+                        this.ride.payment = response.data.payment,
                     this.ride.start_lat = response.data.start_lat,
                     this.ride.start_lng = response.data.start_lng,
                     this.ride.end_lat = response.data.end_lat,
