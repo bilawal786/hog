@@ -15,7 +15,7 @@
                         <a class="nav-link ds-pd-10 active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="ture">Profile</a>
                         <a class="nav-link ds-pd-10" id="v-pills-feedback-tab" data-toggle="pill" href="#v-pills-feedback" role="tab" aria-controls="v-pills-billing" aria-selected="false">Submit FeedBack</a>
                         <a class="nav-link ds-pd-10" id="v-pills-billing-tab" data-toggle="pill" href="#v-pills-billing" role="tab" aria-controls="v-pills-billing" aria-selected="false">Billing Question</a>
-                        <a class="nav-link ds-pd-10" id="v-pills-ride-tab" data-toggle="pill" href="#v-pills-ride" role="tab" aria-controls="v-pills-ride" aria-selected="false">Request Ride</a>
+                        <a class="nav-link ds-pd-10" id="v-pills-ride-tab" data-toggle="pill" href="#v-pills-ride" role="tab" aria-controls="v-pills-ride" aria-selected="false">Request A Ride</a>
                         <a class="nav-link ds-pd-10" id="v-pills-other-tab" data-toggle="pill" href="#v-pills-other" role="tab" aria-controls="v-pills-other" aria-selected="false">Others</a>
                         <a class="nav-link ds-pd-10"  href="" v-on:click="logout()"  >Logout</a>
                         </div>

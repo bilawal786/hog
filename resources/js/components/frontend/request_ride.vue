@@ -29,35 +29,20 @@
                                     <td width="2%">:</td>
                                     <td>{{ $route.params.title.phone }}</td>
                                 </tr>
-                                <tr v-show="$route.params.title.card_on_file">
-                                    <th width="25%">Card On Flile Y/N</th>
+                                <tr v-show="$route.params.title.ridePerson">
+                                    <th width="25%">Ride Type</th>
                                     <td width="2%">:</td>
-                                    <td>{{ $route.params.title.card_on_file }}</td>
+                                    <td>{{ $route.params.title.ridePerson }}</td>
                                 </tr>
-                                <tr v-show="$route.params.title.relative">
-                                    <th width="25%">Relative</th>
+                                <tr v-if="$route.params.title.ridePerson == 'Someone Else'">
+                                    <th width="25%">Else First Name</th>
                                     <td width="2%">:</td>
-                                    <td>{{ $route.params.title.relative }}</td>
+                                    <td>{{ $route.params.title.else_first_name }}</td>
                                 </tr>
-                                <tr v-show="$route.params.title.relative_no">
-                                    <th width="25%">Relative #</th>
+                                <tr v-if="$route.params.title.ridePerson == 'Someone Else'">
+                                    <th width="25%">Else Last Name</th>
                                     <td width="2%">:</td>
-                                    <td>{{ $route.params.title.relative_no }}</td>
-                                </tr>
-                                <tr v-show="$route.params.title.facility">
-                                    <th width="25%">Facility</th>
-                                    <td width="2%">:</td>
-                                    <td>{{ $route.params.title.facility }}</td>
-                                </tr>
-                                <tr v-show="$route.params.title.account">
-                                    <th width="25%">Account</th>
-                                    <td width="2%">:</td>
-                                    <td>{{ $route.params.title.account }}</td>
-                                </tr>
-                                <tr v-show="$route.params.title.invoice">
-                                    <th width="25%">Invoice</th>
-                                    <td width="2%">:</td>
-                                    <td>{{ $route.params.title.invoice }}</td>
+                                    <td>{{ $route.params.title.else_last_name }}</td>
                                 </tr>
                                 <tr v-show="$route.params.title.wheelchair">
                                     <th width="25%">wheelchair</th>
@@ -83,10 +68,30 @@
                                         <set-time :date="$route.params.title.trip_date" year="yes"></set-time>
                                     </td>
                                 </tr>
+                                <tr v-show="$route.params.title.appt_length">
+                                    <th width="25%">Approximate Length of Appt</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $route.params.title.appt_length }}</td>
+                                </tr>
                                 <tr v-show="$route.params.title.message">
                                     <th width="25%">Message</th>
                                     <td width="2%">:</td>
                                     <td>{{ $route.params.title.message }}</td>
+                                </tr>
+                                <tr v-show="$route.params.title.familycaregive">
+                                    <th width="25%">Will a caregiver and/or family member be riding along</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $route.params.title.familycaregive }}</td>
+                                </tr>
+                                <tr v-if="$route.params.title.familycaregive == 'yes'">
+                                    <th width="25%">how many family member/s?</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $route.params.title.num_family_member }}</td>
+                                </tr>
+                                <tr v-show="$route.params.title.pertaining">
+                                    <th width="25%">Anything else we should know pertaining to this ride?</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $route.params.title.pertaining }}</td>
                                 </tr>
                                 <tr v-show="$route.params.title.start_address">
                                     <th width="25%">From</th>

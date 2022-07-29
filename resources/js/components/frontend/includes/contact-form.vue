@@ -8,39 +8,35 @@
                     <div class="col-sm-6">
                         <div class="mgb-30">
                             <select v-model="sendMessage.type" class="form-section" style="width: 144px">
-                                <option
-                                    class="form-option"
-                                    selected="selected"
-                                    value="Submit Feedback"
-                                >
+                                <option class="form-option" value="Submit Feedback">
                                     Submit Feedback
                                 </option>
                                 <option class="form-option" value="Billing Question">
                                     Billing Question
                                 </option>
                                 <option class="form-option" value="Request Ride">
-                                    Request Ride
+                                    Request A Ride
                                 </option>
                                 <option class="form-option" value="Others">Other</option>
                             </select>
                         </div>
-                        <div v-if="errors.type" class="contact-valid">
-                            {{ errors.type[0] }}
-                        </div>
+                    </div>
+                    <div class="col-sm-6" v-if="sendMessage.type == 'Request Ride'">
+                        <select v-model="sendMessage.customerType" class="form-section" style="width: 160px">
+                            <option class="form-option" value="Retruning Customer">Returning Customer</option>
+                            <option class="form-option" value="New Customer">New Customer</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mgb-30">
-                            <input
-                                v-model="sendMessage.Fname"
-                                :class="{
-                  'invalid-input': change ? errors.Fname : errors.Fname,
-                }"
-                                class="form-control"
-                                placeholder="First Name*"
-                                required
-                                type="text"
+                            <input v-model="sendMessage.Fname"
+                                   :class="{'invalid-input': change ? errors.Fname : errors.Fname,}"
+                                   class="form-control"
+                                   placeholder="First Name*"
+                                   required
+                                   type="text"
                             />
                             <div v-if="errors.Fname" class="contact-valid">
                                 The first name field is required
@@ -101,83 +97,50 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row" v-if="sendMessage.type == 'Request Ride'">
                     <!-- /.col-sm-6 -->
-                    <div v-if="sendMessage.type == 'Request Ride'" class="col-sm-6">
+                    <div class="col-sm-6">
+                        <select v-model="sendMessage.ridePerson" class="form-section" style="width: 160px">
+                            <option class="form-option" value="Self a Ride">Self a Ride</option>
+                            <option class="form-option" value="Someone Else">Someone Else</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" v-if="sendMessage.ridePerson == 'Someone Else'">
+                    <!-- /.col-sm-6 -->
+                    <div class="col-sm-6">
                         <div class="mgb-30">
-                            <input
-                                v-model="sendMessage.card_on_file"
-                                :class="{
-                  'invalid-input': change ? errors.card_on_file : errors.card_on_file,
-                }"
-                                class="form-control"
-                                placeholder="Card on File"
-                                required
-                                type="text"
+                            <input v-model="sendMessage.else_first_name"
+                                   :class="{'invalid-input': change ? errors.else_first_name : errors.else_first_name,}"
+                                   class="form-control"
+                                   placeholder="Else First Name*"
+                                   required
+                                   type="text"
                             />
-                            <div v-if="errors.card_on_file" class="contact-valid">
-                                {{ errors.card_on_file[0] }}
+                            <div v-if="errors.else_first_name" class="contact-valid">
+                                The else first name field is required
                             </div>
                         </div>
                     </div>
-                    <!-- /.col-sm-6 -->
-                    <div v-if="sendMessage.type == 'Request Ride'" class="col-sm-6">
+                    <div class="col-sm-6">
                         <div class="mgb-30">
-                            <input
-                                v-model="sendMessage.relative"
-                                :class="{ 'invalid-input': change ? errors.relative : errors.relative, }"
-                                class="form-control"
-                                placeholder="Relative"
-                                required
-                                type="text"
+                            <input v-model="sendMessage.else_last_name"
+                                   :class="{'invalid-input': change ? errors.else_last_name : errors.else_last_name,}"
+                                   class="form-control"
+                                   placeholder="Else Last Name*"
+                                   required
+                                   type="text"
                             />
-                            <div v-if="errors.relative" class="contact-valid">
-                                {{ errors.relative[0] }}
+                            <div v-if="errors.else_last_name" class="contact-valid">
+                                The else last name field is required
                             </div>
                         </div>
                     </div>
-                    <!-- /.col-sm-6 -->
-                    <div v-if="sendMessage.type == 'Request Ride'" class="col-sm-6">
-                        <div class="mgb-30">
-                            <input
-                                v-model="sendMessage.relative_no"
-                                :class="{
-                  'invalid-input': change ? errors.relative_no : errors.relative_no,
-                }"
-                                class="form-control"
-                                placeholder="Relative Phone #"
-                                required
-                                type="text"
-                            />
-                            <div v-if="errors.relative_no" class="contact-valid">
-                                {{ errors.relative_no[0] }}
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-sm-6 -->
-                    <div v-if="sendMessage.type == 'Request Ride'" class="col-sm-6">
-                        <div class="mgb-30">
-                            <input
-                                v-model="sendMessage.facility"
-                                :class="{
-                  'invalid-input': change ? errors.facility : errors.facility,
-                }"
-                                class="form-control"
-                                placeholder="Facility"
-                                required
-                                type="text"
-                            />
-                            <div v-if="errors.facility" class="contact-valid">
-                                {{ errors.facility[0] }}
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        v-if="
-              sendMessage.type == 'Billing Question' ||
-              sendMessage.type == 'Submit Feedback'
-            "
-                        class="col-sm-6"
-                    >
+                </div>
+                <div class="row">
+                    <div v-if="sendMessage.type == 'Billing Question' || sendMessage.type == 'Submit Feedback'"
+                         class="col-sm-6">
                         <div class="mgb-30">
                             <input
                                 v-model="sendMessage.account"
@@ -217,7 +180,7 @@
                             </div>
                             <div class="m-v-radio">
                                 <label class="form-radio-custom" style="overflow: hidden;">
-                                    Amb (No)
+                                    Ambulatory (No)
                                     <input
                                         v-model="sendMessage.wheelchair"
                                         checked="checked"
@@ -229,8 +192,8 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <div v-if="errors.wheelchair" class="contact-valid">
-                                {{ errors.wheelchair[0] }}
+                            <div v-if="sendMessage.wheelchair == 'yes'">
+                                Do you need a wheelchair provided by Heart of Gold? Note: $25 fee
                             </div>
                         </div>
                     </div>
@@ -272,7 +235,7 @@
                 </div>
                 <div class="row">
                     <div v-if="sendMessage.type == 'Request Ride'" class="col-md-6">
-                        <p class="form-text">Trip Date & Time</p>
+                        <p class="form-text">Appointment Date and Time</p>
                         <div class="mgb-30">
                             <date-time
                                 v-model="sendMessage.trip_date"
@@ -303,22 +266,20 @@
                             </div>
                         </div>
                     </div>
-                    <div v-if="sendMessage.type == 'Request Ride' && sendMessage.round_trip == 'yes'" class="col-sm-6">
-                        <p class="form-text">Waiting in Hours</p>
+                    <div v-if="sendMessage.type == 'Request Ride'" class="col-sm-6">
+                        <p class="form-text">Approximate Length of Appt.</p>
                         <div class="mgb-30">
                             <input
-                                v-model="sendMessage.waiting"
+                                v-model="sendMessage.appt_length"
                                 :class="{
-                  'invalid-input': change ? errors.waiting : errors.waiting,
+                  'invalid-input': change ? errors.appt_length : errors.appt_length,
                 }" class="form-control"
-                                max="10"
-                                min="1"
-                                placeholder="1 to 10"
+                                placeholder="Appointment Duration"
                                 required
-                                type="number"
+                                type="text"
                             />
-                            <div v-if="errors.waiting" class="contact-valid">
-                                {{ errors.waiting[0] }}
+                            <div v-if="errors.appt_length" class="contact-valid">
+                                {{ errors.appt_length[0] }}
                             </div>
                         </div>
                     </div>
@@ -360,7 +321,7 @@
                                     }"
                                 classname="form-control"
                                 country="us"
-                                placeholder="Start"
+                                placeholder="Pickup Address"
                                 types="address"
                                 v-on:placechanged="getAddressStart"
                             >
@@ -383,7 +344,7 @@
                                     }"
                                 classname="form-control"
                                 country="us"
-                                placeholder="End"
+                                placeholder="Destination Address"
                                 types="address"
                                 v-on:placechanged="getAddressEnd"
                             >
@@ -394,11 +355,50 @@
                         </div>
                     </div>
                 </div>
+                <div class="row" v-if="sendMessage.type == 'Request Ride'">
+                    <div class="col-md-12">
+                        <p class="form-text">Will a caregiver and/or family member be riding along?</p>
+                        <select v-model="sendMessage.familycaregive" class="form-section" style="width: 100px">
+                            <option class="form-option" value="yes">Yes</option>
+                            <option class="form-option" value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6" v-if="sendMessage.familycaregive == 'yes'">
+                        <p class="form-text">how many family member/s?</p>
+                        <div class="mgb-30">
+                            <input v-model="sendMessage.num_family_member"
+                                   :class="{'invalid-input': change ? errors.num_family_member : errors.num_family_member,}"
+                                   class="form-control"
+                                   placeholder="Number"
+                                   required
+                                   type="number"
+                            />
+                            <div v-if="errors.num_family_member" class="contact-valid">
+                                {{ errors.num_family_member[0] }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="form-text">Anything else we should know pertaining to this ride?</p>
+                        <div class="mgb-30">
+                            <input v-model="sendMessage.pertaining"
+                                   :class="{'invalid-input': change ? errors.pertaining : errors.pertaining,}"
+                                   class="form-control"
+                                   placeholder="Stairs, discharge, oxygen tank, etc"
+                                   required
+                                   type="text"
+                            />
+                            <div v-if="errors.pertaining" class="contact-valid">
+                                {{ errors.pertaining[0] }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div v-if="sendMessage.type == 'Request Ride'" class="row">
                     <div class="col-md-12">
                         <div class="clearfix">
                             <button class="btn-contact" type="button"
-                                @click="calculateCost(sendMessage.start_lat, sendMessage.start_lng, sendMessage.end_lat, sendMessage.end_lng)">
+                                    @click="calculateCost(sendMessage.start_lat, sendMessage.start_lng, sendMessage.end_lat, sendMessage.end_lng)">
                                 Calculate Cost
                             </button>
                             <span
@@ -417,7 +417,9 @@
                         <div v-if="sendMessage.cost">
                             <div class="clearfix">
                                 <div class="float-left"><span>$ {{ calculate.distCost }}: = </span><span
-                                    class="text-yellow">Distance {{ calculate.distance }} - round trip ({{ calculate.round }})</span>
+                                    class="text-yellow">Distance {{
+                                        calculate.distance
+                                    }} - round trip ({{ calculate.round }})</span>
                                 </div>
                             </div>
                             <div class="clearfix">
@@ -427,10 +429,6 @@
                             <div class="clearfix">
                                 <div class="float-left"><span>$ {{ calculate.time }}: = </span><span
                                     class="text-yellow">Before or after the hours of 8am-5pm</span></div>
-                            </div>
-                            <div class="clearfix">
-                                <div class="float-left"><span>$ {{ calculate.waiting }}: = </span><span
-                                    class="text-yellow">Waiting Charges</span></div>
                             </div>
                             <div class="clearfix">
                                 <div class="float-left"><span>$ {{ calculate.day }}: = </span><span class="text-yellow">Weekend charges</span>
@@ -451,10 +449,12 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="subimt-button-contact clearfix">
-                            <button class="btn btn-lg submit yellow-button" type="button" @click="sendDatatoDB" :disabled="isloading">
+                            <button class="btn btn-lg submit yellow-button" type="button" @click="sendDatatoDB"
+                                    :disabled="isloading">
                                 <span v-if="isloading"><span class="fam fa fa-spinner fa-spin"></span>Loading</span>
                                 <span v-else>Submit</span>
                             </button>
@@ -478,18 +478,19 @@ export default {
 
     data() {
         return {
-            isloading:false,
+            isloading: false,
             sendMessage: {
                 type: 'Request Ride',
+                customerType: 'Retruning Customer',
                 Fname: null,
                 Lname: null,
                 email: null,
                 phone: null,
-                card_on_file: null,
-                relative: null,
-                relative_no: null,
+                ridePerson: 'Self a Ride',
+                else_first_name: null,
+                else_last_name: null,
                 facility: null,
-                waiting: 0,
+                appt_length: null,
                 account: null,
                 invoice: null,
                 wheelchair: 'no',
@@ -507,6 +508,9 @@ export default {
                 end_city: null,
                 end_country: null,
                 cost: null,
+                familycaregive: 'no',
+                num_family_member: null,
+                pertaining: null,
                 status_assign: 'no',
                 user_id: null,
             },
@@ -517,7 +521,6 @@ export default {
                 chair: 0,
                 distCost: 0,
                 time: 0,
-                waiting: 0,
                 holiday: null,
                 totalCost: null,
             },
@@ -535,44 +538,42 @@ export default {
         this.$store.commit("auth/setErrors", {})
         //clear veriables
         this.sendMessage.Fname = null
-            this.sendMessage.Lname = null
-            this.sendMessage.email = null
-            this.sendMessage.phone = null
-            this.sendMessage.card_on_file = null
-            this.sendMessage.relative = null
-            this.sendMessage.relative_no = null
-            this.sendMessage.facility = null
-            this.sendMessage.waiting = null
-            this.sendMessage.account = null
-            this.sendMessage.invoice = null
-            this.sendMessage.wheelchair = 'no'
-            this.sendMessage.round_trip = 'no'
-            this.sendMessage.trip_date = new Date().toJSON()
-            this.sendMessage.message = null
-            this.sendMessage.start_lat = null
-            this.sendMessage.start_lng = null
-            this.sendMessage.start_address = null
-            this.sendMessage.start_city = null
-            this.sendMessage.start_country = null
-            this.sendMessage.end_lat = null
-            this.sendMessage.end_lng = null
-            this.sendMessage.end_address = null
-            this.sendMessage.end_city = null
-            this.sendMessage.end_country = null
-            this.sendMessage.cost = null
-            this.calculate.day= 0
-            this.calculate.distance= 0
-            this.calculate.round= null
-            this.calculate.chair= 0
-            this.calculate.distCost= 0
-            this.calculate.time= 0
-            this.calculate.waiting= 0
-            this.calculate.holiday= null
-            this.calculate.totalCost= null
+        this.sendMessage.Lname = null
+        this.sendMessage.email = null
+        this.sendMessage.phone = null
+        this.sendMessage.facility = null
+        this.sendMessage.ridePerson='Self a Ride'
+        this.sendMessage.else_first_name=null
+        this.sendMessage.else_last_name=null
+        this.sendMessage.account = null
+        this.sendMessage.invoice = null
+        this.sendMessage.wheelchair = 'no'
+        this.sendMessage.round_trip = 'no'
+        this.sendMessage.trip_date = new Date().toJSON()
+        this.sendMessage.message = null
+        this.sendMessage.start_lat = null
+        this.sendMessage.start_lng = null
+        this.sendMessage.start_address = null
+        this.sendMessage.start_city = null
+        this.sendMessage.start_country = null
+        this.sendMessage.end_lat = null
+        this.sendMessage.end_lng = null
+        this.sendMessage.end_address = null
+        this.sendMessage.end_city = null
+        this.sendMessage.end_country = null
+        this.sendMessage.cost = null
+        this.calculate.day = 0
+        this.calculate.distance = 0
+        this.calculate.round = null
+        this.calculate.chair = 0
+        this.calculate.distCost = 0
+        this.calculate.time = 0
+        this.calculate.holiday = null
+        this.calculate.totalCost = null
 
         window.scrollTo(0, 0);
-        this.$refs.addressStart.focus();
-        this.$refs.addressEnd.focus();
+        // this.$refs.addressStart.focus();
+        // this.$refs.addressEnd.focus();
         if (this.$route.params.title) {
             this.sendMessage = this.$route.params.title
         }
@@ -590,51 +591,160 @@ export default {
             this.sendMessage.email = this.user.email
             this.sendMessage.phone = this.user.phone
         },
-        'sendMessage.Fname': function (val){
-            if(this.sendMessage.Fname != null ){
-                if(this.sendMessage.Fname != ""){
+        'sendMessage.Fname': function (val) {
+            if (this.sendMessage.Fname != null) {
+                if (this.sendMessage.Fname != "") {
                     delete this.errors['Fname'];
                 }
             }
         },
-        'sendMessage.Lname': function (val){
-            if(this.sendMessage.Lname != null ){
-                if(this.sendMessage.Lname != ""){
+        'sendMessage.Lname': function (val) {
+            if (this.sendMessage.Lname != null) {
+                if (this.sendMessage.Lname != "") {
                     delete this.errors['Lname'];
                 }
             }
         },
-        'sendMessage.email': function (val){
-            if(this.sendMessage.email != null ){
-                if(this.sendMessage.email != ""){
+        'sendMessage.email': function (val) {
+            if (this.sendMessage.email != null) {
+                if (this.sendMessage.email != "") {
                     delete this.errors['email'];
                 }
             }
         },
-        'sendMessage.phone': function (val){
-            if(this.sendMessage.phone != null ){
-                if(this.sendMessage.phone != ""){
+        'sendMessage.phone': function (val) {
+            if (this.sendMessage.phone != null) {
+                if (this.sendMessage.phone != "") {
                     delete this.errors['phone'];
                 }
             }
         },
-        'sendMessage.start_address': function (val){
-            if(this.sendMessage.start_address != null ){
-                if(this.sendMessage.start_address != ""){
+        'sendMessage.start_address': function (val) {
+            if (this.sendMessage.start_address != null) {
+                if (this.sendMessage.start_address != "") {
                     delete this.errors['start_address'];
                 }
             }
         },
-        'sendMessage.end_address': function (val){
-            if(this.sendMessage.end_address != null ){
-                if(this.sendMessage.end_address != ""){
+        'sendMessage.end_address': function (val) {
+            if (this.sendMessage.end_address != null) {
+                if (this.sendMessage.end_address != "") {
                     delete this.errors['end_address'];
+                }
+            }
+        },
+        'sendMessage.message': function (val) {
+            if (this.sendMessage.message != null) {
+                if (this.sendMessage.message != "") {
+                    delete this.errors['message'];
+                }
+            }
+        },
+        'sendMessage.appt_length': function (val) {
+            if (this.sendMessage.appt_length != null) {
+                if (this.sendMessage.appt_length != "") {
+                    delete this.errors['appt_length'];
+                }
+            }
+        },
+        'sendMessage.pertaining': function (val) {
+            if (this.sendMessage.pertaining != null) {
+                if (this.sendMessage.pertaining != "") {
+                    delete this.errors['pertaining'];
                 }
             }
         }
     },
     methods: {
+        sendDatatoDB: function () {
+            if (this.user) {
+                this.sendMessage.user_id = this.user.id
+            } else {
+                this.sendMessage.user_id = null
+            }
+            if (this.sendMessage.type == "Request Ride") {
+                let tempData = {}
+                let sendmsg = JSON.parse(JSON.stringify(this.sendMessage))
+                for (const key in sendmsg) {
+                    if (sendmsg[key] == null || sendmsg[key] == "") {
+                        if (key != 'account' && key != 'invoice' && key != 'user_id' && key != 'facility' && key != 'else_first_name' && key != 'else_last_name' && key != 'num_family_member') {
+                            // if (sendmsg['ridePerson'] != 'Self a Ride') {
+                            //     // if (key != 'else_first_name') {
+                            //     //     tempData[key] = ['The ' + key + ' field is required.'];
+                            //     // }
+                            // } else {
+                            //     tempData[key] = ['The ' + key + ' field is required.'];
+                            // }
+                            tempData[key] = ['The ' + key + ' field is required.'];
+                        }
+                    }
+                }
+                this.$store.commit("auth/setErrors", tempData)
+                if (Object.keys(tempData).length === 0) {
+                    this.$router.push({name: 'request1_ride', params: {title: this.sendMessage}})
+                }
+            } else {
+                this.isloading = true
+                axios.post("send/message", this.sendMessage)
+                    .then(response => {
+                        window.scrollTo(0, 0)
+                        this.isloading = false
+                        if (response) {
+                            this.sendMessage.type = "Request Ride",
+                                this.sendMessage.Fname = null,
+                                this.sendMessage.Lname = null,
+                                this.sendMessage.email = null,
+                                this.sendMessage.phone = null,
+                                this.sendMessage.facility = null,
+                                this.sendMessage.account = null,
+                                this.sendMessage.invoice = null,
+                                this.sendMessage.wheelchair = 'no',
+                                this.sendMessage.round_trip = 'no',
+                                this.sendMessage.trip_date = new Date().toJSON(),
+                                this.sendMessage.message = null,
+                                this.sendMessage.start_lat = null,
+                                this.sendMessage.start_lng = null,
+                                this.sendMessage.start_address = null,
+                                this.sendMessage.start_city = null,
+                                this.sendMessage.start_country = null,
+                                this.sendMessage.end_lat = null,
+                                this.sendMessage.end_lng = null,
+                                this.sendMessage.end_address = null,
+                                this.sendMessage.end_city = null,
+                                this.sendMessage.end_country = null,
+                                this.sendMessage.cost = null,
+                                this.calculate.day = 0,
+                                this.calculate.distance = 0,
+                                this.calculate.round = null,
+                                this.calculate.chair = 0,
+                                this.calculate.distCost = 0,
+                                this.calculate.time = 0,
+                                this.calculate.holiday = null,
+                                this.calculate.totalCost = null,
 
+                                this.$store.commit("auth/setErrors", {}),
+                                window.scrollTo(0, 0)
+                            switch (response.data.type) {
+                                case 'info':
+                                    toastr.info(response.data.messege);
+                                    break;
+                                case 'success':
+
+                                    toastr.success(response.data.messege);
+                                    break;
+                                case 'warning':
+                                    toastr.warning(response.data.messege);
+                                    break;
+                                case 'error':
+                                    toastr.error(response.data.messege);
+                                    break;
+                            }
+                        }
+                    }).catch(() => {
+
+                });
+            }
+        },
         getAddressStart: function (addressData, placeResultData, id) {
             this.sendMessage.start_lat = addressData.latitude;
             this.sendMessage.start_lng = addressData.longitude;
@@ -656,7 +766,7 @@ export default {
             if ((lat1 == lat2) && (lon1 == lon2)) {
                 return 0;
             } else {
-                if(lat1 != null && lat2 != null && lon1 != null && lon2 != null){
+                if (lat1 != null && lat2 != null && lon1 != null && lon2 != null) {
                     var theta = lon1 - lon2;
                     var dist = Math.sin(this.deg2rad(lat1)) * Math.sin(this.deg2rad(lat2)) + Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * Math.cos(this.deg2rad(theta));
                     dist = Math.acos(dist);
@@ -664,14 +774,14 @@ export default {
                     var miles = dist * 60 * 1.1515;
                     // var km = miles * 1.609344;
                     var roundmiles = Math.round(miles * 100) / 100;
-                    this.getCost(roundmiles, this.sendMessage.trip_date, this.sendMessage.round_trip, this.sendMessage.wheelchair, this.sendMessage.waiting)
-                }else{
+                    this.getCost(roundmiles, this.sendMessage.trip_date, this.sendMessage.round_trip, this.sendMessage.wheelchair)
+                } else {
                     return 0
                 }
 
             }
         },
-        getCost(distance, date, round, chair, wait) {
+        getCost(distance, date, round, chair) {
             switch (new Date(date).getDay()) {
                 case 0:
                     var day = "Sunday";
@@ -696,11 +806,10 @@ export default {
             }
             if (distance <= 5) {
                 if (round == 'yes') {
-                    this.calculate.waiting = wait * 60
                     this.calculate.round = 'Yes'
                     this.calculate.distance = 'Less then 5 miles'
                     this.calculate.distCost = 120
-                    this.calculate.totalCost = 120 + (wait * 60)
+                    this.calculate.totalCost = 120
                 } else {
                     this.calculate.round = 'No'
                     this.calculate.distance = 'Less then 5 miles'
@@ -711,11 +820,10 @@ export default {
             } else if (distance > 5 && distance <= 10) {
                 console.log('5 to 10')
                 if (round == 'yes') {
-                    this.calculate.waiting = wait * 60
                     this.calculate.round = 'Yes'
                     this.calculate.distance = 'Between 5 to 10 miles'
                     this.calculate.distCost = 130
-                    this.calculate.totalCost = 130 + (wait * 60)
+                    this.calculate.totalCost = 130
                 } else {
                     this.calculate.round = 'No'
                     this.calculate.distance = 'Between 5 to 10 miles'
@@ -725,11 +833,10 @@ export default {
             } else {
                 // console.log('more then 10')
                 if (round == 'yes') {
-                    this.calculate.waiting = wait * 60
                     this.calculate.round = 'Yes'
                     this.calculate.distance = 'More then 10 miles'
                     this.calculate.distCost = Math.round(6 * (distance - 10) + 130)
-                    this.calculate.totalCost = Math.round(6 * (distance - 10) + 130) + (wait * 60)
+                    this.calculate.totalCost = Math.round(6 * (distance - 10) + 130)
                 } else {
                     this.calculate.round = 'No'
                     this.calculate.distance = 'More then 10 miles'
@@ -774,100 +881,6 @@ export default {
         },
         deg2rad: function (deg) {
             return deg * (Math.PI / 180)
-        },
-        sendDatatoDB: function () {
-            if (this.user) {
-                this.sendMessage.user_id = this.user.id
-            } else {
-                this.sendMessage.user_id = null
-            }
-            if (this.sendMessage.type == "Request Ride") {
-                let tempData = {}
-                let sendmsg = JSON.parse(JSON.stringify(this.sendMessage))
-                for (const key in sendmsg) {
-                    if (sendmsg[key] == null || sendmsg[key] == "") {
-                        if (key != 'account' && key != 'invoice' && key != 'user_id' && key != 'card_on_file' && key != 'relative' && key != 'relative_no' && key != 'facility') {
-                            if (sendmsg['round_trip'] != 'yes') {
-                                if (key != 'waiting') {
-                                    tempData[key] = ['The ' + key + ' field is required.'];
-                                }
-                            } else {
-                                tempData[key] = ['The ' + key + ' field is required.'];
-                            }
-
-                        }
-                    }
-                }
-                this.$store.commit("auth/setErrors", tempData)
-                if (Object.keys(tempData).length === 0) {
-                    this.$router.push({name: 'request1_ride', params: {title: this.sendMessage}})
-                }
-            } else {
-                this.isloading = true
-                axios.post("send/message", this.sendMessage)
-                    .then(response => {
-                        window.scrollTo(0, 0)
-                        this.isloading = false
-                        if (response) {
-                            this.sendMessage.type = "Request Ride",
-                                this.sendMessage.Fname = null,
-                                this.sendMessage.Lname = null,
-                                this.sendMessage.email = null,
-                                this.sendMessage.phone = null,
-                                this.sendMessage.card_on_file = null,
-                                this.sendMessage.relative = null,
-                                this.sendMessage.relative_no = null,
-                                this.sendMessage.facility = null,
-                                this.sendMessage.waiting = null,
-                                this.sendMessage.account = null,
-                                this.sendMessage.invoice = null,
-                                this.sendMessage.wheelchair = 'no',
-                                this.sendMessage.round_trip = 'no',
-                                this.sendMessage.trip_date = new Date().toJSON(),
-                                this.sendMessage.message = null,
-                                this.sendMessage.start_lat = null,
-                                this.sendMessage.start_lng = null,
-                                this.sendMessage.start_address = null,
-                                this.sendMessage.start_city = null,
-                                this.sendMessage.start_country = null,
-                                this.sendMessage.end_lat = null,
-                                this.sendMessage.end_lng = null,
-                                this.sendMessage.end_address = null,
-                                this.sendMessage.end_city = null,
-                                this.sendMessage.end_country = null,
-                                this.sendMessage.cost = null,
-                                this.calculate.day= 0,
-                                this.calculate.distance= 0,
-                                this.calculate.round= null,
-                                this.calculate.chair= 0,
-                                this.calculate.distCost= 0,
-                                this.calculate.time= 0,
-                                this.calculate.waiting= 0,
-                                this.calculate.holiday= null,
-                                this.calculate.totalCost= null,
-
-                                this.$store.commit("auth/setErrors", {}),
-                                window.scrollTo(0, 0)
-                            switch (response.data.type) {
-                                case 'info':
-                                    toastr.info(response.data.messege);
-                                    break;
-                                case 'success':
-
-                                    toastr.success(response.data.messege);
-                                    break;
-                                case 'warning':
-                                    toastr.warning(response.data.messege);
-                                    break;
-                                case 'error':
-                                    toastr.error(response.data.messege);
-                                    break;
-                            }
-                        }
-                    }).catch(()=>{
-
-                });
-            }
         },
 
     },

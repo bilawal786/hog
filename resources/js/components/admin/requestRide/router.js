@@ -9,44 +9,51 @@ import RequestRideProcess from "./RequestRideProcess";
 import RequestRideReject from "./RequestRideReject";
 import RequestRideComplete from "./RequestRideComplete";
 import RideDetail from "./childs/rideDetail/RideDetail";
+import RideRequestNew from "./RequestRideNew"
 
 const routes = [
     {
-        // name:'RequestRideList',
+        name:'RequestRideNew',
+        path:'/request/ride/new',
+        component:RideRequestNew,
+        meta: { title: 'HOG | Request A Ride New' },
+    },
+    {
+        name:'RequestRideList',
         path:'/request/ride/list',
         component:RequestRideList,
-        meta: { title: 'HOG | Request Ride List' },
+        meta: { title: 'HOG | Request A Ride List' },
     },
     {
         name:'RequestRideAssign',
         path:'/request/ride/assign',
         component:RequestRideAssign,
-        meta: { title: 'HOG | Request Ride Assign' }
+        meta: { title: 'HOG | Request A Ride Assign' }
 
     },
     {
         name:'RequestRideProcess',
         path:'/request/ride/process',
         component:RequestRideProcess,
-        meta: { title: 'HOG | Request Ride Process' }
+        meta: { title: 'HOG | Request A Ride Process' }
     },
     {
         name:'RequestRideReject',
         path:'/request/ride/reject',
         component:RequestRideReject,
-        meta: { title: 'HOG | Request Ride Reject' }
+        meta: { title: 'HOG | Request A Ride Reject' }
     },
     {
         name:'RequestRideComplete',
         path:'/request/ride/complete',
         component:RequestRideComplete,
-        meta: { title: 'HOG | Request Ride Complete' }
+        meta: { title: 'HOG | Request A Ride Complete' }
     },
     {
         name:'RideDetail',
         path:'/request/ride/detail/:id',
         component:RideDetail,
-        meta: { title: 'HOG | Request Ride detal' }
+        meta: { title: 'HOG | Request A Ride detal' }
     },
 ];
 

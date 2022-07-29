@@ -9,14 +9,19 @@
                                 <tr>
                                     <th>Last Name</th>
                                     <th>First Name</th>
-                                    <th>Address</th>
-                                    <th>City</th>
+<!--                                    <th>Address</th>-->
+<!--                                    <th>City</th>-->
                                     <th>W/C or Amb</th>
                                     <th>Phone Number</th>
-                                    <th>Card on File Y/N</th>
-                                    <th>Relative</th>
-                                    <th>Relative's #</th>
-                                    <th>Facility</th>
+                                    <th>Self or Someone else</th>
+                                    <th>Approximate Length</th>
+                                    <th>Caregiver Along</th>
+                                    <th>Pertaining for Ride</th>
+
+<!--                                    <th>Card on File Y/N</th>-->
+<!--                                    <th>Relative</th>-->
+<!--                                    <th>Relative's #</th>-->
+<!--                                    <th>Facility</th>-->
                                     <th>Notes</th>
                                     <th>Payment</th>
                                     <th>Action</th>
@@ -30,14 +35,18 @@
                                 <tr v-else v-for="ride in rides.data" :key="ride.id">
                                     <td>{{ride.Lname}}</td>
                                     <td>{{ ride.Fname}}</td>
-                                    <td>{{ ride.start_address}}</td>
-                                    <td>{{ ride.start_city}}</td>
+<!--                                    <td>{{ ride.start_address}}</td>-->
+<!--                                    <td>{{ ride.start_city}}</td>-->
                                     <td>{{ ride.wheelchair }}</td>
                                     <td>{{ ride.phone }}</td>
-                                    <td>{{ ride.card_on_file }}</td>
-                                    <td>{{ ride.relative }}</td>
-                                    <td>{{ ride.relative_no }}</td>
-                                    <td>{{ ride.facility }}</td>
+                                    <td>{{ride.ridePerson}}</td>
+                                    <td>{{ride.appt_length}}</td>
+                                    <td>{{ride.familycaregive}}</td>
+                                    <td>{{ride.pertaining}}</td>
+<!--                                    <td>{{ ride.card_on_file }}</td>-->
+<!--                                    <td>{{ ride.relative }}</td>-->
+<!--                                    <td>{{ ride.relative_no }}</td>-->
+<!--                                    <td>{{ ride.facility }}</td>-->
                                     <td>
                                         <span class="limit-text">{{ ride.message }}</span>
                                     </td>

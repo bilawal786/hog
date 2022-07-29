@@ -17,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes();
 Auth::routes(['register' => false]);
 
-Route::get('/admin/login', 'Admin\Auth\AdminLoginController@login')->name('admin.login');
-Route::get('/driver/login', 'Admin\Auth\AdminLoginController@login')->name('admin.login');
+Route::get('/admin/login', function (){
+    return view('auth.login');
+})->name('admin.login');
+Route::get('/driver/login', function () {
+    return view('auth.login');
+});
 //Route::get('/reset', 'AdminController@reset')->name('admin.reset');
 Route::get('/block', 'Admin\block\BlockController@block')->name('admin.block');
-Route::get('/admin/logout', 'Admin\LogOutController@logout')->name('admin.logout');
+//Route::get('/admin/logout', 'Admin\LogOutController@logout')->name('admin.logout');
 
 
 Route::group(['middleware' => ['auth', 'status']], function() {

@@ -1,6 +1,10 @@
 <template>
+
     <div class="panel panel-default card-view">
         <div class="panel-wrapper collapse in">
+            <div class="panel-heading">
+                <h4>Create New Ride</h4>
+            </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-sm-12 col-xs-12">
@@ -391,104 +395,72 @@
         </div>
     </div>
 </template>
+
 <script>
 import VueGoogleAutocomplete from "vue-google-autocomplete";
+
 export default {
     props: ['rideId'],
     data() {
         return {
-            isloading:false,
+            isloading: false,
             ride: {
-                type: null,
+                type: 'Request Ride',
+                customerType: 'Retruning Customer',
                 Fname: null,
                 Lname: null,
                 email: null,
                 phone: null,
-                ridePerson: null,
+                ridePerson: 'Self a Ride',
                 else_first_name: null,
                 else_last_name: null,
+                facility: null,
                 appt_length: null,
-                familycaregive: null,
-                num_family_member: null,
-                pertaining: null,
-                card_on_file:null,
-                relative:null,
-                relative_no:null,
-                facility:null,
-                waiting:null,
-                wheelchair: null,
-                round_trip: null,
-                trip_date: null,
+                account: null,
+                invoice: null,
+                wheelchair: 'no',
+                round_trip: 'no',
+                trip_date: new Date().toJSON(),
                 message: null,
-                payment:null,
                 start_lat: null,
                 start_lng: null,
                 end_lat: null,
                 end_lng: null,
                 start_address: null,
+                start_city: null,
+                start_country: null,
                 end_address: null,
+                end_city: null,
+                end_country: null,
                 cost: null,
-                status_assign: null,
-                user_id: null
+                familycaregive: 'no',
+                num_family_member: null,
+                pertaining: null,
+                payment:'no',
+                status_assign: 'no',
+                user_id: null,
             },
-            calculate:{
-                day:null,
-                distance:null,
-                round:null,
-                chair:null,
-                time:null,
-                holiday:null,
-                totalCost:null,
+            calculate: {
+                day: null,
+                distance: null,
+                round: null,
+                chair: null,
+                time: null,
+                holiday: null,
+                totalCost: null,
             },
-            errorshow:null,
+            errorshow: null,
         }
     },
     components: {
         VueGoogleAutocomplete
     },
     mounted() {
-        window.scrollTo(0, 0);
         this.$refs.addressStart.focus();
         this.$refs.addressEnd.focus();
-        this.getRideDetailById(this.rideId)
     },
     methods: {
-        getRideDetailById: function (id) {
-            axios.get("admin/web/form/request/ride/" + id).then((response) => {
-                    this.ride.type = response.data.type,
-                    this.ride.Fname = response.data.Fname,
-                    this.ride.Lname = response.data.Lname,
-                    this.ride.email = response.data.email,
-                        this.ride.phone = response.data.phone,
-                        this.ride.ridePerson = response.data.ridePerson,
-                        this.ride.else_first_name = response.data.else_first_name,
-                        this.ride.else_last_name = response.data.else_last_name,
-                        this.ride.appt_length = response.data.appt_length,
-                    this.ride.familycaregive = response.data.familycaregive,
-                    this.ride.num_family_member = response.data.num_family_member,
-                    this.ride.pertaining = response.data.pertaining,
-                        this.ride.card_on_file = response.data.card_on_file,
-                        this.ride.relative = response.data.relative,
-                        this.ride.relative_no = response.data.relative_no,
-                        this.ride.facility = response.data.facility,
-                        this.ride.waiting = response.data.waiting,
-                    this.ride.wheelchair = response.data.wheelchair,
-                    this.ride.round_trip = response.data.round_trip,
-                    this.ride.trip_date = response.data.trip_date,
-                        this.ride.message = response.data.message,
-                        this.ride.payment = response.data.payment,
-                    this.ride.start_lat = response.data.start_lat,
-                    this.ride.start_lng = response.data.start_lng,
-                    this.ride.end_lat = response.data.end_lat,
-                    this.ride.end_lng = response.data.end_lng,
-                    this.ride.start_address = response.data.start_address,
-                    this.ride.end_address = response.data.end_address,
-                    this.ride.cost = response.data.cost
-                    this.ride.status_assign = response.data.status_assign
-                    this.ride.user_id = response.data.user_id
-            });
-        },
-        updateRideDetailById: function (id) {
+        updateRideDetailById: function () {
 
             Swal.fire({
                 title: 'Are you sure ?',
@@ -501,13 +473,14 @@ export default {
             }, () => {
             }).then((result) => {
                 if (result.value) {
-                    this.isloading=true,
-                     axios.put("admin/web/form/request/ride/" + id, this.ride).then(response => {
-                         window.scrollTo(0, 0)
-                         this.isloading=false
+                    this.isloading = true,
+                        axios.post("admin/web/form/request/ride", this.ride).then(response => {
+                            window.scrollTo(0, 0)
+                            this.isloading = false
                             if (response.status == 200) {
                                 window.scrollTo(0, 0)
-                                switch(response.data.type){
+                                this.$router.push({ name: 'RequestRideList' })
+                                switch (response.data.type) {
                                     case 'info':
                                         toastr.info(response.data.messege);
                                         break;
@@ -521,16 +494,16 @@ export default {
                                         toastr.error(response.data.messege);
                                         break;
                                 }
+                                // this.router.push({ name: 'RequestRideList' })
                             } else {
 
                             }
-                        }).catch(err=>
-                     {
-                         this.isloading=false
-                         this.errorshow = err.response.data.errors
-                     })
+                        }).catch(err => {
+                            this.isloading = false
+                            this.errorshow = err.response.data.errors
+                        })
                 }
-            }).catch(()=>{
+            }).catch(() => {
                 // this.isloading=false
             })
         },
@@ -673,5 +646,8 @@ export default {
         },
     }
 }
-
 </script>
+
+<style scoped>
+
+</style>

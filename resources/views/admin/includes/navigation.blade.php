@@ -27,7 +27,10 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="{{route('admin.logout')}}"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </li>

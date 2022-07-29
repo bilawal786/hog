@@ -21,6 +21,13 @@ class CreateSendMessagesTable extends Migration
             $table->string('Lname');
             $table->string('email');
             $table->string('phone');
+            $table->string('ridePerson')->nullable();
+            $table->string('else_first_name')->nullable();
+            $table->string('else_last_name')->nullable();
+            $table->string('familycaregive')->nullable();
+            $table->string('num_family_member')->nullable();
+            $table->string('pertaining')->nullable();
+            $table->string('appt_length')->nullable();
             $table->string('card_on_file')->nullable();
             $table->string('relative')->nullable();
             $table->string('relative_no')->nullable();
