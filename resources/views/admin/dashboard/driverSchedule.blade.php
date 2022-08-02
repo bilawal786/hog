@@ -60,6 +60,12 @@
             padding-right: 1em;
         }
     </style>
+    <style>
+        .fc .fc-list-table tbody>tr:first-child th {background:#000;cursor: pointer;}
+        .fc-event:hover{
+            color: #000 !important;
+        }
+    </style>
 @endpush
 @push('script')
     <script src="{{asset('./js/main.min.js')}}"></script>
@@ -68,8 +74,10 @@
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 expandRows: true,
-                slotMinTime: '00:00',
-                slotMaxTime: '24:00',
+                slotMinTime: '00:00:00',
+                slotMaxTime: '24:00:00',
+                slotDuration: '00:15:00',
+                slotLabelInterval: 15,
                 headerToolbar: {
                     left: 'prev,next',
                     center: 'title',
@@ -88,7 +96,16 @@
                                 title: '{{$data->driver->first_name.' '.$data->driver->last_name}}',
                                 start: '{{$data->start_date->format("Y-m-d").'T'.$data->start_date->format("H:i:s")}}',
                                 end: '{{$data->end_date->format("Y-m-d").'T'.$data->end_date->format("H:i:s")}}',
-                                url: '{{url('request/ride/detail/'.$data->ride_id)}}'
+                                url: '{{url('request/ride/detail/'.$data->ride_id)}}',
+                                color  : '#01c853'
+                            },
+                        @endforeach
+                        @foreach($rides as $ride)
+                            {
+                                title: '{{$ride->Fname.' '.$ride->Lname}}',
+                                start: '{{$ride->trip_date}}',
+                                url: '{{url('request/ride/detail/'.$ride->id)}}',
+                                color  : '#33b5e5'
                             },
                         @endforeach
                 ]

@@ -44,7 +44,7 @@
 													<span class="label label-primary" v-if="lead.status == 'assign'">{{lead.status}}</span>
 													<span class="label label-warning" v-if="lead.status == 'process'">{{lead.status}}</span>
                                                     <span class="label label-danger" v-if="lead.status == 'reject'">{{lead.status}}</span>
-                                                    <span class="label label-danger" v-if="lead.status == 'end'">reject & expire</span>
+                                                    <span class="label label-danger" v-if="lead.status == 'end'">Canceled & expire</span>
 													<span class="label label-success" v-if="lead.status == 'complete'">{{lead.status}}</span>
 												</td>
 												<td>
@@ -190,7 +190,7 @@
 							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'assign'">
 								<button class="btn btn-danger btn-rounded btn-block btn-anim" @click="rejectRide(leadId)" :disabled="rejectLoading">
                                     <span v-if="rejectLoading"><i class="fam fa fa-spinner fa-spin"></i>Loading</span>
-                                    <span v-else><i class="zmdi zmdi-close"></i><span class="btn-text">Reject</span></span>
+                                    <span v-else><i class="zmdi zmdi-close"></i><span class="btn-text">Canceled</span></span>
                                 </button>
 							</div>
 							<div class="col-sm-6 col-xs-12 mt-15" v-if="status == 'process'">

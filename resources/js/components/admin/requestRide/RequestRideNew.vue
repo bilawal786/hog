@@ -72,7 +72,7 @@
                                             <div class="form-group">
                                                 <select v-model="ride.ridePerson" class="form-control"
                                                         style="width: 160px">
-                                                    <option class="form-option" value="Self a Ride">Self a Ride
+                                                    <option class="form-option" value="Self a Ride">Self
                                                     </option>
                                                     <option class="form-option" value="Someone Else">Someone Else
                                                     </option>
@@ -210,7 +210,7 @@
                                                         minute: '2-digit',
 
                                                     }" :phrases="{ ok: 'Continue', cancel: 'Exit' }" :hour-step="1"
-                                                          :minute-step="1" :week-start="7" use12-hour
+                                                          :minute-step="15" :week-start="7" use12-hour
                                                           auto></datetime>
                                             </div>
                                             <ul class="c-err" v-if="errorshow">

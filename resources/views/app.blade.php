@@ -100,6 +100,11 @@
                 top: 1em !important;
             }
         }
+        .form-note{
+            text-align: left;
+            font-size: 11px;
+            color: #02b502;
+        }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key={{ env('GOOGLE_MAP_KEY') }}"></script>
 </head>

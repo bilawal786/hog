@@ -56,7 +56,7 @@
 
                                                     }"
                               :min-datetime = 'new Date().toJSON()'
-                              :hour-step="1" :minute-step="1"
+                              :hour-step="1" :minute-step="15"
                               :phrases="{ ok: 'Continue', cancel: 'Exit' }"
                               :week-start="7" auto input-class="form-control"
                               type="datetime" use12-hour  zone="local"></datetime>

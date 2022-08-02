@@ -8,7 +8,7 @@
                         <li class="active" ><router-link :to="'/request/ride/list'">New Rides</router-link></li>
                         <li class=""><router-link :to="'/request/ride/assign'" >Assign</router-link></li>
                         <li class=""><router-link :to="'/request/ride/process'" >Process</router-link></li>
-                        <li class=""><router-link :to="'/request/ride/reject'" >Reject</router-link></li>
+                        <li class=""><router-link :to="'/request/ride/reject'" >Canceled</router-link></li>
                         <li class=""><router-link :to="'/request/ride/complete'" >Complete</router-link></li>
                         <li class="active" style="float: right"><router-link :to="'/request/ride/new'" >Create new Ride</router-link></li>
                     </ul>

@@ -102,7 +102,7 @@
                     <!-- /.col-sm-6 -->
                     <div class="col-sm-6">
                         <select v-model="sendMessage.ridePerson" class="form-section" style="width: 160px">
-                            <option class="form-option" value="Self a Ride">Self a Ride</option>
+                            <option class="form-option" value="Self a Ride">Self</option>
                             <option class="form-option" value="Someone Else">Someone Else</option>
                         </select>
                     </div>
@@ -164,37 +164,41 @@
                     <!-- /.col-sm-6 -->
                     <div v-if="sendMessage.type == 'Request Ride'" class="col-sm-6">
                         <p class="form-text">Do you need wheelchair accessibility?</p>
-                        <div class="mgb-30">
-                            <div class="m-v-radio">
-                                <label class="form-radio-custom" style="overflow: hidden;">
-                                    W/C (Yes)
-                                    <input
-                                        v-model="sendMessage.wheelchair"
-                                        class="form-radio"
-                                        name="wheelchair"
-                                        type="radio"
-                                        value="yes"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="m-v-radio">
-                                <label class="form-radio-custom" style="overflow: hidden;">
-                                    Ambulatory (No)
-                                    <input
-                                        v-model="sendMessage.wheelchair"
-                                        checked="checked"
-                                        class="form-radio"
-                                        name="wheelchair"
-                                        type="radio"
-                                        value="no"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div v-if="sendMessage.wheelchair == 'yes'">
-                                Do you need a wheelchair provided by Heart of Gold? Note: $25 fee
-                            </div>
+                        <div class="clearfix">
+                            <select class="form-section" v-model="sendMessage.wheelchair" style="width: 150px">
+                                <option class="form-option" value="yes">W/C (Yes)</option>
+                                <option class="form-option" value="no">Ambulatory (No)</option>
+                            </select>
+<!--                            <div class="m-v-radio">-->
+<!--                                <label class="form-radio-custom" style="overflow: hidden;">-->
+<!--                                    W/C (Yes)-->
+<!--                                    <input-->
+<!--                                        v-model="sendMessage.wheelchair"-->
+<!--                                        class="form-radio"-->
+<!--                                        name="wheelchair"-->
+<!--                                        type="radio"-->
+<!--                                        value="yes"-->
+<!--                                    />-->
+<!--                                    <span class="checkmark"></span>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="m-v-radio">-->
+<!--                                <label class="form-radio-custom" style="overflow: hidden;">-->
+<!--                                    Ambulatory (No)-->
+<!--                                    <input-->
+<!--                                        v-model="sendMessage.wheelchair"-->
+<!--                                        checked="checked"-->
+<!--                                        class="form-radio"-->
+<!--                                        name="wheelchair"-->
+<!--                                        type="radio"-->
+<!--                                        value="no"-->
+<!--                                    />-->
+<!--                                    <span class="checkmark"></span>-->
+<!--                                </label>-->
+<!--                            </div>-->
+                        </div>
+                        <div class="form-note" v-if="sendMessage.wheelchair == 'yes'">
+                            Do you need a wheelchair provided by Heart of Gold? Note: $25 fee
                         </div>
                     </div>
                     <div v-if="sendMessage.type == 'Request Ride'" class="col-sm-6">
@@ -251,7 +255,7 @@
                 }"
                                 :hour-step="1"
                                 :min-datetime='new Date().toJSON()'
-                                :minute-step="1"
+                                :minute-step="15"
                                 :phrases="{ ok: 'Continue', cancel: 'Exit' }"
                                 :week-start="7"
                                 auto
@@ -426,14 +430,6 @@
                                 <div class="float-left"><span>$ {{ calculate.chair }}: = </span><span
                                     class="text-yellow">Wheel Chair Cost</span></div>
                             </div>
-                            <div class="clearfix">
-                                <div class="float-left"><span>$ {{ calculate.time }}: = </span><span
-                                    class="text-yellow">Before or after the hours of 8am-5pm</span></div>
-                            </div>
-                            <div class="clearfix">
-                                <div class="float-left"><span>$ {{ calculate.day }}: = </span><span class="text-yellow">Weekend charges</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -473,7 +469,10 @@ import VueGoogleAutocomplete from "vue-google-autocomplete";
 import {Datetime} from 'vue-datetime'
 import 'vue-datetime/dist/vue-datetime.css'
 import {mapGetters, mapActions} from "vuex";
+import * as Holidays from 'date-holidays';
 
+// var Holidays = require('date-holidays')
+// var hd = new Holidays()
 export default {
 
     data() {
@@ -534,6 +533,7 @@ export default {
         ...mapGetters("auth", ["user", "errors"]),
     },
     mounted() {
+
 
         this.$store.commit("auth/setErrors", {})
         //clear veriables
@@ -773,7 +773,7 @@ export default {
                     dist = this.rad2deg(dist);
                     var miles = dist * 60 * 1.1515;
                     // var km = miles * 1.609344;
-                    var roundmiles = Math.round(miles * 100) / 100;
+                    var roundmiles = Math.round(miles );
                     this.getCost(roundmiles, this.sendMessage.trip_date, this.sendMessage.round_trip, this.sendMessage.wheelchair)
                 } else {
                     return 0
@@ -804,44 +804,47 @@ export default {
                 case 6:
                     var day = "Saturday";
             }
-            if (distance <= 5) {
+            const hd = new Holidays.default()
+            hd.init('US');
+            var holyday = hd.isHoliday(new Date(date))
+            var currentTime = new Date(date).getHours();
+            if(holyday == false){
+                if (day == 'Saturday' || day == 'Sunday' || (currentTime <= 7 && currentTime >= 17)) {
+                    if (round == 'yes') {
+                                this.calculate.round = 'Yes'
+                                this.calculate.distance = 'Less then 10 miles'
+                                this.calculate.distCost = 150
+                                this.calculate.totalCost = 150
+                    } else {
+                                this.calculate.round = 'No'
+                                this.calculate.distance = 'Less then 10 miles'
+                                this.calculate.distCost = 90
+                                this.calculate.totalCost = 90
+                            }
+                    } else {
+                        if (round == 'yes') {
+                            this.calculate.round = 'Yes'
+                            this.calculate.distance = 'Less then 10 miles'
+                            this.calculate.distCost = 130
+                            this.calculate.totalCost = 130
+                        } else {
+                            this.calculate.round = 'No'
+                            this.calculate.distance = 'Less then 10 miles'
+                            this.calculate.distCost = 80
+                            this.calculate.totalCost = 80
+                        }
+                    }
+            }else{
                 if (round == 'yes') {
                     this.calculate.round = 'Yes'
-                    this.calculate.distance = 'Less then 5 miles'
-                    this.calculate.distCost = 120
-                    this.calculate.totalCost = 120
+                    this.calculate.distance = 'Less then 10 miles'
+                    this.calculate.distCost = 190
+                    this.calculate.totalCost = 190
                 } else {
                     this.calculate.round = 'No'
-                    this.calculate.distance = 'Less then 5 miles'
-                    this.calculate.distCost = 70
-                    this.calculate.totalCost = 70
-                }
-
-            } else if (distance > 5 && distance <= 10) {
-                console.log('5 to 10')
-                if (round == 'yes') {
-                    this.calculate.round = 'Yes'
-                    this.calculate.distance = 'Between 5 to 10 miles'
-                    this.calculate.distCost = 130
-                    this.calculate.totalCost = 130
-                } else {
-                    this.calculate.round = 'No'
-                    this.calculate.distance = 'Between 5 to 10 miles'
-                    this.calculate.distCost = 75
-                    this.calculate.totalCost = 75
-                }
-            } else {
-                // console.log('more then 10')
-                if (round == 'yes') {
-                    this.calculate.round = 'Yes'
-                    this.calculate.distance = 'More then 10 miles'
-                    this.calculate.distCost = Math.round(6 * (distance - 10) + 130)
-                    this.calculate.totalCost = Math.round(6 * (distance - 10) + 130)
-                } else {
-                    this.calculate.round = 'No'
-                    this.calculate.distance = 'More then 10 miles'
-                    this.calculate.distCost = Math.round(3 * (distance - 10) + 75)
-                    this.calculate.totalCost = Math.round(3 * (distance - 10) + 75)
+                    this.calculate.distance = 'Less then 10 miles'
+                    this.calculate.distCost = 100
+                    this.calculate.totalCost = 100
                 }
             }
             if (chair == 'yes') {
@@ -850,29 +853,75 @@ export default {
             } else {
                 this.calculate.chair = 0
             }
-            console.log(day)
-            if (day == 'Saturday' || day == 'Sunday') {
-                console.log(day)
+            if (distance >= 10) {
                 if (round == 'yes') {
-                    this.calculate.day = 20
-                    this.calculate.totalCost = this.calculate.totalCost + 20
+                    this.calculate.round = 'Yes'
+                    this.calculate.distance = 'More then 10 miles'
+                    this.calculate.distCost = this.calculate.distCost+((distance-10)*6)
+                    this.calculate.totalCost = this.calculate.totalCost+((distance-10)*6)
                 } else {
-                    this.calculate.day = 10
-                    this.calculate.totalCost = this.calculate.totalCost + 10
+                    this.calculate.round = 'No'
+                    this.calculate.distance = 'More then 10 miles'
+                    this.calculate.distCost = this.calculate.distCost+((distance-10)*3)
+                    this.calculate.totalCost = this.calculate.totalCost+((distance-10)*3)
                 }
-            } else {
-                this.calculate.day = 0
-            }
 
-            var currentTime = new Date(date).getHours();
-            console.log(currentTime)
-            if (currentTime >= 8 && currentTime <= 17) {
-
-            } else {
-                this.calculate.time = 10
-                this.calculate.totalCost = this.calculate.totalCost + 10
             }
             this.sendMessage.cost = this.calculate.totalCost
+            // if (distance <= 10) {
+            //     if (round == 'yes') {
+            //         this.calculate.round = 'Yes'
+            //         this.calculate.distance = 'Less then 10 miles'
+            //         this.calculate.distCost = 120
+            //         this.calculate.totalCost = 120
+            //     } else {
+            //         this.calculate.round = 'No'
+            //         this.calculate.distance = 'Less then 10 miles'
+            //         this.calculate.distCost = 70
+            //         this.calculate.totalCost = 70
+            //     }
+            //
+            // } else {
+            //
+            //     if (round == 'yes') {
+            //         this.calculate.round = 'Yes'
+            //         this.calculate.distance = 'More then 10 miles'
+            //         this.calculate.distCost = Math.round(6 * (distance - 10) + 130)
+            //         this.calculate.totalCost = Math.round(6 * (distance - 10) + 130)
+            //     } else {
+            //         this.calculate.round = 'No'
+            //         this.calculate.distance = 'More then 10 miles'
+            //         this.calculate.distCost = Math.round(3 * (distance - 10) + 75)
+            //         this.calculate.totalCost = Math.round(3 * (distance - 10) + 75)
+            //     }
+            // }
+            // if (chair == 'yes') {
+            //     this.calculate.chair = 25
+            //     this.calculate.totalCost = this.calculate.totalCost + 25
+            // } else {
+            //     this.calculate.chair = 0
+            // }
+            // if (day == 'Saturday' || day == 'Sunday') {
+            //     if (round == 'yes') {
+            //         this.calculate.day = 20
+            //         this.calculate.totalCost = this.calculate.totalCost + 20
+            //     } else {
+            //         this.calculate.day = 10
+            //         this.calculate.totalCost = this.calculate.totalCost + 10
+            //     }
+            // } else {
+            //     this.calculate.day = 0
+            // }
+            //
+            // var currentTime = new Date(date).getHours();
+            // console.log(currentTime)
+            // if (currentTime >= 8 && currentTime <= 17) {
+            //
+            // } else {
+            //     this.calculate.time = 10
+            //     this.calculate.totalCost = this.calculate.totalCost + 10
+            // }
+            // this.sendMessage.cost = this.calculate.totalCost
 
         },
         rad2deg: function (deg) {

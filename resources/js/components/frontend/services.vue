@@ -21,14 +21,15 @@
                 <div class="col-md-6">
                     <h3>AMBULATORY TRANSPORTATION</h3>
                     <p>This service is provided for individuals who are able to ambulate and who are able to get in and out of a vehicle with minimal assistance. An ambulatory client does not require a wheelchair at any time during transport. Your driver will assist you in getting in and out of the building of your pickup location and destination, whether it is a doctor’s office or your home, and will bring in any belongings you may have with you.</p>
-                    <p>One-Way Ambulatory Transport (during regular bus. hours): $70.00 pickup (1st 5 miles)</p>
-                    <p>Round-Trip Ambulatory Transport (during regular bus. hours): $120.00 pickup (1st 5 miles each way)</p>
-                    <p>One-Way Ambulatory Transport (during regular bus. hours): $75.00 pickup (+$3/mi after 5.1 to 10 miles)</p>
-                    <p>Round-Trip Ambulatory Transport (during regular bus. hours): $130.00 pickup (+$3/mi after 5.1 to 10 miles each way)</p>
-                    <p>Before or after the hours of 8am-5pm add $10</p>
-                    <p>Wait time: $60 per hour </p>
+                    <p>One-Way Ambulatory Transport (Normal Business Hours (7am-5pm)): $80.00 pickup (1st 10 miles)</p>
+                    <p>Round-Trip Ambulatory Transport (Normal Business Hours (7am-5pm)): $130.00 pickup (1st 10 miles each way)</p>
+                    <p>One-Way Ambulatory Transport (Off Hours/Weekends): $90.00 pickup (1st 10 miles)</p>
+                    <p>Round-Trip Ambulatory Transport (Off Hours/Weekends): $150.00 pickup (1st 10 miles each way)</p>
+                    <p>One-Way Ambulatory Transport (Holidays): $100.00 pickup (1st 10 miles)</p>
+                    <p>Round-Trip Ambulatory Transport (Holidays): $190.00 pickup (1st 10 miles each way)</p>
+                    <p>*Note: $3/mile for each mile after the first 10 miles each way</p>
                     <p>*A family member or caregiver may accompany client at no extra charge. Please inform us at time of scheduling.</p>
-                     <p>*Weekend and Holiday prices vary</p>
+                    <p>*Weekend and Holiday prices vary</p>
                 </div>
                 <div class="col-md-6">
                     <img src="assets/images/ss.jpg" alt="">
@@ -41,13 +42,14 @@
                 <div class="col-md-6">
                     <h3>WHEELCHAIR BOUND TRANSPORTATION</h3>
                     <p>This service is provided for individuals who need or prefer to travel via wheelchair. You and your wheelchair will be securely fastened using ADA-compliant seatbelts and wheelchair securements. Your driver will assist you in getting in and out of the building of your pickup location and destination, whether it is a doctor’s office or your home, and will bring in any belongings you may have with you.</p>
-                    <p>One-Way Ambulatory Transport (during regular bus. hours): $70.00 pickup (1st 5 miles)</p>
-                    <p>Round-Trip Ambulatory Transport (during regular bus. hours): $120.00 pickup (1st 5 miles each way)</p>
-                    <p>One-Way Ambulatory Transport (during regular bus. hours): $75.00 pickup (+$3/mi after 5.1 to 10 miles)</p>
-                    <p>Round-Trip Ambulatory Transport (during regular bus. hours): $130.00 pickup (+$3/mi after 5.1 to 10 miles each way)</p>
-                    <p>Before or after the hours of 8am-5pm add $10</p>
-                    <p>Wheelchair rental-$25</p>
-                    <p>Wait time: $60 per hour </p>
+                    <p>One-Way Wheelchair Transport (Normal Business Hours (7am-5pm)): $80.00 pickup (1st 10 miles)</p>
+                    <p>Round-Trip Wheelchair Transport (Normal Business Hours (7am-5pm)): $130.00 pickup (1st 10 miles each way)</p>
+                    <p>One-Way Wheelchair Transport (Off Hours/Weekends): $90.00 pickup (1st 10 miles)</p>
+                    <p>Round-Trip Wheelchair Transport (Off Hours/Weekends): $150.00 pickup (1st 10 miles each way)</p>
+                    <p>One-Way Wheelchair Transport (Holidays): $100.00 pickup (1st 10 miles)</p>
+                    <p>Round-Trip Wheelchair Transport (Holidays): $190.00 pickup (1st 10 miles each way)</p>
+                    <p>*Note: $3/mile for each mile after the first 10 miles each way</p>
+                    <p>*$25 fee to borrow wheelchair (must be pre-reserved)</p>
                     <p>*A family member or caregiver may accompany client at no extra charge. Please inform us at time of scheduling.</p>
                     <p>*Weekend and Holiday prices vary</p>
                 </div>

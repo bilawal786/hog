@@ -48,7 +48,7 @@
                                     <td>
                                         <span class="label label-primary" v-if="lead.status == 'assign'">Assign</span>
                                         <span class="label label-warning" v-if="lead.status == 'process'">Process</span>
-                                        <span class="label label-danger" v-if="lead.status == 'reject'">Reject</span>
+                                        <span class="label label-danger" v-if="lead.status == 'reject'">Canceled</span>
                                         <span class="label label-success" v-if="lead.status == 'complete'">Complete</span>
                                     </td>
                                 </tr>
