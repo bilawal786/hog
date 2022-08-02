@@ -35,16 +35,16 @@
         <div v-if="selected != 0" class="panel-wrapper collapse in">
             <div class="panel-body">
                 <driver-detail :selectdriver="selectdriver"></driver-detail>
-                <div class="form-group">
-                    <label class="control-label mb-10 text-left">Driver Cost</label>
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                        <input v-model="driver_cost" class="form-control" placeholder="Cost" type="number">
-                    </div>
-                    <ul v-if="errorshow" class="c-err">
-                        <li v-for="error in errorshow.driver_cost" :key="error" class="c-err-li">{{ error }}</li>
-                    </ul>
-                </div>
+<!--                <div class="form-group">-->
+<!--                    <label class="control-label mb-10 text-left">Driver Cost</label>-->
+<!--                    <div class="input-group">-->
+<!--                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>-->
+<!--                        <input v-model="driver_cost" class="form-control" placeholder="Cost" type="number">-->
+<!--                    </div>-->
+<!--                    <ul v-if="errorshow" class="c-err">-->
+<!--                        <li v-for="error in errorshow.driver_cost" :key="error" class="c-err-li">{{ error }}</li>-->
+<!--                    </ul>-->
+<!--                </div>-->
                 <div class="form-group">
                     <label class="control-label mb-10 text-left">Ride Start (date & time)</label>
                     <datetime v-model="start_date" :format="{

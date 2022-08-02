@@ -96,7 +96,6 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-
         <div class="row" v-if="panel.detail == true">
             <div class="col-sm-6">
                 <lead-detail :rideDetail="rideDetail"></lead-detail>
@@ -105,13 +104,11 @@
                 <select-driver :rideId="rideId"></select-driver>
             </div>
         </div>
-
         <div class="row" v-if="panel.edit == true">
             <div class="col-sm-8" >
                 <ride-edit :rideId="rideId"></ride-edit>
             </div>
         </div>
-
     </div>
 </template>
 <script>

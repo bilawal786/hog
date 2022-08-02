@@ -268,6 +268,9 @@
                             <div v-if="errors.trip_date" class="contact-valid">
                                 {{ errors.trip_date[0] }}
                             </div>
+                            <div v-else class="contact-valid" style="color: #CCC !important;">
+                                Pickup time will be confirmed
+                            </div>
                         </div>
                     </div>
                     <div v-if="sendMessage.type == 'Request Ride'" class="col-sm-6">

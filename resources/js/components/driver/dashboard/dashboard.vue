@@ -203,39 +203,39 @@
 						</div>
 					</div>
 				</div>
-                <div class="panel panel-default card-view">
-                    <div class="panel-heading">
-                        <div class="pull-left">
-                            <h6 class="panel-title txt-dark">Payment Info</h6>
-                        </div>
-                        <div class="pull-right">
-                            <a href="#" class="pull-left inline-block full-screen">
-                                <i class="zmdi zmdi-fullscreen"></i>
-                            </a>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="panel-wrapper collapse in">
-                        <div class="panel-body row pa-0">
-                            <div class="table-wrap">
-                                <div class="table-responsive">
-                                    <table class="table mb-0">
-                                        <tbody>
-                                        <tr>
-                                            <td class="border-none">Price:</td>
-                                            <td class="border-none">
-                                                $ {{driverLeadDetail.driver_cost}}
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+<!--                <div class="panel panel-default card-view">-->
+<!--                    <div class="panel-heading">-->
+<!--                        <div class="pull-left">-->
+<!--                            <h6 class="panel-title txt-dark">Payment Info</h6>-->
+<!--                        </div>-->
+<!--                        <div class="pull-right">-->
+<!--                            <a href="#" class="pull-left inline-block full-screen">-->
+<!--                                <i class="zmdi zmdi-fullscreen"></i>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="clearfix"></div>-->
+<!--                    </div>-->
+<!--                    <div class="panel-wrapper collapse in">-->
+<!--                        <div class="panel-body row pa-0">-->
+<!--                            <div class="table-wrap">-->
+<!--                                <div class="table-responsive">-->
+<!--                                    <table class="table mb-0">-->
+<!--                                        <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td class="border-none">Price:</td>-->
+<!--                                            <td class="border-none">-->
+<!--                                                $ {{driverLeadDetail.driver_cost}}-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        </tbody>-->
+<!--                                    </table>-->
 
-                                </div>
-                            </div>
+<!--                                </div>-->
+<!--                            </div>-->
 
-                        </div>
-                    </div>
-                </div>
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 			</div>
 		</div>
 		<!-- /Row -->

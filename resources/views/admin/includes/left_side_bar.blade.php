@@ -68,52 +68,52 @@
                 </ul>
             </li>
         @endif
-        @if (Auth::user()->role == 'admin')
-            <li>
-                <a class="{{ request()->is('payment*') ? 'active' : '' }}"
-                   data-toggle="collapse" data-target="#Payment">
-                    <div class="pull-left">
-                        <i class="zmdi zmdi-money mr-20"></i>
-                        <span class="right-nav-text">Payment</span>
-                    </div>
-                    <div class="pull-right">
-                        <i class="zmdi zmdi-caret-down"></i>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-                <ul id="Payment" class="collapse collapse-level-1">
-                    <li>
-                        <a class="{{ request()->is('payment/request') ? 'active-page' : '' }}"
-                           href="{{ url('/payment/request')}}">Driver Payment Request</a>
-                    </li>
-                    <li>
-                        <a class="{{ request()->is('payment/list') ? 'active-page' : '' }}"
-                           href="{{ url('/payment/list')}}">Driver Payment List</a>
-                    </li>
-                </ul>
-            </li>
-        @endif
-        @if (Auth::user()->role == 'driver')
-            <li>
-                <a class="{{ request()->is('withdraw/*') ? 'active' : '' }}"
-                   data-toggle="collapse" data-target="#Payment">
-                    <div class="pull-left">
-                        <i class="zmdi zmdi-money mr-20"></i>
-                        <span class="right-nav-text">Payment</span>
-                    </div>
-                    <div class="pull-right">
-                        <i class="zmdi zmdi-caret-down"></i>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-                <ul id="Payment" class="collapse collapse-level-1">
-                    <li>
-                        <a class="{{ request()->is('/withdraw/withdraw*') ? 'active-page' : '' }}"
-                           href="{{ url('/withdraw/view')}}">Payment With draw</a>
-                    </li>
-                </ul>
-            </li>
-        @endif
+{{--        @if (Auth::user()->role == 'admin')--}}
+{{--            <li>--}}
+{{--                <a class="{{ request()->is('payment*') ? 'active' : '' }}"--}}
+{{--                   data-toggle="collapse" data-target="#Payment">--}}
+{{--                    <div class="pull-left">--}}
+{{--                        <i class="zmdi zmdi-money mr-20"></i>--}}
+{{--                        <span class="right-nav-text">Payment</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="pull-right">--}}
+{{--                        <i class="zmdi zmdi-caret-down"></i>--}}
+{{--                    </div>--}}
+{{--                    <div class="clearfix"></div>--}}
+{{--                </a>--}}
+{{--                <ul id="Payment" class="collapse collapse-level-1">--}}
+{{--                    <li>--}}
+{{--                        <a class="{{ request()->is('payment/request') ? 'active-page' : '' }}"--}}
+{{--                           href="{{ url('/payment/request')}}">Driver Payment Request</a>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <a class="{{ request()->is('payment/list') ? 'active-page' : '' }}"--}}
+{{--                           href="{{ url('/payment/list')}}">Driver Payment List</a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
+{{--        @endif--}}
+{{--        @if (Auth::user()->role == 'driver')--}}
+{{--            <li>--}}
+{{--                <a class="{{ request()->is('withdraw/*') ? 'active' : '' }}"--}}
+{{--                   data-toggle="collapse" data-target="#Payment">--}}
+{{--                    <div class="pull-left">--}}
+{{--                        <i class="zmdi zmdi-money mr-20"></i>--}}
+{{--                        <span class="right-nav-text">Payment</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="pull-right">--}}
+{{--                        <i class="zmdi zmdi-caret-down"></i>--}}
+{{--                    </div>--}}
+{{--                    <div class="clearfix"></div>--}}
+{{--                </a>--}}
+{{--                <ul id="Payment" class="collapse collapse-level-1">--}}
+{{--                    <li>--}}
+{{--                        <a class="{{ request()->is('/withdraw/withdraw*') ? 'active-page' : '' }}"--}}
+{{--                           href="{{ url('/withdraw/view')}}">Payment With draw</a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
+{{--        @endif--}}
         @if (Auth::user()->role == 'admin')
             <li>
                 <a class="{{ request()->is('schedule/driver') ? 'active' : '' }}"

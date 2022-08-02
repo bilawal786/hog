@@ -51,10 +51,9 @@ class LeadController extends Controller
         $validated = $request->validate([
             'driver_id' => 'required',
             'ride_id' => 'required',
-            'notes' => 'required',
+//            'notes' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'driver_cost' => 'required',
             'status' => 'required',
             ]);
 

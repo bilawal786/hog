@@ -52,7 +52,7 @@ Route::group(['middleware' => ['auth', 'status']], function() {
         Route::get('/request/ride/{any}', 'Admin\FormSubmitController@request_ride')->where('any', '.*')->name('request.ride');
         Route::get('/form/other/{any}', 'Admin\FormSubmitController@other')->where('any', '.*')->name('other');
         //payment
-        Route::get('/payment/{any}', 'WebAdmin\Payment\DriverPaymentController@payment')->where('any', '.*')->name('driver.payment');
+//        Route::get('/payment/{any}', 'WebAdmin\Payment\DriverPaymentController@payment')->where('any', '.*')->name('driver.payment');
         Route::get('/schedule/driver', 'WebAdmin\Schedule\ScheduleController@viewCalender')->where('any', '.*')->name('schedule.driver');
     });
  });

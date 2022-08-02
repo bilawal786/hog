@@ -27,13 +27,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::get('web/all/driver', 'Admin\Users\DriverController@getDriver');
     Route::put('web/block/driver/{id}', 'Admin\Users\DriverController@block');
     Route::put('web/unblock/driver/{id}', 'Admin\Users\DriverController@unblock');
-    // driver payment
-    Route::resource('web/payment/driver', 'Admin\DriverPayment\DriverPaymentController');
-    Route::post('web/payment/payment/change/{id}', 'Admin\DriverPayment\DriverPaymentController@updateStatus');
-    Route::get('web/all/payment/driver', 'Admin\DriverPayment\DriverPaymentController@adminPaymentlist');
-    Route::get('web/payment/withdraw', 'Admin\DriverPayment\DriverPaymentController@driverpayment');
-    //admin approved payment
-    Route::resource('web/admin/payment/approve', 'Admin\WithDraw\ApprovePaymentController');
+//    // driver payment
+//    Route::resource('web/payment/driver', 'Admin\DriverPayment\DriverPaymentController');
+//    Route::post('web/payment/payment/change/{id}', 'Admin\DriverPayment\DriverPaymentController@updateStatus');
+//    Route::get('web/all/payment/driver', 'Admin\DriverPayment\DriverPaymentController@adminPaymentlist');
+//    Route::get('web/payment/withdraw', 'Admin\DriverPayment\DriverPaymentController@driverpayment');
+//    //admin approved payment
+//    Route::resource('web/admin/payment/approve', 'Admin\WithDraw\ApprovePaymentController');
 
     Route::resource('web/form/billing/request', 'Admin\Form\BillingRequestController');
     Route::resource('web/form/others', 'Admin\Form\OtherController');
