@@ -27,7 +27,7 @@
         "date-holidays": "^3.16.3",
         "dotenv": "^16.0.1",
         "laravel-vue-pagination": "^2.3.1",
-        "luxon": "^3.0.1",
+        "luxon": "^1.0.0",
         "sweetalert2": "^11.4.17",
         "toastify-js": "^1.11.2",
         "vee-validate": "^3.4.14",
