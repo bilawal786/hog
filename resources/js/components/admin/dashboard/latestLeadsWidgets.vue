@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="lead in leads" :key="lead.id">
-                                    <td><span class="txt-dark weight-500">{{lead.leads.Fname+' '+lead.leads.Fname}}</span></td>
+                                    <td><span class="txt-dark weight-500">{{lead.leads.Fname+' '+lead.leads.Lname}}</span></td>
                                     <td><set-date :date="lead.leads.trip_date" :year="'yes'"></set-date></td>
                                     <td><span class="txt-success">
                                         <set-time :date="lead.leads.trip_date"></set-time>
